@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Curriculum // Diepte Editie · NL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e0a;
+    --bg-elev: #0f1410;
+    --bg-panel: #131913;
+    --bg-deep: #060906;
+    --ink: #d8e6d8;
+    --ink-bright: #ebf5eb;
+    --ink-dim: #8aa08a;
+    --ink-faint: #4d614d;
+    --accent: #7cf07c;
+    --accent-hot: #ff5252;
+    --accent-amber: #ffb547;
+    --accent-cyan: #5eead4;
+    --accent-violet: #c084fc;
+    --accent-orange: #ff8c42;
+    --rule: rgba(124, 240, 124, 0.18);
+    --rule-soft: rgba(124, 240, 124, 0.08);
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --serif: 'Fraunces', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(0deg,
+      rgba(124, 240, 124, 0.022) 0px,
+      rgba(124, 240, 124, 0.022) 1px,
+      transparent 1px, transparent 3px);
+    pointer-events: none;
+    z-index: 1000;
+    mix-blend-mode: overlay;
+  }
+
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(124, 240, 124, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 85% 100%, rgba(94, 234, 212, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(255, 82, 82, 0.02) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .frame {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+  }
+
+  aside {
+    background: var(--bg-elev);
+    border-right: 1px solid var(--rule);
+    padding: 32px 24px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  aside .brand {
+    font-family: var(--mono);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  aside .brand-sub {
+    font-size: 10px;
+    color: var(--ink-faint);
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  aside .edition {
+    font-size: 10px;
+    color: var(--accent-amber);
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+
+  aside .nav-section { margin-bottom: 20px; }
+
+  aside .nav-section-title {
+    font-size: 9px;
+    color: var(--ink-faint);
+    letter-spacing: 0.2em;
+    padding: 0 12px 6px;
+    font-weight: 700;
+  }
+
+  aside nav { display: flex; flex-direction: column; gap: 2px; }
+
+  aside nav a {
+    color: var(--ink-dim);
+    text-decoration: none;
+    padding: 6px 12px;
+    font-size: 11.5px;
+    border-left: 2px solid transparent;
+    transition: all 0.15s ease;
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+
+  aside nav a:hover {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(124, 240, 124, 0.04);
+  }
+
+  aside nav a .num {
+    font-weight: 700;
+    color: var(--ink-faint);
+    min-width: 30px;
+    font-size: 10px;
+  }
+
+  aside nav a:hover .num { color: var(--accent); }
+
+  aside .meta {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule-soft);
+    font-size: 10px;
+    color: var(--ink-faint);
+    line-height: 1.7;
+  }
+
+  aside .meta strong {
+    color: var(--ink-dim);
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  aside .meta strong:first-child { margin-top: 0; }
+
+  main { padding: 0; max-width: 100%; overflow-x: hidden; }
+
+  /* Inline links — globally styled */
+  main a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(94, 234, 212, 0.4);
+    transition: all 0.15s ease;
+  }
+  main a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    background: rgba(124, 240, 124, 0.05);
+  }
+  main a:visited { color: var(--accent-violet); border-bottom-color: rgba(192, 132, 252, 0.3); }
+  main a:visited:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    padding: 80px 80px 60px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero .tag {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero .tag::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+
+  .hero .tag .v2-badge {
+    background: var(--accent-amber);
+    color: var(--bg);
+    padding: 2px 8px;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    font-size: 9px;
+    margin-left: 8px;
+  }
+
+  .hero .tag .lang {
+    background: var(--accent-orange);
+    color: var(--bg);
+    padding: 2px 8px;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    font-size: 9px;
+    margin-left: 4px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+    color: var(--ink-bright);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--accent);
+    font-variation-settings: "SOFT" 80;
+  }
+
+  .hero .lede {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--ink-dim);
+    max-width: 720px;
+    margin-bottom: 32px;
+  }
+
+  .hero .philosophy {
+    border-left: 2px solid var(--accent);
+    padding: 8px 0 8px 20px;
+    margin-bottom: 40px;
+    max-width: 720px;
+    color: var(--ink);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  .hero .philosophy strong {
+    color: var(--accent);
+    font-style: normal;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    max-width: 880px;
+  }
+
+  .hero-stats .stat { background: var(--bg); padding: 20px; }
+  .hero-stats .stat .k { font-size: 10px; color: var(--ink-faint); letter-spacing: 0.1em; margin-bottom: 6px; }
+  .hero-stats .stat .v { font-family: var(--serif); font-size: 28px; font-weight: 600; color: var(--accent); line-height: 1; }
+  .hero-stats .stat .u { font-size: 11px; color: var(--ink-dim); margin-top: 4px; }
+
+  .ascii-dec {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    font-size: 9px;
+    line-height: 1.2;
+    color: var(--ink-faint);
+    white-space: pre;
+    opacity: 0.5;
+    user-select: none;
+  }
+
+  section {
+    padding: 80px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 32px;
+    margin-bottom: 36px;
+    align-items: start;
+  }
+
+  .section-head .badge {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    border: 1px solid var(--accent);
+    padding: 6px 10px;
+    text-align: center;
+    background: rgba(124, 240, 124, 0.05);
+  }
+
+  .section-head h2 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink-bright);
+  }
+
+  .section-head h2 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+    font-variation-settings: "SOFT" 80;
+  }
+
+  .section-head .duration {
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .section-intro {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink-dim);
+    max-width: 760px;
+    margin-bottom: 48px;
+    padding-left: 152px;
+  }
+
+  #phase-0 .badge { border-color: var(--ink-dim); color: var(--ink-dim); background: rgba(138,160,138,0.05);}
+  #phase-1 .badge { border-color: var(--accent); color: var(--accent); background: rgba(124,240,124,0.05);}
+  #phase-2 .badge { border-color: var(--accent-hot); color: var(--accent-hot); background: rgba(255,82,82,0.05);}
+  #phase-3 .badge { border-color: var(--accent-cyan); color: var(--accent-cyan); background: rgba(94,234,212,0.05);}
+  #phase-4 .badge { border-color: var(--accent-amber); color: var(--accent-amber); background: rgba(255,181,71,0.05);}
+  #phase-5 .badge { border-color: var(--accent-violet); color: var(--accent-violet); background: rgba(192,132,252,0.05);}
+  #nl-context .badge { border-color: var(--accent-orange); color: var(--accent-orange); background: rgba(255,140,66,0.05);}
+
+  #phase-2 .section-head h2 em { color: var(--accent-hot); }
+  #phase-3 .section-head h2 em { color: var(--accent-cyan); }
+  #phase-4 .section-head h2 em { color: var(--accent-amber); }
+  #phase-5 .section-head h2 em { color: var(--accent-violet); }
+  #nl-context .section-head h2 em { color: var(--accent-orange); }
+
+  .modules { display: flex; flex-direction: column; gap: 0; }
+
+  .module {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    padding: 36px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  .module:first-child { border-top: 1px solid var(--rule); }
+
+  .module .num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .module .body h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--ink-bright);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .module .body h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin: 20px 0 10px;
+  }
+
+  .module .body .desc {
+    color: var(--ink);
+    margin-bottom: 16px;
+    max-width: 760px;
+    font-size: 14px;
+  }
+
+  .module .body p {
+    color: var(--ink-dim);
+    margin-bottom: 12px;
+    max-width: 760px;
+  }
+
+  .module .body ul { list-style: none; margin-bottom: 12px; }
+
+  .module .body ul li {
+    color: var(--ink);
+    padding: 3px 0;
+    padding-left: 20px;
+    position: relative;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .module .body ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 10px;
+    top: 6px;
+  }
+
+  .module .body ul li em {
+    font-style: italic;
+    color: var(--accent-amber);
+  }
+
+  .module .body strong { color: var(--ink-bright); font-weight: 700; }
+
+  .module .body code {
+    font-family: var(--mono);
+    background: var(--bg-deep);
+    color: var(--accent);
+    padding: 2px 6px;
+    font-size: 12px;
+    border: 1px solid var(--rule-soft);
+  }
+
+  .callout {
+    margin: 16px 0;
+    padding: 14px 18px;
+    border-left: 2px solid var(--accent);
+    background: var(--bg-panel);
+    font-size: 13px;
+    color: var(--ink);
+    max-width: 760px;
+  }
+
+  .callout strong.label {
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 10px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .callout.resources { border-left-color: var(--accent-cyan); }
+  .callout.resources strong.label { color: var(--accent-cyan); }
+  .callout.lab { border-left-color: var(--accent-amber); }
+  .callout.lab strong.label { color: var(--accent-amber); }
+  .callout.read { border-left-color: var(--accent-violet); }
+  .callout.read strong.label { color: var(--accent-violet); }
+  .callout.warn { border-left-color: var(--accent-hot); background: rgba(255,82,82,0.04);}
+  .callout.warn strong.label { color: var(--accent-hot); }
+
+  .tracks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-left: 152px;
+  }
+
+  .track { background: var(--bg-elev); padding: 28px; }
+
+  .track .letter {
+    font-family: var(--serif);
+    font-size: 52px;
+    color: var(--accent-amber);
+    line-height: 1;
+    margin-bottom: 12px;
+    font-weight: 300;
+  }
+
+  .track h4 {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--ink-bright);
+  }
+
+  .track .summary {
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin-bottom: 14px;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .track .mastery-label {
+    font-size: 9px;
+    color: var(--accent-amber);
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .track .mastery {
+    font-size: 11.5px;
+    color: var(--ink);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .track .resources-line {
+    font-size: 11px;
+    color: var(--ink-dim);
+    margin: 8px 0;
+    line-height: 1.5;
+  }
+
+  .track .certs {
+    font-size: 10px;
+    color: var(--accent-amber);
+    letter-spacing: 0.05em;
+    border-top: 1px dashed var(--rule);
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  .timeline {
+    border: 1px solid var(--rule);
+    margin-left: 152px;
+    background: var(--bg-elev);
+  }
+
+  .timeline .row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    border-bottom: 1px solid var(--rule-soft);
+    padding: 16px 24px;
+    align-items: center;
+  }
+
+  .timeline .row:last-child { border-bottom: none; }
+  .timeline .time { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 0.05em; }
+  .timeline .state { font-family: var(--serif); font-size: 16px; color: var(--ink-bright); }
+
+  .library-section { margin-left: 152px; margin-bottom: 32px; }
+  .library-section h3 {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 12px;
+  }
+
+  .book {
+    padding: 14px 18px;
+    border-left: 2px solid var(--accent);
+    background: var(--bg-panel);
+  }
+
+  .book .title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-bright);
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+  .book .title a { color: var(--ink-bright); border-bottom-color: rgba(216, 230, 216, 0.3); }
+  .book .title a:hover { color: var(--accent); }
+  .book .author { font-size: 10px; color: var(--ink-faint); letter-spacing: 0.08em; }
+
+  .nl-context-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-left: 152px;
+  }
+
+  .nl-card { background: var(--bg-elev); padding: 24px; }
+  .nl-card h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--accent-orange);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .nl-card p { font-size: 12px; color: var(--ink); line-height: 1.6; }
+
+  .ethics {
+    background: linear-gradient(135deg, rgba(255,82,82,0.08), rgba(255,82,82,0.02));
+    border: 1px solid rgba(255,82,82,0.3);
+    padding: 36px;
+    margin-left: 152px;
+    position: relative;
+  }
+
+  .ethics::before {
+    content: 'KRITIEK · LEES ELKE FASE';
+    position: absolute;
+    top: -1px;
+    left: 24px;
+    background: var(--bg);
+    padding: 0 12px;
+    font-size: 10px;
+    color: var(--accent-hot);
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    transform: translateY(-50%);
+  }
+
+  .ethics p { color: var(--ink); margin-bottom: 14px; line-height: 1.7; }
+  .ethics ul { list-style: none; margin-top: 16px; }
+  .ethics ul li {
+    padding: 4px 0 4px 24px;
+    position: relative;
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .ethics ul li::before {
+    content: '!';
+    position: absolute; left: 0;
+    color: var(--accent-hot);
+    font-weight: 700;
+  }
+
+  footer {
+    padding: 60px 80px;
+    background: var(--bg-elev);
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  footer .cursor {
+    display: inline-block;
+    width: 8px; height: 14px;
+    background: var(--accent);
+    margin-left: 6px;
+    vertical-align: middle;
+    animation: blink 1s steps(2) infinite;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+
+  @media (max-width: 1000px) {
+    .frame { grid-template-columns: 1fr; }
+    aside { position: static; height: auto; padding: 24px; }
+    aside nav { flex-direction: row; flex-wrap: wrap; gap: 4px; }
+    aside nav a { padding: 4px 8px; font-size: 10px; border-left: none; border-bottom: 2px solid transparent; }
+    aside .nav-section-title { width: 100%; }
+    .hero { padding: 48px 24px; }
+    .ascii-dec { display: none; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 48px 24px; }
+    .section-head { grid-template-columns: 1fr; gap: 16px; }
+    .section-intro, .tracks, .timeline, .library-section, .ethics, .nl-context-cards { margin-left: 0; padding-left: 0; }
+    .section-intro { padding-left: 0; }
+    .module { grid-template-columns: 1fr; gap: 8px; }
+    footer { padding: 32px 24px; }
+  }
+
+  .reveal { opacity: 0; transform: translateY(20px); animation: reveal 0.8s ease forwards; }
+  @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+  .hero .tag { animation: reveal 0.6s ease forwards; }
+  .hero h1 { animation: reveal 0.8s 0.1s ease forwards; opacity: 0; }
+  .hero .lede { animation: reveal 0.8s 0.3s ease forwards; opacity: 0; }
+  .hero .philosophy { animation: reveal 0.8s 0.4s ease forwards; opacity: 0; }
+  .hero-stats { animation: reveal 0.8s 0.5s ease forwards; opacity: 0; }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--rule); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <aside>
+    <div class="brand">// CURRICULUM_v2</div>
+    <div class="brand-sub">cybersec.diepte.editie</div>
+    <div class="edition">★ NEDERLANDSE EDITIE ★</div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">KERN</div>
+      <nav>
+        <a href="#top"><span class="num">00</span>Overzicht</a>
+        <a href="#phase-0"><span class="num">F0</span>Opfrisser + Audit</a>
+        <a href="#phase-1"><span class="num">F1</span>Fundamenten</a>
+        <a href="#phase-2"><span class="num">F2</span>Offensief</a>
+        <a href="#phase-3"><span class="num">F3</span>Defensief</a>
+        <a href="#phase-4"><span class="num">F4</span>Specialisatie</a>
+        <a href="#phase-5"><span class="num">F5</span>Levenslang</a>
+      </nav>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">REFERENTIE</div>
+      <nav>
+        <a href="#timeline"><span class="num">TL</span>Tijdlijn</a>
+        <a href="#library"><span class="num">BB</span>Bibliotheek</a>
+        <a href="#nl-context"><span class="num">NL</span>NL Context</a>
+        <a href="#ethics"><span class="num">!!</span>Ethiek</a>
+      </nav>
+    </div>
+
+    <div class="meta">
+      <strong>VOOR</strong>
+      IT-bachelor. Sterke basis.
+      <strong>VERSNELDE TIJDLIJN</strong>
+      12-15 mnd FT · 18-24 mnd PT
+      <strong>METHODE</strong>
+      Lees primaire bronnen.<br>
+      Bouw tools zelf één keer.<br>
+      Master op byte-niveau.
+      <strong>STATUS</strong>
+      <span style="color: var(--accent);">● KLAAR</span>
+    </div>
+  </aside>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="ascii-dec">┌───────────────────┐
+│  ░▒▓ DIEPTE ▓▒░   │
+│                   │
+│  > lees_RFCs      │
+│  > lees_papers    │
+│  > bouw_tools     │
+│  > vraag_alles    │
+│                   │
+└───────────────────┘
+   v2.0 · NL editie</div>
+
+      <div class="tag">CURRICULUM <span class="v2-badge">v2 · DIEPTE</span><span class="lang">NL</span></div>
+      <h1>Weet niet alleen <em>van</em> dingen.<br>Begrijp ze <em>echt</em>.</h1>
+      <p class="lede">Een uitgebreid curriculum voor iemand met echte IT-fundamenten. Dezelfde vijf-fase structuur — maar elke module is herbouwd rond primaire bronnen, protocol-internals, originele onderzoekspapers, en de nuance die een vakman onderscheidt van iemand met certificaten.</p>
+
+      <div class="philosophy">
+        <strong>FILOSOFIE</strong>
+        Lees primaire bronnen vóór secundaire interpretaties. Bouw één keer elk belangrijk tool zelf vanaf nul. Begrijp protocollen op byte-niveau. De besten kunnen het ding uit het hoofd op een whiteboard tekenen.
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="k">FASES</div><div class="v">06</div><div class="u">sequentieel</div></div>
+        <div class="stat"><div class="k">FT TIJDLIJN</div><div class="v">12-15mnd</div><div class="u">tot specialist</div></div>
+        <div class="stat"><div class="k">LINKS</div><div class="v">200+</div><div class="u">echt bruikbaar</div></div>
+        <div class="stat"><div class="k">LEGAAL</div><div class="v">100%</div><div class="u">lab-based</div></div>
+      </div>
+    </div>
+
+    <!-- PHASE 0 -->
+    <section id="phase-0">
+      <div class="section-head">
+        <div class="badge">FASE 00</div>
+        <div>
+          <h2>Opfrisser &amp; <em>gap audit</em>.</h2>
+          <div class="duration">DUUR · 1-2 WEKEN · DIAGNOSE, GEEN LEERSTOF</div>
+        </div>
+      </div>
+      <p class="section-intro">Gebruik dit als diagnose. De vragen hieronder vinden gaten die je niet wist te hebben. Alles wat wankel is — nu oplossen.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">0.1</div>
+          <div class="body">
+            <h3>Netwerk Self-Audit</h3>
+            <p class="desc">Kun je zonder aantekeningen:</p>
+            <ul>
+              <li>De TCP three-way handshake tekenen inclusief flag-waarden en wat elke ACK bevestigt</li>
+              <li>Uitleggen waarom TCP zowel sequence- als acknowledgment-nummers heeft — de asymmetrie is belangrijk</li>
+              <li>Een DNS-query voor <code>mail.google.com</code> tracen door recursive resolution, inclusief caching, EDNS, DNSSEC-validatie</li>
+              <li>Het verschil tussen TLS 1.2 en 1.3 handshakes uitleggen, en waarom 1.3 RSA key exchange dropte</li>
+              <li>Subnet <code>10.0.0.0/22</code> in vier gelijke subnetten en geef broadcast-adressen</li>
+            </ul>
+            <div class="callout read">
+              <strong class="label">Primaire bronnen om mee op te frissen</strong>
+              TCP: <a href="https://datatracker.ietf.org/doc/html/rfc9293">RFC 9293</a> · DNS: <a href="https://datatracker.ietf.org/doc/html/rfc1035">RFC 1035</a> + <a href="https://datatracker.ietf.org/doc/html/rfc8499">RFC 8499</a> · TLS 1.3: <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a>. Lees ze, vat ze niet samen. Capture eigen verkeer met <a href="https://www.wireshark.org/">Wireshark</a>.
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">0.2</div>
+          <div class="body">
+            <h3>Linux Internals Opfrisser</h3>
+            <ul>
+              <li>Hoe <code>fork()</code> en <code>execve()</code> echt werken — wat zit in geheugen op elk moment</li>
+              <li>File descriptors — wat <code>lsof</code> je werkelijk laat zien</li>
+              <li><code>/proc</code> — lees <code>/proc/self/maps</code> en begrijp wat het je vertelt</li>
+              <li>Linux capabilities vs setuid — waarom setuid wordt uitgefaseerd</li>
+              <li>cgroups en namespaces — de basis van containers</li>
+            </ul>
+            <div class="callout read">
+              <strong class="label">Lezen</strong>
+              <a href="https://man7.org/tlpi/"><em>The Linux Programming Interface</em> — Michael Kerrisk</a>. Referentiewerk, hoofdstukken naar behoefte.
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">0.3</div>
+          <div class="body">
+            <h3>Programmeer-Polish</h3>
+            <ul>
+              <li>Python: comfortabel met <code>requests</code>, <code>asyncio</code>, <code>socket</code>, <code>struct</code>, <code>subprocess</code></li>
+              <li>C vloeiend kunnen lezen — nog niet goed kunnen schrijven</li>
+              <li>Git voorbij de basis: <code>rebase</code>, <code>reflog</code>, <code>bisect</code>, hooks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE 1 -->
+    <section id="phase-1">
+      <div class="section-head">
+        <div class="badge">FASE 01</div>
+        <div>
+          <h2>Fundamenten, <em>verdiept</em>.</h2>
+          <div class="duration">DUUR · 2-4 WEKEN</div>
+        </div>
+      </div>
+      <p class="section-intro">Mentale modellen voorbij de bumperstickers, cryptografie die je daadwerkelijk begrijpt, OS-internals op aanvaller-niveau, web op protocol-niveau.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">1.1</div>
+          <div class="body">
+            <h3>Mentale Modellen — Voorbij CIA</h3>
+            <p>De CIA-triad is de bumpersticker. De diepteversie:</p>
+            <ul>
+              <li><strong>Parkerian Hexad</strong> — voegt possession, authenticity, utility toe. Voor supply-chain en integrity-aanvallen waar CIA nuance mist</li>
+              <li><strong>STRIDE</strong> (Microsoft) — Spoofing, Tampering, Repudiation, Information disclosure, DoS, Elevation. Standaard threat-modeling vocabulaire</li>
+              <li><strong>PASTA, OCTAVE, LINDDUN</strong> (privacy) — weet dat ze bestaan</li>
+              <li><strong>Attack trees</strong> (Schneier's framing) — bouw er één voor een echt systeem</li>
+              <li><strong>"Assume breach"</strong> — fundamentele verschuiving weg van preventie-alleen denken</li>
+            </ul>
+            <div class="callout read">
+              <strong class="label">Verplichte literatuur</strong>
+              Ross Anderson, <a href="https://www.cl.cam.ac.uk/~rja14/book.html"><em>Security Engineering</em> (3rd ed)</a>. Gratis PDF op zijn site. Het belangrijkste security-boek in druk. Hoofdstukken 1-3 minimaal, daarna voor altijd ad-hoc.
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">1.2</div>
+          <div class="body">
+            <h3>Cryptografie — Echt Begrijpen</h3>
+            <p>Je hoeft geen ciphers uit te vinden. Je moet wel precies weten welk primitief te kiezen, hoe failure modes eruitzien, en hoe aanvallen op constructies werken.</p>
+            <h4>Concepten om te begrijpen</h4>
+            <ul>
+              <li>AES modes (ECB, CBC, CTR, GCM, XTS) en wat elk lekt. Waarom ECB een meme is. Waarom GCM nonce-reuse catastrofaal is.</li>
+              <li>Block vs stream ciphers — fundamenten</li>
+              <li>KDFs vs hashes vs MACs — drie verschillende jobs, vaak verward</li>
+              <li>Diffie-Hellman — uitleg op wiskundig niveau</li>
+              <li>ECC: Curve25519 vs NIST curves, waarom Curve25519 won</li>
+              <li>TLS 1.3 handshake byte-voor-byte</li>
+              <li>Forward secrecy — wat het betekent, waarom het belangrijk is</li>
+              <li>Public-key signatures: RSA-PSS vs ECDSA vs Ed25519</li>
+              <li>Password hashing: bcrypt → scrypt → Argon2id. Memory hardness als concept.</li>
+              <li>Quantum-dreiging — wat Shor's echt breekt, wat overleeft, PQ-kandidaten (Kyber, Dilithium)</li>
+            </ul>
+            <div class="callout lab">
+              <strong class="label">Oefening · verplicht</strong>
+              <a href="https://cryptopals.com/"><strong>Cryptopals challenges</strong></a> (gratis). Werk minimaal Set 1, idealiter Sets 2-3 door. Je leert meer van het breken van AES-CBC padding oracle dan van elk boek. Er is geen substituut. Ook <a href="https://cryptohack.org/">CryptoHack</a> — gegamifieerd, uitstekend.
+            </div>
+            <div class="callout read">
+              <strong class="label">Lezen</strong>
+              <a href="https://nostarch.com/seriouscrypto"><em>Serious Cryptography</em> (Aumasson)</a> · <a href="https://www.manning.com/books/real-world-cryptography"><em>Real-World Cryptography</em> (David Wong)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">1.3</div>
+          <div class="body">
+            <h3>OS Security op Aanvaller-Niveau</h3>
+            <h4>Windows internals</h4>
+            <ul>
+              <li>LSASS architectuur — waarom het de credential goudmijn is</li>
+              <li>Authenticatie: NTLM (challenge-response in detail), Kerberos (TGT/TGS, PAC, S4U2Self/Proxy)</li>
+              <li>SIDs, ACLs, tokens, integrity levels — Mandatory Integrity Control</li>
+              <li>Windows event log structuur — Security log: 4624, 4625, 4672, 4688, 4769, 5145</li>
+              <li>Registry hives waar credentials en persistence verbergen</li>
+            </ul>
+            <h4>Linux internals</h4>
+            <ul>
+              <li><code>/etc/shadow</code> formaat en crypt(3) algoritmes</li>
+              <li>PAM stack — hoe authenticatie wordt samengesteld</li>
+              <li>SELinux vs AppArmor — label-based vs path-based MAC</li>
+              <li>Capabilities — lees <a href="https://man7.org/linux/man-pages/man7/capabilities.7.html"><code>capabilities(7)</code></a> helemaal</li>
+              <li>eBPF — moderne observability <em>en</em> moderne attack surface</li>
+            </ul>
+            <div class="callout read">
+              <strong class="label">Lezen</strong>
+              <a href="https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals"><em>Windows Internals</em> (Russinovich)</a> — al is het maar Volume 1, de security-hoofdstukken
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">1.4</div>
+          <div class="body">
+            <h3>Web op Protocol-Niveau</h3>
+            <p>Je hebt HTTP duizend keer gebruikt. Lees het nu als een aanvaller.</p>
+            <ul>
+              <li>HTTP/1.1 — <a href="https://datatracker.ietf.org/doc/html/rfc9110">RFC 9110</a> + <a href="https://datatracker.ietf.org/doc/html/rfc9112">RFC 9112</a></li>
+              <li>HTTP/2: streams, HPACK, framing — en de attack surface (HTTP/2 smuggling, HPACK bombing, <a href="https://blog.cloudflare.com/technical-breakdown-http2-rapid-reset-ddos-attack/">Rapid Reset</a>)</li>
+              <li>HTTP/3 + QUIC — opkomende attack surface</li>
+              <li>Cookies in detail: SameSite (Strict/Lax/None), <code>__Host-</code> prefix, partitioned cookies (CHIPS)</li>
+              <li>CORS: preflight, credentials, de echte spec — niet de cargo-culted versie</li>
+              <li>CSP: nonces vs hashes, <code>strict-dynamic</code>, waarom de meeste CSP's bypassbaar zijn</li>
+              <li>WebSockets, EventSource, postMessage, SharedWorker — bredere browser attack surface</li>
+              <li>Same-Origin Policy vs Same-Site (verschillend)</li>
+              <li>JWT en zijn zonden (<code>alg: none</code>, key confusion, <code>jku</code>/<code>kid</code> injection); <a href="https://paseto.io/">PASETO</a> als veiligere alternatief</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">1.5</div>
+          <div class="body">
+            <h3>Home Lab — Bouw Het Goed</h3>
+            <p>Installeer niet zomaar Kali in één VM. Bouw een echte omgeving.</p>
+            <h4>Hypervisor</h4>
+            <p><a href="https://www.proxmox.com/en/proxmox-virtual-environment">Proxmox</a> (gratis, echte type-1) op een reservemachine indien mogelijk. Anders VMware Workstation Pro of <a href="https://www.virtualbox.org/">VirtualBox</a>.</p>
+            <h4>Netwerken — geïsoleerd, host-only</h4>
+            <ul>
+              <li>Aanvaller-netwerk · DMZ · Interne Windows AD · "Productie" segment met gemixte versies</li>
+            </ul>
+            <h4>Hosts</h4>
+            <ul>
+              <li><strong>Aanvaller:</strong> <a href="https://www.kali.org/">Kali</a> + <a href="https://parrotsec.org/">Parrot</a> + een schone Ubuntu met handmatig geïnstalleerde tools zodat je weet wat waar staat</li>
+              <li><strong>Kwetsbaar:</strong> <a href="https://sourceforge.net/projects/metasploitable/">Metasploitable 2</a> &amp; <a href="https://github.com/rapid7/metasploitable3">3</a>, <a href="https://owasp.org/www-project-juice-shop/">OWASP Juice Shop</a>, <a href="https://github.com/digininja/DVWA">DVWA</a>, <a href="https://owasp.org/www-project-webgoat/">WebGoat</a>, <a href="https://www.vulnhub.com/">VulnHub</a> boxes</li>
+              <li><strong>Active Directory:</strong> 1 DC + 2-3 member servers + 2 workstations. Bouw dit — AD is de helft van enterprise pentesting. <a href="https://github.com/Orange-Cyberdefense/GOAD">GOAD (Game of Active Directory)</a> is een kant-en-klaar kwetsbaar forest.</li>
+              <li><strong>Monitoring:</strong> <a href="https://wazuh.com/">Wazuh</a> server vanaf dag één. Telemetrie terwijl je aanvalt — je kunt eigen aanvallen retrospectief jagen.</li>
+            </ul>
+            <div class="callout warn">
+              <strong class="label">Gewoonte vanaf dag één</strong>
+              Elke aanval die je uitvoert, ook bekijken vanuit de defender-positie. Wat heeft Sysmon gelogd? Wat zou een SIEM zien? Deze ene gewoonte compounded enorm.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE 2 -->
+    <section id="phase-2">
+      <div class="section-head">
+        <div class="badge">FASE 02</div>
+        <div>
+          <h2>Offensief, <em>diep</em>.<br>De grootste fase.</h2>
+          <div class="duration">DUUR · 4-6 MAANDEN · WAAR ECHTE SKILL WORDT GEBOUWD</div>
+        </div>
+      </div>
+      <p class="section-intro">Je kunt niet verdedigen wat je nooit hebt aangevallen. Deze fase herbedraadt hoe je software, netwerken en systemen ziet. Het verandert je permanent.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">2.1</div>
+          <div class="body">
+            <h3>Reconnaissance &amp; OSINT</h3>
+            <h4>Passief</h4>
+            <ul>
+              <li>Certificate transparency logs (<a href="https://crt.sh/">crt.sh</a>, <a href="https://censys.io/">censys.io</a>) — goud voor subdomain discovery</li>
+              <li><a href="https://www.shodan.io/">Shodan</a> / <a href="https://censys.io/">Censys</a> / <a href="https://fofa.info/">Fofa</a> — schrijf eigen queries</li>
+              <li>GitHub dorking voor leaked secrets — <a href="https://github.com/trufflesecurity/trufflehog">TruffleHog</a>, <a href="https://github.com/gitleaks/gitleaks">gitleaks</a></li>
+              <li><a href="https://web.archive.org/">Wayback Machine</a> — oude versies van apps, vaak met verwijderde endpoints</li>
+              <li>LinkedIn voor org charts en tech stack inferentie</li>
+              <li>DNS history (<a href="https://securitytrails.com/">SecurityTrails</a>, <a href="https://dnshistory.org/">dnshistory.org</a>)</li>
+            </ul>
+            <h4>Actief</h4>
+            <ul>
+              <li><strong>nmap mastery</strong> — lees <a href="https://nmap.org/book/"><em>Nmap Network Scanning</em> (Lyon, gratis online)</a>. Begrijp TCP/SYN/FIN/Xmas/Null scan verschillen. Service detection algoritmes. NSE scripting — schrijf er één.</li>
+              <li><a href="https://github.com/robertdavidgraham/masscan">masscan</a> voor internet-schaal werk</li>
+              <li><a href="https://github.com/projectdiscovery/naabu">naabu</a>, <a href="https://github.com/RustScan/RustScan">rustscan</a> voor snelheid</li>
+              <li>Subdomain enumeration: <a href="https://github.com/owasp-amass/amass">amass</a>, <a href="https://github.com/projectdiscovery/subfinder">subfinder</a>, <a href="https://github.com/tomnomnom/assetfinder">assetfinder</a> — combineer ze</li>
+              <li>HTTP probing: <a href="https://github.com/projectdiscovery/httpx">httpx</a>, <a href="https://github.com/sensepost/gowitness">gowitness</a> voor screenshots</li>
+            </ul>
+            <div class="callout">
+              <strong class="label">Bruikbare zij-toepassing</strong>
+              <a href="https://www.tracelabs.org/">Trace Labs CTF</a> — OSINT voor vermiste personen. Slijpt skills met humanitaire toepassing.
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">2.2</div>
+          <div class="body">
+            <h3>Web Application Security — Het Grote Stuk</h3>
+            <p>De belangrijkste attack surface in moderne infrastructuur. Investeer de tijd. 10-14 weken.</p>
+            <div class="callout lab">
+              <strong class="label">De bijbel — verplicht</strong>
+              <a href="https://portswigger.net/web-security"><strong>PortSwigger Web Security Academy</strong></a> — doe elke lab. Gratis, wereldklasse, geschreven door de mensen achter Burp Suite. Begroot 100-200 uur. Er is geen substituut.
+            </div>
+            <h4>Injection familie</h4>
+            <ul>
+              <li>SQLi: error-based, union-based, boolean blind, time blind, OOB (OAST). NoSQLi. ORM-specifieke quirks.</li>
+              <li>Command injection: shell metacharacters, blind variants, OOB exfil</li>
+              <li>LDAP, XPath, <a href="https://portswigger.net/web-security/server-side-template-injection">SSTI</a> (Jinja2, Twig, Freemarker, Velocity), <a href="https://portswigger.net/web-security/ssrf">SSRF</a> als meta-vulnerability</li>
+            </ul>
+            <h4>XSS — diep</h4>
+            <ul>
+              <li>Reflected, stored, DOM-based, mutation XSS (<a href="https://cure53.de/fp170.pdf">Heiderich's werk essentieel</a>)</li>
+              <li>CSP bypassen — <code>strict-dynamic</code> bypass, JSONP endpoints, dangling markup</li>
+              <li>Same-Origin Policy chaining, postMessage abuse</li>
+            </ul>
+            <h4>Authenticatie &amp; Sessie</h4>
+            <ul>
+              <li>JWT: <code>alg: none</code>, RS256→HS256 confusion, <code>jku</code>/<code>kid</code> injection, zwakke HMAC keys</li>
+              <li>OAuth 2.0 / OIDC: redirect_uri abuse, state CSRF, implicit flow problemen, PKCE</li>
+              <li>SAML: XSW (XML Signature Wrapping), comment injection, raw signature bypass</li>
+            </ul>
+            <h4>Access control</h4>
+            <ul>
+              <li>IDOR — voorbij numerieke IDs, voorspelbare UUIDs, GraphQL field-level</li>
+              <li>Mass assignment / autobinding</li>
+              <li>HTTP method confusion</li>
+            </ul>
+            <h4>Moderne klassen — lees het originele onderzoek</h4>
+            <ul>
+              <li><a href="https://portswigger.net/research/http-desync-attacks-request-smuggling-reborn"><strong>HTTP Request Smuggling</strong></a> — James Kettle 2019, <a href="https://portswigger.net/research/browser-powered-desync-attacks">CL.0 follow-up</a></li>
+              <li><a href="https://portswigger.net/research/practical-web-cache-poisoning"><strong>Web cache poisoning / deception</strong></a> — Kettle</li>
+              <li><a href="https://portswigger.net/research/server-side-template-injection"><strong>Server-Side Template Injection</strong></a> — Kettle 2015</li>
+              <li><a href="https://portswigger.net/web-security/prototype-pollution"><strong>Prototype pollution</strong></a> — client-side en Node.js</li>
+              <li><a href="https://portswigger.net/web-security/dom-based/dom-clobbering"><strong>DOM clobbering</strong></a> — Heyes</li>
+            </ul>
+            <div class="callout">
+              <strong class="label">Tools — master, niet alleen installeren</strong>
+              <a href="https://portswigger.net/burp"><strong>Burp Suite</strong></a> (Community → Pro) — collaborator, intruder, macros, session handling, BApp store (<a href="https://github.com/Quitten/Autorize">Autorize</a>, <a href="https://github.com/PortSwigger/param-miner">Param Miner</a>, <a href="https://github.com/PortSwigger/turbo-intruder">Turbo Intruder</a>) · <a href="https://caido.io/"><strong>Caido</strong></a> (nieuwer alternatief) · <a href="https://github.com/ffuf/ffuf">ffuf</a> · <a href="https://github.com/projectdiscovery/nuclei">nuclei</a> (schrijf je eigen templates) · <a href="https://sqlmap.org/">sqlmap</a> (handmatig eerst). Wordlists: <a href="https://github.com/danielmiessler/SecLists">SecLists</a> verplicht.
+            </div>
+            <div class="callout read">
+              <strong class="label">Lezen, voor altijd</strong>
+              <a href="https://portswigger.net/web-security/web-application-hackers-handbook"><em>The Web Application Hacker's Handbook</em></a> · <a href="https://nostarch.com/bughunting"><em>Real-World Bug Hunting</em> (Yaworski)</a> · <a href="https://portswigger.net/research"><strong>PortSwigger Research blog</strong></a> elke maand · elke <a href="https://www.blackhat.com/html/archives.html">Black Hat</a> / <a href="https://media.defcon.org/">DEF CON</a> web track van de laatste 3 jaar · <a href="https://hackerone.com/hacktivity">HackerOne Hacktivity</a> en <a href="https://bugcrowd.com/crowdstream">Bugcrowd Disclosure</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">2.3</div>
+          <div class="body">
+            <h3>Netwerk Aanvallen</h3>
+            <ul>
+              <li>Layer 2: ARP spoofing, DHCP starvation/spoofing, VLAN hopping (double tagging, switch spoofing), STP attacks</li>
+              <li>LLMNR/NBT-NS/mDNS poisoning — <a href="https://github.com/lgandx/Responder"><strong>Responder</strong></a> essentieel, begrijp de onderliggende protocollen</li>
+              <li>IPv6 aanvallen (<a href="https://github.com/dirkjanm/mitm6">mitm6</a>) — steeds relevanter</li>
+              <li>WPAD attacks</li>
+              <li>SMB: relay attacks (NTLM relay naar LDAP/SMB/HTTP), null sessions, SMB signing</li>
+              <li>Kerberos relay (<a href="https://github.com/cube0x0/KrbRelay">KrbRelay</a>), unconstrained delegation abuse</li>
+              <li>TLS aanvallen geschiedenis (BEAST, CRIME, BREACH, POODLE, Logjam, FREAK, Lucky13, ROBOT)</li>
+              <li><strong>Pivoting:</strong> SSH dynamic forwarding, <a href="https://github.com/jpillora/chisel">Chisel</a>, <em><a href="https://github.com/nicocha30/ligolo-ng">ligolo-ng</a></em> (huidige best-in-class)</li>
+            </ul>
+            <h4>Wireless</h4>
+            <ul>
+              <li>WPA2 4-way handshake — capture en crack met <a href="https://hashcat.net/">hashcat</a></li>
+              <li>WPA3 SAE — <a href="https://wpa3.mathyvanhoef.com/">Dragonblood attacks (Vanhoef)</a></li>
+              <li>Evil twin en KARMA — <a href="https://github.com/sensepost/mana">Mana toolkit</a></li>
+              <li>WPS Pixie Dust · Enterprise wireless (WPA2-EAP) — <a href="https://github.com/s0lst1c3/eaphammer">eaphammer</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">2.4</div>
+          <div class="body">
+            <h3>Binary Exploitation Intro</h3>
+            <p>De meeste moderne rollen vereisen geen diepe binary exploitation, maar de fundamenten veranderen hoe je over software denkt.</p>
+            <ul>
+              <li>x86_64 assembly — genoeg om disassembly vloeiend te lezen</li>
+              <li>Calling conventions (System V AMD64, Microsoft x64)</li>
+              <li>Stack layout, function prologue/epilogue</li>
+              <li>Klassieke stack buffer overflow — schrijf er één vanaf nul</li>
+              <li>Moderne mitigations en bypasses: ASLR + info leaks, NX/DEP + ROP, stack canaries, CFI/CET</li>
+              <li>Format string vulnerabilities</li>
+              <li>Heap basics — glibc tcache en bin structures</li>
+            </ul>
+            <div class="callout lab">
+              <strong class="label">Oefening</strong>
+              <a href="https://pwn.college/"><strong>pwn.college</strong></a> (gratis, ASU — uitstekend) · <a href="http://pwnable.kr/">pwnable.kr</a> · <a href="https://ropemporium.com/">ROP Emporium</a>
+            </div>
+            <div class="callout read">
+              <strong class="label">Lezen</strong>
+              <a href="https://nostarch.com/hacking2.htm"><em>Hacking: The Art of Exploitation</em> (Erickson)</a> · <a href="https://www.wiley.com/en-us/The+Shellcoder's+Handbook%3A+Discovering+and+Exploiting+Security+Holes%2C+2nd+Edition-p-9780470080238"><em>The Shellcoder's Handbook</em></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">2.5</div>
+          <div class="body">
+            <h3>Active Directory — Op Aanvaller-Niveau</h3>
+            <p>Wat de meeste interne pentests echt zijn. 6-8 weken.</p>
+            <h4>Concepten</h4>
+            <ul>
+              <li>AD structuur: forests, domains, OUs, trusts (transitive, one-way, external, forest)</li>
+              <li>Kerberos in detail: AS-REQ/REP, TGS-REQ/REP, de PAC, wat gesigneerd is en wat geëncrypt met welke key</li>
+              <li>NTLM overal nog — challenge/response in diepte</li>
+              <li>GPOs en hun abuse surface</li>
+              <li>LDAP queries — schrijf eigen met PowerShell of Python</li>
+            </ul>
+            <h4>Attack chain</h4>
+            <ul>
+              <li>Initial access via phish of exposed service</li>
+              <li>Enumeratie: <a href="https://github.com/SpecterOps/BloodHound">BloodHound</a> verplicht — leer Cypher queries lezen, schrijf eigen</li>
+              <li>Credential theft: <a href="https://github.com/gentilkiwi/mimikatz">Mimikatz</a> internals (LSASS, SAM, LSA, DPAPI)</li>
+              <li>Lateral movement: Pass-the-Hash, Pass-the-Ticket, Overpass-the-Hash, WMI, WinRM, PSExec, DCOM</li>
+              <li>Kerberos: Kerberoasting · AS-REP roasting · Unconstrained delegation · Constrained delegation + S4U2Self/Proxy · RBCD · Golden/Silver tickets · Diamond/Sapphire (nieuwer)</li>
+              <li>DCSync, DCShadow</li>
+              <li><strong>ADCS aanvallen</strong> — ESC1-ESC15 (<a href="https://specterops.io/wp-content/uploads/sites/3/2022/06/Certified_Pre-Owned.pdf">Schroeder + Christensen "Certified Pre-Owned" paper</a> verplicht)</li>
+              <li>Trust abuse: SID history, cross-forest attacks</li>
+            </ul>
+            <div class="callout">
+              <strong class="label">Tools</strong>
+              <a href="https://github.com/SpecterOps/BloodHound">BloodHound</a> · <a href="https://github.com/SpecterOps/SharpHound">SharpHound</a> · <a href="https://github.com/GhostPack/Rubeus">Rubeus</a> · Mimikatz · <a href="https://github.com/fortra/impacket">Impacket</a> (secretsdump.py, GetUserSPNs.py, GetNPUsers.py, ntlmrelayx.py — lees de source) · <a href="https://github.com/Pennyw0rth/NetExec">NetExec</a> (opvolger van CrackMapExec)
+            </div>
+            <div class="callout lab">
+              <strong class="label">Lab</strong>
+              <a href="https://github.com/Orange-Cyberdefense/GOAD"><strong>GOAD</strong></a> (Game of Active Directory) — kant-en-klaar kwetsbaar forest. End to end doorwerken.
+            </div>
+            <div class="callout read">
+              <strong class="label">Lezen</strong>
+              <a href="https://book.hacktricks.wiki/en/windows-hardening/active-directory-methodology/index.html">HackTricks AD sectie</a> · <a href="https://adsecurity.org/"><strong>ADSecurity.org</strong></a> (Sean Metcalf — de diepste AD security writer)
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">2.6</div>
+          <div class="body">
+            <h3>Cloud Attack Surface Intro</h3>
+            <ul>
+              <li>IAM mentale modellen: AWS (policies, roles, STS), Azure (RBAC + Entra ID), GCP (resource hierarchy + service accounts)</li>
+              <li>Veelvoorkomende misconfiguraties: publieke S3 buckets, te permissieve IAM, exposed metadata service (IMDSv1 SSRF chain)</li>
+              <li>Cross-account / cross-tenant aanvallen</li>
+              <li>Container escape en Kubernetes attack surface (Pod Security, RBAC, etcd exposure)</li>
+            </ul>
+            <div class="callout lab">
+              <strong class="label">Lab</strong>
+              <a href="http://flaws.cloud/">flaws.cloud</a> en <a href="http://flaws2.cloud/">flaws2.cloud</a> (gratis, AWS) · <a href="https://github.com/RhinoSecurityLabs/cloudgoat">CloudGoat</a> (Rhino Security) · <a href="https://cloud.hacktricks.wiki/en/index.html">HackTricks Cloud</a> · <a href="https://github.com/nccgroup/sadcloud">sadcloud</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">2.7</div>
+          <div class="body">
+            <h3>Schrijf Je Eigen Tools</h3>
+            <p>Eind Fase 2 moet je persoonlijk <em>gebouwd</em> hebben — niet alleen gebruikt:</p>
+            <ul>
+              <li>Port scanner (TCP connect, dan SYN met raw sockets)</li>
+              <li>Subdomain enumerator</li>
+              <li>Kleine web fuzzer met concurrency en output handling</li>
+              <li>Simpel educatief C2 framework — HTTPS-beacon agent en server</li>
+              <li>Burp extension die een echte workflow-irritatie oplost</li>
+              <li>Nuclei- of sqlmap-stijl payload-driven scanner voor één bug class</li>
+            </ul>
+            <p>GitHub portfolio telt. Echte tools, echte READMEs.</p>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">2.8</div>
+          <div class="body">
+            <h3>Capstone &amp; Certificering</h3>
+            <ul>
+              <li>30+ <a href="https://www.hackthebox.com/">HackTheBox</a> machines — inclusief AD-focused (Forest, Sauna, Sizzle, Mantis, Multimaster)</li>
+              <li><a href="https://www.hackthebox.com/business/pro-labs">HackTheBox Pro Labs</a>: <strong>Dante</strong> (general), <strong>Offshore</strong> of <strong>RastaLabs</strong> (AD-heavy)</li>
+              <li><a href="https://www.offsec.com/courses/pen-200/"><strong style="color: var(--accent-hot)">OSCP</strong></a> is de proportionele cert voor jouw achtergrond. Brutale 24-uurs praktijk. 3-6 maanden focused prep.</li>
+              <li>Daarna optioneel <a href="https://www.alteredsecurity.com/adlab"><strong>CRTP</strong></a> → <strong>CRTE</strong> (AD specialisatie, Altered Security) of <a href="https://www.offsec.com/courses/pen-300/"><strong>OSEP</strong></a> (advanced offensive)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE 3 -->
+    <section id="phase-3">
+      <div class="section-head">
+        <div class="badge">FASE 03</div>
+        <div>
+          <h2>Defensief, <em>diep</em>.<br>Je hebt aangevallen. Verdedig nu.</h2>
+          <div class="duration">DUUR · 4-6 MAANDEN</div>
+        </div>
+      </div>
+      <p class="section-intro">De asymmetrie die jou waardevol maakt: de meeste defenders hebben nooit echt aangevallen. Jij wel. Gebruik dat.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">3.1</div>
+          <div class="body">
+            <h3>Security Architectuur &amp; Moderne Defensie</h3>
+            <ul>
+              <li><strong>Zero Trust</strong> — Google's <a href="https://research.google/pubs/beyondcorp-a-new-approach-to-enterprise-security/"><em>BeyondCorp</em> paper (2014)</a> is het origineel. Lees het. Dan <a href="https://csrc.nist.gov/publications/detail/sp/800-207/final">NIST SP 800-207</a>.</li>
+              <li>Netwerk segmentatie: macro, micro, identity-based</li>
+              <li>Defense in depth goed gedaan — niet "meer controls" maar layered, elk uitgaande van dat anderen falen</li>
+              <li><a href="https://d3fend.mitre.org/"><strong>MITRE D3FEND</strong></a> — defensieve tegenhanger van ATT&amp;CK</li>
+              <li>Cyber Resilience — <a href="https://csrc.nist.gov/publications/detail/sp/800-160/vol-2-rev-1/final">NIST SP 800-160 Vol 2</a></li>
+              <li>WAF, RASP, NGFW, SASE — wat elk echt doet en waar elk faalt</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">3.2</div>
+          <div class="body">
+            <h3>Logging &amp; Detection Engineering</h3>
+            <p>8-10 weken. Het diepe deel van defense.</p>
+            <h4>Logging filosofie</h4>
+            <ul>
+              <li>Wat loggen, waarom, retentie strategie</li>
+              <li>Cost-aware logging — de meeste orgs over-loggen ruis en onder-loggen signaal</li>
+              <li>Log integriteit, time sync, source authenticatie</li>
+            </ul>
+            <h4>Telemetrie bronnen</h4>
+            <ul>
+              <li><strong>Windows:</strong> Event Logs, <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon</a>, ETW</li>
+              <li><strong>Linux:</strong> auditd, <a href="https://github.com/Sysinternals/SysmonForLinux">sysmon-for-linux</a>, eBPF (<a href="https://falco.org/">Falco</a>, <a href="https://github.com/aquasecurity/tracee">Tracee</a>)</li>
+              <li><strong>Netwerk:</strong> <a href="https://zeek.org/">Zeek</a> (voorheen Bro — leer dit, ondergewaardeerd), <a href="https://suricata.io/">Suricata</a>, NetFlow/IPFIX</li>
+              <li><strong>Cloud:</strong> CloudTrail, Azure Activity Log, GCP Audit Logs, VPC flow logs</li>
+              <li><strong>Identity:</strong> Entra ID sign-in logs, Okta system log</li>
+            </ul>
+            <h4>SIEM — ken er één diep</h4>
+            <ul>
+              <li><a href="https://www.splunk.com/">Splunk</a> — SPL is een eigen taal</li>
+              <li><a href="https://www.elastic.co/security">Elastic Stack (Elastic Security)</a></li>
+              <li><a href="https://learn.microsoft.com/en-us/azure/sentinel/">Microsoft Sentinel</a> — <a href="https://learn.microsoft.com/en-us/kusto/query/">KQL</a> wordt must-know</li>
+              <li>Open source: <a href="https://wazuh.com/">Wazuh</a>, <a href="https://graylog.org/">Graylog</a>, <a href="https://securityonionsolutions.com/">Security Onion</a></li>
+            </ul>
+            <h4>Detection engineering — het ambacht</h4>
+            <ul>
+              <li><a href="https://github.com/SigmaHQ/sigma"><strong>Sigma rules</strong></a> — vendor-agnostische detection taal</li>
+              <li>Detection-as-code: rules in git, getest, peer-reviewed, deployed via CI/CD</li>
+              <li><a href="https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html"><strong>Pyramid of Pain</strong></a> (David Bianco) — waarom IOC-based detection de zwakste tier is</li>
+              <li>ATT&amp;CK-driven detection — map elke detection naar een techniek</li>
+              <li>False positive economics — de meeste "broken" detections zijn alert fatigue</li>
+              <li>Detection testing: <a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team</a>, <a href="https://caldera.mitre.org/">Caldera</a></li>
+            </ul>
+            <div class="callout read">
+              <strong class="label">Lezen</strong>
+              <a href="https://thedfirreport.com/"><strong>The DFIR Report</strong></a> — gratis, wereldklasse incident writeups. Eén per week, voor altijd. · <a href="https://cyb3rops.medium.com/">Florian Roth's blog</a> · <a href="https://www.splunk.com/en_us/blog/security.html">Splunk threat hunting</a> · <a href="https://www.packtpub.com/product/practical-threat-intelligence-and-data-driven-threat-hunting/9781838556372"><em>Practical Threat Intelligence and Data-Driven Threat Hunting</em></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">3.3</div>
+          <div class="body">
+            <h3>EDR / XDR — Diep</h3>
+            <ul>
+              <li>Hoe EDR echt hookt: usermode (deprecated), kernel callbacks, ETW Threat Intelligence, AMSI</li>
+              <li>Waarom aanvallers om hooking geven: bypass technieken (direct/indirect syscalls, <a href="https://github.com/am0nsec/HellsGate">hellsgate/halosgate</a>, unhooking)</li>
+              <li>Sysmon configuratie: <a href="https://github.com/SwiftOnSecurity/sysmon-config">SwiftOnSecurity's template</a>, <a href="https://github.com/olafhartong/sysmon-modular">Olaf Hartong's modular config</a></li>
+              <li>AMSI internals en bypasses</li>
+              <li>ETW voor defenders (en hoe aanvallers het verblinden)</li>
+              <li><a href="https://osquery.io/">osquery</a> / <a href="https://docs.velociraptor.app/">Velociraptor</a> voor fleet visibility en IR</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">3.4</div>
+          <div class="body">
+            <h3>Threat Intelligence — Echt, Niet Buzzword</h3>
+            <ul>
+              <li><a href="https://attack.mitre.org/"><strong>MITRE ATT&amp;CK</strong></a> — internaliseren, niet alleen kennen. Memoriseer tactics. Weet welke techniques noisy vs stealthy zijn.</li>
+              <li><a href="https://www.activeresponse.org/wp-content/uploads/2013/07/diamond.pdf"><strong>Diamond Model</strong></a> (adversary, capability, infrastructure, victim)</li>
+              <li><a href="https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html"><strong>Cyber Kill Chain</strong></a> (Lockheed Martin)</li>
+              <li>TI lifecycle: direction → collection → processing → analysis → dissemination → feedback</li>
+              <li>IOCs vs IOAs vs TTPs (en waarom TTPs zijn wat je wilt detecteren)</li>
+              <li><a href="https://www.misp-project.org/"><strong>MISP</strong></a> voor sharing, <a href="https://oasis-open.github.io/cti-documentation/"><strong>STIX/TAXII</strong></a> als standaard</li>
+              <li>Reports kritisch lezen: <a href="https://cloud.google.com/security/resources/insights">Mandiant</a>, <a href="https://www.crowdstrike.com/en-us/global-threat-report/">CrowdStrike</a>, <a href="https://www.microsoft.com/en-us/security/business/microsoft-threat-intelligence">MS Threat Intelligence</a>, <a href="https://blog.talosintelligence.com/">Talos</a>, <a href="https://www.volexity.com/blog/">Volexity</a>, <a href="https://www.welivesecurity.com/">ESET</a>, <a href="https://securelist.com/">Kaspersky GReAT</a></li>
+              <li>Attribution skepsis — <a href="https://us.macmillan.com/books/9780374287269/activemeasures">Thomas Rid, <em>Active Measures</em></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">3.5</div>
+          <div class="body">
+            <h3>Incident Response — Praktijk-Niveau</h3>
+            <h4>Frameworks</h4>
+            <ul>
+              <li><a href="https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final">NIST SP 800-61r2</a> — lees het</li>
+              <li>SANS PICERL: Prepare, Identify, Contain, Eradicate, Recover, Lessons</li>
+              <li>John Boyd's OODA loop — past perfect op IR</li>
+            </ul>
+            <h4>Disciplines</h4>
+            <ul>
+              <li><strong>Memory forensics</strong> — <a href="https://github.com/volatilityfoundation/volatility3">Volatility 3</a>, <a href="https://github.com/ufrisk/MemProcFS">MemProcFS</a>. Memory is waar de waarheid leeft.</li>
+              <li><strong>Disk forensics</strong> — <a href="https://www.autopsy.com/">Autopsy</a>, <a href="https://www.sleuthkit.org/">Sleuth Kit</a>, <a href="https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape">KAPE</a> voor triage</li>
+              <li><strong>Timeline analysis</strong> — <a href="https://plaso.readthedocs.io/">plaso/log2timeline</a></li>
+              <li><strong>Live response</strong> — <a href="https://docs.velociraptor.app/">Velociraptor</a>, <a href="https://github.com/google/grr">GRR</a> at-scale</li>
+              <li><strong>Network forensics</strong> — Wireshark + Zeek + tshark + <a href="https://arkime.com/">Arkime</a></li>
+            </ul>
+            <h4>Windows artefacten cold te kennen</h4>
+            <ul>
+              <li>Prefetch, ShimCache, AmCache, UserAssist</li>
+              <li>ShellBags, LNK files, Jump Lists</li>
+              <li>$MFT, $LogFile, $UsnJrnl</li>
+              <li>High-value event IDs (4624, 4625, 4648, 4672, 4688, 4697, 4769, 4776, 5140, 5145, 7045)</li>
+            </ul>
+            <h4>Linux artefacten</h4>
+            <p>auth.log, syslog, journald, bash history (en hoe aanvallers het neutraliseren), /tmp en /dev/shm staging, persistence (cron, systemd timers, ld.so.preload, kernel modules)</p>
+            <div class="callout read">
+              <strong class="label">Lezen</strong>
+              <a href="https://www.mhprofessional.com/9780071798686-usa-incident-response-computer-forensics-third-edition-group"><em>Incident Response &amp; Computer Forensics</em> (Luttgens/Pepe/Mandia)</a> — standaardwerk · <a href="https://www.wiley.com/en-us/The+Art+of+Memory+Forensics%3A+Detecting+Malware+and+Threats+in+Windows%2C+Linux%2C+and+Mac+Memory-p-9781118825099"><em>The Art of Memory Forensics</em> (Ligh et al)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">3.6</div>
+          <div class="body">
+            <h3>Malware Analyse — Voorbij Intro</h3>
+            <p>8-10 weken.</p>
+            <h4>Statische analyse</h4>
+            <ul>
+              <li>PE format internals (sections, imports, resources, RICH header, overlay)</li>
+              <li>ELF format internals (program headers, sections, dynamic linking)</li>
+              <li>Strings — herken obfuscaties (XOR, RC4, custom)</li>
+              <li>Imports vertellen verhalen: <code>VirtualAllocEx</code> + <code>WriteProcessMemory</code> + <code>CreateRemoteThread</code> = process injection</li>
+              <li><a href="https://ghidra-sre.org/"><strong>Ghidra</strong></a> mastery (gratis, NSA-built — juiste startpunt)</li>
+              <li><a href="https://hex-rays.com/ida-free/">IDA Free</a> als alternatief · <a href="https://binary.ninja/">Binary Ninja</a> als betaalbaar</li>
+            </ul>
+            <h4>Dynamische analyse</h4>
+            <ul>
+              <li>Sandboxes: <a href="https://cuckoosandbox.org/">Cuckoo</a>, <a href="https://github.com/kevoreilly/CAPEv2">CAPE</a>, <a href="https://any.run/">Any.Run</a>, <a href="https://www.hybrid-analysis.com/">Hybrid Analysis</a>, <a href="https://www.virustotal.com/">VirusTotal Enterprise</a></li>
+              <li>Eigen lab: <a href="https://github.com/mandiant/flare-vm">FLARE-VM</a> (Windows), <a href="https://remnux.org/">REMnux</a> (Linux), geïsoleerd netwerk (<a href="https://github.com/mandiant/flare-fakenet-ng">FakeNet-NG</a>, <a href="https://www.inetsim.org/">inetsim</a>)</li>
+              <li>Debuggers: <a href="https://x64dbg.com/">x64dbg</a>, <a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/"><strong>WinDbg</strong></a> (de meeste analisten dodgen het — het is een moat). Leer WinDbg.</li>
+              <li>ProcMon, ProcExp, API Monitor, Wireshark in tandem</li>
+            </ul>
+            <h4>Skills</h4>
+            <ul>
+              <li>Unpacking — handmatig (OEP find, dump, fix IAT), UPX trivially, custom packers</li>
+              <li>Code injection identificatie (klassiek, APC, atom bombing, doppelganging, herpaderping)</li>
+              <li>Anti-analyse verslaan (anti-debug, anti-VM, anti-disassembly)</li>
+              <li>Configuration extraction uit veelvoorkomende families</li>
+              <li><a href="https://virustotal.github.io/yara/">YARA</a> — schrijf rules die families vangen, niet enkele samples</li>
+            </ul>
+            <h4>Moderne malware om te bestuderen (in geïsoleerd lab)</h4>
+            <ul>
+              <li>Trickbot / Emotet — modulaire loaders</li>
+              <li><a href="https://www.cobaltstrike.com/"><strong>Cobalt Strike</strong></a> — meest voorkomende implant in echte intrusions. Leer artefacten cold.</li>
+              <li><a href="https://github.com/BishopFox/sliver">Sliver</a>, <a href="https://github.com/its-a-feature/Mythic">Mythic</a>, <a href="https://github.com/HavocFramework/Havoc">Havoc</a> — open-source C2 frameworks</li>
+              <li>Ransomware families (LockBit, BlackCat/ALPHV, Akira)</li>
+              <li><a href="https://lolbas-project.github.io/">LOLBAS project</a> — living-off-the-land binaries</li>
+              <li>Samples (handel voorzichtig): <a href="https://bazaar.abuse.ch/">MalwareBazaar</a></li>
+            </ul>
+            <div class="callout read">
+              <strong class="label">Lezen</strong>
+              <a href="https://nostarch.com/malware"><em>Practical Malware Analysis</em> (Sikorski &amp; Honig)</a> — standaard · <a href="https://nostarch.com/binaryanalysis"><em>Practical Binary Analysis</em> (Andriesse)</a> · <a href="https://nostarch.com/rootkits"><em>Rootkits and Bootkits</em> (Matrosov et al)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">3.7</div>
+          <div class="body">
+            <h3>Threat Hunting</h3>
+            <ul>
+              <li>Hypothesis-driven (niet alert-driven) — "als een aanvaller X deed, zou ik Y zien"</li>
+              <li>ATT&amp;CK-driven hunts</li>
+              <li><a href="https://www.betaalvereniging.nl/en/safety/tahiti/">TaHiTI methodologie</a> — Targeted Hunting integrating Threat Intelligence. <em>Nederlandse oorsprong</em>, ontwikkeld door bankensector.</li>
+              <li><a href="https://learn.microsoft.com/en-us/kusto/query/">KQL</a> (Microsoft) en <a href="https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/WhatsInThisManual">SPL</a> (Splunk) vloeiend</li>
+              <li>Hunting in network data met Zeek</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num">3.8</div>
+          <div class="body">
+            <h3>Capstone</h3>
+            <ul>
+              <li>Bouw een home SOC: <a href="https://wazuh.com/">Wazuh</a> + <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon</a> + Sigma rules + <a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team</a> executie</li>
+              <li>Voer 20+ ATT&amp;CK technieken tegen je AD lab uit, detect elke, schrijf op</li>
+              <li>Draag een detection rule bij aan een publieke repo (Sigma, Elastic, Splunk SSE)</li>
+              <li>Pursue: <a href="https://www.securityblue.team/why-btl1"><strong style="color:var(--accent-cyan)">BTL1</strong></a> · <strong style="color:var(--accent-cyan)">GCIH</strong> / <strong style="color:var(--accent-cyan)">GCFA</strong> (SANS, duur) · <strong style="color:var(--accent-cyan)">CDSA</strong> (SANS, nieuwer/goedkoper) · <a href="https://www.comptia.org/certifications/cybersecurity-analyst"><strong style="color:var(--accent-cyan)">CySA+</strong></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE 4 -->
+    <section id="phase-4">
+      <div class="section-head">
+        <div class="badge">FASE 04</div>
+        <div>
+          <h2>Kies een <em>specialiteit</em>.<br>Ga zeer diep.</h2>
+          <div class="duration">DUUR · 12+ MAANDEN · ÉÉN OF TWEE TRACKS</div>
+        </div>
+      </div>
+      <p class="section-intro">Je bent breed competent. Generalisten zijn nuttig — specialisten worden betaald. Hieronder wat diepte werkelijk is, niet alleen onderwerplijsten.</p>
+
+      <div class="tracks">
+        <div class="track">
+          <div class="letter">A</div>
+          <h4>Red Team Operator</h4>
+          <p class="summary">Custom C2, EDR evasion, AMSI/ETW patching, OPSEC, assumed-breach engagements.</p>
+          <div class="mastery-label">MASTERY</div>
+          <p class="mastery">Custom C2 development (lees Cobalt Strike's design, bouw een simpelere versie), direct/indirect syscalls, hardware breakpoints, infra rotation, profile rotation, traffic shaping, social engineering op campaign-schaal.</p>
+          <div class="resources-line">Bronnen: <a href="https://specterops.io/blog/">SpecterOps</a> · <a href="https://outflank.nl/blog/">Outflank</a> · <a href="https://www.mdsec.co.uk/research/">MDSec</a></div>
+          <div class="certs"><a href="https://training.zeropointsecurity.co.uk/courses/red-team-ops">CRTO</a> → <a href="https://www.offsec.com/courses/pen-300/">OSEP</a> → <a href="https://www.offsec.com/courses/osce3/">OSCE3</a></div>
+        </div>
+
+        <div class="track">
+          <div class="letter">B</div>
+          <h4>Malware Analyse &amp; RE</h4>
+          <p class="summary">Diep technisch. Meest prestigieus, moeilijkste entry, stabielste carrière.</p>
+          <div class="mastery-label">MASTERY</div>
+          <p class="mastery">x86/x64 + ARM assembly. Windows Internals vols 1 &amp; 2 cover to cover. Kernel internals, rootkit technieken, firmware/UEFI security, exploit dev op modern mitigation niveau (heap shaping, JIT spraying, type confusion).</p>
+          <div class="resources-line">Bronnen: <a href="https://ost2.fyi/">OpenSecurityTraining2</a> (gratis, universiteits-niveau) · <a href="https://www.corelan.be/index.php/articles/">Corelan</a> · <a href="https://googleprojectzero.blogspot.com/">Project Zero</a> · <a href="http://phrack.org/">Phrack</a></div>
+          <div class="certs"><a href="https://www.giac.org/certifications/reverse-engineering-malware-grem/">GREM</a> · <a href="https://www.offsec.com/courses/exp-301/">OSED</a></div>
+        </div>
+
+        <div class="track">
+          <div class="letter">C</div>
+          <h4>Application Security</h4>
+          <p class="summary">Word de security persoon die engineering vertrouwt.</p>
+          <div class="mastery-label">MASTERY</div>
+          <p class="mastery">Secure code review, SAST/DAST/IAST/SCA limits, secure SDLC, threat modeling op schaal (STRIDE workshops), security champions, supply chain (SBOMs, SLSA, in-toto), API security (REST, GraphQL, gRPC).</p>
+          <div class="resources-line">Bronnen: <a href="https://owasp.org/">OWASP</a> (ASVS, SAMM, Cheat Sheets) · <a href="https://blog.trailofbits.com/">Trail of Bits</a></div>
+          <div class="certs"><a href="https://www.offsec.com/courses/web-300/">OSWE</a> · <a href="https://www.isc2.org/certifications/csslp">CSSLP</a></div>
+        </div>
+
+        <div class="track">
+          <div class="letter">D</div>
+          <h4>Cloud Security</h4>
+          <p class="summary">Waar het geld zit.</p>
+          <div class="mastery-label">MASTERY</div>
+          <p class="mastery">AWS + Azure + GCP diepte (kies een primaire), AWS IAM als eigen discipline, container security (Docker internals, runc, CRI-O), Kubernetes attack/defense, serverless surface, CSPM/CIEM/CWPP, eBPF (Falco, Tetragon, Cilium), policy-as-code (OPA, Kyverno).</p>
+          <div class="resources-line">Bronnen: <a href="https://cloud.hacktricks.wiki/">HackTricks Cloud</a> · <a href="https://rhinosecuritylabs.com/blog/">Rhino Security</a> · <a href="https://securitylabs.datadoghq.com/">Datadog Security Labs</a></div>
+          <div class="certs"><a href="https://aws.amazon.com/certification/certified-security-specialty/">AWS Sec Spec</a> · <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/">AZ-500</a> · <a href="https://www.isc2.org/certifications/ccsp">CCSP</a> · <a href="https://www.cncf.io/training/certification/cks/">CKS</a></div>
+        </div>
+
+        <div class="track">
+          <div class="letter">E</div>
+          <h4>DFIR</h4>
+          <p class="summary">De "om 2 uur 's nachts gebeld" specialiteit. Hoge vraag, hoge betaling, hoge burnout.</p>
+          <div class="mastery-label">MASTERY</div>
+          <p class="mastery">Memory forensics diep (custom Volatility plugins), Windows artifact forensics cold, macOS forensics (onderbedeeld), mobile forensics (iOS/Android), cloud forensics, large-scale triage (Velociraptor/GRR), expert witness skills.</p>
+          <div class="resources-line">Bronnen: <a href="https://www.sans.org/cyber-security-summit/archives/">SANS DFIR Summit</a> · <a href="https://www.youtube.com/c/13cubed">13Cubed YouTube</a> · <a href="https://aboutdfir.com/">AboutDFIR.com</a></div>
+          <div class="certs"><a href="https://www.giac.org/certifications/certified-forensic-analyst-gcfa/">GCFA</a> · <a href="https://www.giac.org/certifications/certified-forensic-examiner-gcfe/">GCFE</a> · <a href="https://www.giac.org/certifications/network-forensic-analyst-gnfa/">GNFA</a></div>
+        </div>
+
+        <div class="track">
+          <div class="letter">F</div>
+          <h4>Detection Engineering</h4>
+          <p class="summary">Nieuwste en snelst groeiende specialiteit.</p>
+          <div class="mastery-label">MASTERY</div>
+          <p class="mastery">Detection-as-code workflows, Sigma + Splunk + Elastic + Sentinel rule writing, purple teaming, attack emulation, voorzichtige ML, data engineering (log normalization, schema), security data lakes (Snowflake, Databricks).</p>
+          <div class="resources-line">Bronnen: Florian Roth · <a href="https://medium.com/anton-on-security">Anton Chuvakin</a> · <a href="https://github.com/palantir/alerting-detection-strategy-framework">Palantir's detection content</a> · <a href="https://www.elastic.co/security-labs">Elastic Security Labs</a> · <a href="https://redcanary.com/threat-detection-report/">Red Canary Threat Detection Report</a></div>
+          <div class="certs"><a href="https://www.giac.org/certifications/certified-detection-analyst-gcda/">GCDA</a> · portfolio &gt; certs</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE 5 -->
+    <section id="phase-5">
+      <div class="section-head">
+        <div class="badge">FASE 05</div>
+        <div>
+          <h2>Levenslang <em>leren</em>.</h2>
+          <div class="duration">DUUR · VOOR ALTIJD</div>
+        </div>
+      </div>
+      <p class="section-intro">Cybersecurity beloont consistentie boven intensiteit. De compounders winnen.</p>
+
+      <div class="library-section">
+        <h3>// HOOG-SIGNAAL BRONNEN</h3>
+        <div class="books-grid">
+          <div class="book"><div class="title"><a href="https://thedfirreport.com/">The DFIR Report</a></div><div class="author">GRATIS · WEKELIJKS · WERELDKLASSE WRITEUPS</div></div>
+          <div class="book"><div class="title"><a href="https://risky.biz/">Risky Business</a></div><div class="author">PATRICK GRAY · PODCAST + NEWSLETTER</div></div>
+          <div class="book"><div class="title"><a href="https://isc.sans.edu/">SANS Internet Storm Center</a></div><div class="author">HANDLER DIARIES</div></div>
+          <div class="book"><div class="title"><a href="https://portswigger.net/research">PortSwigger Research</a></div><div class="author">WEB SEC RESEARCH</div></div>
+          <div class="book"><div class="title"><a href="https://googleprojectzero.blogspot.com/">Project Zero</a></div><div class="author">GOOGLE · VULN RESEARCH</div></div>
+          <div class="book"><div class="title"><a href="https://specterops.io/blog/">SpecterOps Blog</a></div><div class="author">OFFENSIVE · AD DIEPTE</div></div>
+          <div class="book"><div class="title"><a href="https://cloud.google.com/security/resources/insights">Mandiant / Google Cloud TI</a></div><div class="author">APT REPORTING</div></div>
+          <div class="book"><div class="title"><a href="https://adsecurity.org/">ADSecurity.org</a></div><div class="author">SEAN METCALF · AD DIEPSTE</div></div>
+        </div>
+      </div>
+
+      <div class="library-section">
+        <h3>// CONFERENTIES (DE MEESTE TALKS GRATIS ONLINE)</h3>
+        <div class="books-grid">
+          <div class="book"><div class="title"><a href="https://defcon.org/">DEF CON</a> · <a href="https://www.blackhat.com/">Black Hat</a></div><div class="author">LAS VEGAS · GROOTSTE</div></div>
+          <div class="book"><div class="title"><a href="https://troopers.de/">Troopers</a> · <a href="https://offensivecon.org/">OffensiveCon</a></div><div class="author">DUITSLAND · TECHNISCH</div></div>
+          <div class="book"><div class="title"><a href="http://www.securitybsides.com/">BSides (overal)</a></div><div class="author">LOCAAL · GOEDKOOP · VRIENDELIJK</div></div>
+          <div class="book"><div class="title"><a href="https://www.hitbsectrain.com/">Hack in The Box (Amsterdam)</a></div><div class="author">JAARLIJKS · NEDERLAND</div></div>
+          <div class="book"><div class="title"><a href="https://www.first.org/">FIRST</a></div><div class="author">IR FOCUSED</div></div>
+          <div class="book"><div class="title"><a href="https://www.hexacon.fr/">Hexacon</a> · <a href="https://fwdcloudsec.org/">fwd:cloudsec</a></div><div class="author">SPECIALTY EVENTS</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline">
+      <div class="section-head">
+        <div class="badge">REALISME</div>
+        <div>
+          <h2>Eerlijke <em>tijdlijn</em><br>met sterke IT-achtergrond.</h2>
+        </div>
+      </div>
+      <p class="section-intro">Iedereen die sneller belooft, verkoopt iets. Mensen die het halen blijven jaren nieuwsgierig, niet maanden.</p>
+
+      <div class="timeline">
+        <div class="row"><div class="time">1 MAAND</div><div class="state">Fase 0-1 voltooid · lab gebouwd · echte basis</div></div>
+        <div class="row"><div class="time">3 MAANDEN</div><div class="state">Sterk op web app basics · easy HTB · AD basics</div></div>
+        <div class="row"><div class="time">6 MAANDEN</div><div class="state">Comfortabel over offensieve oppervlakte · OSCP-prep mode</div></div>
+        <div class="row"><div class="time">9-12 MAANDEN</div><div class="state">OSCP-passed of bijna · transitie naar defense</div></div>
+        <div class="row"><div class="time">15-18 MAANDEN</div><div class="state">Echte generalist · specialisatie gekozen</div></div>
+        <div class="row"><div class="time">2-3 JAAR</div><div class="state">Mid-level specialist · publiek bijdragen (tools, blog, CVEs)</div></div>
+        <div class="row"><div class="time">5+ JAAR</div><div class="state">Senior · herkend in je niche</div></div>
+      </div>
+    </section>
+
+    <!-- LIBRARY -->
+    <section id="library">
+      <div class="section-head">
+        <div class="badge">BIBLIOTHEEK</div>
+        <div>
+          <h2>De permanente <em>boekenkast</em>.</h2>
+        </div>
+      </div>
+      <p class="section-intro">Tools veranderen elk jaar. Concepten niet. Deze overleven elk framework.</p>
+
+      <div class="library-section">
+        <h3>// FUNDAMENTEN</h3>
+        <div class="books-grid">
+          <div class="book"><div class="title"><a href="https://www.cl.cam.ac.uk/~rja14/book.html">Security Engineering (3rd ed)</a></div><div class="author">ROSS ANDERSON · GRATIS PDF</div></div>
+          <div class="book"><div class="title"><a href="https://nostarch.com/tangledweb">The Tangled Web</a></div><div class="author">MICHAL ZALEWSKI</div></div>
+          <div class="book"><div class="title">Cryptography Engineering</div><div class="author">FERGUSON · SCHNEIER · KOHNO</div></div>
+          <div class="book"><div class="title"><a href="https://nostarch.com/seriouscrypto">Serious Cryptography</a></div><div class="author">JEAN-PHILIPPE AUMASSON</div></div>
+        </div>
+      </div>
+
+      <div class="library-section">
+        <h3>// OFFENSIEF</h3>
+        <div class="books-grid">
+          <div class="book"><div class="title"><a href="https://portswigger.net/web-security/web-application-hackers-handbook">The Web Application Hacker's Handbook</a></div><div class="author">STUTTARD &amp; PINTO</div></div>
+          <div class="book"><div class="title"><a href="https://nostarch.com/hacking2.htm">Hacking: The Art of Exploitation</a></div><div class="author">JON ERICKSON</div></div>
+          <div class="book"><div class="title">The Shellcoder's Handbook</div><div class="author">ANLEY ET AL</div></div>
+          <div class="book"><div class="title"><a href="https://thehackerplaybook.com/">The Hacker Playbook 3</a></div><div class="author">PETER KIM</div></div>
+          <div class="book"><div class="title"><a href="https://www.rtfm.guru/">Red Team Field Manual</a></div><div class="author">BEN CLARK</div></div>
+          <div class="book"><div class="title">Practical Reverse Engineering</div><div class="author">DANG · GAZET · BACHAALANY</div></div>
+        </div>
+      </div>
+
+      <div class="library-section">
+        <h3>// DEFENSIEF / DFIR</h3>
+        <div class="books-grid">
+          <div class="book"><div class="title"><a href="https://www.mhprofessional.com/9780071798686-usa-incident-response-computer-forensics-third-edition-group">Incident Response &amp; Computer Forensics</a></div><div class="author">LUTTGENS · PEPE · MANDIA</div></div>
+          <div class="book"><div class="title"><a href="https://nostarch.com/malware">Practical Malware Analysis</a></div><div class="author">SIKORSKI &amp; HONIG</div></div>
+          <div class="book"><div class="title"><a href="https://www.wiley.com/en-us/The+Art+of+Memory+Forensics%3A+Detecting+Malware+and+Threats+in+Windows%2C+Linux%2C+and+Mac+Memory-p-9781118825099">The Art of Memory Forensics</a></div><div class="author">LIGH ET AL</div></div>
+          <div class="book"><div class="title"><a href="https://nostarch.com/packetanalysis3">Practical Packet Analysis</a></div><div class="author">CHRIS SANDERS</div></div>
+          <div class="book"><div class="title">Blue Team Field Manual</div><div class="author">WHITE · CLARK</div></div>
+          <div class="book"><div class="title"><a href="https://www.packtpub.com/product/practical-threat-intelligence-and-data-driven-threat-hunting/9781838556372">Practical Threat Intelligence</a></div><div class="author">COSTA-GAZCÓN</div></div>
+        </div>
+      </div>
+
+      <div class="library-section">
+        <h3>// WINDOWS DIEPTE</h3>
+        <div class="books-grid">
+          <div class="book"><div class="title"><a href="https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals">Windows Internals Vol 1 &amp; 2</a></div><div class="author">RUSSINOVICH ET AL</div></div>
+        </div>
+      </div>
+
+      <div class="library-section">
+        <h3>// MINDSET &amp; GESCHIEDENIS</h3>
+        <div class="books-grid">
+          <div class="book"><div class="title"><a href="https://www.simonandschuster.com/books/The-Cuckoos-Egg/Cliff-Stoll/9781416507789">The Cuckoo's Egg</a></div><div class="author">CLIFFORD STOLL · KLASSIEKER</div></div>
+          <div class="book"><div class="title">Sandworm</div><div class="author">ANDY GREENBERG</div></div>
+          <div class="book"><div class="title">Countdown to Zero Day</div><div class="author">KIM ZETTER · STUXNET</div></div>
+          <div class="book"><div class="title">Dark Territory</div><div class="author">FRED KAPLAN</div></div>
+          <div class="book"><div class="title">This Is How They Tell Me the World Ends</div><div class="author">NICOLE PERLROTH</div></div>
+          <div class="book"><div class="title"><a href="https://us.macmillan.com/books/9780374287269/activemeasures">Active Measures</a></div><div class="author">THOMAS RID</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NL CONTEXT -->
+    <section id="nl-context">
+      <div class="section-head">
+        <div class="badge">NL CONTEXT</div>
+        <div>
+          <h2>Nederlandse &amp; Europese <em>context</em>.</h2>
+        </div>
+      </div>
+      <p class="section-intro">Specifiek voor wie hier werkt en leert: wetgeving, lokale platforms, communities die je in Nederland kunt opzoeken.</p>
+
+      <div class="nl-context-cards">
+        <div class="nl-card">
+          <h4>// WETGEVING</h4>
+          <p><strong>Artikel 138ab Wetboek van Strafrecht</strong> (computervredebreuk) — tot 4 jaar gevangenisstraf; geaggregeerde vormen meer. Kennis hiervan is geen optie.</p>
+        </div>
+        <div class="nl-card">
+          <h4>// RESPONSIBLE DISCLOSURE</h4>
+          <p>Het <a href="https://www.ncsc.nl/onderwerpen/coordinated-vulnerability-disclosure">NCSC heeft een Leidraad CVD</a> — de Nederlandse standaard voor coordinated vulnerability disclosure. Volg deze.</p>
+        </div>
+        <div class="nl-card">
+          <h4>// BUG BOUNTY · NL/BE</h4>
+          <p><a href="https://www.zerocopter.com/">Zerocopter</a> (NL) en <a href="https://www.intigriti.com/">Intigriti</a> (BE) zijn de regionale platforms naast de internationale <a href="https://hackerone.com/">HackerOne</a> en <a href="https://bugcrowd.com/">Bugcrowd</a>.</p>
+        </div>
+        <div class="nl-card">
+          <h4>// DIVD</h4>
+          <p><a href="https://www.divd.nl/">Dutch Institute for Vulnerability Disclosure</a> — vrijwilligers-instituut dat Nederlandse infrastructuur scant en RD doet. Goede plek om bij te dragen en te leren.</p>
+        </div>
+        <div class="nl-card">
+          <h4>// CONFERENTIES NL</h4>
+          <p><a href="https://www.hitbsectrain.com/">Hack in The Box Amsterdam</a> jaarlijks · <a href="https://bsidesams.nl/">BSides Amsterdam</a> · <a href="https://www.sans.org/cyber-security-training-events/amsterdam/">SANS Amsterdam</a> trainingen</p>
+        </div>
+        <div class="nl-card">
+          <h4>// COMMUNITIES</h4>
+          <p><a href="https://owasp.org/www-chapter-netherlands/">Nederlandse OWASP chapter</a> · <a href="https://ccu.nl/">Cyber Crime Unit (NCSC, politie)</a> publicaties · Discord communities zoals NLSec.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ETHICS -->
+    <section id="ethics">
+      <div class="section-head">
+        <div class="badge" style="border-color:var(--accent-hot);color:var(--accent-hot);background:rgba(255,82,82,0.05);">KRITIEK</div>
+        <div>
+          <h2>Lees dit <em style="color:var(--accent-hot);">elke fase</em>.</h2>
+        </div>
+      </div>
+
+      <div class="ethics">
+        <p>Elke skill in dit curriculum is dual-use. Dezelfde port scan die je lab-machine vindt, vindt een ziekenhuisnetwerk. Hetzelfde exploit dat een CTF box popt, popt een echte. De lijn tussen security researcher en crimineel is <strong style="color:var(--accent-hot)">autorisatie</strong>, niet skill.</p>
+        <ul>
+          <li>Schriftelijke toestemming, altijd. Mondelinge afspraken overleven geen rechtszaal.</li>
+          <li>Bug bounty programma's zijn je legale speeltuin — <a href="https://hackerone.com/">HackerOne</a>, <a href="https://bugcrowd.com/">Bugcrowd</a>, <a href="https://www.intigriti.com/">Intigriti</a>, <a href="https://www.zerocopter.com/">Zerocopter</a>, <a href="https://www.yeswehack.com/">YesWeHack</a></li>
+          <li>Responsible disclosure bij vondsten in het wild — volg de <a href="https://www.ncsc.nl/onderwerpen/coordinated-vulnerability-disclosure">NCSC Leidraad CVD</a></li>
+          <li>Release nooit malware, zelfs niet "samples"</li>
+          <li>In Nederland: <strong>Artikel 138ab Wetboek van Strafrecht</strong> (computervredebreuk) — tot 4 jaar; geaggregeerde vormen meer</li>
+          <li>De EU criminaliseert steeds meer "security tools" bezit — ken je lokale wet</li>
+          <li>Bij twijfel — doe het niet, en documenteer waarom</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      DIEPTE EDITIE // v2.0 // NL // BLIJF NIEUWSGIERIG · BLIJF LEGAAL · BOUW DINGEN<span class="cursor"></span>
+    </footer>
+
+  </main>
+</div>
+
+</body>
+</html>

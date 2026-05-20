@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="phase-id" content="fase-5">
+<title>Fase 5 // Levenslang Leren // LearnSec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+details.deep-understanding {
+  background: var(--bg-panel);
+  border: 1px solid var(--accent-violet);
+  border-left: 3px solid var(--accent-violet);
+  margin: 16px 0;
+  max-width: 720px;
+}
+details.deep-understanding summary {
+  padding: 14px 18px;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-violet);
+  text-transform: uppercase;
+  user-select: none;
+}
+details.deep-understanding summary:hover { background: rgba(192,132,252,0.05); }
+details.deep-understanding[open] summary { border-bottom: 1px solid var(--rule-soft); }
+details.deep-understanding .deep-content {
+  padding: 18px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+details.deep-understanding .deep-content p { margin-bottom: 12px; max-width: none; }
+
+details.answer-reveal {
+  background: var(--bg-deep);
+  border: 1px dashed var(--rule);
+  margin: 8px 0;
+  max-width: 720px;
+}
+details.answer-reveal summary {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  user-select: none;
+}
+details.answer-reveal summary:hover { color: var(--accent); }
+details.answer-reveal .answer-content {
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  border-top: 1px dashed var(--rule-soft);
+}
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <aside>
+    <div class="brand">// LEARNSEC</div>
+    <div class="brand-sub">cybersec.leeromgeving</div>
+    <div class="edition">&#9733; FASE 05 &middot; LEVENSLANG &#9733;</div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">SECTIES</div>
+      <nav>
+        <a href="#bronnen" class="active"><span class="num">5.1</span>Hoog-Signaal Bronnen</a>
+        <a href="#conferenties"><span class="num">5.2</span>Conferenties</a>
+        <a href="#oefeningen"><span class="num">5.3</span>Oefeningen</a>
+        <a href="#nl-context"><span class="num">5.4</span>NL &amp; EU Context</a>
+        <a href="#ethics"><span class="num">!!</span>Ethiek</a>
+      </nav>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">NAVIGATIE</div>
+      <nav>
+        <a href="#checklist-final"><span class="num">&#10003;</span>Checklist</a>
+      </nav>
+    </div>
+
+    <div class="back-link">
+      <a href="../index.html">&larr; Terug naar hub</a>
+    </div>
+
+    <div class="meta">
+      <strong>METHODE</strong>
+      Bronnen volgen. Conferenties bijwonen.<br>
+      Bijdragen aan de community.<br>
+      Nooit stoppen met leren.
+      <strong>DUUR</strong>
+      Voor altijd
+    </div>
+  </aside>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="ascii-dec">&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;  &#9617;&#9618;&#9619; FASE  05 &#9619;&#9618;&#9617;  &#9474;
+&#9474;                   &#9474;
+&#9474;  > lees_signaal    &#9474;
+&#9474;  > volg_bronnen    &#9474;
+&#9474;  > bouw_netwerk    &#9474;
+&#9474;  > compound_wins   &#9474;
+&#9474;                   &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</div>
+
+      <div class="tag">LEEROMGEVING <span class="phase-badge">FASE 05</span><span class="lang">NL</span></div>
+      <h1>Levenslang <em>leren</em>.</h1>
+      <p class="lede">Cybersecurity beloont consistentie boven intensiteit. De compounders winnen.</p>
+
+      <div class="philosophy">
+        <strong>WAAROM DEZE FASE</strong>
+        Er is geen eindpunt. Het dreigingslandschap verandert sneller dan welk curriculum ook kan bijhouden. De enige verdediging is een systeem van hoog-signaal bronnen, een netwerk van slimme mensen, en de discipline om elke week te blijven leren. Dit is de belangrijkste fase.
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="k">BRONNEN</div><div class="v">08</div><div class="u">hoog-signaal</div></div>
+        <div class="stat"><div class="k">CONFERENTIES</div><div class="v">08+</div><div class="u">wereldwijd</div></div>
+        <div class="stat"><div class="k">OEFENINGEN</div><div class="v">04</div><div class="u">hands-on</div></div>
+        <div class="stat"><div class="k">DUUR</div><div class="v">&infin;</div><div class="u">voor altijd</div></div>
+      </div>
+    </div>
+
+    <!-- GLOBAL PROGRESS -->
+    <section>
+      <div class="progress-bar-container" data-scope="page">
+        <div class="progress-bar-header">
+          <div class="progress-bar-label">FASE 5 VOORTGANG</div>
+          <div class="progress-bar-pct">0/0 &middot; 0%</div>
+        </div>
+        <div class="progress-bar"><div class="fill"></div></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTIE 5.1 — HOOG-SIGNAAL BRONNEN
+         ============================================================ -->
+    <section id="bronnen" class="phase-5">
+      <div class="section-head">
+        <div class="badge">SEC 5.1</div>
+        <div>
+          <h2>Hoog-Signaal <em>Bronnen</em>.</h2>
+          <div class="duration">VOOR ALTIJD &middot; WEKELIJKS VOLGEN</div>
+        </div>
+      </div>
+      <p class="section-intro">De beste bronnen om permanent te volgen. Kwaliteit boven kwantiteit &mdash; acht bronnen die je meer leren dan honderd willekeurige feeds.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">5.1</div>
+          <div class="body">
+            <h3>De bronnen die ertoe doen</h3>
+            <p class="desc">Elke bron hieronder is geselecteerd op basis van consistente kwaliteit, technische diepte, en bewezen track record. Dit zijn geen nieuwssites &mdash; dit zijn primaire bronnen van mensen die het werk daadwerkelijk doen.</p>
+
+            <ul>
+              <li><strong>The DFIR Report</strong> (thedfirreport.com) &mdash; Gratis, wekelijks, wereldklasse incident writeups. Elke post is een compleet verhaal van initial access tot impact, met IOCs, MITRE ATT&CK mappings, en detectie-tips. Dit is hoe echte aanvallen eruitzien. <em>Onmisbaar.</em></li>
+              <li><strong>Risky Business</strong> (risky.biz) &mdash; Patrick Gray's podcast en newsletter. De beste manier om op de hoogte te blijven van het security-landschap zonder verdrinken in ruis. Scherpe analyse, goede gasten, nul sensationalisme.</li>
+              <li><strong>SANS Internet Storm Center</strong> (isc.sans.edu) &mdash; Handler diaries, dagelijks bijgewerkt door ervaren incident handlers. Korte, bruikbare analyses van actuele dreigingen. De pulse van het internet.</li>
+              <li><strong>PortSwigger Research</strong> (portswigger.net/research) &mdash; Het research team achter Burp Suite publiceert baanbrekend web security onderzoek. Nieuwe aanvalscategorie&euml;n worden hier eerst beschreven. <em>Essentieel voor web security.</em></li>
+              <li><strong>Project Zero</strong> (googleprojectzero.blogspot.com) &mdash; Google's vulnerability research team. De diepste, meest technische writeups over exploits, mitigations, en aanvalsoppervlakken. Elke post is een masterclass.</li>
+              <li><strong>SpecterOps Blog</strong> (specterops.io/blog) &mdash; Offensieve security en Active Directory op het allerhoogste niveau. BloodHound, Rubeus, en de theorie erachter. Als je AD doet, is dit je bijbel.</li>
+              <li><strong>Mandiant / Google Cloud Threat Intelligence</strong> &mdash; APT reporting van het team dat de term "APT" populariseerde. State-level threat intel, campagne-analyses, en IOCs die je nergens anders vindt.</li>
+              <li><strong>ADSecurity.org</strong> &mdash; Sean Metcalf, de diepste Active Directory security writer die er is. Kerberos, delegation, group policy exploitation &mdash; elk artikel is een referentiewerk.</li>
+            </ul>
+
+            <!-- DEEP UNDERSTANDING -->
+            <details class="deep-understanding">
+              <summary>Diep Begrip &mdash; Signaal vs. Ruis</summary>
+              <div class="deep-content">
+                <p><strong>Waarom 'high-signal' bronnen belangrijker zijn dan 'meer' bronnen.</strong></p>
+                <p>Het verschil tussen ruis en signaal in cybersecurity informatie is het verschil tussen een headline die zegt "CRITICAL VULNERABILITY FOUND" en een writeup die je laat zien hoe de exploit werkt, wat de root cause is, en hoe je detectie bouwt.</p>
+                <p>De meeste security-nieuwssites herschrijven CVE-beschrijvingen en vendor-advisories. Ze voegen geen context toe. Ze helpen je niet beter worden. Ze geven je het gevoel dat je leert terwijl je alleen headlines consumeert.</p>
+                <p>Hoog-signaal bronnen zijn geschreven door mensen die het werk doen. The DFIR Report schrijft over incidenten die ze zelf hebben onderzocht. Project Zero schrijft over bugs die ze zelf hebben gevonden en geexploiteerd. SpecterOps schrijft over technieken die ze zelf hebben ontwikkeld.</p>
+                <p>De regel is simpel: volg de makers, niet de verslaggevers. Drie goede bronnen consistent lezen levert meer op dan twintig feeds half scannen.</p>
+              </div>
+            </details>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's &mdash; Conference Talks (Best Of)</h4>
+              <div class="video-grid">
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/q118B_QdP2k" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">DEF CON 31 &mdash; Enshittification (Cory Doctorow)</div>
+                    <div class="video-channel">DEF CON</div>
+                    <div class="video-desc">Cory Doctorow's keynote over de systematische degradatie van het internet &mdash; een van de meest bekeken DEF CON talks ooit. Puur signaal.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/4u4JX_2DgjU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Black Hat USA 2023 &mdash; Ukraine Cyber Defense</div>
+                    <div class="video-channel">BLACK HAT</div>
+                    <div class="video-desc">Keynote over hoe Oekra&iuml;ne zich cyber verdedigt &mdash; lessen voor de hele wereld. Technisch zwaargewicht van Black Hat's officieel kanaal.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/a9e6NFGwHvk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">HITB Amsterdam 2023 &mdash; The Myths of Software Security</div>
+                    <div class="video-channel">HACK IN THE BOX</div>
+                    <div class="video-desc">Keynote van Mark Curphey op HITB Amsterdam 2023. Europees perspectief op software security mythes en realiteit.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen &mdash; Direct Volgen</h4>
+            <div class="resource-links">
+              <a href="https://thedfirreport.com/" target="_blank" rel="noopener">The DFIR Report</a>
+              <a href="https://risky.biz/" target="_blank" rel="noopener">Risky Business</a>
+              <a href="https://isc.sans.edu/" target="_blank" rel="noopener">SANS ISC</a>
+              <a href="https://portswigger.net/research" target="_blank" rel="noopener">PortSwigger Research</a>
+              <a href="https://googleprojectzero.blogspot.com/" target="_blank" rel="noopener">Project Zero</a>
+              <a href="https://specterops.io/blog" target="_blank" rel="noopener">SpecterOps Blog</a>
+              <a href="https://www.mandiant.com/resources/blog" target="_blank" rel="noopener">Mandiant Blog</a>
+              <a href="https://adsecurity.org/" target="_blank" rel="noopener">ADSecurity.org</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTIE 5.2 — CONFERENTIES
+         ============================================================ -->
+    <section id="conferenties" class="phase-5">
+      <div class="section-head">
+        <div class="badge">SEC 5.2</div>
+        <div>
+          <h2><em>Conferenties</em>.</h2>
+          <div class="duration">VOOR ALTIJD &middot; JAARLIJKS BIJWONEN</div>
+        </div>
+      </div>
+      <p class="section-intro">De conferenties die je loopbaan vormen. Niet alleen voor de talks &mdash; die komen online &mdash; maar voor de hallway track, het netwerken, en de village workshops.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">5.2</div>
+          <div class="body">
+            <h3>De conferenties die ertoe doen</h3>
+            <p class="desc">Niet elke conferentie is gelijk. Sommige zijn voor de talks, andere voor de community, weer andere voor de hands-on workshops. Hier zijn de conferenties die consequent de hoogste waarde leveren.</p>
+
+            <ul>
+              <li><strong>DEF CON + Black Hat</strong> (Las Vegas) &mdash; De grootste. DEF CON is de community, Black Hat is de industrie. Samen vormen ze het epicentrum van de security-wereld. DEF CON's villages (hardware, lockpicking, car hacking, AI) zijn onge&euml;venaard.</li>
+              <li><strong>Troopers + OffensiveCon</strong> (Duitsland) &mdash; Technisch op het allerhoogste niveau. Troopers in Heidelberg voor infrastructure security, OffensiveCon in Berlijn voor exploit development. Europees, toegankelijk, uitstekende community.</li>
+              <li><strong>BSides</strong> (overal ter wereld) &mdash; Lokaal, goedkoop, en ongelofelijk vriendelijk. BSides-conferenties zijn de beste manier om je lokale security community te leren kennen. Lage drempel, hoge kwaliteit, en de perfecte plek om je eerste talk te geven.</li>
+              <li><strong>Hack in The Box Amsterdam</strong> (Nederland, jaarlijks) &mdash; De belangrijkste security-conferentie in Nederland. Internationale sprekers, hands-on trainings, en een sterke community. Als je in NL woont, is dit verplicht.</li>
+              <li><strong>FIRST</strong> (wisselende locatie) &mdash; Gericht op incident response. Als je in DFIR, SOC, of CSIRT zit, is dit je conferentie. Practitioners die praten met practitioners.</li>
+              <li><strong>Hexacon</strong> (Parijs) &mdash; Low-level security: exploits, reverse engineering, en vulnerability research. Klein, intiem, extreem technisch. Voor de specialists.</li>
+              <li><strong>fwd:cloudsec</strong> (wisselend) &mdash; Cloud security specifiek. AWS, Azure, GCP security research. De cloud-niche groeit snel en deze conferentie is het epicentrum.</li>
+            </ul>
+
+            <!-- DEEP UNDERSTANDING -->
+            <details class="deep-understanding">
+              <summary>Diep Begrip &mdash; Het Meeste uit Conferenties Halen</summary>
+              <div class="deep-content">
+                <p><strong>Hoe je het meeste uit conferenties haalt &mdash; het gaat niet om de talks.</strong></p>
+                <p>De talks komen online. Binnen een week na elke grote conferentie staan de opnames op YouTube. Als je alleen voor de talks gaat, kijk je thuis.</p>
+                <p>De echte waarde van conferenties zit in drie dingen:</p>
+                <p><strong>1. De hallway track.</strong> De gesprekken die je voert tussen de talks door. De toevallige ontmoeting met iemand die exact hetzelfde probleem heeft onderzocht. De lunch waar iemand een techniek uitlegt die nergens gepubliceerd is. Dit kun je niet repliceren online.</p>
+                <p><strong>2. Het netwerk.</strong> De mensen die je ontmoet op conferenties worden je toekomstige collega's, mentoren, co-auteurs, en werkgevers. Security is een klein wereldje. Gezichten bij namen maakt alles makkelijker &mdash; van incident response co&ouml;rdinatie tot job referrals.</p>
+                <p><strong>3. De villages en workshops.</strong> Hands-on workshops waar je in twee uur meer leert dan in twee weken thuis. DEF CON villages, BSides workshops, Troopers trainings &mdash; dit is waar de echte skill transfer plaatsvindt.</p>
+                <p>Tip: bereid je voor. Kijk wie er spreekt, wie er aanwezig is, en plan bewust gesprekken in. Ga niet passief naar talks zitten &mdash; participeer, stel vragen, en wees zichtbaar.</p>
+              </div>
+            </details>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen &mdash; Conferenties</h4>
+            <div class="resource-links">
+              <a href="https://defcon.org/" target="_blank" rel="noopener">DEF CON</a>
+              <a href="https://www.blackhat.com/" target="_blank" rel="noopener">Black Hat</a>
+              <a href="https://troopers.de/" target="_blank" rel="noopener">Troopers</a>
+              <a href="https://www.offensivecon.org/" target="_blank" rel="noopener">OffensiveCon</a>
+              <a href="http://www.securitybsides.com/" target="_blank" rel="noopener">BSides (overzicht)</a>
+              <a href="https://www.hitb.org/" target="_blank" rel="noopener">Hack in The Box</a>
+              <a href="https://www.first.org/conference/" target="_blank" rel="noopener">FIRST Conference</a>
+              <a href="https://www.hexacon.fr/" target="_blank" rel="noopener">Hexacon</a>
+              <a href="https://fwdcloudsec.org/" target="_blank" rel="noopener">fwd:cloudsec</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTIE 5.3 — OEFENINGEN
+         ============================================================ -->
+    <section id="oefeningen" class="phase-5">
+      <div class="section-head">
+        <div class="badge">SEC 5.3</div>
+        <div>
+          <h2><em>Oefeningen</em>.</h2>
+          <div class="duration">VOOR ALTIJD &middot; DOORLOPEND</div>
+        </div>
+      </div>
+      <p class="section-intro">Leren zonder toepassen is entertainment. Deze oefeningen bouwen gewoontes die je loopbaan compounderen.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">5.3</div>
+          <div class="body">
+            <h3>Gewoontes die compounderen</h3>
+            <p class="desc">Deze oefeningen zijn geen eenmalige taken. Het zijn gewoontes die je structureel inbouwt. Het verschil tussen junior en senior is niet talent &mdash; het is consistentie over jaren.</p>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 5.3.1</div>
+                  <div class="exercise-difficulty medium">MEDIUM</div>
+                </div>
+                <div class="exercise-title">Persoonlijk leerplan opstellen</div>
+                <div class="exercise-desc">
+                  Kies 3 hoog-signaal bronnen uit sectie 5.1 en commit jezelf aan het wekelijks lezen ervan voor minimaal 3 maanden. Maak een systeem: vaste dag, vast moment, vaste plek. Track wat je leert in een persoonlijke kennisbank.
+                </div>
+                <div class="exercise-source">Bron: Atomic Habits &middot; James Clear &mdash; gewoontevorming voor leren</div>
+
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    <strong>Aanbevolen combinatie:</strong> The DFIR Report + PortSwigger Research + &eacute;&eacute;n specialistische bron gebaseerd op je gekozen track (bijv. SpecterOps als je AD doet, Mandiant als je threat intel doet). Track wat je leert in een persoonlijke kennisbank &mdash; Obsidian of Notion werken hier uitstekend voor. Maak per artikel een notitie met: (1) kernpunten, (2) nieuwe technieken/tools, (3) hoe je dit kunt toepassen. Na 3 maanden heb je 36+ verwerkte artikelen en een doorzoekbare kennisbank.
+                  </div>
+                </details>
+              </div>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 5.3.2</div>
+                  <div class="exercise-difficulty medium">MEDIUM</div>
+                </div>
+                <div class="exercise-title">5 conference talks kijken en samenvatten</div>
+                <div class="exercise-desc">
+                  Bekijk 5 DEF CON of Black Hat talks van het afgelopen jaar die relevant zijn voor jouw specialisatie. Schrijf per talk een samenvatting van de key takeaways: wat is het probleem, wat is de aanpak, wat is nieuw, en hoe past dit in je eigen werk?
+                </div>
+                <div class="exercise-source">Bron: DEF CON &amp; Black Hat YouTube-kanalen</div>
+
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    Zoek talks op basis van je specialisatie: Red Team &rarr; DEF CON Red Team Village, AppSec &rarr; Black Hat Web Application talks, DFIR &rarr; SANS DFIR Summit recordings. Schrijf per talk: (1) titel en spreker, (2) het probleem dat wordt geadresseerd, (3) de kernoplossing of techniek, (4) 3 concrete takeaways, (5) hoe je dit kunt toepassen. Publiceer je samenvattingen &mdash; dit is het begin van je blog.
+                  </div>
+                </details>
+              </div>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 5.3.3</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Security blog of write-up series starten</div>
+                <div class="exercise-desc">
+                  Start een persoonlijke security blog of write-up series waarin je je leerproces documenteert. Dit kan op GitHub Pages, Medium, of je eigen domein. Schrijf minimaal 1 post per maand over iets dat je hebt geleerd, een tool die je hebt gebouwd, een CTF challenge die je hebt opgelost, of een analyse van een recent incident.
+                </div>
+                <div class="exercise-source">Bron: De beste security-professionals schrijven &mdash; Julia Evans, Troy Hunt, Daniel Miessler</div>
+
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    Begin simpel: GitHub Pages met een statische site generator (Hugo, Jekyll) is gratis en geeft je volledige controle. Je eerste posts hoeven niet perfect te zijn &mdash; documenteer gewoon wat je leert. Goede eerste onderwerpen: een HTB/THM writeup, een tool review, een uitleg van een concept dat je zelf moest leren. Consistentie is belangrijker dan perfectie. Na een jaar heb je 12+ posts en een zichtbaar track record.
+                  </div>
+                </details>
+              </div>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 5.3.4</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Bijdragen aan een open-source security project</div>
+                <div class="exercise-desc">
+                  Draag bij aan een open-source security project. Dit kan een Sigma detection rule zijn, een Nuclei template, een YARA rule, documentatie, of een bugfix. Kies een project dat aansluit bij je specialisatie en maak minimaal &eacute;&eacute;n geaccepteerde bijdrage.
+                </div>
+                <div class="exercise-source">Bron: SigmaHQ, projectdiscovery/nuclei-templates, YARA-Rules, Atomic Red Team</div>
+
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    Begin met iets kleins: een Sigma rule voor een detectie die je hebt gebouwd in je lab, een Nuclei template voor een CVE die je hebt bestudeerd, of een YARA rule voor een malware sample dat je hebt geanalyseerd. Fork het repository, maak je wijziging, schrijf een duidelijke commit message en PR beschrijving. Goede starter projecten: <strong>SigmaHQ/sigma</strong> (detection rules), <strong>projectdiscovery/nuclei-templates</strong> (vulnerability scanning), <strong>YARA-Rules/rules</strong> (malware signatures), <strong>redcanaryco/atomic-red-team</strong> (adversary emulation tests).
+                  </div>
+                </details>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTIE 5.4 — NEDERLANDSE & EUROPESE CONTEXT
+         ============================================================ -->
+    <section id="nl-context" class="phase-5">
+      <div class="section-head">
+        <div class="badge">SEC 5.4</div>
+        <div>
+          <h2>Nederlandse &amp; Europese <em>Context</em>.</h2>
+          <div class="duration">VOOR ALTIJD &middot; WETTELIJK KADER</div>
+        </div>
+      </div>
+      <p class="section-intro">Nederland heeft een unieke positie in de security-wereld. Ken je wettelijk kader, je disclosure-opties, en je lokale community.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">5.4</div>
+          <div class="body">
+            <h3>NL/EU Security Landschap</h3>
+            <p class="desc">De Nederlandse en Europese context verschilt fundamenteel van de VS. Andere wetgeving, andere disclosure-cultuur, andere community-structuren. Ken je speelveld.</p>
+
+            <h4>Wetgeving</h4>
+            <ul>
+              <li><strong>Artikel 138ab Wetboek van Strafrecht</strong> &mdash; Computervredebreuk. De kernwet die ongeautoriseerde toegang tot computersystemen strafbaar stelt. Ken dit artikel uit je hoofd. Het definieert de grens tussen security researcher en crimineel in Nederland.</li>
+            </ul>
+
+            <h4>Responsible Disclosure</h4>
+            <ul>
+              <li><strong>NCSC Leidraad Coordinated Vulnerability Disclosure (CVD)</strong> &mdash; De Nederlandse overheidsrichtlijn voor het verantwoord melden van kwetsbaarheden. Nederland was een van de eerste landen ter wereld met een officieel CVD-beleid. Dit is je kompas als je een kwetsbaarheid vindt buiten een bug bounty programma.</li>
+            </ul>
+
+            <h4>Bug Bounty Platforms (NL/BE)</h4>
+            <ul>
+              <li><strong>Zerocopter</strong> &mdash; Nederlands bug bounty platform. Veel Nederlandse overheids- en bedrijfsklanten. Legale speeltuin met Nederlandse juridische dekking.</li>
+              <li><strong>Intigriti</strong> &mdash; Belgisch platform, sterk in Europa. Groeiend programma-aanbod, goede community, en Europese juridische structuur.</li>
+              <li><strong>HackerOne &amp; Bugcrowd</strong> &mdash; De globale platformen. Grootste programma-selectie, maar VS-geori&euml;nteerd. Wel veel Nederlandse bedrijven aanwezig.</li>
+            </ul>
+
+            <h4>Organisaties</h4>
+            <ul>
+              <li><strong>DIVD</strong> (Dutch Institute for Vulnerability Disclosure) &mdash; Nederlands vrijwilligersinstituut dat op grote schaal kwetsbaarheden opspoort en verantwoord meldt. Uniek in de wereld. Ze hebben duizenden organisaties gewaarschuwd voor kritieke kwetsbaarheden. Een model voor de rest van de wereld.</li>
+            </ul>
+
+            <h4>Conferenties NL</h4>
+            <ul>
+              <li><strong>Hack in The Box Amsterdam</strong> &mdash; Internationaal, technisch, jaarlijks in Amsterdam.</li>
+              <li><strong>BSides Amsterdam</strong> &mdash; Community-gedreven, lage drempel, goede netwerkmogelijkheden.</li>
+              <li><strong>SANS Amsterdam</strong> &mdash; Training-gefocust, duur maar uitstekende kwaliteit.</li>
+            </ul>
+
+            <h4>Communities</h4>
+            <ul>
+              <li><strong>Nederlandse OWASP Chapter</strong> &mdash; Regelmatige meetups over web application security. Uitstekend startpunt voor je netwerk.</li>
+              <li><strong>NLSec Discord</strong> &mdash; De Nederlandse security Discord. Actieve community van professionals, studenten, en hobbyisten. Laagdrempelig, hulpvaardig, en actueel.</li>
+            </ul>
+
+            <!-- DEEP UNDERSTANDING -->
+            <details class="deep-understanding">
+              <summary>Diep Begrip &mdash; Nederlandse CVD-Cultuur</summary>
+              <div class="deep-content">
+                <p><strong>Waarom de Nederlandse CVD-cultuur uniek is in de wereld.</strong></p>
+                <p>Nederland was een van de eerste landen met een officieel coordinated vulnerability disclosure beleid. De NCSC Leidraad CVD gaf security researchers een duidelijk kader: als je een kwetsbaarheid vindt, kun je die verantwoord melden zonder strafrechtelijke vervolging &mdash; mits je proportioneel handelt.</p>
+                <p>Dit klinkt vanzelfsprekend, maar in veel landen is het dat niet. In de VS opereren researchers onder constante juridische dreiging via de CFAA (Computer Fraud and Abuse Act). In sommige Europese landen bestaat er geen officieel disclosure-beleid, waardoor elke melding een juridisch risico is.</p>
+                <p>Het Nederlandse model heeft bewezen dat samenwerking tussen overheid, bedrijven, en security researchers werkt. Het DIVD is hier het beste voorbeeld van: een volledig vrijwilligersorganisatie die op industriele schaal kwetsbaarheden opspoort en verantwoord meldt, met steun van de overheid.</p>
+                <p>Als Nederlandse security professional sta je op de schouders van dit systeem. Ken het, respecteer het, en draag eraan bij. Meld kwetsbaarheden verantwoord. Gebruik de NCSC leidraad als referentie. En als je internationaal werkt, weet dat niet elk land dezelfde bescherming biedt.</p>
+              </div>
+            </details>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen &mdash; NL/EU</h4>
+            <div class="resource-links">
+              <a href="https://www.ncsc.nl/documenten/publicaties/2019/mei/01/cvd-leidraad" target="_blank" rel="noopener">NCSC Leidraad CVD</a>
+              <a href="https://wetten.overheid.nl/BWBR0001854/2024-01-01/#BoekTweede_TiteldeelV_Artikel138ab" target="_blank" rel="noopener">Art. 138ab Sr</a>
+              <a href="https://www.divd.nl/" target="_blank" rel="noopener">DIVD</a>
+              <a href="https://www.zerocopter.com/" target="_blank" rel="noopener">Zerocopter</a>
+              <a href="https://www.intigriti.com/" target="_blank" rel="noopener">Intigriti</a>
+              <a href="https://owasp.org/www-chapter-netherlands/" target="_blank" rel="noopener">OWASP NL Chapter</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ETHICS REMINDER
+         ============================================================ -->
+    <section id="ethics">
+      <div class="ethics">
+        <p><strong>Ethiek &mdash; Lees dit elke fase</strong></p>
+        <p>Dit is de belangrijkste sectie van het hele curriculum. Elke keer dat je een nieuwe skill leert, herinner jezelf aan deze principes. Ze zijn niet optioneel.</p>
+        <ul>
+          <li><strong>Elke skill is dual-use.</strong> Dezelfde kennis die een pentester gebruikt om kwetsbaarheden te vinden, kan een crimineel gebruiken om schade aan te richten. Het verschil is intentie en autorisatie.</li>
+          <li><strong>Autorisatie is de lijn.</strong> Zonder expliciete toestemming is het illegaal. Geen uitzonderingen. Geen "maar ik wilde alleen kijken". Geen "het was toch al open".</li>
+          <li><strong>Schriftelijke toestemming, altijd.</strong> Mondeling is niet genoeg. Scope, tijdframe, en beperkingen &mdash; allemaal op papier. Dit beschermt jou en de opdrachtgever.</li>
+          <li><strong>Bug bounty platforms als legale speeltuin.</strong> Zerocopter, Intigriti, HackerOne, Bugcrowd &mdash; dit zijn de enige plekken waar je legaal kwetsbaarheden mag zoeken in systemen die niet van jou zijn.</li>
+          <li><strong>Responsible disclosure via NCSC Leidraad CVD.</strong> Als je een kwetsbaarheid vindt buiten een bug bounty programma, volg de NCSC leidraad. Meld het, geef de organisatie tijd om te fixen, en publiceer pas na afstemming.</li>
+          <li><strong>Artikel 138ab Sr.</strong> Computervredebreuk. Ken de wet. Weet wat strafbaar is. Onwetendheid is geen verdediging.</li>
+          <li><strong>Bij twijfel &mdash; doe het niet.</strong> Als je moet nadenken of iets mag, is het antwoord waarschijnlijk nee. Vraag eerst. Altijd.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CHECKLIST FASE 5
+         ============================================================ -->
+    <section id="checklist-final" class="phase-5">
+      <div class="section-head">
+        <div class="badge">CHECK</div>
+        <div>
+          <h2>Fase 5 <em>Checklist</em>.</h2>
+          <div class="duration">VOOR ALTIJD &middot; DOORLOPEND BIJHOUDEN</div>
+        </div>
+      </div>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">&#10003;</div>
+          <div class="body">
+            <h3>Levenslang Leren Checklist</h3>
+            <p class="desc">Deze items zijn niet eenmalig af te vinken &mdash; ze representeren gewoontes en mijlpalen die je continu bijhoudt. Vink af wanneer je ze voor het eerst hebt bereikt.</p>
+
+            <h4>Checklist</h4>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f5-01"> Ik volg 3+ hoog-signaal bronnen wekelijks</li>
+              <li><input type="checkbox" id="f5-02"> Ik heb talks van 2+ conferenties bekeken of bijgewoond</li>
+              <li><input type="checkbox" id="f5-03"> Ik heb bijgedragen aan een open-source security project</li>
+              <li><input type="checkbox" id="f5-04"> Ik ben actief in minimaal &eacute;&eacute;n security community</li>
+              <li><input type="checkbox" id="f5-05"> Ik ben gestart met een persoonlijke blog of write-up series</li>
+              <li><input type="checkbox" id="f5-06"> Ik ken de Nederlandse cybercrimewetgeving (Art. 138ab Sr)</li>
+              <li><input type="checkbox" id="f5-07"> Ik heb de NCSC CVD-leidraad gelezen en begrepen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      LEARNSEC // FASE 05 // LEVENSLANG LEREN // BLIJF NIEUWSGIERIG &middot; BLIJF LEGAAL &middot; BOUW DINGEN<span class="cursor"></span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="../js/progress.js"></script>
+</body>
+</html>

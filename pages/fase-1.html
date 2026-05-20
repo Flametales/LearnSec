@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="phase-id" content="fase-1">
+<title>Fase 1 — Fundamenten Verdiept // LearnSec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="frame">
+
+  <aside>
+    <div class="brand">// LEARNSEC</div>
+    <div class="brand-sub">cybersec.leeromgeving</div>
+    <div class="edition">&#9733; FASE 01 &middot; FUNDAMENTEN &#9733;</div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">MODULES</div>
+      <nav>
+        <a href="#mod-1-1"><span class="num">1.1</span>Mentale Modellen</a>
+        <a href="#mod-1-2"><span class="num">1.2</span>Cryptografie</a>
+        <a href="#mod-1-3"><span class="num">1.3</span>OS Security</a>
+        <a href="#mod-1-4"><span class="num">1.4</span>Web Protocollen</a>
+        <a href="#mod-1-5"><span class="num">1.5</span>Home Lab</a>
+      </nav>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">NAVIGATIE</div>
+      <nav>
+        <a href="../index.html"><span class="num">&larr;</span>Terug naar Hub</a>
+      </nav>
+    </div>
+
+    <div class="meta">
+      <strong>METHODE</strong>
+      Video's kijken. Bronnen lezen.<br>
+      Oefeningen maken. Labs bouwen.<br>
+      Herhaal tot mastery.
+      <strong>STATUS</strong>
+      <span style="color: var(--accent);">&#9679; ACTIEF</span>
+    </div>
+  </aside>
+
+  <main id="top">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <div class="hero">
+      <div class="ascii-dec">&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;  &#9617;&#9618;&#9619; FASE  01 &#9619;&#9618;&#9617;  &#9474;
+&#9474;                   &#9474;
+&#9474;  > mentale_mod     &#9474;
+&#9474;  > cryptografie     &#9474;
+&#9474;  > os_security      &#9474;
+&#9474;  > web_protocol     &#9474;
+&#9474;  > home_lab         &#9474;
+&#9474;                   &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</div>
+
+      <div class="tag">FASE 01 <span class="phase-badge">FUNDAMENTEN VERDIEPT</span></div>
+      <h1>Fundamenten,<br><em>verdiept</em>.</h1>
+      <p class="lede">Mentale modellen, cryptografie op het diepste niveau, OS security vanuit aanvaller-perspectief, web op protocol-niveau, en je eigen home lab bouwen. De basis waar alles op rust.</p>
+
+      <div class="philosophy">
+        <strong>2-4 WEKEN</strong>
+        Deze fase gaat verder dan oppervlakkige kennis. Je leert niet alleen <em>wat</em> dingen zijn, maar <em>waarom</em> ze werken en <em>hoe</em> aanvallers ze misbruiken. Na deze fase kijk je fundamenteel anders naar systemen.
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="k">MODULES</div><div class="v">05</div><div class="u">leeromgevingen</div></div>
+        <div class="stat"><div class="k">VIDEO'S</div><div class="v">15</div><div class="u">gratis YouTube</div></div>
+        <div class="stat"><div class="k">OEFENINGEN</div><div class="v">19</div><div class="u">hands-on</div></div>
+        <div class="stat"><div class="k">SCOPE</div><div class="v">BREED</div><div class="u">fundamenten</div></div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PAGE-LEVEL PROGRESS BAR
+         ============================================================ -->
+    <section>
+      <div class="progress-bar-container" data-scope="page">
+        <div class="progress-bar-header">
+          <span class="progress-bar-label">VOORTGANG FASE 1</span>
+          <span class="progress-bar-pct">0/41 &middot; 0%</span>
+        </div>
+        <div class="progress-bar"><div class="fill"></div></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MODULE 1.1 — Mentale Modellen
+         ============================================================ -->
+    <section id="mod-1-1">
+      <div class="section-head">
+        <div class="badge">1.1</div>
+        <div>
+          <h2>Mentale Modellen &mdash;<br>Voorbij <em>CIA</em>.</h2>
+          <div class="duration">WEEK 1</div>
+        </div>
+      </div>
+      <p class="section-intro">De CIA triad is een startpunt, geen eindpunt. Leer de frameworks die security professionals echt gebruiken om dreigingen te modelleren en risico's te begrijpen.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">01</div>
+          <div class="body">
+            <h3>Threat Modeling Frameworks</h3>
+            <p class="desc">De CIA triad (Confidentiality, Integrity, Availability) is overal, maar het mist nuance. De <strong>Parkerian Hexad</strong> voegt Possession, Authenticity en Utility toe &mdash; cruciaal voor moderne systemen. <strong>STRIDE</strong> (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) geeft je een gestructureerde manier om dreigingen per component te classificeren.</p>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: Waarom CIA-triad niet genoeg is</summary>
+              <div class="deep-content">
+                <p>De CIA-triad (Confidentiality, Integrity, Availability) is een handig ezelsbruggetje, maar het mist cruciale dimensies. De Parkerian Hexad voegt <strong>Possession</strong> (fysieke controle over data), <strong>Authenticity</strong> (bewijs van oorsprong), en <strong>Utility</strong> (bruikbaarheid) toe.</p>
+                <p>Voorbeeld: een versleutelde backup waarvan je de sleutel kwijt bent heeft perfecte confidentiality en integrity, maar nul utility. Supply chain aanvallen (SolarWinds) schenden authenticity zonder traditionele CIA te raken &mdash; de software <em>WAS</em> integer, maar niet authentiek.</p>
+              </div>
+            </details>
+
+            <h4>Diepere Frameworks</h4>
+            <ul>
+              <li><strong>PASTA</strong> &mdash; Process for Attack Simulation and Threat Analysis: risico-gedreven, business-context eerst</li>
+              <li><strong>OCTAVE</strong> &mdash; Operationally Critical Threat, Asset, and Vulnerability Evaluation: asset-centric, organisatie-breed</li>
+              <li><strong>LINDDUN</strong> &mdash; Privacy threat modeling: Linkability, Identifiability, Non-repudiation, Detectability, Disclosure, Unawareness, Non-compliance</li>
+              <li><strong>Attack Trees (Schneier)</strong> &mdash; Hiërarchische decompositie van aanvalspaden: root node = doel, bladeren = atomaire acties</li>
+              <li><strong>Assume Breach</strong> &mdash; Het mentale model dat moderne defense definieert: ga ervan uit dat de aanvaller al binnen is. Ontwerp vanuit die realiteit.</li>
+            </ul>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/SBcDGb9l6yo" title="CIA Triad - Professor Messer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">CIA Triad</div>
+                    <div class="video-channel">Professor Messer</div>
+                    <div class="video-desc">De basis van security: Confidentiality, Integrity, Availability uitgelegd.</div>
+                  </div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/VoiHRBaV8Xk" title="STRIDE Threat Modeling - Destination Certification" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">CISSP Threat Modeling: STRIDE, DREAD, PASTA, VAST</div>
+                    <div class="video-channel">Destination Certification</div>
+                    <div class="video-desc">STRIDE framework stap voor stap uitgelegd met praktische voorbeelden.</div>
+                  </div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/l60-geScEDY" title="Threat Modeling - Simplilearn" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">What Is Threat Modeling?</div>
+                    <div class="video-channel">Simplilearn</div>
+                    <div class="video-desc">Overzicht van threat modeling methodologieën en hoe je ze toepast.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.1.1</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">Attack Tree: Web App met Betalingen</div>
+                <div class="exercise-desc">Bouw een attack tree voor een webapplicatie met payment processing. Root node: "Steal Customer Payment Data". Decomponeer in minimaal 3 niveaus diep. Identificeer leaf nodes en markeer de meest waarschijnlijke en goedkoopste aanvalspaden.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Root: <strong>"Steal payment data"</strong>. Branches: 1) SQL injection op checkout form &rarr; extract DB, 2) XSS op betaalpagina &rarr; capture form input, 3) Compromise payment processor API key &rarr; direct API access, 4) Social engineer developer &rarr; source code access &rarr; hardcoded credentials. Elke branch heeft sub-branches met difficulty/cost ratings.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.1.2</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">STRIDE op Je Thuisnetwerk</div>
+                <div class="exercise-desc">Pas STRIDE toe op je eigen thuisnetwerk. Teken eerst een diagram van alle componenten (router, apparaten, services). Documenteer voor elke STRIDE-categorie minimaal &eacute;&eacute;n concrete dreiging en een mitigatie.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><strong>Spoofing:</strong> ARP spoofing door kwaadaardig apparaat, DNS spoofing door compromised router. <strong>Tampering:</strong> MITM op onversleuteld verkeer, firmware manipulatie van IoT devices. <strong>Repudiation:</strong> Geen logging op router = geen bewijs van aanval. <strong>Information Disclosure:</strong> Unencrypted WiFi traffic, UPnP exposing services. <strong>DoS:</strong> Router resource exhaustion, WiFi deauth. <strong>Elevation:</strong> Default credentials op IoT, exploiting router admin panel.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.1.3</span>
+                  <span class="exercise-difficulty easy">EASY</span>
+                </div>
+                <div class="exercise-title">CIA vs Parkerian Hexad Vergelijking</div>
+                <div class="exercise-desc">Vergelijk de CIA triad met de Parkerian Hexad voor een cloud storage systeem (bijv. Google Drive of Dropbox). Waar schiet CIA tekort? Welke dreigingen vangt de Hexad w&eacute;l? Schrijf je analyse in een kort document.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Cloud storage voorbeeld: CIA zegt versleuteling = confidentiality OK. Parkerian Hexad vraagt ook: is de data <strong>authentiek</strong> (niet gemanipuleerd door cloud provider)? Heb je <strong>possession</strong> (wat als provider failliet gaat)? Is het <strong>utility</strong> (kun je het nog lezen over 10 jaar)?</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- READING -->
+            <div class="callout read">
+              <strong class="label">Leesmateriaal</strong>
+              <strong>Security Engineering</strong> (Ross Anderson) &mdash; Hoofdstuk 1-3. Gratis PDF beschikbaar op <a href="https://www.cl.cam.ac.uk/~rja14/book.html" target="_blank" rel="noopener">cl.cam.ac.uk/~rja14/book.html</a>. Dit is het fundament &mdash; Anderson schrijft zoals een practitioner denkt.
+            </div>
+
+            <!-- CHECKLIST -->
+            <div class="progress-bar-container" data-scope="section">
+              <div class="progress-bar-header">
+                <span class="progress-bar-label">VOORTGANG</span>
+                <span class="progress-bar-pct">0/8 &middot; 0%</span>
+              </div>
+              <div class="progress-bar"><div class="fill"></div></div>
+            </div>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f1-1-1"> Parkerian Hexad bestudeerd en begrepen hoe het CIA uitbreidt</li>
+              <li><input type="checkbox" id="f1-1-2"> STRIDE framework bestudeerd en op een systeem toegepast</li>
+              <li><input type="checkbox" id="f1-1-3"> PASTA, OCTAVE en LINDDUN methodologieën vergeleken</li>
+              <li><input type="checkbox" id="f1-1-4"> Attack tree gebouwd voor web app met betalingen</li>
+              <li><input type="checkbox" id="f1-1-5"> STRIDE toegepast op thuisnetwerk en gedocumenteerd</li>
+              <li><input type="checkbox" id="f1-1-6"> CIA vs Parkerian Hexad vergelijking geschreven</li>
+              <li><input type="checkbox" id="f1-1-7"> Alle drie video's bekeken</li>
+              <li><input type="checkbox" id="f1-1-8"> Security Engineering (Anderson) Ch 1-3 gelezen</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MODULE 1.2 — Cryptografie
+         ============================================================ -->
+    <section id="mod-1-2">
+      <div class="section-head">
+        <div class="badge">1.2</div>
+        <div>
+          <h2>Cryptografie &mdash;<br>Echt <em>begrijpen</em>.</h2>
+          <div class="duration">WEEK 1-2</div>
+        </div>
+      </div>
+      <p class="section-intro">Cryptografie is niet "gebruik AES en je bent veilig". Begrijp de modes, de wiskunde, de aanvallen, en waarom forward secrecy bestaat. Dit is de taal van security.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">02</div>
+          <div class="body">
+            <h3>Van Primitives tot Protocollen</h3>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: Waarom ECB mode een meme is en GCM nonce-reuse catastrofaal</summary>
+              <div class="deep-content">
+                <p>ECB versleutelt elk blok onafhankelijk met dezelfde key. Identieke plaintext-blokken &rarr; identieke ciphertext-blokken. Het beroemde &ldquo;ECB penguin&rdquo; beeld toont dit visueel.</p>
+                <p>GCM combineert CTR-mode encryptie met GHASH authenticatie. Maar als je een nonce hergebruikt: de XOR van twee ciphertexts = XOR van twee plaintexts (CTR keystream cancelt), EN de authenticatie key lekt volledig via de GHASH polynoom. <strong>E&eacute;n nonce hergebruik = game over.</strong></p>
+                <p>Dit is waarom AES-GCM-SIV bestaat als nonce-misuse-resistant alternatief.</p>
+              </div>
+            </details>
+
+            <h4>Symmetrische Cryptografie</h4>
+            <ul>
+              <li><strong>AES modes</strong> &mdash; ECB (nooit gebruiken), CBC (IV nodig, padding oracle), CTR (stream-achtig), GCM (authenticated encryption &mdash; de standaard)</li>
+              <li><strong>Block vs Stream ciphers</strong> &mdash; AES = block, ChaCha20 = stream. Wanneer welke? Performance, hardware support, nonce-reuse gevolgen</li>
+            </ul>
+
+            <h4>Hashing &amp; Key Derivation</h4>
+            <ul>
+              <li><strong>KDFs vs Hashes vs MACs</strong> &mdash; SHA-256 (hash), HMAC-SHA256 (MAC), PBKDF2/bcrypt/scrypt/Argon2 (KDF). Elk heeft een ander doel. Verwar ze niet.</li>
+              <li><strong>Password hashing</strong> &mdash; Argon2id is de huidige standaard. bcrypt als fallback. Nooit SHA-256 voor wachtwoorden.</li>
+            </ul>
+
+            <h4>Asymmetrische Cryptografie &amp; Key Exchange</h4>
+            <ul>
+              <li><strong>Diffie-Hellman</strong> &mdash; Het elegante key exchange protocol. Begrijp de discrete logarithm problem en waarom het werkt.</li>
+              <li><strong>ECC (Elliptic Curve Cryptography)</strong> &mdash; Kleiner keys, zelfde veiligheid. Curve25519 is de gouden standaard.</li>
+              <li><strong>Forward Secrecy</strong> &mdash; Ephemeral keys zorgen dat compromised long-term keys geen oude sessies onthullen.</li>
+            </ul>
+
+            <h4>TLS &amp; Quantum</h4>
+            <ul>
+              <li><strong>TLS 1.3</strong> &mdash; 1-RTT handshake, verplicht forward secrecy, geen RSA key exchange meer, AEAD-only cipher suites</li>
+              <li><strong>Post-quantum</strong> &mdash; CRYSTALS-Kyber (key exchange), CRYSTALS-Dilithium (signatures). Hybride aanpak: klassiek + PQ samen</li>
+            </ul>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/O4xNJsjtN6E" title="AES Explained - Computerphile" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">AES Explained</div>
+                    <div class="video-channel">Computerphile</div>
+                    <div class="video-desc">Hoe AES intern werkt: SubBytes, ShiftRows, MixColumns, AddRoundKey.</div>
+                  </div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/NmM9HA2MQGI" title="Diffie Hellman - Computerphile" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Diffie-Hellman Key Exchange</div>
+                    <div class="video-channel">Computerphile</div>
+                    <div class="video-desc">Het briljante key exchange protocol visueel uitgelegd.</div>
+                  </div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/86cQJ0MMses" title="TLS Handshake - Computerphile" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">TLS Handshake Explained</div>
+                    <div class="video-channel">Computerphile</div>
+                    <div class="video-desc">Wat er precies gebeurt wanneer je browser een HTTPS-verbinding opzet.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.2.1</span>
+                  <span class="exercise-difficulty hard">HARD</span>
+                </div>
+                <div class="exercise-title">Cryptopals Set 1</div>
+                <div class="exercise-desc">Voltooi de <a href="https://cryptopals.com" target="_blank" rel="noopener">Cryptopals</a> Set 1 challenges. Hex-naar-base64, XOR, single-byte XOR cipher, detect single-char XOR, repeating-key XOR, en break repeating-key XOR. Dit is de gouden standaard voor crypto-oefeningen.</div>
+                <div class="exercise-source">Bron: cryptopals.com</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Set 1 bevat 8 challenges die je leren: hex/base64 conversie, XOR encryptie, single-byte XOR kraken via frequency analysis, repeating-key XOR, hamming distance, en het detecteren + kraken van AES-ECB. Het cruciale inzicht uit challenge 6: de keysize van repeating-key XOR is te vinden via hamming distance van ciphertext-blokken.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.2.2</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">CryptoHack Introduction</div>
+                <div class="exercise-desc">Voltooi de Introduction challenges op <a href="https://cryptohack.org" target="_blank" rel="noopener">CryptoHack</a>. Interactieve browser-based crypto challenges die je stap voor stap door de fundamenten leiden.</div>
+                <div class="exercise-source">Bron: cryptohack.org</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Begin met &ldquo;Introduction to CryptoHack&rdquo; &rarr; &ldquo;General&rdquo; &rarr; &ldquo;Mathematics&rdquo;. De XOR challenges leren je dat XOR de fundamentele operatie is in symmetrische crypto. <code>a XOR b XOR b = a</code>. Dit is waarom OTP en stream ciphers werken.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.2.3</span>
+                  <span class="exercise-difficulty easy">EASY</span>
+                </div>
+                <div class="exercise-title">XOR Encryption in Python</div>
+                <div class="exercise-desc">Implementeer XOR encryption en decryption in Python. Schrijf functies voor single-byte XOR, multi-byte XOR, en demonstreer waarom XOR met een herhalende korte key kwetsbaar is voor frequentie-analyse.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><code>def xor_encrypt(plaintext, key): return bytes([p ^ key[i % len(key)] for i, p in enumerate(plaintext)])</code></p>
+                    <p>Om te kraken: als je de key-lengte weet, splits de ciphertext in kolommen en kraak elke kolom als single-byte XOR via frequency analysis (meest voorkomende byte = &lsquo;e&rsquo; of spatie XOR key-byte).</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.2.4</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">TLS 1.3 Handshake Capture</div>
+                <div class="exercise-desc">Capture een TLS 1.3 handshake met Wireshark. Identificeer elke message: ClientHello, ServerHello, EncryptedExtensions, Certificate, CertificateVerify, Finished. Noteer de cipher suite en key exchange methode.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><strong>ClientHello</strong> (supported versions, cipher suites, key_share met ECDH public key) &rarr; <strong>ServerHello</strong> (gekozen cipher suite, key_share met server ECDH public key) &rarr; <strong>Server Certificate + CertificateVerify + Finished</strong> (allemaal versleuteld met handshake keys) &rarr; <strong>Client Finished</strong>.</p>
+                    <p>Verschil met TLS 1.2: geen RSA key exchange (alleen DHE/ECDHE), 1-RTT in plaats van 2-RTT, alle data na ServerHello is versleuteld.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- READING -->
+            <div class="callout read">
+              <strong class="label">Leesmateriaal</strong>
+              <strong>Serious Cryptography</strong> (Jean-Philippe Aumasson) &mdash; Praktische cryptografie zonder de wiskundige overkill. Elke developer zou dit moeten lezen.<br><br>
+              <strong>Real-World Cryptography</strong> (David Wong) &mdash; Modernere aanvulling. TLS 1.3, post-quantum, en hoe crypto in de praktijk faalt.
+            </div>
+
+            <!-- CHECKLIST -->
+            <div class="progress-bar-container" data-scope="section">
+              <div class="progress-bar-header">
+                <span class="progress-bar-label">VOORTGANG</span>
+                <span class="progress-bar-pct">0/9 &middot; 0%</span>
+              </div>
+              <div class="progress-bar"><div class="fill"></div></div>
+            </div>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f1-2-1"> AES modes (ECB, CBC, CTR, GCM) begrepen en onderscheid helder</li>
+              <li><input type="checkbox" id="f1-2-2"> KDFs vs Hashes vs MACs &mdash; weet wanneer welke te gebruiken</li>
+              <li><input type="checkbox" id="f1-2-3"> Diffie-Hellman en ECC key exchange begrepen</li>
+              <li><input type="checkbox" id="f1-2-4"> TLS 1.3 handshake en forward secrecy begrepen</li>
+              <li><input type="checkbox" id="f1-2-5"> Cryptopals Set 1 voltooid</li>
+              <li><input type="checkbox" id="f1-2-6"> CryptoHack Introduction challenges voltooid</li>
+              <li><input type="checkbox" id="f1-2-7"> XOR encryption/decryption in Python ge&iuml;mplementeerd</li>
+              <li><input type="checkbox" id="f1-2-8"> TLS 1.3 handshake met Wireshark gecaptured en geanalyseerd</li>
+              <li><input type="checkbox" id="f1-2-9"> Alle drie video's bekeken</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MODULE 1.3 — OS Security
+         ============================================================ -->
+    <section id="mod-1-3">
+      <div class="section-head">
+        <div class="badge">1.3</div>
+        <div>
+          <h2>OS Security op<br><em>Aanvaller</em>-Niveau.</h2>
+          <div class="duration">WEEK 2-3</div>
+        </div>
+      </div>
+      <p class="section-intro">Begrijp hoe Windows en Linux intern werken vanuit het perspectief van een aanvaller. Niet alleen "wat is NTLM" maar "hoe extract ik NTLM hashes en wat kan ik ermee".</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">03</div>
+          <div class="body">
+            <h3>Windows &amp; Linux Internals voor Hackers</h3>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: Waarom LSASS het doelwit is</summary>
+              <div class="deep-content">
+                <p>LSASS (Local Security Authority Subsystem Service) beheert authenticatie op Windows. Het laadt authentication packages (<code>msv1_0.dll</code> voor NTLM, <code>kerberos.dll</code> voor Kerberos, <code>wdigest.dll</code> voor Digest). Wanneer een gebruiker inlogt, slaat LSASS credentials op in geheugen voor SSO.</p>
+                <p>Mimikatz leest deze credentials rechtstreeks uit LSASS&rsquo;s proces-geheugen. Dit is waarom <strong>Credential Guard</strong> (virtualization-based security) LSASS isoleert in een aparte virtuele omgeving waar zelfs kernel-level code niet bij kan.</p>
+              </div>
+            </details>
+
+            <h4>Windows Security Internals</h4>
+            <ul>
+              <li><strong>LSASS</strong> &mdash; Local Security Authority Subsystem Service: het proces dat credentials beheert. Mimikatz target dit. Begrijp de authenticatieflow.</li>
+              <li><strong>NTLM &amp; Kerberos</strong> &mdash; NTLM: challenge-response, pass-the-hash kwetsbaar. Kerberos: ticket-based, maar golden ticket en silver ticket aanvallen bestaan.</li>
+              <li><strong>SIDs &amp; ACLs</strong> &mdash; Security Identifiers en Access Control Lists: hoe Windows autorisatie werkt op object-niveau.</li>
+              <li><strong>Event Logs</strong> &mdash; Windows Event Log: 4624 (logon success), 4625 (logon failure), 4672 (special privileges), 4688 (process creation). Sysmon voor diepere visibility.</li>
+              <li><strong>Registry</strong> &mdash; De Windows registry als aanvalsoppervlak: persistence, configuratie, credential storage.</li>
+            </ul>
+
+            <h4>Linux Security Internals</h4>
+            <ul>
+              <li><strong>/etc/shadow</strong> &mdash; Password hashes opgeslagen met salt. Format: <code>$algorithm$salt$hash</code>. John the Ripper en Hashcat zijn je tools.</li>
+              <li><strong>PAM (Pluggable Authentication Modules)</strong> &mdash; Modulaire authenticatie stack. Configureerbaar per service: SSH, sudo, login.</li>
+              <li><strong>SELinux &amp; AppArmor</strong> &mdash; Mandatory Access Control frameworks. SELinux: label-based, AppArmor: path-based. Beide beperken wat processen mogen.</li>
+              <li><strong>Linux Capabilities</strong> &mdash; Fijnmazige privileges in plaats van alles-of-niets root. <code>CAP_NET_RAW</code>, <code>CAP_SYS_ADMIN</code>, etc. SUID binaries met extra capabilities = privilege escalation vectoren.</li>
+              <li><strong>eBPF</strong> &mdash; Extended Berkeley Packet Filter: kernel-level observability zonder kernel modules. Gebruikt voor security monitoring, networking, en tracing.</li>
+            </ul>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/GjRs_z_xiz8" title="Windows Privilege Escalation - John Hammond" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Windows Privilege Escalation</div>
+                    <div class="video-channel">John Hammond</div>
+                    <div class="video-desc">Praktische Windows privesc technieken: van service misconfigurations tot token manipulation.</div>
+                  </div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/ZTnwg3qCdVM" title="Linux Privilege Escalation - The Cyber Mentor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Linux Privilege Escalation</div>
+                    <div class="video-channel">The Cyber Mentor</div>
+                    <div class="video-desc">Systematische aanpak voor Linux privesc: SUID, cron, capabilities, kernel exploits.</div>
+                  </div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/Yc2jDfBr_bk" title="Active Directory - NetworkChuck" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Active Directory 101</div>
+                    <div class="video-channel">NetworkChuck</div>
+                    <div class="video-desc">Active Directory fundamenten: domains, trusts, Group Policy, en waarom het zo belangrijk is.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.3.1</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">LSASS Authenticatie Flow Diagram</div>
+                <div class="exercise-desc">Documenteer de volledige LSASS authenticatieflow met een diagram. Van gebruiker-invoer tot token-creatie. Markeer waar Mimikatz, pass-the-hash, en pass-the-ticket aanvallen ingrijpen.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>User login &rarr; <code>winlogon.exe</code> &rarr; LSASS &rarr; authentication package (NTLM: <code>msv1_0.dll</code> hashes het wachtwoord en vergelijkt met SAM/AD, Kerberos: <code>kerberos.dll</code> vraagt TGT bij KDC). Bij succes: LSASS maakt een logon session en access token. Credentials blijven in LSASS geheugen voor SSO.</p>
+                    <p>WDigest (als ingeschakeld) slaat plaintext wachtwoord op. Protective measures: Credential Guard, RunAsPPL, disabling WDigest.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.3.2</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">PAM Configuratie voor SSH 2FA</div>
+                <div class="exercise-desc">Stel PAM configuratie in voor SSH two-factor authenticatie op een Linux VM. Gebruik Google Authenticator PAM module of een vergelijkbaar TOTP-systeem. Test dat je zowel wachtwoord als OTP nodig hebt.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Bewerk <code>/etc/pam.d/sshd</code>, voeg toe: <code>auth required pam_google_authenticator.so</code>. Installeer <code>libpam-google-authenticator</code>, run <code>google-authenticator</code> per user.</p>
+                    <p>PAM stack werkt als pipeline: <strong>auth</strong> (verificatie), <strong>account</strong> (autorisatie), <strong>password</strong> (wachtwoord wijzigen), <strong>session</strong> (setup/teardown). &lsquo;required&rsquo; vs &lsquo;requisite&rsquo;: required gaat door na falen (verbergt welke stap faalde), requisite stopt meteen.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.3.3</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">Sysmon Event Monitoring</div>
+                <div class="exercise-desc">Installeer Sysmon op een Windows machine (of VM). Configureer het met een goede config (bijv. SwiftOnSecurity). Genereer en capture Event IDs 4624 (logon success), 4625 (logon failure), en 4672 (special privilege logon). Analyseer de events.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><strong>4624</strong> = succesvolle logon (type 2=interactive, 3=network, 10=remote interactive). <strong>4625</strong> = gefaalde logon. <strong>4672</strong> = special privileges assigned (admin logon). Sysmon Event 1 = Process Creation (met command line). Event 3 = Network Connection. Event 10 = Process Access (detecteert LSASS dumping).</p>
+                    <p>Gebruik: <code>wevtutil qe Security /q:"*[System[EventID=4624]]" /c:10</code></p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.3.4</span>
+                  <span class="exercise-difficulty easy">EASY</span>
+                </div>
+                <div class="exercise-title">Linux Capabilities Enumeratie</div>
+                <div class="exercise-desc">Enumereer Linux capabilities op alle SUID binaries op je systeem. Gebruik <code>getcap</code> en <code>find</code>. Identificeer welke binaries extra capabilities hebben en of deze misbruikt kunnen worden voor privilege escalation. Raadpleeg GTFOBins.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><code>find / -perm -u=s -type f 2>/dev/null</code> vindt alle SUID binaries. <code>getcap -r / 2>/dev/null</code> vindt binaries met capabilities.</p>
+                    <p>Vergelijk: <code>/usr/bin/ping</code> met SUID heeft ALLE root privileges tijdens executie. Met <code>cap_net_raw+ep</code> heeft het alleen raw socket access. GTFOBins toont welke SUID binaries misbruikt kunnen worden voor privilege escalation.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- CHECKLIST -->
+            <div class="progress-bar-container" data-scope="section">
+              <div class="progress-bar-header">
+                <span class="progress-bar-label">VOORTGANG</span>
+                <span class="progress-bar-pct">0/9 &middot; 0%</span>
+              </div>
+              <div class="progress-bar"><div class="fill"></div></div>
+            </div>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f1-3-1"> LSASS, NTLM en Kerberos authenticatieflow begrepen</li>
+              <li><input type="checkbox" id="f1-3-2"> Windows SIDs, ACLs en event logging bestudeerd</li>
+              <li><input type="checkbox" id="f1-3-3"> Linux /etc/shadow format, PAM en MAC frameworks begrepen</li>
+              <li><input type="checkbox" id="f1-3-4"> Linux capabilities en eBPF bestudeerd</li>
+              <li><input type="checkbox" id="f1-3-5"> LSASS authenticatie flow diagram gemaakt</li>
+              <li><input type="checkbox" id="f1-3-6"> PAM configuratie voor SSH 2FA opgezet en getest</li>
+              <li><input type="checkbox" id="f1-3-7"> Sysmon ge&iuml;nstalleerd en Event IDs 4624/4625/4672 gecaptured</li>
+              <li><input type="checkbox" id="f1-3-8"> Linux capabilities op SUID binaries ge&euml;numereerd</li>
+              <li><input type="checkbox" id="f1-3-9"> Alle drie video's bekeken</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MODULE 1.4 — Web op Protocol-Niveau
+         ============================================================ -->
+    <section id="mod-1-4">
+      <div class="section-head">
+        <div class="badge">1.4</div>
+        <div>
+          <h2>Web op<br><em>Protocol</em>-Niveau.</h2>
+          <div class="duration">WEEK 3</div>
+        </div>
+      </div>
+      <p class="section-intro">De meeste "web hackers" begrijpen HTTP niet echt. Leer het protocol op RFC-niveau, begrijp CORS en CSP volledig, en snap waarom JWT-implementaties zo vaak fout gaan.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">04</div>
+          <div class="body">
+            <h3>HTTP, Security Headers &amp; Tokens</h3>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: Same-Origin Policy vs Same-Site</summary>
+              <div class="deep-content">
+                <p>Dit zijn <strong>VERSCHILLENDE</strong> concepten die vaak verward worden. <strong>Origin</strong> = scheme + host + port (<code>https://example.com:443</code>). <strong>Site</strong> = registrable domain (<code>example.com</code>).</p>
+                <p>Twee URLs zijn same-origin alleen als ALLE drie componenten matchen. Ze zijn same-site als de registrable domain matcht (<code>sub.example.com</code> en <code>example.com</code> zijn same-site maar cross-origin).</p>
+                <p>SameSite cookies gebruiken de &lsquo;site&rsquo; definitie, niet &lsquo;origin&rsquo;. Dit verschil is cruciaal voor CSRF-preventie: <code>SameSite=Lax</code> blokkeert cross-site requests maar niet cross-origin requests van subdomains.</p>
+              </div>
+            </details>
+
+            <h4>HTTP Protocol Familie</h4>
+            <ul>
+              <li><strong>HTTP/1.1 (RFC 9110/9112)</strong> &mdash; Text-based, head-of-line blocking, connection reuse via keep-alive. Ken de methods, status codes, en headers op je duim.</li>
+              <li><strong>HTTP/2</strong> &mdash; Binary framing, multiplexing, header compression (HPACK), server push. &Eacute;&eacute;n TCP-connectie, meerdere streams.</li>
+              <li><strong>HTTP/3 + QUIC</strong> &mdash; UDP-based, ge&iuml;ntegreerde TLS 1.3, geen head-of-line blocking op transport-niveau. De toekomst van het web.</li>
+            </ul>
+
+            <h4>Browser Security Model</h4>
+            <ul>
+              <li><strong>Cookies &amp; SameSite</strong> &mdash; SameSite=Strict, Lax, None. Begrijp het verschil en waarom Lax nu de default is. Secure, HttpOnly, en __Host- prefix.</li>
+              <li><strong>SOP vs Same-Site</strong> &mdash; Same-Origin Policy (scheme + host + port) vs Same-Site (eTLD+1). Twee verschillende concepten die vaak verward worden.</li>
+              <li><strong>CORS</strong> &mdash; Cross-Origin Resource Sharing: preflight requests, Access-Control-Allow-Origin, credentialed requests. Misconfiguratie = data exfiltration.</li>
+              <li><strong>CSP</strong> &mdash; Content Security Policy: script-src, style-src, nonces, hashes. De krachtigste XSS-mitigatie als je het goed configureert.</li>
+            </ul>
+
+            <h4>Tokens &amp; Real-time</h4>
+            <ul>
+              <li><strong>JWT (JSON Web Tokens)</strong> &mdash; Header.Payload.Signature. Veelvoorkomende aanvallen: alg:none, key confusion (RS256 &rarr; HS256), weak secrets.</li>
+              <li><strong>WebSockets</strong> &mdash; Full-duplex communicatie. Upgrade van HTTP. Andere security considerations: geen SOP, CSWSH aanvallen.</li>
+            </ul>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/iYM2zFP3Zn0" title="HTTP Crash Course - Traversy Media" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">HTTP Crash Course</div>
+                    <div class="video-channel">Traversy Media</div>
+                    <div class="video-desc">HTTP protocol van begin tot eind: methods, headers, status codes, en meer.</div>
+                  </div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/PNtFSVU-YTI" title="CORS Explained - Web Dev Simplified" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Learn CORS In 6 Minutes</div>
+                    <div class="video-channel">Web Dev Simplified</div>
+                    <div class="video-desc">Cross-Origin Resource Sharing helder uitgelegd met visuele voorbeelden.</div>
+                  </div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/gmxvC-BUU2w" title="JWT Attacks - PortSwigger" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Hack JWTs with Burp Suite</div>
+                    <div class="video-channel">PortSwigger</div>
+                    <div class="video-desc">JWT-kwetsbaarheden: alg:none, key confusion, en meer vanuit PortSwigger's Web Security Academy.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.4.1</span>
+                  <span class="exercise-difficulty easy">EASY</span>
+                </div>
+                <div class="exercise-title">Handmatige HTTP Requests met curl</div>
+                <div class="exercise-desc">Gebruik <code>curl</code> om handmatig HTTP/1.1 requests te craftten met verschillende methods (GET, POST, PUT, DELETE, OPTIONS). Stuur custom headers, cookies, en request bodies. Analyseer de response headers nauwkeurig.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><code>curl -v -X POST -H 'Content-Type: application/json' -d '{"user":"test"}' http://target/api</code></p>
+                    <p>De <code>-v</code> flag toont de volledige HTTP request/response headers. Probeer ook: HEAD (metadata only), OPTIONS (CORS preflight simulatie), PUT vs POST semantiek.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.4.2</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">Strict CSP met Nonces</div>
+                <div class="exercise-desc">Zet een testpagina op en configureer een strikt Content Security Policy met nonces. Gebruik <code>script-src 'nonce-...'</code> en verifieer dat inline scripts zonder het juiste nonce geblokkeerd worden. Test met de browser DevTools.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><code>Content-Security-Policy: default-src 'none'; script-src 'nonce-abc123'; style-src 'self'; img-src 'self' data:; connect-src 'self'</code></p>
+                    <p>Elke <code>&lt;script&gt;</code> tag heeft <code>nonce='abc123'</code> nodig. De nonce moet per-request random gegenereerd worden. <code>strict-dynamic</code> laat nonced scripts andere scripts laden.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.4.3</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">JWT Token Analyse &amp; alg:none</div>
+                <div class="exercise-desc">Decode een JWT token handmatig (Base64URL decode header en payload). Identificeer de claims en het algoritme. Test voor de alg:none kwetsbaarheid: verwijder de signature en verander het algoritme naar "none". Gebruik <a href="https://jwt.io" target="_blank" rel="noopener">jwt.io</a> als hulpmiddel.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><code>echo 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4ifQ.xxx' | cut -d. -f2 | base64 -d</code></p>
+                    <p>Header bevat <code>alg</code> (algoritme) en <code>typ</code>. <strong>alg:none attack:</strong> verander header naar <code>{"alg":"none"}</code>, verwijder de signature. <strong>RS256&rarr;HS256 confusion:</strong> als server RS256 publieke key als HMAC secret accepteert.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.4.4</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">CORS Headers &amp; Preflight</div>
+                <div class="exercise-desc">Configureer CORS headers op een simpele webserver (Node.js, Python, of nginx). Test preflight requests met custom headers en methods. Verifieer dat de browser OPTIONS requests stuurt en analyseer de Access-Control-* response headers.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><code>Access-Control-Allow-Origin</code> moet specifiek zijn, niet <code>*</code> met credentials. <strong>Preflight:</strong> browser stuurt OPTIONS met Origin en Access-Control-Request-Method. Server antwoordt met allowed origins/methods/headers.</p>
+                    <p>Veelgemaakte fout: dynamisch Origin header reflecteren zonder whitelist = universele CORS bypass.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- CHECKLIST -->
+            <div class="progress-bar-container" data-scope="section">
+              <div class="progress-bar-header">
+                <span class="progress-bar-label">VOORTGANG</span>
+                <span class="progress-bar-pct">0/9 &middot; 0%</span>
+              </div>
+              <div class="progress-bar"><div class="fill"></div></div>
+            </div>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f1-4-1"> HTTP/1.1, HTTP/2 en HTTP/3+QUIC verschillen begrepen</li>
+              <li><input type="checkbox" id="f1-4-2"> Cookies, SameSite, SOP en Same-Site concepten helder</li>
+              <li><input type="checkbox" id="f1-4-3"> CORS volledig begrepen inclusief preflight</li>
+              <li><input type="checkbox" id="f1-4-4"> CSP configuratie en nonce-based policies begrepen</li>
+              <li><input type="checkbox" id="f1-4-5"> JWT structuur en veelvoorkomende aanvallen bestudeerd</li>
+              <li><input type="checkbox" id="f1-4-6"> Handmatige HTTP requests met curl uitgevoerd</li>
+              <li><input type="checkbox" id="f1-4-7"> Strict CSP met nonces geconfigureerd en getest</li>
+              <li><input type="checkbox" id="f1-4-8"> JWT token gedecodeerd en alg:none getest</li>
+              <li><input type="checkbox" id="f1-4-9"> CORS headers geconfigureerd en preflight requests getest</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MODULE 1.5 — Home Lab
+         ============================================================ -->
+    <section id="mod-1-5">
+      <div class="section-head">
+        <div class="badge">1.5</div>
+        <div>
+          <h2>Home Lab &mdash;<br>Bouw Het <em>Goed</em>.</h2>
+          <div class="duration">WEEK 3-4</div>
+        </div>
+      </div>
+      <p class="section-intro">Je lab is je veilige speeltuin voor de rest van je leerpad. Investeer nu tijd in een goede setup en je plukt er maanden de vruchten van. Ge&iuml;soleerd, gedocumenteerd, en monitored.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">05</div>
+          <div class="body">
+            <h3>Professionele Lab Omgeving</h3>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: Waarom je lab ge-isoleerd MOET zijn</summary>
+              <div class="deep-content">
+                <p>Een lab met kwetsbare machines op je thuisnetwerk is zelf een kwetsbaarheid. Host-only netwerken zorgen dat lab-verkeer nooit je echte netwerk bereikt. Maar denk ook aan: <strong>DNS leakage</strong> (kwetsbare VM&rsquo;s die DNS queries naar internet sturen), <strong>clipboard sharing</strong> (credentials kopi&euml;ren tussen host en VM), <strong>shared folders</strong> (malware die escaped naar je host).</p>
+                <p>Proxmox als type-1 hypervisor is veiliger dan VirtualBox (type-2) omdat er geen host OS is dat gecompromitteerd kan worden.</p>
+              </div>
+            </details>
+
+            <h4>Virtualisatie Platform</h4>
+            <ul>
+              <li><strong>Proxmox VE</strong> &mdash; Type-1 hypervisor, gratis, enterprise-grade. Ideaal als je dedicated hardware hebt. KVM + LXC containers.</li>
+              <li><strong>VirtualBox</strong> &mdash; Type-2 hypervisor, cross-platform. Goed genoeg om te starten. Internal networks voor isolatie.</li>
+              <li><strong>Ge&iuml;soleerde netwerken</strong> &mdash; Nooit je lab aan je productie-netwerk hangen. Host-only of internal networks. NAT alleen voor updates.</li>
+            </ul>
+
+            <h4>Aanvals-machines</h4>
+            <ul>
+              <li><strong>Kali Linux</strong> &mdash; De standaard aanvals-distributie. Pre-ge&iuml;nstalleerde tools: Nmap, Burp, Metasploit, John, Hashcat, etc.</li>
+              <li><strong>Parrot OS</strong> &mdash; Lichtere alternative voor Kali. Goede privacy-tools ingebouwd.</li>
+              <li><strong>Ubuntu Server</strong> &mdash; Je basis Linux voor custom tooling en scripting.</li>
+            </ul>
+
+            <h4>Kwetsbare Doelwitten</h4>
+            <ul>
+              <li><strong>Metasploitable 2/3</strong> &mdash; Opzettelijk kwetsbare Linux VM. Perfecte eerste doelwit voor exploitatie-oefeningen.</li>
+              <li><strong>DVWA</strong> &mdash; Damn Vulnerable Web Application. Web security basics: SQLi, XSS, CSRF, file inclusion, command injection.</li>
+              <li><strong>OWASP Juice Shop</strong> &mdash; Moderne kwetsbare web app. Angular frontend, REST API, scoreboard met challenges.</li>
+            </ul>
+
+            <h4>Active Directory Lab</h4>
+            <ul>
+              <li><strong>GOAD (Game of Active Directory)</strong> &mdash; Volledig geconfigureerde AD lab met misconfigurations, trusts, en aanvalspaden. Meerdere domains en forests.</li>
+            </ul>
+
+            <h4>Monitoring</h4>
+            <ul>
+              <li><strong>Wazuh</strong> &mdash; Open-source SIEM + XDR. Agents op al je lab machines. Zie wat je aanvallen genereren vanuit defender-perspectief.</li>
+            </ul>
+
+            <div class="callout lab">
+              <strong class="label">Lab Tip</strong>
+              Documenteer je lab setup vanaf dag &eacute;&eacute;n. IP-adressen, credentials, netwerk-diagrammen, geinstalleerde tools. Je toekomstige zelf zal je dankbaar zijn. Gebruik een wiki (bijv. Obsidian of Notion) specifiek voor je lab.
+            </div>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/mvsiuLzpx2E" title="Build a Hacking Lab - NetworkChuck" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Build a Hacking Lab</div>
+                    <div class="video-channel">NetworkChuck</div>
+                    <div class="video-desc">Stap-voor-stap guide om je eigen hacking lab op te zetten met VirtualBox.</div>
+                  </div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/xftEuVQ7kY0" title="Building AD Lab - The Cyber Mentor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">How to Build an Active Directory Hacking Lab</div>
+                    <div class="video-channel">The Cyber Mentor</div>
+                    <div class="video-desc">Complete Active Directory lab bouwen: Domain Controller, werkstations, users, en policies.</div>
+                  </div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/P_Kl2EnF8_A" title="Home SOC Lab - Gerald Auger" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">So You Want To Be a SOC Analyst?</div>
+                    <div class="video-channel">Simply Cyber (Gerald Auger)</div>
+                    <div class="video-desc">Bouw je eigen Security Operations Center lab met SIEM en monitoring tools.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.5.1</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">Virtualisatie &amp; Netwerk Isolatie</div>
+                <div class="exercise-desc">Installeer Proxmox of VirtualBox en maak ge&iuml;soleerde netwerksegmenten. Minimaal: een "attack" netwerk, een "target" netwerk, en een "monitoring" netwerk. Documenteer je netwerk-topologie met een diagram.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Maak drie netwerken: &lsquo;attacker&rsquo; (<code>10.10.10.0/24</code>), &lsquo;target&rsquo; (<code>10.10.20.0/24</code>), &lsquo;ad-internal&rsquo; (<code>10.10.30.0/24</code>). In VirtualBox: Host-Only Adapter per netwerk.</p>
+                    <p>De aanvaller-VM krijgt interfaces op alle netwerken. Target en AD netwerken zijn volledig ge&iuml;soleerd van internet en van elkaar (behalve via de aanvaller).</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.5.2</span>
+                  <span class="exercise-difficulty easy">EASY</span>
+                </div>
+                <div class="exercise-title">Basis Lab Deployment</div>
+                <div class="exercise-desc">Deploy Kali Linux, Metasploitable 2, en DVWA in je lab. Verifieer dat Kali de doelwitten kan bereiken maar dat het lab ge&iuml;soleerd is van je thuisnetwerk. Doe een eerste Nmap scan van Metasploitable.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><strong>Kali:</strong> standaard credentials kali/kali. <strong>Metasploitable 2:</strong> msfadmin/msfadmin, poorten 21, 22, 23, 25, 80, 111, 139, 445, 512-514, 1099, 1524, 2049, 2121, 3306, 5432, 5900, 6000, 6667, 8009, 8180.</p>
+                    <p><strong>DVWA:</strong> admin/password, stel Security Level in op &lsquo;Low&rsquo; om te beginnen, werk naar &lsquo;High&rsquo;.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.5.3</span>
+                  <span class="exercise-difficulty hard">HARD</span>
+                </div>
+                <div class="exercise-title">Active Directory Forest</div>
+                <div class="exercise-desc">Zet een basis Active Directory forest op: 1 Domain Controller (Windows Server) + 2 werkstations (Windows 10/11). Maak users, groepen, en een simpele GPO. Dit is je speeltuin voor AD-aanvallen in latere fases.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Windows Server 2019 als DC: <code>Install-WindowsFeature AD-Domain-Services</code>; <code>Install-ADDSForest -DomainName lab.local</code>. Voeg 2 Windows 10 machines toe aan het domein.</p>
+                    <p>Maak 10+ gebruikers met vari&euml;rende wachtwoord-sterkte (sommige Kerberoastable). Install ADCS met vulnerable templates voor ESC1.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header">
+                  <span class="exercise-num">OEFENING 1.5.4</span>
+                  <span class="exercise-difficulty medium">MEDIUM</span>
+                </div>
+                <div class="exercise-title">Wazuh SIEM Deployment</div>
+                <div class="exercise-desc">Installeer Wazuh (server + dashboard) en deploy agents op al je lab machines. Verifieer dat je logs ontvangt van elke machine. Genereer een test-alert (bijv. failed SSH login) en bekijk het in het Wazuh dashboard.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Wazuh server op een aparte Linux VM. Install agents op alle Windows en Linux machines. Verifieer: <code>tail -f /var/ossec/logs/alerts/alerts.json</code>.</p>
+                    <p>Je zou login events, file integrity changes, en vulnerability scan resultaten moeten zien.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- CHECKLIST -->
+            <div class="progress-bar-container" data-scope="section">
+              <div class="progress-bar-header">
+                <span class="progress-bar-label">VOORTGANG</span>
+                <span class="progress-bar-pct">0/6 &middot; 0%</span>
+              </div>
+              <div class="progress-bar"><div class="fill"></div></div>
+            </div>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f1-5-1"> Proxmox of VirtualBox ge&iuml;nstalleerd met ge&iuml;soleerde netwerken</li>
+              <li><input type="checkbox" id="f1-5-2"> Kali, Metasploitable 2 en DVWA deployed en getest</li>
+              <li><input type="checkbox" id="f1-5-3"> Active Directory forest opgezet: 1 DC + 2 werkstations</li>
+              <li><input type="checkbox" id="f1-5-4"> Wazuh ge&iuml;nstalleerd en ontvangt logs van alle machines</li>
+              <li><input type="checkbox" id="f1-5-5"> Lab netwerk-topologie gedocumenteerd</li>
+              <li><input type="checkbox" id="f1-5-6"> Alle drie video's bekeken</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ETHICS
+         ============================================================ -->
+    <section>
+      <div class="ethics">
+        <p><strong style="color: var(--accent-hot); font-size: 18px; font-family: var(--serif);">Ethische Grenzen</strong></p>
+        <p>Alles wat je in deze fase leert is dual-use kennis. Dezelfde technieken die security professionals gebruiken om systemen te beschermen, kunnen ook misbruikt worden om ze aan te vallen. Het verschil zit in <strong>&eacute;&eacute;n woord: autorisatie</strong>.</p>
+        <ul>
+          <li>Werk <strong>uitsluitend</strong> in je eigen lab-omgeving of op systemen waarvoor je expliciete schriftelijke toestemming hebt.</li>
+          <li>Bug bounty programma's zijn een legale manier om je skills te oefenen op echte systemen &mdash; maar lees altijd de scope en regels.</li>
+          <li>Het ongeautoriseerd testen van andermans systemen is strafbaar, ook als je "alleen maar keek" of "geen schade aanrichtte".</li>
+          <li>In Nederland valt dit onder de Wet Computercriminaliteit. Straffen variëren van boetes tot gevangenisstraffen.</li>
+          <li>Responsible disclosure is een ethische verplichting: als je per ongeluk een kwetsbaarheid vindt, meld het via het NCSC of het bedrijf zelf.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer>
+      LEARNSEC // FASE 01 // FUNDAMENTEN VERDIEPT // BLIJF NIEUWSGIERIG &middot; BLIJF LEGAAL &middot; BOUW DINGEN<span class="cursor"></span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="../js/progress.js"></script>
+</body>
+</html>

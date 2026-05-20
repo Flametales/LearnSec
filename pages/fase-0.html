@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="phase-id" content="fase-0">
+<title>Fase 0 // Opfrisser & Gap Audit // LearnSec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="frame">
+
+  <aside>
+    <div class="brand">// LEARNSEC</div>
+    <div class="brand-sub">cybersec.leeromgeving</div>
+    <div class="edition">&#9733; FASE 00 &middot; OPFRISSER &#9733;</div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">MODULES</div>
+      <nav>
+        <a href="#mod-0-1" class="active"><span class="num">0.1</span>Netwerk Self-Audit</a>
+        <a href="#mod-0-2"><span class="num">0.2</span>Linux Internals</a>
+        <a href="#mod-0-3"><span class="num">0.3</span>Programmeer-Polish</a>
+      </nav>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">NAVIGATIE</div>
+      <nav>
+        <a href="#ethics"><span class="num">!!</span>Ethiek</a>
+      </nav>
+    </div>
+
+    <div class="back-link">
+      <a href="../index.html">&larr; Terug naar hub</a>
+    </div>
+
+    <div class="meta">
+      <strong>METHODE</strong>
+      Video's kijken. Bronnen lezen.<br>
+      Oefeningen maken. Gaten dichten.<br>
+      Eerlijk auditen.
+      <strong>DUUR</strong>
+      1-2 weken (afhankelijk van gaps)
+    </div>
+  </aside>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="ascii-dec">&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;  &#9617;&#9618;&#9619; FASE  00 &#9619;&#9618;&#9617;  &#9474;
+&#9474;                   &#9474;
+&#9474;  > self_audit      &#9474;
+&#9474;  > vind_gaten      &#9474;
+&#9474;  > dicht_gaten     &#9474;
+&#9474;  > fundament_ok    &#9474;
+&#9474;                   &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</div>
+
+      <div class="tag">LEEROMGEVING <span class="phase-badge">FASE 00</span><span class="lang">NL</span></div>
+      <h1>Opfrisser &amp;<br>gap <em>audit</em>.</h1>
+      <p class="lede">Diagnose van je huidige kennis. Netwerken, Linux internals, programmeren &mdash; vind de gaten die je niet wist te hebben. Wees eerlijk, dit is alleen voor jou.</p>
+
+      <div class="philosophy">
+        <strong>WAAROM DEZE FASE</strong>
+        De meeste mensen overschatten hun basiskennis. Een TCP handshake uitleggen, een proces tracen in Linux, een simpele socket schrijven in Python &mdash; als je hier twijfelt, is deze fase essentieel. Sla dit niet over.
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="k">MODULES</div><div class="v">03</div><div class="u">onderwerpen</div></div>
+        <div class="stat"><div class="k">VIDEO'S</div><div class="v">09</div><div class="u">gratis YouTube</div></div>
+        <div class="stat"><div class="k">OEFENINGEN</div><div class="v">11</div><div class="u">hands-on</div></div>
+        <div class="stat"><div class="k">DUUR</div><div class="v">1-2</div><div class="u">weken</div></div>
+      </div>
+    </div>
+
+    <!-- GLOBAL PROGRESS -->
+    <section>
+      <div class="progress-bar-container" data-scope="page">
+        <div class="progress-bar-header">
+          <div class="progress-bar-label">FASE 0 VOORTGANG</div>
+          <div class="progress-bar-pct">0/0 &middot; 0%</div>
+        </div>
+        <div class="progress-bar"><div class="fill"></div></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MODULE 0.1 — NETWERK SELF-AUDIT
+         ============================================================ -->
+    <section id="mod-0-1" class="phase-0">
+      <div class="section-head">
+        <div class="badge">MOD 0.1</div>
+        <div>
+          <h2>Netwerk <em>Self-Audit</em>.</h2>
+          <div class="duration">1-2 WEKEN &middot; KERNMODULE</div>
+        </div>
+      </div>
+      <p class="section-intro">TCP/IP, DNS, subnetting, het OSI-model &mdash; de fundamenten waarop alles in cybersecurity is gebouwd. Als je niet kunt uitleggen wat er op de draad gebeurt, ben je blind.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">0.1</div>
+          <div class="body">
+            <h3>Netwerken: van packet tot applicatie</h3>
+            <p class="desc">Dit gaat niet over theorie memoriseren. Je moet een packet trace kunnen lezen, subnets kunnen berekenen, en weten hoe DNS resolution echt werkt &mdash; recursief, iteratief, caching, het hele verhaal.</p>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: TCP Sequence &amp; Acknowledgment Nummers</summary>
+              <div class="deep-content">
+                <p>Waarom TCP zowel sequence- als acknowledgment-nummers heeft &mdash; De asymmetrie is belangrijk. TCP is full-duplex: elke richting heeft zijn eigen stream met eigen sequence nummers. Het acknowledgment nummer vertelt de afzender hoeveel van zijn data succesvol ontvangen is. Dit maakt het mogelijk om data in beide richtingen tegelijk te verzenden en te bevestigen. Een veelgemaakte fout is denken dat ACK-nummers de eigen sequentie bevestigen &mdash; ze bevestigen de ANDERE kant.</p>
+              </div>
+            </details>
+
+            <h4>Kernconcepten</h4>
+            <ul>
+              <li><strong>TCP/IP Stack</strong> &mdash; Begrijp elk layer: link, internet, transport, applicatie. Weet welke protocollen waar leven.</li>
+              <li><strong>TCP Three-Way Handshake</strong> &mdash; SYN, SYN-ACK, ACK met sequence numbers. Weet waarom dit bestaat en wat er misgaat zonder.</li>
+              <li><strong>UDP vs TCP</strong> &mdash; Wanneer connectionless zinvol is. DNS over UDP vs TCP. Streaming vs reliability.</li>
+              <li><strong>DNS Resolution</strong> &mdash; Stub resolver &rarr; recursive resolver &rarr; root &rarr; TLD &rarr; authoritative. Caching, TTL, NXDOMAIN.</li>
+              <li><strong>Subnetting</strong> &mdash; CIDR-notatie, netmaskers, broadcast adressen, beschikbare hosts berekenen. Moet je op papier kunnen.</li>
+              <li><strong>ARP &amp; MAC Addressing</strong> &mdash; Layer 2 resolution. ARP tables, gratuitous ARP, en waarom ARP spoofing werkt.</li>
+              <li><strong>Wireshark Basics</strong> &mdash; Capture filters vs display filters. TCP stream volgen. HTTP requests herkennen.</li>
+            </ul>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/ZxAwQB8TZsM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Seven Second Subnetting</div>
+                    <div class="video-channel">PROFESSOR MESSER</div>
+                    <div class="video-desc">De snelste methode om subnets te berekenen. Essentieel voor elk netwerk- of security-examen.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/rmFX1V49K8U" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">How TCP Really Works // Three-Way Handshake</div>
+                    <div class="video-channel">PRACTICAL NETWORKING</div>
+                    <div class="video-desc">Visuele uitleg van SYN, SYN-ACK, ACK. Begrijp hoe TCP verbindingen tot stand komen.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/mpQZVYPuDGU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">How a DNS Server Works</div>
+                    <div class="video-channel">POWERCERT ANIMATED VIDEOS</div>
+                    <div class="video-desc">Hoe DNS werkt van query tot antwoord. Recursie, caching, root servers &mdash; helder ge&iuml;llustreerd.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 0.1.1</div>
+                  <div class="exercise-difficulty medium">MEDIUM</div>
+                </div>
+                <div class="exercise-title">TCP Three-Way Handshake tekenen</div>
+                <div class="exercise-desc">
+                  Teken de volledige TCP three-way handshake op papier of in een diagramtool. Geef bij elke stap de exacte TCP flags aan (SYN, SYN+ACK, ACK) en de bijbehorende sequence en acknowledgment numbers. Beschrijf wat er gebeurt als het derde pakket (ACK) verloren gaat.
+                </div>
+                <div class="exercise-source">Bron: Practical Networking &middot; TCP Fundamentals</div>
+              </div>
+              <details class="answer-reveal">
+                <summary>Toon antwoord</summary>
+                <div class="answer-content">
+                  <p>SYN (seq=x) &rarr; SYN-ACK (seq=y, ack=x+1) &rarr; ACK (seq=x+1, ack=y+1). De SYN flag consumeert &eacute;&eacute;n sequence nummer. Na de handshake begint data-overdracht. Het cruciale inzicht: de ACK-waarde is altijd het VOLGENDE byte dat de ontvanger verwacht.</p>
+                </div>
+              </details>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 0.1.2</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">DNS query tracen voor mail.google.com</div>
+                <div class="exercise-desc">
+                  Beschrijf stap voor stap de volledige DNS resolution chain voor <code>mail.google.com</code>. Begin bij de stub resolver op je OS, ga via de recursive resolver naar de root servers, dan de <code>.com</code> TLD, dan de <code>google.com</code> authoritative nameserver. Geef bij elke stap aan welk type query (A, AAAA, CNAME, MX) wordt gestuurd. Gebruik <code>dig +trace mail.google.com</code> om je antwoord te verifi&euml;ren.
+                </div>
+                <div class="exercise-source">Bron: PowerCert DNS &middot; RFC 1035</div>
+              </div>
+              <details class="answer-reveal">
+                <summary>Toon antwoord</summary>
+                <div class="answer-content">
+                  <p>Client &rarr; Local resolver (recursief) &rarr; Root servers (.com NS) &rarr; TLD servers (google.com NS) &rarr; Authoritative server (mail.google.com A record). EDNS(0) voegt buffer size en DNSSEC flags toe. DNSSEC valideert via een chain of trust: root KSK &rarr; root ZSK &rarr; .com DS &rarr; .com KSK &rarr; etc.</p>
+                </div>
+              </details>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 0.1.3</div>
+                  <div class="exercise-difficulty medium">MEDIUM</div>
+                </div>
+                <div class="exercise-title">Subnet 10.0.0.0/22 verdelen</div>
+                <div class="exercise-desc">
+                  Verdeel het netwerk <code>10.0.0.0/22</code> in vier gelijke subnets. Geef voor elk subnet het netwerkadres, het broadcast adres, het bereik van bruikbare IP-adressen, en het subnetmasker in zowel CIDR als decimale notatie. Hoeveel hosts passen er in elk subnet?
+                </div>
+                <div class="exercise-source">Bron: Professor Messer &middot; Seven Second Subnetting</div>
+              </div>
+              <details class="answer-reveal">
+                <summary>Toon antwoord</summary>
+                <div class="answer-content">
+                  <p>10.0.0.0/22 = 10.0.0.0 - 10.0.3.255 (1024 adressen). Vier /24 subnetten: 10.0.0.0/24 (broadcast: 10.0.0.255), 10.0.1.0/24 (broadcast: 10.0.1.255), 10.0.2.0/24 (broadcast: 10.0.2.255), 10.0.3.0/24 (broadcast: 10.0.3.255).</p>
+                </div>
+              </details>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 0.1.4</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">HTTP-verkeer capturen met Wireshark</div>
+                <div class="exercise-desc">
+                  Open Wireshark en capture verkeer terwijl je een HTTP-website bezoekt (geen HTTPS). Identificeer de volledige TCP handshake in de capture. Filter op de juiste poort. Volg de TCP stream en bekijk de HTTP GET request en het response. Maak een screenshot van de handshake en annoteer de sequence numbers.
+                </div>
+                <div class="exercise-source">Bron: Wireshark Documentation &middot; Chris Greer's Packet Analysis</div>
+              </div>
+              <details class="answer-reveal">
+                <summary>Toon antwoord</summary>
+                <div class="answer-content">
+                  <p>Filter: tcp.flags.syn==1. Je ziet drie pakketten: SYN, SYN-ACK, ACK. Noteer de sequence nummers en bevestig dat ze het patroon volgen. Zoek ook naar TCP retransmissions en window size negotiation.</p>
+                </div>
+              </details>
+            </div>
+
+            <!-- CHECKLIST -->
+            <h4>Checklist</h4>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f0-0101"> Ik kan de TCP three-way handshake tekenen met correcte flags en sequence numbers</li>
+              <li><input type="checkbox" id="f0-0102"> Ik kan uitleggen hoe DNS resolution werkt van stub resolver tot authoritative</li>
+              <li><input type="checkbox" id="f0-0103"> Ik kan een /22 subnet verdelen in gelijke subnets op papier</li>
+              <li><input type="checkbox" id="f0-0104"> Ik kan Wireshark openen, verkeer capturen, en een TCP handshake identificeren</li>
+              <li><input type="checkbox" id="f0-0105"> Ik ken het verschil tussen TCP en UDP en weet wanneer welk protocol wordt gebruikt</li>
+              <li><input type="checkbox" id="f0-0106"> Ik kan uitleggen hoe ARP werkt en waarom ARP spoofing mogelijk is</li>
+              <li><input type="checkbox" id="f0-0107"> Alle drie de video's bekeken</li>
+              <li><input type="checkbox" id="f0-0108"> Alle vier de oefeningen voltooid</li>
+            </ul>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen</h4>
+            <div class="resource-links">
+              <a href="https://www.practicalnetworking.net/series/packet-traveling/packet-traveling/" target="_blank" rel="noopener">Practical Networking &mdash; Packet Traveling</a>
+              <a href="https://www.wireshark.org/docs/" target="_blank" rel="noopener">Wireshark Documentatie</a>
+              <a href="https://subnettingpractice.com/" target="_blank" rel="noopener">Subnetting Practice</a>
+              <a href="https://messser.com/network-plus/" target="_blank" rel="noopener">Professor Messer &mdash; Network+</a>
+              <a href="https://howdns.works/" target="_blank" rel="noopener">How DNS Works (visueel)</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MODULE 0.2 — LINUX INTERNALS
+         ============================================================ -->
+    <section id="mod-0-2" class="phase-0">
+      <div class="section-head">
+        <div class="badge">MOD 0.2</div>
+        <div>
+          <h2>Linux <em>Internals</em>.</h2>
+          <div class="duration">1-2 WEKEN &middot; KERNMODULE</div>
+        </div>
+      </div>
+      <p class="section-intro">Linux is het slagveld. Servers, containers, IoT &mdash; als je de kernel, het filesystem, en processen niet begrijpt, ben je verloren als pentester &eacute;n als defender.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">0.2</div>
+          <div class="body">
+            <h3>Van kernel tot userspace</h3>
+            <p class="desc">Dit gaat verder dan <code>ls</code> en <code>cd</code>. Je moet begrijpen hoe processen werken, wat /proc onthult, hoe permissions en capabilities echt functioneren, en hoe Linux security primitieven (namespaces, cgroups, capabilities) de basis vormen van moderne containerisatie.</p>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: fork() en execve() als twee aparte operaties</summary>
+              <div class="deep-content">
+                <p>fork() en execve() zijn twee aparte operaties met een reden &mdash; fork() kopieert het huidige proces (copy-on-write in werkelijkheid), execve() vervangt de huidige process image met een nieuw programma. Deze scheiding geeft de parent de kans om het kind-proces te configureren (file descriptors omleiden, environment instellen) v&oacute;&oacute;rdat het nieuwe programma start. Dit is hoe pipes en I/O redirection in de shell werken. Het alternatief &mdash; &eacute;&eacute;n syscall die alles doet &mdash; zou veel minder flexibel zijn.</p>
+              </div>
+            </details>
+
+            <h4>Kernconcepten</h4>
+            <ul>
+              <li><strong>Filesystem Hierarchy</strong> &mdash; /proc, /sys, /dev, /etc, /var/log. Weet wat elk bevat en waarom.</li>
+              <li><strong>Processen &amp; PID</strong> &mdash; fork(), execve(), zombie processen, orphans. De process tree van init/systemd tot je shell.</li>
+              <li><strong>/proc filesystem</strong> &mdash; /proc/self/maps, /proc/[pid]/fd, /proc/[pid]/status. Runtime informatie van elke process.</li>
+              <li><strong>File Descriptors</strong> &mdash; stdin(0), stdout(1), stderr(2). Hoe alles in Linux een bestand is. Sockets, pipes, device files.</li>
+              <li><strong>Permissions &amp; Capabilities</strong> &mdash; rwx, setuid, setgid, sticky bit. Linux capabilities als fijnmaziger alternatief voor root.</li>
+              <li><strong>Namespaces &amp; Cgroups</strong> &mdash; De bouwstenen van containers. PID namespace, network namespace, mount namespace. Cgroups voor resource limiting.</li>
+              <li><strong>Systemd &amp; Services</strong> &mdash; Unit files, journalctl, service management. Hoe moderne Linux systemen opstarten en diensten beheren.</li>
+            </ul>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/rrB13utjYV4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Linux in 100 Seconds</div>
+                    <div class="video-channel">FIRESHIP</div>
+                    <div class="video-desc">Snelle maar complete introductie van Linux. Goed als opfrisser van de grote lijnen.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/A3G-3hp88mo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">The Linux File System Explained in 1,233 Seconds</div>
+                    <div class="video-channel">NETWORKCHUCK</div>
+                    <div class="video-desc">Duidelijke walkthrough van de Linux filesystem hierarchy vanuit een hacking-perspectief. Deel van de Linux for Hackers serie.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/kPylihJRG70" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Learn the Linux Fundamentals &mdash; Part 1</div>
+                    <div class="video-channel">TRYHACKME</div>
+                    <div class="video-desc">Officiële TryHackMe walkthrough van Linux fundamentals. Hands-on leren met directe toepasbaarheid voor pentesting.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 0.2.1</div>
+                  <div class="exercise-difficulty medium">MEDIUM</div>
+                </div>
+                <div class="exercise-title">/proc/self/maps lezen en uitleggen</div>
+                <div class="exercise-desc">
+                  Open een terminal en voer <code>cat /proc/self/maps</code> uit. Leg voor elke regel uit wat je ziet: het adresbereik, de permissions (r/w/x/p), de offset, het device, de inode, en de mapping (stack, heap, shared library, of het binary zelf). Identificeer waar <code>libc</code> geladen is en waar de stack zich bevindt.
+                </div>
+                <div class="exercise-source">Bron: Linux Kernel Documentation &middot; proc(5) man page</div>
+              </div>
+              <details class="answer-reveal">
+                <summary>Toon antwoord</summary>
+                <div class="answer-content">
+                  <p>Elke regel toont: adresbereik, permissions (rwxp), offset, device, inode, pathname. Zoek naar: [stack] (de stack), [heap] (de heap), libc.so (gedeelde bibliotheken), [vdso] (kernel syscall optimization). De permissions vertellen je welke memory regions executable zijn &mdash; een verdacht executable heap segment kan wijzen op shellcode.</p>
+                </div>
+              </details>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 0.2.2</div>
+                  <div class="exercise-difficulty medium">MEDIUM</div>
+                </div>
+                <div class="exercise-title">Open file descriptors onderzoeken met lsof</div>
+                <div class="exercise-desc">
+                  Start een langlopend proces (bijv. <code>python3 -m http.server 8080</code>). Gebruik <code>lsof -p [PID]</code> om alle open file descriptors te bekijken. Identificeer stdin, stdout, stderr, de socket, en eventuele geopende bestanden. Verklaar elk type (REG, DIR, IPv4, sock). Probeer ook <code>ls -la /proc/[PID]/fd/</code> en vergelijk.
+                </div>
+                <div class="exercise-source">Bron: lsof(8) man page &middot; Linux kernel /proc filesystem</div>
+              </div>
+              <details class="answer-reveal">
+                <summary>Toon antwoord</summary>
+                <div class="answer-content">
+                  <p>lsof -p &lt;PID&gt; toont alle open file descriptors. FD 0=stdin, 1=stdout, 2=stderr. TYPE=IPv4/IPv6 wijst op netwerk-sockets. cwd=current working directory. Door lsof te combineren met netstat/ss zie je welke processen welke netwerkverbindingen hebben.</p>
+                </div>
+              </details>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 0.2.3</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Simpele container bouwen met namespaces en cgroups</div>
+                <div class="exercise-desc">
+                  Maak handmatig een ge&iuml;soleerde omgeving zonder Docker. Gebruik <code>unshare</code> om een nieuw PID en mount namespace te cre&euml;ren. Mount een minimaal root filesystem (bijv. Alpine minirootfs). Gebruik cgroups v2 om het geheugengebruik te beperken. Verifieer isolatie: controleer dat <code>ps</code> in de container alleen de eigen processen toont. Documenteer elke stap.
+                </div>
+                <div class="exercise-source">Bron: "Containers from Scratch" &middot; Liz Rice (GOTO Conference)</div>
+              </div>
+              <details class="answer-reveal">
+                <summary>Toon antwoord</summary>
+                <div class="answer-content">
+                  <p>unshare --mount --uts --ipc --net --pid --fork /bin/bash cre&euml;ert een nieuw proces met eigen namespaces. Je bent nu 'root' in de PID namespace maar niet op het hostsysteem. cgroups limiteren resources: echo $PID &gt; /sys/fs/cgroup/memory/container1/cgroup.procs beperkt geheugengebruik.</p>
+                </div>
+              </details>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 0.2.4</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Setuid vs capabilities vergelijken</div>
+                <div class="exercise-desc">
+                  Cre&euml;er een simpel C-programma dat een raw socket opent (vereist <code>CAP_NET_RAW</code>). Compileer het en probeer het als normale gebruiker. Maak het vervolgens setuid root &mdash; merk op dat het werkt maar gevaarlijk is. Verwijder setuid en ken alleen <code>CAP_NET_RAW</code> toe met <code>setcap</code>. Vergelijk de security-implicaties van beide aanpakken. Gebruik <code>getcap</code> en <code>getfattr</code> om te verifi&euml;ren.
+                </div>
+                <div class="exercise-source">Bron: capabilities(7) man page &middot; Linux Security Modules</div>
+              </div>
+              <details class="answer-reveal">
+                <summary>Toon antwoord</summary>
+                <div class="answer-content">
+                  <p>setuid geeft ALLE privileges van de file owner (meestal root). Capabilities splitsen root-privileges in granulaire eenheden: CAP_NET_RAW voor raw sockets, CAP_DAC_OVERRIDE voor file access. setcap cap_net_raw+ep /usr/bin/ping is veiliger dan chmod u+s /usr/bin/ping omdat het alleen netwerk-privileges geeft.</p>
+                </div>
+              </details>
+            </div>
+
+            <!-- CHECKLIST -->
+            <h4>Checklist</h4>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f0-0201"> Ik kan /proc/self/maps lezen en elke regel uitleggen</li>
+              <li><input type="checkbox" id="f0-0202"> Ik kan lsof gebruiken om file descriptors van een proces te inspecteren</li>
+              <li><input type="checkbox" id="f0-0203"> Ik begrijp het verschil tussen PID, mount, en network namespaces</li>
+              <li><input type="checkbox" id="f0-0204"> Ik kan uitleggen waarom capabilities beter zijn dan setuid root</li>
+              <li><input type="checkbox" id="f0-0205"> Ik ken de Linux filesystem hierarchy en weet wat /proc, /sys, en /dev bevatten</li>
+              <li><input type="checkbox" id="f0-0206"> Ik begrijp hoe fork() en execve() werken om nieuwe processen te starten</li>
+              <li><input type="checkbox" id="f0-0207"> Alle drie de video's bekeken</li>
+              <li><input type="checkbox" id="f0-0208"> Alle vier de oefeningen voltooid</li>
+            </ul>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen</h4>
+            <div class="resource-links">
+              <a href="https://tryhackme.com/room/linuxfundamentalspart1" target="_blank" rel="noopener">TryHackMe &mdash; Linux Fundamentals Part 1</a>
+              <a href="https://overthewire.org/wargames/bandit/" target="_blank" rel="noopener">OverTheWire &mdash; Bandit (Linux wargame)</a>
+              <a href="https://man7.org/linux/man-pages/man5/proc.5.html" target="_blank" rel="noopener">proc(5) Man Page</a>
+              <a href="https://man7.org/linux/man-pages/man7/capabilities.7.html" target="_blank" rel="noopener">capabilities(7) Man Page</a>
+              <a href="https://linuxjourney.com/" target="_blank" rel="noopener">Linux Journey (interactief)</a>
+              <a href="https://www.youtube.com/watch?v=sWbUDq4S6Y8" target="_blank" rel="noopener">Liz Rice &mdash; Containers from Scratch</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MODULE 0.3 — PROGRAMMEER-POLISH
+         ============================================================ -->
+    <section id="mod-0-3" class="phase-0">
+      <div class="section-head">
+        <div class="badge">MOD 0.3</div>
+        <div>
+          <h2>Programmeer-<em>Polish</em>.</h2>
+          <div class="duration">1-2 WEKEN &middot; KERNMODULE</div>
+        </div>
+      </div>
+      <p class="section-intro">Je hoeft geen software engineer te zijn, maar je moet code kunnen lezen, schrijven, en debuggen. Python voor tooling, C voor exploits begrijpen, Git voor alles.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">0.3</div>
+          <div class="body">
+            <h3>Code als wapen &amp; schild</h3>
+            <p class="desc">In cybersecurity schrijf je scripts, lees je exploits, en automatiseer je taken. Python is je dagelijkse tool. C begrijpen is noodzakelijk voor binary exploitation. Git is hoe de security-community werkt.</p>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: Waarom Python en C beide essentieel zijn voor security</summary>
+              <div class="deep-content">
+                <p>Waarom Python en C beide essentieel zijn voor security &mdash; Python is je automation taal: snel prototypen, scripting, tool-building. C is je 'begrijp-de-machine' taal: memory layout, pointers, buffer overflows zijn onmogelijk te begrijpen zonder C te lezen. Je hoeft niet goed in C te schrijven &mdash; je moet het vloeiend kunnen LEZEN, omdat de meeste exploits, kernels, en security-critical code in C geschreven is.</p>
+              </div>
+            </details>
+
+            <h4>Kernconcepten</h4>
+            <ul>
+              <li><strong>Python Fundamentals</strong> &mdash; Data types, functies, classes, file I/O, error handling. Genoeg om een tool te bouwen.</li>
+              <li><strong>Python Networking</strong> &mdash; De <code>socket</code> module. TCP/UDP clients en servers bouwen. HTTP requests met <code>requests</code>.</li>
+              <li><strong>C Lezen</strong> &mdash; Pointers, memory allocation, structs, system calls. Je hoeft niet in C te schrijven, maar je moet het kunnen lezen.</li>
+              <li><strong>Process Creation in C</strong> &mdash; <code>fork()</code>, <code>execve()</code>, <code>wait()</code>. Hoe Unix processen echt werken onder de motorkap.</li>
+              <li><strong>Git Workflow</strong> &mdash; clone, branch, commit, merge, rebase. Pull requests. <code>git bisect</code> om bugs te vinden. <code>git log</code> lezen.</li>
+              <li><strong>Scripting Mindset</strong> &mdash; Automatiseer repetitieve taken. Als je iets drie keer handmatig doet, schrijf een script.</li>
+            </ul>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/IUZTbEaDo0U" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">How To Master Python</div>
+                    <div class="video-channel">KALLE HALLDEN</div>
+                    <div class="video-desc">Praktisch advies over hoe je Python onder de knie krijgt. Goed als je je Python wilt opfrissen en richting wilt.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/YYXdXT2l-Gg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Python Tutorial for Beginners 1: Install and Setup</div>
+                    <div class="video-channel">COREY SCHAFER</div>
+                    <div class="video-desc">Eerste video in Corey Schafer's diepgaande Python-serie. Uitstekend startpunt voor het begrijpen van de taal op een serieus niveau.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/Uszj_k0DGsg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Git for Professionals Tutorial</div>
+                    <div class="video-channel">FREECODECAMP</div>
+                    <div class="video-desc">Tools en concepten voor gevorderd versiebeheer met Git: interactive rebase, branching strategies, merge conflicts, en professionele workflows.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 0.3.1</div>
+                  <div class="exercise-difficulty medium">MEDIUM</div>
+                </div>
+                <div class="exercise-title">Port scanner bouwen in Python</div>
+                <div class="exercise-desc">
+                  Bouw een simpele port scanner met de Python <code>socket</code> module. Het script moet een target IP en een range van poorten accepteren als argumenten. Gebruik <code>socket.connect_ex()</code> voor elke poort en print welke open zijn. Voeg een timeout toe van 1 seconde per poort. Bonus: maak het multithreaded met <code>concurrent.futures.ThreadPoolExecutor</code> en vergelijk de snelheid. Test alleen op je eigen machines of <code>scanme.nmap.org</code>.
+                </div>
+                <div class="exercise-source">Bron: Black Hat Python &middot; Python socket module docs</div>
+              </div>
+              <details class="answer-reveal">
+                <summary>Toon antwoord</summary>
+                <div class="answer-content">
+                  <p>import socket; for port in range(1, 1025): s = socket.socket(); s.settimeout(0.5); result = s.connect_ex(('target', port)); if result == 0: print(f'Port {port} open'); s.close(). Verbeterde versie: gebruik concurrent.futures.ThreadPoolExecutor voor snelheid, en voeg banner grabbing toe met s.recv(1024).</p>
+                </div>
+              </details>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 0.3.2</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">C-programma met fork() en execve() lezen en uitleggen</div>
+                <div class="exercise-desc">
+                  Bekijk het volgende C-patroon: een programma dat <code>fork()</code> aanroept, in het child process <code>execve("/bin/ls", args, envp)</code> uitvoert, en in het parent process <code>waitpid()</code> aanroept. Teken de process tree die ontstaat. Beantwoord: wat is het verschil tussen <code>fork()</code> en <code>exec()</code>? Waarom returnt <code>fork()</code> twee keer? Wat gebeurt er als je <code>waitpid()</code> weglaat? Schrijf het programma na en voer het uit.
+                </div>
+                <div class="exercise-source">Bron: Advanced Programming in the UNIX Environment &middot; Stevens &amp; Rago</div>
+              </div>
+              <details class="answer-reveal">
+                <summary>Toon antwoord</summary>
+                <div class="answer-content">
+                  <p>fork() returnt 0 in het child, PID van child in parent, -1 bij fout. Na fork delen parent en child dezelfde file descriptors (copy-on-write memory). execve() vervangt het child's memory image volledig &mdash; code, data, stack worden vervangen door het nieuwe programma.</p>
+                </div>
+              </details>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING 0.3.3</div>
+                  <div class="exercise-difficulty medium">MEDIUM</div>
+                </div>
+                <div class="exercise-title">Git bisect gebruiken om een bug te vinden</div>
+                <div class="exercise-desc">
+                  Clone een repository met een bekende bug ergens in de history (maak er zelf een aan met 10+ commits als je geen goede vindt). Gebruik <code>git bisect start</code>, markeer een goede en slechte commit, en laat Git binary search doen om de exacte commit te vinden die de bug introduceerde. Documenteer het volledige proces: welke commits heb je getest, hoe heeft bisect je geleid, en welke commit was de boosdoener?
+                </div>
+                <div class="exercise-source">Bron: Pro Git Book &middot; git-bisect(1) man page</div>
+              </div>
+              <details class="answer-reveal">
+                <summary>Toon antwoord</summary>
+                <div class="answer-content">
+                  <p>git bisect start; git bisect bad (huidige commit is broken); git bisect good &lt;known-good-commit&gt;; Git kiest automatisch een commit halverwege. Test, markeer good/bad, herhaal. Logaritmische complexiteit: 1000 commits vereist ~10 tests.</p>
+                </div>
+              </details>
+            </div>
+
+            <!-- CHECKLIST -->
+            <h4>Checklist</h4>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f0-0301"> Ik kan een werkende port scanner schrijven in Python met de socket module</li>
+              <li><input type="checkbox" id="f0-0302"> Ik begrijp hoe fork() en execve() samenwerken om processen te starten</li>
+              <li><input type="checkbox" id="f0-0303"> Ik kan git bisect gebruiken om een bug-introducerende commit te vinden</li>
+              <li><input type="checkbox" id="f0-0304"> Ik kan een simpel Python script schrijven dat command-line argumenten accepteert</li>
+              <li><input type="checkbox" id="f0-0305"> Ik kan een C-programma met pointers en memory allocation lezen en begrijpen</li>
+              <li><input type="checkbox" id="f0-0306"> Ik ken de basis Git workflow: branch, commit, merge, pull request</li>
+              <li><input type="checkbox" id="f0-0307"> Alle drie de video's bekeken</li>
+              <li><input type="checkbox" id="f0-0308"> Alle drie de oefeningen voltooid</li>
+            </ul>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen</h4>
+            <div class="resource-links">
+              <a href="https://docs.python.org/3/library/socket.html" target="_blank" rel="noopener">Python socket module docs</a>
+              <a href="https://automatetheboringstuff.com/" target="_blank" rel="noopener">Automate the Boring Stuff with Python</a>
+              <a href="https://beej.us/guide/bgnet/" target="_blank" rel="noopener">Beej's Guide to Network Programming</a>
+              <a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">Pro Git Book (gratis)</a>
+              <a href="https://exercism.org/tracks/python" target="_blank" rel="noopener">Exercism &mdash; Python Track</a>
+              <a href="https://cdecl.org/" target="_blank" rel="noopener">cdecl.org &mdash; C declaraties lezen</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ETHICS REMINDER
+         ============================================================ -->
+    <section id="ethics">
+      <div class="ethics">
+        <p><strong>Ethische richtlijn voor Fase 0</strong></p>
+        <p>De tools en technieken die je hier leert &mdash; port scanning, packet capturing, process inspection &mdash; zijn dual-use. Dezelfde kennis die een pentester gebruikt om kwetsbaarheden te vinden, kan een crimineel gebruiken om schade aan te richten.</p>
+        <p>Het verschil is <strong>autorisatie</strong>. Altijd.</p>
+        <ul>
+          <li>Scan alleen je eigen netwerken en machines, of gebruik expliciet toegestane doelen zoals <code>scanme.nmap.org</code></li>
+          <li>Capture alleen verkeer op netwerken waar je toestemming voor hebt</li>
+          <li>Gebruik je kennis om te beschermen, niet om te breken</li>
+          <li>Als je twijfelt of iets mag: het mag niet. Vraag eerst toestemming.</li>
+          <li>Lees de wetgeving: in Nederland valt ongeautoriseerde toegang onder <strong>Art. 138ab Wetboek van Strafrecht</strong> (computervredebreuk)</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      LEARNSEC // FASE 00 // OPFRISSER &amp; GAP AUDIT // BLIJF NIEUWSGIERIG &middot; BLIJF LEGAAL &middot; BOUW DINGEN<span class="cursor"></span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="../js/progress.js"></script>
+</body>
+</html>

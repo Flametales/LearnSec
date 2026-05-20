@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="phase-id" content="fase-2">
+<title>Fase 2 // Offensief Diep &mdash; LearnSec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="frame">
+
+  <aside>
+    <div class="brand">// LEARNSEC</div>
+    <div class="brand-sub">cybersec.leeromgeving</div>
+    <div class="edition">&#9733; FASE 02 &middot; OFFENSIEF &#9733;</div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">MODULES</div>
+      <nav>
+        <a href="#mod-2-1" class="phase-2"><span class="num">2.1</span>Recon &amp; OSINT</a>
+        <a href="#mod-2-2" class="phase-2"><span class="num">2.2</span>Web App Security</a>
+        <a href="#mod-2-3" class="phase-2"><span class="num">2.3</span>Netwerk Aanvallen</a>
+        <a href="#mod-2-4" class="phase-2"><span class="num">2.4</span>Binary Exploitation</a>
+        <a href="#mod-2-5" class="phase-2"><span class="num">2.5</span>Active Directory</a>
+        <a href="#mod-2-6" class="phase-2"><span class="num">2.6</span>Cloud Attack Surface</a>
+        <a href="#mod-2-7" class="phase-2"><span class="num">2.7</span>Schrijf Je Eigen Tools</a>
+        <a href="#mod-2-8" class="phase-2"><span class="num">2.8</span>Capstone &amp; Cert</a>
+      </nav>
+    </div>
+
+    <div class="back-link">
+      <a href="../index.html">&larr; Terug naar Hub</a>
+    </div>
+
+    <div class="meta">
+      <strong>METHODE</strong>
+      Video's kijken. Bronnen lezen.<br>
+      Oefeningen maken. Labs bouwen.<br>
+      Herhaal tot mastery.
+      <strong>STATUS</strong>
+      <span style="color: var(--accent-hot);">&#9679; FASE 2 ACTIEF</span>
+    </div>
+  </aside>
+
+  <main id="top">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <div class="hero">
+      <div class="ascii-dec">&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;  &#9617;&#9618;&#9619; OFFENSIEF &#9619;&#9618;&#9617; &#9474;
+&#9474;                   &#9474;
+&#9474;  > recon_target    &#9474;
+&#9474;  > exploit_vuln    &#9474;
+&#9474;  > escalate_priv   &#9474;
+&#9474;  > pivot_network   &#9474;
+&#9474;                   &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</div>
+
+      <div class="tag">LEEROMGEVING <span class="badge-pill" style="background: var(--accent-hot);">FASE 02</span><span class="lang">NL</span></div>
+      <h1>Offensief, <em style="color: var(--accent-hot);">diep</em>.<br>De grootste fase.</h1>
+      <p class="lede">Van reconnaissance tot certificering. Dit is de kern van offensieve security &mdash; 8 modules die je meenemen van OSINT en web hacking tot Active Directory, cloud, en je eigen tools bouwen. Budget 4-6 maanden.</p>
+
+      <div class="philosophy" style="border-left-color: var(--accent-hot);">
+        <strong style="color: var(--accent-hot);">4-6 MAANDEN</strong>
+        Dit is de langste en meest intense fase. Elke module bouwt voort op de vorige. Sla niets over. Leer aanvallen, maar denk altijd na over de verdediging. De OSCP zit aan het einde van deze tunnel.
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="k">MODULES</div><div class="v" style="color: var(--accent-hot);">08</div><div class="u">volledige tracks</div></div>
+        <div class="stat"><div class="k">VIDEO'S</div><div class="v" style="color: var(--accent-hot);">24+</div><div class="u">gratis YouTube</div></div>
+        <div class="stat"><div class="k">OEFENINGEN</div><div class="v" style="color: var(--accent-hot);">35+</div><div class="u">hands-on labs</div></div>
+        <div class="stat"><div class="k">CHECKPOINTS</div><div class="v" style="color: var(--accent-hot);">60</div><div class="u">trackbare items</div></div>
+      </div>
+    </div>
+
+    <!-- PAGE-LEVEL PROGRESS BAR -->
+    <div style="padding: 24px 64px 0;">
+      <div class="progress-bar-container" data-scope="page" style="max-width: 100%;">
+        <div class="progress-bar-header">
+          <span class="progress-bar-label">FASE 2 VOORTGANG</span>
+          <span class="progress-bar-pct" style="color: var(--accent-hot);">0/60 &middot; 0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="fill" style="background: var(--accent-hot);"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         MODULE 2.1 — Reconnaissance & OSINT
+         ============================================================ -->
+    <section class="phase-2" id="mod-2-1">
+      <div class="section-head">
+        <div class="badge" style="border-color: var(--accent-hot);">2.1</div>
+        <div>
+          <h2>Reconnaissance &amp; <em>OSINT</em></h2>
+          <div class="duration">2-3 WEKEN</div>
+        </div>
+      </div>
+
+      <p class="section-intro">Elke aanval begint met informatie. Hoe meer je weet over je doelwit v&oacute;&oacute;r je eerste exploit, hoe effectiever je bent. Leer passieve en actieve verkenning tot op mastery-niveau.</p>
+
+      <details class="deep-understanding">
+        <summary>Diep Begrip: Passieve vs. Actieve Reconnaissance</summary>
+        <div class="deep-content">
+          <p>Het verschil tussen passieve en actieve recon is juridisch, niet technisch &mdash; Passieve recon (CT logs, Shodan, Wayback Machine) raakt het doelsysteem nooit direct. Je leest alleen publiek beschikbare informatie. Actieve recon (nmap scans, directory bruteforcing) stuurt verkeer naar het doelsysteem en is detecteerbaar. In Nederland kan actieve recon zonder toestemming al onder Art. 138ab vallen. Het grijze gebied: is een DNS query passief of actief? Technisch gezien raakt het de authoritative nameserver van het doel. In de praktijk wordt het als passief beschouwd, maar wees bewust van de grens.</p>
+        </div>
+      </details>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">P</div>
+          <div class="body">
+            <h3>Passieve Reconnaissance</h3>
+            <p class="desc">Informatie verzamelen zonder het doelwit te raken. Geen enkel pakket naar de target &mdash; puur open bronnen en third-party data.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>Certificate Transparency</strong> &mdash; gebruik <code>crt.sh</code> om alle uitgegeven certificaten (en dus subdomeinen) van een domein te vinden</li>
+              <li><strong>Shodan &amp; Censys</strong> &mdash; internet-brede scanners die services, banners, en kwetsbaarheden indexeren. Leer geavanceerde queries schrijven</li>
+              <li><strong>GitHub Dorking</strong> &mdash; zoek naar gelekte credentials, API keys, en interne documentatie in publieke repositories</li>
+              <li><strong>TruffleHog</strong> &mdash; automatisch scannen van git-geschiedenis op secrets en high-entropy strings</li>
+              <li><strong>Wayback Machine</strong> &mdash; historische snapshots van websites onthullen vaak verwijderde pagina's, oude endpoints, en vergeten configuraties</li>
+              <li><strong>DNS History</strong> &mdash; SecurityTrails, DNSdumpster &mdash; wie hoste wat, wanneer? Oude IP's onthullen infrastructuur</li>
+            </ul>
+
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/qwA6MmbeGNo" title="OSINT in 5 Hours" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">OSINT in 5 Hours &mdash; Full Course</div>
+                    <div class="video-channel">The Cyber Mentor</div>
+                    <div class="video-desc">Compleet overzicht van OSINT-technieken, van Google dorking tot sociale media analyse en metadata extractie.</div>
+                  </div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/EoMkMB41_sg" title="Passive Reconnaissance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Passive Reconnaissance</div>
+                    <div class="video-channel">HackerSploit</div>
+                    <div class="video-desc">Stap-voor-stap passieve verkenning: WHOIS, DNS, certificate transparency, en meer.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">A</div>
+          <div class="body">
+            <h3>Actieve Reconnaissance</h3>
+            <p class="desc">Nu raak je het doelwit. Port scanning, service enumeration, subdomain bruteforcing. Precisie en snelheid zijn essentieel.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>Nmap Mastery</strong> &mdash; SYN scan, version detection, scripting engine (NSE), timing templates, output formats. Ken elke flag</li>
+              <li><strong>Masscan</strong> &mdash; internet-snelheid scanning. Wanneer nmap te langzaam is voor grote ranges</li>
+              <li><strong>Subdomain Enumeration</strong> &mdash; <code>amass</code>, <code>subfinder</code> &mdash; combineer meerdere bronnen voor maximale dekking</li>
+              <li><strong>HTTP Probing</strong> &mdash; <code>httpx</code> voor het valideren van live hosts, <code>gowitness</code> voor visuele screenshots van ontdekte webservices</li>
+            </ul>
+
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/pL9q2lOZ1Fk" title="Nmap Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Nmap Tutorial &mdash; Full Course</div>
+                    <div class="video-channel">David Bombal</div>
+                    <div class="video-desc">Diepgaande nmap tutorial: van basis scans tot geavanceerde NSE scripts en evasion technieken.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISES 2.1 -->
+      <div class="exercise-section">
+        <h4>Oefeningen</h4>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.1.1</span>
+            <span class="exercise-difficulty easy">EASY</span>
+          </div>
+          <div class="exercise-title">crt.sh Subdomain Enumeratie</div>
+          <div class="exercise-desc">Gebruik crt.sh om alle subdomeinen van een target domein te enumereren. Gebruik je eigen domein of een domein binnen een bug bounty scope. Documenteer elk uniek subdomein en categoriseer ze (productie, staging, dev, intern).</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>curl -s 'https://crt.sh/?q=%25.example.com&amp;output=json' | jq '.[].name_value' | sort -u</code>. CT logs bevatten elk certificaat dat door een trusted CA is uitgegeven. Wildcard certs tonen de scope, individuele certs tonen specifieke subdomains. Combineer met <code>subfinder -d example.com</code> en <code>amass enum -d example.com</code> voor completere resultaten.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.1.2</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">Custom Shodan Query</div>
+          <div class="exercise-desc">Schrijf een geavanceerde Shodan query om blootgestelde databases (MongoDB, Elasticsearch, Redis) in een specifiek land te vinden. Experimenteer met filters zoals <code>country:</code>, <code>port:</code>, <code>product:</code>, en <code>vuln:</code>.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>country:NL port:27017 -authentication</code> voor onbeschermde MongoDB's in Nederland. Andere nuttige queries: <code>has_screenshot:true country:NL</code> (RDP/VNC), <code>ssl.cert.subject.CN:*.company.com</code> (alle services van een bedrijf), <code>http.title:Dashboard -login</code> (onbeschermde admin panels).</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.1.3</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">Subdomain Merge Pipeline</div>
+          <div class="exercise-desc">Draai amass + subfinder + crt.sh tegen hetzelfde doelwit. Merge alle resultaten in &eacute;&eacute;n bestand, elimineer duplicaten, en sorteer. Gebruik <code>httpx</code> om te valideren welke subdomeinen live zijn. Documenteer het verschil in dekking tussen de tools.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>subfinder -d target.com -o subs1.txt &amp;&amp; amass enum -d target.com -o subs2.txt &amp;&amp; curl -s 'https://crt.sh/?q=%25.target.com&amp;output=json' | jq -r '.[].name_value' &gt; subs3.txt &amp;&amp; cat subs1.txt subs2.txt subs3.txt | sort -u &gt; all_subs.txt</code>. Gebruik httpx om live hosts te identificeren: <code>cat all_subs.txt | httpx -title -status-code -tech-detect</code>.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.1.4</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">Full Nmap Lab Scan</div>
+          <div class="exercise-desc">Voer een volledige nmap scan uit op je lab-netwerk. Gebruik <code>-sV</code> voor versiedetectie, <code>-sC</code> voor default scripts, en <code>-O</code> voor OS-detectie. Documenteer alle gevonden services, versienummers, en potenti&euml;le kwetsbaarheden.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>nmap -sV -sC -O -oA lab_scan 10.10.10.0/24</code>. <code>-sV</code>: service version detection, <code>-sC</code>: default scripts, <code>-O</code>: OS detection. Voor stealth: <code>-sS</code> (SYN scan, half-open). Documenteer: IP, open poorten, services+versies, OS. Dit is je aanvalsoppervlak-inventaris.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- CHECKLIST 2.1 -->
+      <h4 style="color: var(--accent-hot);">Checklist</h4>
+      <ul class="checklist">
+        <li><input type="checkbox" id="f2-recon-01"> Ik kan crt.sh, Shodan, en Censys effectief gebruiken voor passieve recon</li>
+        <li><input type="checkbox" id="f2-recon-02"> Ik begrijp GitHub dorking en kan TruffleHog draaien op repositories</li>
+        <li><input type="checkbox" id="f2-recon-03"> Ik kan Wayback Machine en DNS history gebruiken om verborgen infrastructuur te vinden</li>
+        <li><input type="checkbox" id="f2-recon-04"> Ik beheers nmap volledig: scan types, NSE scripts, timing, output</li>
+        <li><input type="checkbox" id="f2-recon-05"> Ik kan masscan gebruiken voor snelle, brede scans</li>
+        <li><input type="checkbox" id="f2-recon-06"> Ik kan subdomeinen enumereren met amass en subfinder en resultaten mergen</li>
+        <li><input type="checkbox" id="f2-recon-07"> Ik kan httpx en gowitness gebruiken voor HTTP probing en visuele recon</li>
+        <li><input type="checkbox" id="f2-recon-08"> Ik kan een complete recon-workflow uitvoeren van passief naar actief</li>
+      </ul>
+    </section>
+
+
+    <!-- ============================================================
+         MODULE 2.2 — Web Application Security
+         ============================================================ -->
+    <section class="phase-2" id="mod-2-2">
+      <div class="section-head">
+        <div class="badge" style="border-color: var(--accent-hot);">2.2</div>
+        <div>
+          <h2>Web Application <em>Security</em></h2>
+          <div class="duration">10-14 WEKEN &mdash; GROOTSTE MODULE</div>
+        </div>
+      </div>
+
+      <p class="section-intro">Dit is de grootste module van het hele curriculum. Web applicaties zijn het primaire aanvalsoppervlak van vrijwel elke organisatie. Leer elke kwetsbaarheidsklasse tot op diep niveau.</p>
+
+      <details class="deep-understanding">
+        <summary>Diep Begrip: Waarom PortSwigger Academy Onvervangbaar Is</summary>
+        <div class="deep-content">
+          <p>Er zijn honderden web security cursussen, maar PortSwigger's labs zijn geschreven door dezelfde mensen die Burp Suite bouwen en die de originele onderzoekspapers publiceren (James Kettle's HTTP Request Smuggling, Web Cache Poisoning, etc.). De labs zijn niet theoretisch &mdash; het zijn echte kwetsbaarheden in echte (sandboxed) applicaties. Het verschil met CTFs: PSA labs zijn methodisch opgebouwd van beginner tot expert, elke lab bouwt op de vorige. 100-200 uur klinkt veel, maar het is de meest effici&euml;nte investering in web security die je kunt maken.</p>
+        </div>
+      </details>
+
+      <div class="callout warn" style="margin: 0 0 32px 128px;">
+        <strong class="label">Verplicht Platform</strong>
+        <strong>PortSwigger Web Security Academy</strong> is DE verplichte resource voor deze module. Doe <em>elk</em> lab. Budget 100-200 uur alleen hiervoor. Dit is niet optioneel &mdash; het is de industriestandaard voor web security training.
+      </div>
+
+      <div class="modules">
+
+        <!-- Injection -->
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">INJ</div>
+          <div class="body">
+            <h3>Injection Attacks</h3>
+            <p class="desc">De moeder van alle kwetsbaarheden. Als gebruikersinput ongevalideerd in een interpreter terechtkomt, heb je een injectie.</p>
+
+            <h4 style="color: var(--accent-hot);">SQL Injection (Alle Types)</h4>
+            <ul>
+              <li><strong>Classic SQLi</strong> &mdash; UNION-based, error-based, inline queries</li>
+              <li><strong>Blind SQLi</strong> &mdash; boolean-based en time-based. Wanneer je geen output ziet maar het gedrag observeert</li>
+              <li><strong>Second-order SQLi</strong> &mdash; input wordt opgeslagen en pas later ge&iuml;njecteerd in een query</li>
+              <li><strong>Out-of-band SQLi</strong> &mdash; DNS en HTTP exfiltratie wanneer andere kanalen geblokkeerd zijn</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">Command Injection</h4>
+            <ul>
+              <li>OS command injection via <code>;</code>, <code>|</code>, <code>$()</code>, backticks</li>
+              <li>Blind command injection &mdash; time delays, out-of-band (DNS, HTTP)</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">Server-Side Template Injection (SSTI)</h4>
+            <ul>
+              <li>Template engine fingerprinting (Jinja2, Twig, Freemarker, Velocity)</li>
+              <li>Van SSTI naar RCE &mdash; sandbox escapes en gadget chains</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">Server-Side Request Forgery (SSRF)</h4>
+            <ul>
+              <li>Basic SSRF naar interne services</li>
+              <li>Blind SSRF met out-of-band technieken</li>
+              <li>SSRF naar cloud metadata endpoints (169.254.169.254)</li>
+              <li>Filter bypass technieken: URL parsing, DNS rebinding, IPv6</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- XSS -->
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">XSS</div>
+          <div class="body">
+            <h3>Cross-Site Scripting (XSS)</h3>
+            <p class="desc">JavaScript injectie in de browser van het slachtoffer. Nog steeds een van de meest voorkomende kwetsbaarheden op het web.</p>
+
+            <h4 style="color: var(--accent-hot);">XSS Varianten</h4>
+            <ul>
+              <li><strong>Reflected XSS</strong> &mdash; payload in de URL, direct gereflecteerd in de response</li>
+              <li><strong>Stored XSS</strong> &mdash; payload opgeslagen in de database, uitgevoerd bij elke page load</li>
+              <li><strong>DOM-based XSS</strong> &mdash; kwetsbaarheid zit puur in client-side JavaScript, nooit naar de server</li>
+              <li><strong>Mutation XSS (mXSS)</strong> &mdash; misbruik van browser HTML parsing quirks om sanitizers te omzeilen</li>
+              <li><strong>CSP Bypass</strong> &mdash; Content Security Policy omzeilen via unsafe-inline, base-uri, JSONP endpoints, Angular sandbox escapes</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Auth & Access Control -->
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">AUTH</div>
+          <div class="body">
+            <h3>Authentication &amp; Access Control</h3>
+            <p class="desc">Gebroken authenticatie en autorisatie zijn verantwoordelijk voor een groot deel van alle security breaches.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>JWT Attacks</strong> &mdash; none algorithm, key confusion (RS256 vs HS256), header injection, JKU/X5U abuse</li>
+              <li><strong>OAuth Abuse</strong> &mdash; redirect_uri manipulation, scope escalation, CSRF in OAuth flows, token theft</li>
+              <li><strong>SAML XSW</strong> &mdash; XML Signature Wrapping attacks tegen SAML-gebaseerde SSO</li>
+              <li><strong>IDOR</strong> &mdash; Insecure Direct Object References. Simpel maar verwoestend: verander een ID, krijg data van een ander</li>
+              <li><strong>Mass Assignment</strong> &mdash; verborgen parameters toevoegen aan requests om privileged fields te overschrijven</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Advanced Web -->
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">ADV</div>
+          <div class="body">
+            <h3>Advanced Web Attacks</h3>
+            <p class="desc">De geavanceerde kwetsbaarheden die het verschil maken tussen een junior en senior pentester.</p>
+
+            <h4 style="color: var(--accent-hot);">HTTP Request Smuggling</h4>
+            <ul>
+              <li>CL.TE en TE.CL desync attacks</li>
+              <li>HTTP/2 downgrade smuggling</li>
+              <li>Request smuggling naar account takeover, cache poisoning, en WAF bypass</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">Web Cache Poisoning</h4>
+            <ul>
+              <li>Unkeyed headers en parameters identificeren</li>
+              <li>Cache deception vs cache poisoning</li>
+              <li>Chaining met XSS voor stored-achtige impact via de cache</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">Prototype Pollution</h4>
+            <ul>
+              <li>Client-side prototype pollution via <code>__proto__</code> en <code>constructor.prototype</code></li>
+              <li>Server-side prototype pollution in Node.js applicaties</li>
+              <li>Gadgets: van prototype pollution naar XSS of RCE</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">DOM Clobbering</h4>
+            <ul>
+              <li>HTML elementen die JavaScript globals overschrijven</li>
+              <li>Chaining met andere kwetsbaarheden voor impact</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEOS 2.2 -->
+      <div class="video-section">
+        <h4>Video's</h4>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/YKsE5yOReyA" title="SQL Injection" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">SQL Injection &mdash; Complete Guide</div>
+              <div class="video-channel">PortSwigger</div>
+              <div class="video-desc">Officieel PortSwigger overzicht van alle SQL injection varianten met lab demonstraties.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/9bVhsgFNPsM" title="XSS Explained" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">XSS Explained</div>
+              <div class="video-channel">PwnFunction</div>
+              <div class="video-desc">Helder visueel overzicht van reflected, stored, en DOM-based XSS met praktijkvoorbeelden.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/CIo1wBKBaJY" title="Bug Bounty Hunting" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Bug Bounty Hunting &mdash; Real World Tips</div>
+              <div class="video-channel">NahamSec</div>
+              <div class="video-desc">Praktische bug bounty workflow: recon, web testing, en hoe je bugs vindt die anderen missen.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISES 2.2 -->
+      <div class="exercise-section">
+        <h4>Oefeningen</h4>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.2.1</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">PortSwigger SQLi Labs (Alle Levels)</div>
+          <div class="exercise-desc">Voltooi alle SQL injection labs op PortSwigger Web Security Academy &mdash; van Apprentice tot Expert. Documenteer je payloads en de logica achter elke aanval. Dit alleen al kost 20-40 uur.</div>
+          <div class="exercise-source">Bron: PortSwigger Web Security Academy</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Begin met Lab: SQL injection vulnerability in WHERE clause. Test met <code>'</code> en <code>' OR 1=1--</code>. Union-based: <code>' UNION SELECT NULL,NULL--</code> (voeg NULLs toe tot de query succeeds). Boolean blind: <code>' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administrator')='a'--</code>. Time-blind: <code>'; IF (1=1) WAITFOR DELAY '0:0:5'--</code>. Het cruciale inzicht: de techniek die je kiest hangt af van wat de applicatie teruggeeft (errors, data, boolean, of niets).</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.2.2</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">PortSwigger XSS Labs (Reflected, Stored, DOM)</div>
+          <div class="exercise-desc">Voltooi alle XSS labs: reflected, stored, en DOM-based. Leer context-afhankelijke payloads schrijven en CSP bypasses begrijpen.</div>
+          <div class="exercise-source">Bron: PortSwigger Web Security Academy</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Reflected: zoek input dat wordt gereflecteerd in de response zonder encoding. Test: <code>&lt;script&gt;alert(1)&lt;/script&gt;</code>, <code>&lt;img src=x onerror=alert(1)&gt;</code>, <code>&lt;svg onload=alert(1)&gt;</code>. DOM XSS: zoek naar <code>document.location</code>, <code>document.URL</code>, <code>document.referrer</code> in JavaScript die wordt geschreven naar <code>innerHTML</code> of <code>document.write</code>. De fix is altijd context-dependent encoding, nooit blacklisting.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.2.3</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">SSRF Exploitatie in DVWA of Juice Shop</div>
+          <div class="exercise-desc">Vind en exploiteer een SSRF-kwetsbaarheid in DVWA of OWASP Juice Shop. Probeer interne services te bereiken en documenteer de volledige aanvalsketen.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>In DVWA: test met <code>http://localhost</code>, <code>http://127.0.0.1</code>, <code>http://[::1]</code>, <code>http://169.254.169.254</code> (AWS metadata). Bypass filters: <code>http://0x7f000001</code>, <code>http://017700000001</code> (octal), DNS rebinding. Het echte gevaar: SSRF &rarr; AWS metadata &rarr; IAM role credentials &rarr; cloud account compromise.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.2.4</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">HTTP Request Smuggling Payload</div>
+          <div class="exercise-desc">Bouw een werkende HTTP request smuggling payload in een lab-omgeving. Demonstreer zowel CL.TE als TE.CL varianten en documenteer de impact.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>CL.TE payload: <code>POST / HTTP/1.1\r\nHost: target\r\nContent-Length: 13\r\nTransfer-Encoding: chunked\r\n\r\n0\r\n\r\nSMUGGLED</code>. De front-end server gebruikt Content-Length (13 bytes), de back-end gebruikt Transfer-Encoding (0 = end of chunks). Het verschil in parsing laat je een request 'smokkelen' naar de back-end.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.2.5</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">Custom Burp Suite Extension voor IDOR Testing</div>
+          <div class="exercise-desc">Schrijf een Burp Suite extension (Python of Java) die automatisch IDOR-kwetsbaarheden test door ID-parameters te detecteren en te manipuleren. De extension moet vergelijkingsresultaten rapporteren.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Gebruik Jython/Montoya API. <code>IHttpListener</code> interface, <code>processHttpMessage()</code> method. Filter responses met parameters als 'id', 'user_id', 'account'. Wissel waarden automatisch en vergelijk response length/content. Length-verschil bij andere user's ID = potenti&euml;le IDOR.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Reading & Tools -->
+      <div class="callout read">
+        <strong class="label">Aanbevolen Lectuur</strong>
+        <em>The Web Application Hacker's Handbook</em> (Stuttard &amp; Pinto) &mdash; het standaardwerk voor web app security. <em>Real-World Bug Hunting</em> (Yaworski) &mdash; praktijkgerichte bug bounty case studies.
+      </div>
+
+      <div class="callout resources">
+        <strong class="label">Essenti&euml;le Tools</strong>
+        <strong>Burp Suite Professional</strong> (of Community), <code>ffuf</code> (web fuzzer), <code>nuclei</code> (vulnerability scanner), <code>sqlmap</code> (SQL injection automation), <strong>SecLists</strong> (wordlists voor alles).
+      </div>
+
+      <!-- CHECKLIST 2.2 -->
+      <h4 style="color: var(--accent-hot);">Checklist</h4>
+      <ul class="checklist">
+        <li><input type="checkbox" id="f2-web-01"> Ik kan alle SQL injection types (UNION, error, blind, second-order, OOB) herkennen en exploiteren</li>
+        <li><input type="checkbox" id="f2-web-02"> Ik begrijp command injection en SSTI en kan template engines fingerprints</li>
+        <li><input type="checkbox" id="f2-web-03"> Ik kan SSRF exploiteren inclusief blind SSRF en cloud metadata aanvallen</li>
+        <li><input type="checkbox" id="f2-web-04"> Ik beheers reflected, stored, en DOM-based XSS inclusief filter bypasses</li>
+        <li><input type="checkbox" id="f2-web-05"> Ik begrijp mutation XSS en CSP bypass technieken</li>
+        <li><input type="checkbox" id="f2-web-06"> Ik kan JWT attacks uitvoeren (none algorithm, key confusion)</li>
+        <li><input type="checkbox" id="f2-web-07"> Ik begrijp OAuth abuse en SAML XSW aanvallen</li>
+        <li><input type="checkbox" id="f2-web-08"> Ik kan IDOR en mass assignment kwetsbaarheden vinden en exploiteren</li>
+        <li><input type="checkbox" id="f2-web-09"> Ik begrijp HTTP request smuggling (CL.TE en TE.CL)</li>
+        <li><input type="checkbox" id="f2-web-10"> Ik kan web cache poisoning uitvoeren via unkeyed inputs</li>
+        <li><input type="checkbox" id="f2-web-11"> Ik begrijp prototype pollution (client-side en server-side) en DOM clobbering</li>
+        <li><input type="checkbox" id="f2-web-12"> Ik heb alle PortSwigger Web Security Academy labs voltooid voor de bovenstaande categorie&euml;n</li>
+      </ul>
+    </section>
+
+
+    <!-- ============================================================
+         MODULE 2.3 — Netwerk Aanvallen
+         ============================================================ -->
+    <section class="phase-2" id="mod-2-3">
+      <div class="section-head">
+        <div class="badge" style="border-color: var(--accent-hot);">2.3</div>
+        <div>
+          <h2>Netwerk <em>Aanvallen</em></h2>
+          <div class="duration">2-3 WEKEN</div>
+        </div>
+      </div>
+
+      <p class="section-intro">Van Layer 2 tot wireless &mdash; begrijp hoe netwerken worden aangevallen. ARP spoofing, LLMNR poisoning, relay attacks, pivoting, en draadloze aanvallen.</p>
+
+      <details class="deep-understanding">
+        <summary>Diep Begrip: Waarom LLMNR/NBT-NS Poisoning Zo Effectief Is</summary>
+        <div class="deep-content">
+          <p>Wanneer een Windows machine een hostname niet kan resolven via DNS, valt het terug op LLMNR (Link-Local Multicast Name Resolution) en NBT-NS (NetBIOS Name Service). Deze protocollen broadcasten de vraag naar het hele lokale netwerk. Responder antwoordt op deze broadcasts en claimt dat hij de gevraagde host is. De client stuurt vervolgens NTLM authenticatie naar Responder. Dit werkt omdat: 1) LLMNR/NBT-NS zijn standaard ingeschakeld, 2) er geen authenticatie is op de responses, 3) het gebeurt automatisch zonder gebruikersinteractie.</p>
+        </div>
+      </details>
+
+      <div class="modules">
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">L2</div>
+          <div class="body">
+            <h3>Layer 2 Aanvallen</h3>
+            <p class="desc">Het lokale netwerk is vaak minder beveiligd dan mensen denken. Layer 2 aanvallen geven je Man-in-the-Middle positie.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>ARP Spoofing</strong> &mdash; fake ARP replies om verkeer om te leiden. Basis voor MitM op lokale netwerken</li>
+              <li><strong>DHCP Attacks</strong> &mdash; rogue DHCP servers, DHCP starvation. Controle over netwerkconfiguratie van clients</li>
+              <li><strong>VLAN Hopping</strong> &mdash; switch spoofing en double tagging om VLAN-isolatie te doorbreken</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">NTL</div>
+          <div class="body">
+            <h3>NTLM Poisoning &amp; Relay</h3>
+            <p class="desc">In Windows-omgevingen zijn LLMNR, NBT-NS, en NTLM een goudmijn voor aanvallers. Responder en relay attacks zijn essenti&euml;le tools.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>LLMNR/NBT-NS Poisoning</strong> &mdash; <code>Responder</code> vang NTLM hashes op door name resolution te spoofen</li>
+              <li><strong>IPv6 Attacks</strong> &mdash; <code>mitm6</code> misbruikt IPv6 autoconfiguratie om verkeer om te leiden</li>
+              <li><strong>SMB Relay</strong> &mdash; captured NTLM authenticatie doorsturen naar een ander systeem via <code>ntlmrelayx</code></li>
+              <li><strong>Kerberos Relay</strong> &mdash; nieuwere relay-technieken die Kerberos-authenticatie misbruiken</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">PIV</div>
+          <div class="body">
+            <h3>Pivoting &amp; Tunneling</h3>
+            <p class="desc">E&eacute;n machine gecompromitteerd? Nu moet je dieper het netwerk in. Pivoting is hoe je van foothold naar volledige controle gaat.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>SSH Tunneling</strong> &mdash; local port forwarding, remote port forwarding, dynamic (SOCKS) proxy</li>
+              <li><strong>Chisel</strong> &mdash; snelle Go-based tunneling tool voor TCP en SOCKS proxying</li>
+              <li><strong>Ligolo-ng</strong> &mdash; moderne tunneling tool die volledige netwerktoegang biedt via een TUN interface</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">WIF</div>
+          <div class="body">
+            <h3>Wireless Attacks</h3>
+            <p class="desc">Wi-Fi aanvallen blijven relevant. Van WPA2 handshake captures tot WPA3 Dragonblood en evil twin attacks.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>WPA2 Aanvallen</strong> &mdash; handshake capture met <code>aircrack-ng</code>, PMKID attack, offline cracking met <code>hashcat</code></li>
+              <li><strong>WPA3 Dragonblood</strong> &mdash; side-channel en downgrade attacks op het SAE handshake</li>
+              <li><strong>Evil Twin</strong> &mdash; nep access point opzetten om credentials te onderscheppen</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">TLS Attack History</h4>
+            <ul>
+              <li>BEAST, CRIME, BREACH, POODLE, Heartbleed, DROWN &mdash; begrijp de geschiedenis van TLS-kwetsbaarheden en waarom ze werkten</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEOS 2.3 -->
+      <div class="video-section">
+        <h4>Video's</h4>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/qlK174d_uu8" title="Network Attacks" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Network Attacks &mdash; Practical Ethical Hacking</div>
+              <div class="video-channel">The Cyber Mentor</div>
+              <div class="video-desc">Praktische demonstratie van netwerk aanvallen: ARP spoofing, LLMNR poisoning, SMB relay, en meer.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/bWPRKi508bY" title="ARP Spoofing" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">ARP Spoofing Attack</div>
+              <div class="video-channel">HackerSploit</div>
+              <div class="video-desc">Stap-voor-stap ARP spoofing uitvoeren en begrijpen hoe MitM op Layer 2 werkt.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/gU8GofUXwSA" title="Responder and NTLMRelayx" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Responder and NTLMRelayx</div>
+              <div class="video-channel">Conda</div>
+              <div class="video-desc">Hoe je Responder en ntlmrelayx samen gebruikt voor NTLM hash capturing en relay attacks in AD-omgevingen.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISES 2.3 -->
+      <div class="exercise-section">
+        <h4>Oefeningen</h4>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.3.1</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">ARP Spoofing in Je Lab</div>
+          <div class="exercise-desc">Voer een ARP spoofing aanval uit in je lab-netwerk met <code>arpspoof</code> of <code>ettercap</code>. Gebruik Wireshark om het omgeleide verkeer te capturen en analyseer het. Documenteer welke data je kunt onderscheppen.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>arpspoof -i eth0 -t 10.10.10.5 10.10.10.1</code> (vertel het target dat jij de gateway bent). Wireshark filter: <code>arp.duplicate-address-detected</code>. Verdediging: static ARP entries, Dynamic ARP Inspection (DAI) op managed switches, 802.1X.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.3.2</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">Responder NTLM Hash Capture</div>
+          <div class="exercise-desc">Draai Responder in je Active Directory lab en capture NTLM hashes. Crack de hashes met <code>hashcat</code>. Documenteer welke accounts kwetsbaar zijn en waarom.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>sudo responder -I eth0 -dwPv</code>. Wacht tot een machine een niet-bestaande share probeert te openen (<code>\\fileserver\share</code>). Responder vangt de NTLMv2 hash. Crack met <code>hashcat -m 5600 hash.txt wordlist.txt</code>. Tip: veel organisaties hebben scheduled tasks die naar niet-bestaande shares wijzen.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.3.3</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">NTLM Relay Attack</div>
+          <div class="exercise-desc">Stel <code>ntlmrelayx</code> in om captured NTLM-authenticatie door te sturen naar een andere machine in je lab. Demonstreer hoe je zonder het wachtwoord te kraken toegang krijgt tot een systeem.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>ntlmrelayx.py -tf targets.txt -smb2support</code>. Combineer met Responder (zonder HTTP/SMB servers: <code>responder -I eth0 -r off -w off</code>). Relay de NTLMv2 hash naar een ander systeem waar SMB signing niet vereist is. Success = SAM dump of command execution.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.3.4</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">WPA2 Handshake Crack</div>
+          <div class="exercise-desc">Capture een WPA2 handshake van je eigen test-netwerk met <code>aircrack-ng</code> suite. Crack het handshake met <code>hashcat</code> en een geschikte wordlist. Documenteer de volledige workflow.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>airmon-ng start wlan0</code> &rarr; <code>airodump-ng wlan0mon</code> (identificeer target BSSID + channel) &rarr; <code>airodump-ng -c [ch] --bssid [BSSID] -w capture wlan0mon</code> &rarr; <code>aireplay-ng -0 5 -a [BSSID] wlan0mon</code> (deauth) &rarr; wacht op WPA handshake &rarr; <code>hashcat -m 22000 capture.hc22000 rockyou.txt</code>. Het handshake bevat de 4 EAPOL frames; je crackt niet de key maar het wachtwoord via PBKDF2-SHA1.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- CHECKLIST 2.3 -->
+      <h4 style="color: var(--accent-hot);">Checklist</h4>
+      <ul class="checklist">
+        <li><input type="checkbox" id="f2-net-01"> Ik kan ARP spoofing, DHCP attacks, en VLAN hopping uitvoeren en uitleggen</li>
+        <li><input type="checkbox" id="f2-net-02"> Ik kan Responder gebruiken voor LLMNR/NBT-NS poisoning en NTLM hash capture</li>
+        <li><input type="checkbox" id="f2-net-03"> Ik begrijp mitm6 en IPv6-gebaseerde aanvallen</li>
+        <li><input type="checkbox" id="f2-net-04"> Ik kan SMB relay en Kerberos relay aanvallen uitvoeren met ntlmrelayx</li>
+        <li><input type="checkbox" id="f2-net-05"> Ik beheers pivoting via SSH tunneling, Chisel, en ligolo-ng</li>
+        <li><input type="checkbox" id="f2-net-06"> Ik kan WPA2 handshakes capturen en kraken</li>
+        <li><input type="checkbox" id="f2-net-07"> Ik begrijp WPA3 Dragonblood kwetsbaarheden en evil twin attacks</li>
+        <li><input type="checkbox" id="f2-net-08"> Ik kan de geschiedenis van TLS-aanvallen uitleggen en hun relevantie</li>
+      </ul>
+    </section>
+
+
+    <!-- ============================================================
+         MODULE 2.4 — Binary Exploitation Intro
+         ============================================================ -->
+    <section class="phase-2" id="mod-2-4">
+      <div class="section-head">
+        <div class="badge" style="border-color: var(--accent-hot);">2.4</div>
+        <div>
+          <h2>Binary Exploitation <em>Intro</em></h2>
+          <div class="duration">2-3 WEKEN</div>
+        </div>
+      </div>
+
+      <p class="section-intro">Stap naar het laagste niveau. Begrijp hoe programma's in het geheugen leven, hoe de stack werkt, en hoe je met een zorgvuldig gecrafted input een programma kunt overnemen.</p>
+
+      <details class="deep-understanding">
+        <summary>Diep Begrip: Waarom Buffer Overflows Nog Steeds Bestaan</summary>
+        <div class="deep-content">
+          <p>Waarom buffer overflows nog steeds bestaan ondanks decennia van mitigaties &mdash; Elke mitigatie heeft een bypass. ASLR randomiseert adressen maar information leaks onthullen de base address. NX/DEP voorkomt code execution op de stack maar Return-Oriented Programming (ROP) hergebruikt bestaande code. Stack canaries detecteren overwrites maar format string bugs kunnen ze lezen. Het is een arms race. Moderne exploits chainen meerdere bugs: een info leak (bypass ASLR) + een write primitive (bypass canary) + ROP chain (bypass NX). Dit is waarom 'defence in depth' werkt &mdash; elke laag maakt exploitatie exponentieel moeilijker.</p>
+        </div>
+      </details>
+
+      <div class="modules">
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">ASM</div>
+          <div class="body">
+            <h3>x86_64 Assembly &amp; Memory Layout</h3>
+            <p class="desc">Je kunt geen binaries exploiteren als je niet begrijpt hoe ze werken. Assembly lezen is een vereiste.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>x86_64 Assembly</strong> &mdash; registers (RAX, RBX, RSP, RBP, RIP), instructies (MOV, PUSH, POP, CALL, RET, JMP), en hoe je disassembly leest</li>
+              <li><strong>Calling Conventions</strong> &mdash; System V AMD64 ABI: parameters in RDI, RSI, RDX, RCX, R8, R9. Return value in RAX</li>
+              <li><strong>Stack Layout</strong> &mdash; hoe de stack groeit (hoog naar laag), stack frames, local variables, saved RBP, return address</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">BOF</div>
+          <div class="body">
+            <h3>Buffer Overflow &amp; Exploitation</h3>
+            <p class="desc">De klassieke kwetsbaarheid. Overschrijf het return address op de stack en neem de controle over de executie over.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>Classic Buffer Overflow</strong> &mdash; stack-based buffer overflow, return address overschrijven, shellcode injecteren</li>
+              <li><strong>Format String Bugs</strong> &mdash; <code>%x</code> lekken van stack data, <code>%n</code> schrijven naar willekeurige adressen</li>
+              <li><strong>Heap Basics</strong> &mdash; malloc/free internals, use-after-free, double free &mdash; introductie (diepgang in Fase 4)</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">Mitigaties &amp; Bypasses</h4>
+            <ul>
+              <li><strong>ASLR</strong> &mdash; Address Space Layout Randomization. Brute force, info leaks, partial overwrites</li>
+              <li><strong>NX/DEP</strong> &mdash; No-Execute bit. De stack is niet meer uitvoerbaar &mdash; dus gebruiken we ROP</li>
+              <li><strong>ROP (Return-Oriented Programming)</strong> &mdash; chains van bestaande code-gadgets om willekeurige operaties uit te voeren</li>
+              <li><strong>Stack Canaries</strong> &mdash; detectie van stack overwrites. Bypasses via info leaks of brute force</li>
+              <li><strong>CFI</strong> &mdash; Control Flow Integrity. Modernere bescherming tegen controle-flow hijacking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEOS 2.4 -->
+      <div class="video-section">
+        <h4>Video's</h4>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/iyAyN3GFM7A" title="Binary Exploitation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Binary Exploitation &mdash; Introduction</div>
+              <div class="video-channel">LiveOverflow</div>
+              <div class="video-desc">Uitstekende introductie tot binary exploitation: stack, registers, en je eerste buffer overflow.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/wa3sMSRY2nc" title="Buffer Overflow" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Buffer Overflow Attack</div>
+              <div class="video-channel">Computerphile</div>
+              <div class="video-desc">Heldere uitleg van hoe buffer overflows werken op het laagste niveau, met visuele stack-diagrammen.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/i5-cWI_HV8o" title="Binary Exploitation for Beginners" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Binary Exploitation for Beginners</div>
+              <div class="video-channel">John Hammond</div>
+              <div class="video-desc">Praktische walkthrough van binaire exploitatie-challenges voor beginners, met pwntools en GDB.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISES 2.4 -->
+      <div class="exercise-section">
+        <h4>Oefeningen</h4>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.4.1</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">pwn.college Modules</div>
+          <div class="exercise-desc">Voltooi de "Program Interaction" en "Assembly" modules op <strong>pwn.college</strong>. Deze geven je een solide basis in hoe programma's op het laagste niveau werken en hoe je assembly schrijft en leest.</div>
+          <div class="exercise-source">Bron: pwn.college (Arizona State University)</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Program Interaction leert je hoe processen communiceren (stdin/stdout/pipes/files). Assembly leert je x86_64 instructies. Cruciale registers: RIP (instruction pointer), RSP (stack pointer), RBP (base pointer), RAX (return value). De stack groeit naar lagere adressen; een buffer overflow overschrijft de saved RBP en return address boven de buffer.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.4.2</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">Classic Stack Buffer Overflow Exploit</div>
+          <div class="exercise-desc">Schrijf een complete stack buffer overflow exploit from scratch. Bepaal de offset naar het return address, genereer shellcode (of gebruik een bestaande), en redirect de executie. Gebruik GDB en pwntools.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Vulnerable code: <code>char buf[64]; gets(buf);</code> Exploit: 1) Vind offset naar return address (pattern create + offset), 2) Vind bruikbaar gadget of functie (bijv. <code>system()</code>), 3) Bouw payload: padding + saved RBP + return address. Met NX uitgeschakeld: padding + shellcode address. Met NX aan: ROP chain naar <code>system('/bin/sh')</code>.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.4.3</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">ROP Emporium &mdash; ret2win</div>
+          <div class="exercise-desc">Voltooi de ret2win challenge op <strong>ROP Emporium</strong>. Bouw een ROP chain die een bestaande functie aanroept door het return address te overschrijven. Begrijp waarom dit werkt ondanks NX.</div>
+          <div class="exercise-source">Bron: ROP Emporium (ropemporium.com)</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>De uitdaging geeft een binary met een 'ret2win' functie die nooit aangeroepen wordt. Overflow de buffer, overschrijf return address met het adres van <code>ret2win()</code>. Op x86_64: let op stack alignment (16-byte aligned v&oacute;&oacute;r CALL). Voeg een 'ret' gadget toe voor alignment als je een segfault krijgt.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.4.4</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">Format String Exploitatie</div>
+          <div class="exercise-desc">Exploiteer een format string kwetsbaarheid in een practice binary. Gebruik <code>%x</code> om stack data te lekken en <code>%n</code> om naar een specifiek adres te schrijven. Documenteer elke stap.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>printf(user_input)</code> in plaats van <code>printf("%s", user_input)</code>. <code>%x</code> lekt stack waarden, <code>%n</code> schrijft naar geheugen. Exploit: <code>%[offset]$x</code> leest specifieke stack posities. <code>%[waarde]c%[offset]$n</code> schrijft een waarde naar een adres op de stack. Modern: format string + GOT overwrite = arbitrary code execution.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Reading -->
+      <div class="callout read">
+        <strong class="label">Aanbevolen Lectuur</strong>
+        <em>Hacking: The Art of Exploitation</em> (Jon Erickson) &mdash; het definitieve boek voor binary exploitation. Leest als een thriller als je van low-level houdt.
+      </div>
+
+      <!-- CHECKLIST 2.4 -->
+      <h4 style="color: var(--accent-hot);">Checklist</h4>
+      <ul class="checklist">
+        <li><input type="checkbox" id="f2-bin-01"> Ik kan x86_64 assembly lezen en begrijp registers, instructies, en calling conventions</li>
+        <li><input type="checkbox" id="f2-bin-02"> Ik begrijp stack layout, stack frames, en hoe functies worden aangeroepen</li>
+        <li><input type="checkbox" id="f2-bin-03"> Ik kan een classic stack buffer overflow exploit schrijven from scratch</li>
+        <li><input type="checkbox" id="f2-bin-04"> Ik begrijp ASLR, NX, canaries, en ROP en kan basis-bypasses uitvoeren</li>
+        <li><input type="checkbox" id="f2-bin-05"> Ik kan format string kwetsbaarheden exploiteren voor lezen en schrijven</li>
+        <li><input type="checkbox" id="f2-bin-06"> Ik begrijp heap basics (malloc/free, UAF, double free) op introductieniveau</li>
+      </ul>
+    </section>
+
+
+    <!-- ============================================================
+         MODULE 2.5 — Active Directory
+         ============================================================ -->
+    <section class="phase-2" id="mod-2-5">
+      <div class="section-head">
+        <div class="badge" style="border-color: var(--accent-hot);">2.5</div>
+        <div>
+          <h2>Active Directory &mdash; <em>Op Aanvaller-Niveau</em></h2>
+          <div class="duration">3-4 WEKEN</div>
+        </div>
+      </div>
+
+      <p class="section-intro">Active Directory draait in 95% van Fortune 500 bedrijven. Het is het primaire doelwit in enterprise-omgevingen. Leer het van binnenuit aanvallen &mdash; van enumeratie tot Domain Admin.</p>
+
+      <details class="deep-understanding">
+        <summary>Diep Begrip: Waarom Kerberos Zo Complex en Kwetsbaar Is</summary>
+        <div class="deep-content">
+          <p>Kerberos is ontworpen in de jaren '80 voor een ander dreigingsmodel. De fundamentele aanname was: als je de encryption key kent, ben je geautoriseerd. AS-REQ: client bewijst identiteit met password hash &rarr; krijgt TGT (versleuteld met krbtgt hash). TGS-REQ: client toont TGT &rarr; krijgt service ticket (versleuteld met service account hash). Het probleem: als je de krbtgt hash hebt, kun je ELKE TGT maken (Golden Ticket). Als je een service account hash hebt, kun je een geldig service ticket maken (Silver Ticket). Kerberoasting werkt omdat je een service ticket kunt AANVRAGEN voor elke SPN en offline de hash kunt kraken &mdash; de server geeft het ticket gewoon.</p>
+        </div>
+      </details>
+
+      <div class="modules">
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">AD</div>
+          <div class="body">
+            <h3>AD Structuur &amp; Protocollen</h3>
+            <p class="desc">Voordat je AD kunt aanvallen, moet je het diep begrijpen. Hoe Kerberos werkt, hoe NTLM faalt, en waar de misconfigurations zitten.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>AD Structure</strong> &mdash; forests, domains, OUs, trusts, domain controllers, global catalog</li>
+              <li><strong>Kerberos in Detail</strong> &mdash; AS-REQ/AS-REP, TGS-REQ/TGS-REP, TGT, service tickets, PAC, delegation (constrained, unconstrained, resource-based)</li>
+              <li><strong>NTLM Authentication</strong> &mdash; challenge-response, Net-NTLMv1/v2 hashes, relay aanvallen</li>
+              <li><strong>GPO Abuse</strong> &mdash; Group Policy Objects misbruiken voor privilege escalation en lateral movement</li>
+              <li><strong>LDAP Queries</strong> &mdash; handmatige en geautomatiseerde AD-enumeratie via LDAP</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">ATK</div>
+          <div class="body">
+            <h3>Aanvalstechnieken</h3>
+            <p class="desc">De volledige kill chain van initial access tot Domain Admin. Elke techniek die je in een echte pentest tegenkomt.</p>
+
+            <h4 style="color: var(--accent-hot);">Enumeratie &amp; Visualisatie</h4>
+            <ul>
+              <li><strong>BloodHound</strong> &mdash; grafische visualisatie van AD-relaties. Vind aanvalspaden die menselijk onmogelijk te zien zijn</li>
+              <li><strong>SharpHound</strong> &mdash; de collector voor BloodHound. Verzamel relaties, sessies, ACLs, en meer</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">Credential Attacks</h4>
+            <ul>
+              <li><strong>Mimikatz</strong> &mdash; LSASS dumpen, tickets extraheren, golden/silver tickets forgen</li>
+              <li><strong>Kerberoasting</strong> &mdash; service tickets aanvragen en offline kraken voor service account wachtwoorden</li>
+              <li><strong>AS-REP Roasting</strong> &mdash; accounts zonder pre-authentication vereiste aanvallen</li>
+              <li><strong>DCSync</strong> &mdash; domain replication privileges misbruiken om alle hashes te dumpen</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">Lateral Movement</h4>
+            <ul>
+              <li><strong>Pass-the-Hash (PtH)</strong> &mdash; authenticeren met NTLM hash zonder het wachtwoord te kennen</li>
+              <li><strong>Pass-the-Ticket (PtT)</strong> &mdash; Kerberos tickets hergebruiken voor authenticatie</li>
+              <li><strong>WMI &amp; WinRM</strong> &mdash; remote execution via management protocols</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">Privilege Escalation</h4>
+            <ul>
+              <li><strong>Delegation Abuse</strong> &mdash; constrained, unconstrained, en resource-based constrained delegation misbruiken</li>
+              <li><strong>ADCS ESC1-15</strong> &mdash; Active Directory Certificate Services misconfigurations. ESC1 tot ESC15 dekken template abuse, enrollment agent abuse, CA misconfig, en meer</li>
+              <li><strong>Trust Abuse</strong> &mdash; inter-forest en intra-forest trust exploitation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEOS 2.5 -->
+      <div class="video-section">
+        <h4>Video's</h4>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/VXxH4n684HE" title="Active Directory Hacking" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Active Directory Hacking &mdash; Full Course</div>
+              <div class="video-channel">The Cyber Mentor</div>
+              <div class="video-desc">Complete walkthrough van AD-aanvallen: enumeratie, Kerberoasting, PtH, DCSync, en meer.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/Jk_qCiQeu7o" title="HTB Forest Walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">HackTheBox Forest &mdash; Walkthrough</div>
+              <div class="video-channel">IppSec</div>
+              <div class="video-desc">Praktische AD-exploitatie op HTB Forest: AS-REP roasting, BloodHound, DCSync path.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/K8YjBhpnm6M" title="AD Security" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Active Directory Security</div>
+              <div class="video-channel">Sean Metcalf</div>
+              <div class="video-desc">Diepgaande presentatie over AD-security vanuit zowel aanvaller- als verdedigerperspectief.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISES 2.5 -->
+      <div class="exercise-section">
+        <h4>Oefeningen</h4>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.5.1</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">GOAD Lab + BloodHound Enumeratie</div>
+          <div class="exercise-desc">Deploy <strong>GOAD</strong> (Game of Active Directory) in je lab. Draai SharpHound om data te verzamelen en analyseer de resultaten in BloodHound. Identificeer alle mogelijke aanvalspaden naar Domain Admin.</div>
+          <div class="exercise-source">Bron: github.com/Orange-Cyberdefense/GOAD</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>bloodhound-python -d lab.local -u user -p pass -c all -ns DC_IP</code>. Open BloodHound GUI, importeer JSON data. Queries: 'Find Shortest Paths to Domain Admins', 'Find AS-REP Roastable Users', 'Find Kerberoastable Users'. Custom Cypher: <code>MATCH (u:User)-[:MemberOf*1..]-&gt;(g:Group) WHERE g.name =~ 'DOMAIN ADMINS@.*' RETURN u.name</code>.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.5.2</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">Kerberoasting Attack</div>
+          <div class="exercise-desc">Voer een Kerberoasting-aanval uit met <code>Rubeus</code> of <code>Impacket GetUserSPNs</code>. Crack het service ticket met <code>hashcat</code>. Documenteer de volledige workflow en bespreek tegenmaatregelen.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>GetUserSPNs.py lab.local/user:pass -dc-ip DC_IP -request</code>. Crack: <code>hashcat -m 13100 ticket.txt rockyou.txt</code>. Verdediging: gebruik Managed Service Accounts (gMSA) met 120-karakter wachtwoorden, monitor Event ID 4769 met encryption type 0x17 (RC4).</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.5.3</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">Pass-the-Hash met Impacket</div>
+          <div class="exercise-desc">Gebruik Impacket's <code>psexec.py</code>, <code>wmiexec.py</code>, of <code>smbexec.py</code> om een Pass-the-Hash aanval uit te voeren. Vergelijk de drie methodes qua stealth en functionaliteit.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>psexec.py -hashes :NTLM_HASH lab.local/administrator@TARGET_IP</code>. Werkt omdat NTLM authenticatie het wachtwoord niet nodig heeft &mdash; alleen de hash. Dit is by-design in NTLM, niet een bug. Verdediging: disable NTLM waar mogelijk, gebruik Kerberos, enable SMB signing.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.5.4</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">Drie Paden naar Domain Admin</div>
+          <div class="exercise-desc">Escaleer van een normale gebruiker naar Domain Admin via minstens 3 verschillende paden in je GOAD lab. Denk aan: Kerberoasting, ADCS abuse, delegation abuse, ACL abuse, GPO abuse. Documenteer elk pad.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Path 1: Kerberoasting &rarr; crack service account &rarr; service account is in Domain Admins. Path 2: LLMNR poisoning &rarr; relay naar LDAP &rarr; RBCD abuse &rarr; impersonate DA. Path 3: ADCS ESC1 &rarr; request cert as DA &rarr; authenticate as DA. BloodHound toont alle paden visueel.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.5.5</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">ADCS ESC1 Exploitatie</div>
+          <div class="exercise-desc">Vind en exploiteer een ADCS-misconfiguratie (ESC1) in je lab. Gebruik <code>Certipy</code> of <code>Certify</code> om kwetsbare templates te identificeren en een certificaat aan te vragen waarmee je je kunt authenticeren als Domain Admin.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>certipy find -u user@lab.local -p pass -dc-ip DC_IP</code>. Zoek templates met: <code>msPKI-Certificate-Name-Flag ENROLLEE_SUPPLIES_SUBJECT</code> + Client Authentication EKU + enrollment rights voor normale users. <code>certipy req -u user@lab.local -p pass -ca CA_NAME -template VULN_TEMPLATE -upn administrator@lab.local</code>.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="callout resources">
+        <strong class="label">Essenti&euml;le Tools</strong>
+        <strong>BloodHound</strong> + <strong>SharpHound</strong> (enumeratie &amp; visualisatie), <strong>Rubeus</strong> (Kerberos tooling), <strong>Mimikatz</strong> (credential extraction), <strong>Impacket</strong> (Python AD toolkit), <strong>NetExec</strong> (network execution &amp; enumeration).
+      </div>
+
+      <!-- CHECKLIST 2.5 -->
+      <h4 style="color: var(--accent-hot);">Checklist</h4>
+      <ul class="checklist">
+        <li><input type="checkbox" id="f2-ad-01"> Ik begrijp AD-structuur: forests, domains, OUs, trusts, en domain controllers</li>
+        <li><input type="checkbox" id="f2-ad-02"> Ik kan het Kerberos-protocol in detail uitleggen (AS-REQ/REP, TGS-REQ/REP, delegation)</li>
+        <li><input type="checkbox" id="f2-ad-03"> Ik kan BloodHound gebruiken om aanvalspaden te identificeren</li>
+        <li><input type="checkbox" id="f2-ad-04"> Ik kan Mimikatz gebruiken voor credential extraction (LSASS dump, ticket extraction)</li>
+        <li><input type="checkbox" id="f2-ad-05"> Ik kan Kerberoasting en AS-REP roasting uitvoeren en tickets kraken</li>
+        <li><input type="checkbox" id="f2-ad-06"> Ik kan lateral movement uitvoeren via PtH, PtT, WMI, en WinRM</li>
+        <li><input type="checkbox" id="f2-ad-07"> Ik kan DCSync uitvoeren en begrijp waarom het werkt</li>
+        <li><input type="checkbox" id="f2-ad-08"> Ik begrijp delegation abuse (constrained, unconstrained, RBCD)</li>
+        <li><input type="checkbox" id="f2-ad-09"> Ik kan ADCS-misconfigurations (ESC1-15) identificeren en exploiteren</li>
+        <li><input type="checkbox" id="f2-ad-10"> Ik kan meerdere escalatiepaden naar Domain Admin demonstreren</li>
+      </ul>
+    </section>
+
+
+    <!-- ============================================================
+         MODULE 2.6 — Cloud Attack Surface
+         ============================================================ -->
+    <section class="phase-2" id="mod-2-6">
+      <div class="section-head">
+        <div class="badge" style="border-color: var(--accent-hot);">2.6</div>
+        <div>
+          <h2>Cloud <em>Attack Surface</em></h2>
+          <div class="duration">2-3 WEKEN</div>
+        </div>
+      </div>
+
+      <p class="section-intro">De perimeter is verplaatst naar de cloud. Misconfigured S3 buckets, overprivileged IAM roles, en metadata service SSRF zijn de nieuwe low-hanging fruit.</p>
+
+      <details class="deep-understanding">
+        <summary>Diep Begrip: Waarom IMDSv1 SSRF de 'Heilige Graal' Is</summary>
+        <div class="deep-content">
+          <p>AWS metadata service (169.254.169.254) is bereikbaar vanaf elke EC2 instance. IMDSv1 accepteert simpele GET requests. Als je een SSRF hebt in een webapplicatie op EC2, kun je <code>http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLE_NAME</code> opvragen en tijdelijke AWS credentials krijgen. Met die credentials kun je alles doen waar de IAM role rechten voor heeft. IMDSv2 vereist een PUT request met een hop-limit header, wat de meeste SSRF's blokkeert. Maar veel organisaties hebben IMDSv1 nog niet uitgeschakeld.</p>
+        </div>
+      </details>
+
+      <div class="modules">
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">IAM</div>
+          <div class="body">
+            <h3>Cloud IAM &amp; Misconfigurations</h3>
+            <p class="desc">Identity and Access Management is de ruggengraat van cloud security. En het is bijna altijd verkeerd geconfigureerd.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>AWS/Azure/GCP IAM</strong> &mdash; hoe rollen, policies, en permissions werken in elke cloud provider. Principle of least privilege in de praktijk</li>
+              <li><strong>Misconfigured S3 Buckets</strong> &mdash; publieke buckets, directory listing, unauthenticated uploads &mdash; nog steeds een van de meest voorkomende fouten</li>
+              <li><strong>Metadata Service SSRF (IMDSv1)</strong> &mdash; <code>169.254.169.254</code> endpoint misbruiken om IAM credentials te stelen van EC2 instances</li>
+              <li><strong>Cross-Account Attacks</strong> &mdash; IAM role assumption, resource policies, en trust relationships tussen accounts misbruiken</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">K8S</div>
+          <div class="body">
+            <h3>Containers &amp; Kubernetes</h3>
+            <p class="desc">Containers zijn overal. Kubernetes orkestreert ze. Beide introduceren nieuwe aanvalsoppervlakken.</p>
+
+            <h4 style="color: var(--accent-hot);">Kernconcepten</h4>
+            <ul>
+              <li><strong>Container Escape</strong> &mdash; van container naar host: privileged containers, mounted docker socket, kernel exploits</li>
+              <li><strong>Kubernetes Attacks</strong> &mdash; exposed API servers, default service accounts, RBAC misconfiguration, pod-to-pod lateral movement, etcd secrets</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEOS 2.6 -->
+      <div class="video-section">
+        <h4>Video's</h4>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/fRzAo9rNq_g" title="Cloud Security" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Cloud Security &mdash; fwd:cloudsec</div>
+              <div class="video-channel">fwd:cloudsec</div>
+              <div class="video-desc">Inzichten in cloud security uitdagingen, aanvalsvectoren, en verdedigingsstrategieen.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/KGrLhpeRMJo" title="AWS Penetration Testing" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">AWS Penetration Testing</div>
+              <div class="video-channel">HackerSploit</div>
+              <div class="video-desc">Praktische AWS pentesting: IAM enumeration, S3 misconfigurations, en privilege escalation.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/FMMkN4pHVrU" title="Kubernetes Security" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Kubernetes Security</div>
+              <div class="video-channel">SANS</div>
+              <div class="video-desc">Kubernetes security fundamentals: RBAC, network policies, pod security, en aanvalsvectoren.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISES 2.6 -->
+      <div class="exercise-section">
+        <h4>Oefeningen</h4>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.6.1</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">flaws.cloud &amp; flaws2.cloud</div>
+          <div class="exercise-desc">Voltooi beide <strong>flaws.cloud</strong> en <strong>flaws2.cloud</strong> &mdash; gratis AWS security challenges. Leer S3 misconfiguration, metadata service abuse, IAM privilege escalation, en meer in een realistische omgeving.</div>
+          <div class="exercise-source">Bron: flaws.cloud / flaws2.cloud (gratis)</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Level 1: de S3 bucket is publiek leesbaar. <code>aws s3 ls s3://flaws.cloud/ --no-sign-request</code>. Level 2: bucket staat alleen authenticated AWS users toe &mdash; gebruik je eigen AWS account. Het leerpunt: S3 ACLs zijn verwarrend en vaak te permissief.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.6.2</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">CloudGoat Scenario's</div>
+          <div class="exercise-desc">Deploy <strong>CloudGoat</strong> (Rhino Security Labs) en exploiteer minstens 3 scenario's. Focus op IAM privilege escalation, SSRF naar metadata service, en cross-service abuse. Documenteer elke aanvalsketen.</div>
+          <div class="exercise-source">Bron: github.com/RhinoSecurityLabs/cloudgoat</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>python3 cloudgoat.py create iam_privesc_by_rollback</code>. Het scenario: je hebt een IAM user met beperkte rechten maar kunt eerdere policy versions herstellen. Stappen: list policy versions &rarr; vind een permissieve versie &rarr; stel die in als default. Dit demonstreert waarom IAM policy version management een security risk is.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.6.3</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">AWS IAM Enumeration</div>
+          <div class="exercise-desc">Gebruik <code>enumerate-iam</code> om de IAM policies van een AWS account te enumereren. Identificeer overprivileged roles en mogelijke escalatiepaden. Documenteer je findings en aanbevelingen.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>python3 enumerate-iam.py --access-key AKIAXXXXXXXX --secret-key XXXXXXXX</code>. Het tool probeert elke AWS API call en rapporteert welke succeeds. Dit toont de effective permissions van de credentials. Verdediging: gebruik IAM Access Analyzer om ongebruikte permissions te identificeren.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- CHECKLIST 2.6 -->
+      <h4 style="color: var(--accent-hot);">Checklist</h4>
+      <ul class="checklist">
+        <li><input type="checkbox" id="f2-cloud-01"> Ik begrijp IAM in AWS, Azure, en GCP en kan misconfigurations identificeren</li>
+        <li><input type="checkbox" id="f2-cloud-02"> Ik kan misconfigured S3 buckets vinden en exploiteren</li>
+        <li><input type="checkbox" id="f2-cloud-03"> Ik begrijp SSRF naar metadata services (IMDSv1) en kan credentials stelen</li>
+        <li><input type="checkbox" id="f2-cloud-04"> Ik begrijp container escape technieken en Kubernetes aanvalsvectoren</li>
+        <li><input type="checkbox" id="f2-cloud-05"> Ik heb flaws.cloud, flaws2.cloud, en CloudGoat scenario's voltooid</li>
+      </ul>
+    </section>
+
+
+    <!-- ============================================================
+         MODULE 2.7 — Schrijf Je Eigen Tools
+         ============================================================ -->
+    <section class="phase-2" id="mod-2-7">
+      <div class="section-head">
+        <div class="badge" style="border-color: var(--accent-hot);">2.7</div>
+        <div>
+          <h2>Schrijf Je <em>Eigen Tools</em></h2>
+          <div class="duration">2-3 WEKEN</div>
+        </div>
+      </div>
+
+      <p class="section-intro">Een tool gebruiken is &eacute;&eacute;n ding. Een tool bouwen is een ander niveau van begrip. Door je eigen security tools te schrijven leer je hoe aanvallen echt werken.</p>
+
+      <details class="deep-understanding">
+        <summary>Diep Begrip: Waarom Eigen Tools Bouwen Essentieel Is</summary>
+        <div class="deep-content">
+          <p>Het verschil tussen een 'operator' en een 'engineer' is dat de engineer begrijpt WAT er onder de motorkap gebeurt. Als je een port scanner bouwt, leer je TCP op socket-niveau. Als je een C2 bouwt, begrijp je hoe malware communiceert. Als je een fuzzer bouwt, begrijp je hoe input-parsing werkt. Deze kennis is onvervangbaar en maakt je beter in zowel aanvallen als verdedigen. Plus: een GitHub portfolio met eigen tools is waardevoller dan certificaten.</p>
+        </div>
+      </details>
+
+      <div class="modules">
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">DEV</div>
+          <div class="body">
+            <h3>Security Tool Development</h3>
+            <p class="desc">Bouw tools die je dagelijks kunt gebruiken. Van simpele scanners tot complexe frameworks &mdash; elke regel code is begrip dat compound.</p>
+
+            <h4 style="color: var(--accent-hot);">Bouwprojecten</h4>
+            <ul>
+              <li><strong>Port Scanner</strong> &mdash; TCP connect scanner met threading/asyncio. Leer sockets, concurrency, en service detection</li>
+              <li><strong>Subdomain Enumerator</strong> &mdash; combineer DNS bruteforce met API's (crt.sh, SecurityTrails). Output filtering en deduplicatie</li>
+              <li><strong>Web Fuzzer</strong> &mdash; directory/file discovery met configureerbare wordlists, concurrency, status code filtering, en response analysis</li>
+              <li><strong>Educational C2</strong> &mdash; command &amp; control framework voor je lab. Begrijp hoe implants communiceren, hoe tasking werkt, en hoe detection eruit ziet</li>
+              <li><strong>Burp Extension</strong> &mdash; extend Burp Suite met custom functionaliteit: parameter detection, automated testing, custom logging</li>
+              <li><strong>Payload Scanner</strong> &mdash; scan payloads tegen meerdere engines, analyseer detectie-rates, en begrijp evasion</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEOS 2.7 -->
+      <div class="video-section">
+        <h4>Video's</h4>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/Lj0IMJBUWEY" title="Python for Hacking" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Python for Hacking</div>
+              <div class="video-channel">David Bombal</div>
+              <div class="video-desc">Python programmeren specifiek voor hacking: sockets, scapy, requests, en security automation.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/OqTpc_ljPYk" title="Python for Pentesters" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Python for Pentesters</div>
+              <div class="video-channel">TCM Security</div>
+              <div class="video-desc">Praktische Python voor penetration testing: port scanners, SSH bruters, web scrapers, en meer.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/cEFbyAXWfBQ" title="Building Security Tools" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Building Security Tools</div>
+              <div class="video-channel">John Hammond</div>
+              <div class="video-desc">Hoe je je eigen security tools bouwt: van concept tot werkende code, met focus op praktisch nut.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISES 2.7 -->
+      <div class="exercise-section">
+        <h4>Oefeningen</h4>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.7.1</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">TCP Port Scanner met Threading</div>
+          <div class="exercise-desc">Bouw een TCP connect port scanner in Python met <code>threading</code> of <code>asyncio</code>. De scanner moet meerdere poorten tegelijk scannen, service banners grabben, en resultaten netjes formatteren. Vergelijk performance met threading vs asyncio.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>import socket, concurrent.futures</code><br>
+              <code>def scan(host,port):</code><br>
+              <code>&nbsp;&nbsp;s=socket.socket(); s.settimeout(0.5)</code><br>
+              <code>&nbsp;&nbsp;r=s.connect_ex((host,port)); s.close()</code><br>
+              <code>&nbsp;&nbsp;return port if r==0 else None</code><br>
+              <code>with concurrent.futures.ThreadPoolExecutor(100) as e:</code><br>
+              <code>&nbsp;&nbsp;results=[f for f in e.map(lambda p: scan('target',p), range(1,65536)) if f]</code><br>
+              Voor SYN scan: gebruik scapy's <code>sr1(IP(dst='target')/TCP(dport=port,flags='S'),timeout=1)</code>. Check voor SA (SYN-ACK) flags in response.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.7.2</span>
+            <span class="exercise-difficulty medium">MEDIUM</span>
+          </div>
+          <div class="exercise-title">Subdomain Enumerator</div>
+          <div class="exercise-desc">Bouw een subdomain enumerator die DNS bruteforce combineert met de crt.sh API. De tool moet resultaten dedupliceren, DNS resolven, en live hosts identificeren. Voeg <code>argparse</code> toe voor CLI-opties.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Combineer DNS bruteforce (<code>dns.resolver.resolve(f'{sub}.target.com','A')</code>) met crt.sh API (<code>requests.get(f'https://crt.sh/?q=%25.{domain}&amp;output=json')</code>). Gebruik <code>concurrent.futures</code> voor snelheid. Output: subdomain, IP, status code (via <code>requests.head</code>). Bonus: voeg wildcard detection toe (als <code>*.target.com</code> resolves, filter die IP's uit).</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.7.3</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">Web Fuzzer</div>
+          <div class="exercise-desc">Bouw een web fuzzer vergelijkbaar met ffuf. Configureerbare wordlists, instelbare concurrency, status code filtering, response size filtering, en output in JSON. Gebruik <code>aiohttp</code> voor async HTTP requests.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p><code>class Fuzzer: def __init__(self, url, wordlist, threads=10)</code>. Gebruik <code>concurrent.futures.ThreadPoolExecutor</code>. Per request: vervang FUZZ in URL met woord uit wordlist. Filter op status code en response length. Output: URL, status, length, eventueel response snippet. Vergelijkbaar met ffuf maar simpeler.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.7.4</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">Burp Suite Extension</div>
+          <div class="exercise-desc">Schrijf een Burp Suite extension (Python via Jython of Montoya API) die interessante parameters in HTTP requests highlight: ID-achtige parameters, tokens, file paths, en potenti&euml;le injection points.</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Gebruik Montoya API (Java/Kotlin) of Jython. Registreer als <code>HttpHandler</code>. In <code>handleHttpRequestToBeSent</code>: parse parameters, highlight 'id', 'user_id', 'account_id'. In <code>handleHttpResponseReceived</code>: markeer responses met 'admin', 'password', 'token' in de body.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- CHECKLIST 2.7 -->
+      <h4 style="color: var(--accent-hot);">Checklist</h4>
+      <ul class="checklist">
+        <li><input type="checkbox" id="f2-tools-01"> Ik heb een werkende port scanner gebouwd met threading/asyncio</li>
+        <li><input type="checkbox" id="f2-tools-02"> Ik heb een subdomain enumerator gebouwd die DNS + API bronnen combineert</li>
+        <li><input type="checkbox" id="f2-tools-03"> Ik heb een web fuzzer gebouwd met configureerbare wordlists en concurrency</li>
+        <li><input type="checkbox" id="f2-tools-04"> Ik heb een Burp Suite extension geschreven die nuttige functionaliteit toevoegt</li>
+        <li><input type="checkbox" id="f2-tools-05"> Ik begrijp hoe een C2-framework werkt op architectuurniveau</li>
+        <li><input type="checkbox" id="f2-tools-06"> Ik kan mijn eigen tools integreren in mijn security workflow</li>
+      </ul>
+    </section>
+
+
+    <!-- ============================================================
+         MODULE 2.8 — Capstone & Certificering
+         ============================================================ -->
+    <section class="phase-2" id="mod-2-8">
+      <div class="section-head">
+        <div class="badge" style="border-color: var(--accent-hot);">2.8</div>
+        <div>
+          <h2>Capstone &amp; <em>Certificering</em></h2>
+          <div class="duration">4-8 WEKEN</div>
+        </div>
+      </div>
+
+      <p class="section-intro">Alles wat je hebt geleerd, samengebracht. HackTheBox machines, Pro Labs, en de OSCP of equivalent. Dit is waar je bewijst dat je het kunt.</p>
+
+      <details class="deep-understanding">
+        <summary>Diep Begrip: Waarom OSCP de Proportionele Cert Is</summary>
+        <div class="deep-content">
+          <p>OSCP is een 24-uurs praktijkexamen waar je echte machines moet hacken en een professioneel rapport moet schrijven. Het test niet alleen technische vaardigheden maar ook doorzettingsvermogen, methodologie, en rapportage. Het is de industrie-standaard 'bewijs dat je echt kunt hacken'. Tip: de sleutel tot OSCP is ENUMERATIE. 80% van je tijd zou besteed moeten worden aan het grondig in kaart brengen van het aanvalsoppervlak voordat je exploits probeert.</p>
+        </div>
+      </details>
+
+      <div class="modules">
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">HTB</div>
+          <div class="body">
+            <h3>HackTheBox Machines &amp; Pro Labs</h3>
+            <p class="desc">30+ machines om je vaardigheden te testen en te slijpen. Mix van Easy, Medium, en Hard. Daarna een Pro Lab voor de echte enterprise-ervaring.</p>
+
+            <h4 style="color: var(--accent-hot);">HackTheBox Machines</h4>
+            <ul>
+              <li><strong>30+ Machines</strong> &mdash; mix van Easy, Medium, en Hard. Focus op machines die web, AD, Linux privesc, en Windows privesc combineren</li>
+              <li><strong>Methodologie</strong> &mdash; elke machine: enumerate, exploit, escalate, document. Schrijf writeups voor jezelf</li>
+              <li><strong>IppSec Videos</strong> &mdash; bekijk na elke machine de IppSec walkthrough om technieken te leren die je hebt gemist</li>
+            </ul>
+
+            <h4 style="color: var(--accent-hot);">Pro Labs</h4>
+            <ul>
+              <li><strong>Dante</strong> &mdash; aanbevolen als eerste Pro Lab. Multi-machine netwerk met pivoting, web attacks, en privilege escalation</li>
+              <li><strong>Offshore</strong> &mdash; volledige enterprise AD-omgeving met meerdere domeinen en forests</li>
+              <li><strong>RastaLabs</strong> &mdash; geavanceerde red team simulatie met moderne verdedigingen</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="num" style="color: var(--accent-hot);">CERT</div>
+          <div class="body">
+            <h3>Certificeringen</h3>
+            <p class="desc">Een certificering is geen doel op zich, maar een milestone. De OSCP is de industrie-standaard voor offensieve security.</p>
+
+            <h4 style="color: var(--accent-hot);">Aanbevolen Certificeringen</h4>
+            <ul>
+              <li><strong>OSCP (OffSec)</strong> &mdash; de gouden standaard. 24-uur praktisch examen. Alles in deze fase bereidt je hierop voor</li>
+              <li><strong>CRTP (Altered Security)</strong> &mdash; focus op Active Directory aanvallen. Goede aanvulling of alternatief</li>
+              <li><strong>OSEP (OffSec)</strong> &mdash; advanced: evasion, custom exploits, enterprise scenarios. Na OSCP</li>
+            </ul>
+
+            <div class="callout lab">
+              <strong class="label">OSCP Prep Strategie</strong>
+              1. Voltooi alle modules van deze fase. 2. Doe 30+ HTB machines. 3. Doe &eacute;&eacute;n Pro Lab (Dante). 4. Doe de OffSec PG Practice machines. 5. Neem het examen wanneer je consistent Medium HTB machines kunt oplossen zonder hints in &lt;3 uur.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEOS 2.8 -->
+      <div class="video-section">
+        <h4>Video's</h4>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/Wh42KoAdsi0" title="HTB Walkthrough compilation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">HackTheBox Walkthroughs</div>
+              <div class="video-channel">IppSec</div>
+              <div class="video-desc">IppSec's methodische walkthroughs zijn de beste leermiddelen voor HTB machines. Bekijk na elke poging.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/-CJlVEuM1IQ" title="OSCP Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">OSCP Review &mdash; Eerlijk Oordeel</div>
+              <div class="video-channel">The Cyber Mentor</div>
+              <div class="video-desc">Eerlijke review van de OSCP: wat je kunt verwachten, hoe je je voorbereidt, en of het de investering waard is.</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/8cHLaRTqbE0" title="HackTheBox Tips" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">HackTheBox Tips &amp; Tricks</div>
+              <div class="video-channel">John Hammond</div>
+              <div class="video-desc">Praktische tips voor het aanpakken van HTB machines: methodologie, tooling, en mindset.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISES 2.8 -->
+      <div class="exercise-section">
+        <h4>Oefeningen</h4>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.8.1</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">30+ HackTheBox Machines</div>
+          <div class="exercise-desc">Voltooi minstens 30 HackTheBox machines: een mix van Easy (10+), Medium (15+), en Hard (5+). Schrijf voor elke machine een beknopte writeup met je aanpak, gebruikte tools, en geleerde lessen. Bekijk na elke machine de IppSec walkthrough.</div>
+          <div class="exercise-source">Platform: HackTheBox (hackthebox.com)</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Begin Easy: Lame (SMB), Blue (EternalBlue), Netmon (FTP+PRTG). Medium: Active (Kerberoasting), Jeeves (Jenkins), Bastard (Drupal). Hard: Forest (AD, AS-REP roast&rarr;DCSync), Reel (phishing+AppLocker bypass), Multimaster (SQLi&rarr;AD). AD-focused: Forest, Sauna, Monteverde, Cascade, Resolute. Documenteer elke machine: initial foothold, privilege escalation, lessen geleerd.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.8.2</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">HTB Pro Lab &mdash; Dante</div>
+          <div class="exercise-desc">Voltooi &eacute;&eacute;n HTB Pro Lab. <strong>Dante</strong> is aanbevolen als eerste: multi-machine netwerk met pivoting, web exploitatie, en privilege escalation. Documenteer je volledige aanpak en de netwerktopologie die je ontdekt.</div>
+          <div class="exercise-source">Platform: HackTheBox Pro Labs</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Dante is de instap Pro Lab. 14+ machines in een gesimuleerd bedrijfsnetwerk. Je moet pivoten door multiple network segments. Methodologie: enumerate &rarr; exploit perimeter &rarr; pivot &rarr; enumerate internal &rarr; escalate &rarr; repeat. Documenteer je complete aanvalspad.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-header">
+            <span class="exercise-num">OEFENING 2.8.3</span>
+            <span class="exercise-difficulty hard">HARD</span>
+          </div>
+          <div class="exercise-title">OSCP of Equivalent Behalen</div>
+          <div class="exercise-desc">Behaal de OSCP certificering of een gelijkwaardig praktisch examen (CRTP, OSEP). Dit is het eindpunt van Fase 2 en bewijst dat je de offensieve basisvaardigheden beheerst op professioneel niveau.</div>
+          <div class="exercise-source">Certificering: OffSec (offsec.com)</div>
+          <details class="answer-reveal">
+            <summary>Toon antwoord</summary>
+            <div class="answer-content">
+              <p>Prep: 90+ dagen. Doe alle OffSec PG Practice machines. Ontwikkel een persoonlijke enumeratie-checklist. Oefen rapportage. Tijdens het examen: besteed de eerste 30 minuten aan het scannen van ALLES. Werk van makkelijk naar moeilijk. Als je 2 uur vastloopt, switch naar een andere machine.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- CHECKLIST 2.8 -->
+      <h4 style="color: var(--accent-hot);">Checklist</h4>
+      <ul class="checklist">
+        <li><input type="checkbox" id="f2-cap-01"> Ik heb 30+ HackTheBox machines voltooid (mix van Easy, Medium, Hard)</li>
+        <li><input type="checkbox" id="f2-cap-02"> Ik heb minstens &eacute;&eacute;n HTB Pro Lab voltooid (Dante, Offshore, of RastaLabs)</li>
+        <li><input type="checkbox" id="f2-cap-03"> Ik kan consistent Medium HTB machines oplossen zonder hints in &lt;3 uur</li>
+        <li><input type="checkbox" id="f2-cap-04"> Ik heb een complete pentesting methodologie die ik consistent toepas</li>
+        <li><input type="checkbox" id="f2-cap-05"> Ik heb OSCP of een equivalent praktisch certificaat behaald</li>
+      </ul>
+    </section>
+
+
+    <!-- ============================================================
+         ETHICS CALLOUT
+         ============================================================ -->
+    <section class="phase-2">
+      <div class="ethics">
+        <p><strong style="color: var(--accent-hot); font-size: 18px; font-family: var(--serif);">Ethiek is niet optioneel.</strong></p>
+        <p>Elke techniek in deze fase is <strong>dual-use</strong>. Dezelfde kennis die een penetration tester gebruikt om organisaties te beschermen, kan worden misbruikt om schade aan te richten. Het verschil is <strong>autorisatie</strong>.</p>
+        <p>De lijn is helder:</p>
+        <ul>
+          <li>Test <strong>alleen</strong> op systemen waarvoor je expliciete, schriftelijke toestemming hebt</li>
+          <li>Gebruik <strong>je eigen lab</strong> of erkende platforms (HackTheBox, TryHackMe, PortSwigger, bug bounty programma's)</li>
+          <li>Bij bug bounty: lees de <strong>scope</strong> en <strong>rules of engagement</strong> zorgvuldig. Elke keer. Geen uitzonderingen</li>
+          <li>Documenteer alles. Wees transparant. Rapporteer verantwoordelijk</li>
+          <li>In Nederland: lees de <strong>Leidraad Responsible Disclosure</strong> van het NCSC</li>
+          <li>Ongeautoriseerde toegang is een <strong>misdrijf</strong> (Art. 138ab Wetboek van Strafrecht). Kennis van security maakt je niet immuun voor de wet</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer>
+      LEARNSEC // FASE 02 // OFFENSIEF DIEP // BLIJF NIEUWSGIERIG &middot; BLIJF LEGAAL &middot; BOUW DINGEN<span class="cursor"></span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="../js/progress.js"></script>
+</body>
+</html>

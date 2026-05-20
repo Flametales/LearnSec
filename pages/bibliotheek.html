@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="phase-id" content="bibliotheek">
+<title>Bibliotheek // De Permanente Boekenkast // LearnSec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+/* ============================================================
+   BIBLIOTHEEK — Supplementary Styles
+   ============================================================ */
+
+details.deep-understanding {
+  background: var(--bg-panel);
+  border: 1px solid var(--accent);
+  border-left: 3px solid var(--accent);
+  margin: 16px 0;
+  max-width: 720px;
+}
+details.deep-understanding summary {
+  padding: 14px 18px;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-transform: uppercase;
+  user-select: none;
+}
+details.deep-understanding summary:hover { background: rgba(124,240,124,0.05); }
+details.deep-understanding[open] summary { border-bottom: 1px solid var(--rule-soft); }
+details.deep-understanding .deep-content {
+  padding: 18px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+details.deep-understanding .deep-content p { margin-bottom: 12px; max-width: none; }
+
+details.answer-reveal {
+  background: var(--bg-deep);
+  border: 1px dashed var(--rule);
+  margin: 8px 0;
+  max-width: 720px;
+}
+details.answer-reveal summary {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  user-select: none;
+}
+details.answer-reveal summary:hover { color: var(--accent); }
+details.answer-reveal .answer-content {
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  border-top: 1px dashed var(--rule-soft);
+}
+
+.book-card-detailed {
+  background: var(--bg-panel);
+  border: 1px solid var(--rule-soft);
+  border-left: 3px solid var(--accent);
+  padding: 20px;
+  margin-bottom: 16px;
+  max-width: 720px;
+}
+.book-card-detailed .book-title-main {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink-bright);
+  font-style: italic;
+  margin-bottom: 4px;
+}
+.book-card-detailed .book-author-main {
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.book-card-detailed .book-why {
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.book-card-detailed .book-exercises {
+  border-top: 1px dashed var(--rule-soft);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+.book-card-detailed .book-exercises h5 {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent-amber);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <aside>
+    <div class="brand">// LEARNSEC</div>
+    <div class="brand-sub">cybersec.leeromgeving</div>
+    <div class="edition">&#9733; BIBLIOTHEEK &#9733;</div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">CATEGORIE&Euml;N</div>
+      <nav>
+        <a href="#fundamenten" class="active"><span class="num">FN</span>Fundamenten</a>
+        <a href="#offensief"><span class="num">OF</span>Offensief</a>
+        <a href="#defensief"><span class="num">DF</span>Defensief / DFIR</a>
+        <a href="#windows"><span class="num">WI</span>Windows Diepte</a>
+        <a href="#mindset"><span class="num">MS</span>Mindset &amp; Geschiedenis</a>
+        <a href="#leesplan"><span class="num">LP</span>Leesplan</a>
+      </nav>
+    </div>
+
+    <div class="back-link">
+      <a href="../index.html">&larr; Terug naar hub</a>
+    </div>
+
+    <div class="meta">
+      <strong>FILOSOFIE</strong>
+      Tools veranderen elk jaar.<br>
+      Concepten niet.<br>
+      Boeken compounderen.
+      <strong>BOEKEN</strong>
+      22 titels &middot; 5 categorie&euml;n
+    </div>
+  </aside>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="ascii-dec">&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;  &#9617;&#9618;&#9619; BIBLIO  &#9619;&#9618;&#9617;  &#9474;
+&#9474;                   &#9474;
+&#9474;  > lees_boek       &#9474;
+&#9474;  > doe_oefening    &#9474;
+&#9474;  > bouw_begrip     &#9474;
+&#9474;  > herhaal          &#9474;
+&#9474;                   &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</div>
+
+      <div class="tag">REFERENTIE <span class="phase-badge">BIBLIOTHEEK</span><span class="lang">NL</span></div>
+      <h1>De permanente<br><em>boekenkast</em>.</h1>
+      <p class="lede">Tools veranderen elk jaar. Concepten niet. Deze overleven elk framework.</p>
+
+      <div class="philosophy">
+        <strong>WAAROM BOEKEN</strong>
+        Video's geven overzicht. Boeken geven diepte. De boeken in deze bibliotheek zijn niet gekozen omdat ze populair zijn, maar omdat ze je manier van denken veranderen. Elk boek heeft oefeningen &mdash; doe ze.
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="k">BOEKEN</div><div class="v">22</div><div class="u">titels</div></div>
+        <div class="stat"><div class="k">CATEGORIE&Euml;N</div><div class="v">05</div><div class="u">domeinen</div></div>
+        <div class="stat"><div class="k">OEFENINGEN</div><div class="v">20+</div><div class="u">met antwoorden</div></div>
+        <div class="stat"><div class="k">GRATIS</div><div class="v">2+</div><div class="u">volledige PDFs</div></div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         FUNDAMENTEN
+         ============================================================ -->
+    <section id="fundamenten">
+      <div class="section-head">
+        <div class="badge">FUNDA&shy;MENTEN</div>
+        <div>
+          <h2>De <em>basis</em> die alles draagt.</h2>
+        </div>
+      </div>
+      <p class="section-intro">Security engineering, browser security, cryptografie. Deze boeken vormen het fundament waarop elke specialisatie is gebouwd. Lees ze eerst.</p>
+
+      <!-- Book 1: Security Engineering -->
+      <div class="book-card-detailed">
+        <div class="book-title-main">Security Engineering (3rd Edition)</div>
+        <div class="book-author-main">ROSS ANDERSON &middot; <a href="https://cl.cam.ac.uk/~rja14/book.html" target="_blank" rel="noopener">GRATIS PDF</a></div>
+        <div class="book-why">
+          Het belangrijkste security-boek in druk. Breed, diep, en opinionated. Covers everything from access control to security psychology. Als je maar &eacute;&eacute;n boek leest, lees dit.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">SE-01 &middot; CH 2</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">Access control policy voor een ziekenhuis</div>
+            <div class="exercise-desc">
+              Ontwerp een access control policy voor het pati&euml;ntendossier-systeem van een ziekenhuis. Overweeg de rollen: artsen, verpleegkundigen, administratie, pati&euml;nten, spoedtoegang. Welk model kies je en waarom? Hoe ga je om met noodgevallen?
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                <strong>Bell-LaPadula</strong> voor vertrouwelijkheid (no read up, no write down), maar ziekenhuizen vereisen een <strong>"break glass"</strong> noodmechanisme dat normaal beleid overschrijft met volledige audit logging. Dit is een fundamenteel spanningsveld: strikt access control versus levensreddende toegang. De oplossing is niet het model loslaten, maar een gecontroleerde override met onmiddellijke notificatie en retroactieve review.
+              </div>
+            </details>
+          </div>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">SE-02 &middot; CH 3</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">Security-analyse van een real-world protocol</div>
+            <div class="exercise-desc">
+              Analyseer de security van een protocol naar keuze: TLS, Kerberos, of OAuth. Identificeer het trust model en potenti&euml;le zwakheden. Documenteer aannames die het protocol maakt over de onderliggende infrastructuur.
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                <strong>Voorbeeld: Kerberos</strong> &mdash; Het trust model draait om de KDC (Key Distribution Center) als single point of trust. Zwakheden: <strong>Golden Ticket</strong> (compromitteer krbtgt hash = onbeperkte toegang), <strong>Kerberoasting</strong> (zwakke service account wachtwoorden kraken via TGS tickets), <strong>delegation abuse</strong> (constrained/unconstrained delegation misbruik). Het model veronderstelt dat de KDC onkwetsbaar is &mdash; wat in de praktijk zelden waar is.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Book 2: The Tangled Web -->
+      <div class="book-card-detailed">
+        <div class="book-title-main">The Tangled Web</div>
+        <div class="book-author-main">MICHAL ZALEWSKI</div>
+        <div class="book-why">
+          Het beste boek over browser security ooit geschreven. Essentieel voor web security. Zalewski ontleedt elke browser-feature en laat zien waar de security-grenzen echt liggen &mdash; en waar ze breken.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">TW-01</div>
+              <div class="exercise-difficulty medium">MEDIUM</div>
+            </div>
+            <div class="exercise-title">Same-Origin Policy bypass analyse</div>
+            <div class="exercise-desc">
+              Leg de Same-Origin Policy uit in je eigen woorden. Identificeer vervolgens 3 manieren waarop SOP kan worden omzeild of verzwakt. Geef voor elk voorbeeld een realistisch aanvalsscenario.
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                SOP blokkeert cross-origin reads (scheme + host + port moeten matchen). Bypasses: <strong>1) CORS misconfiguratie</strong> &mdash; server reflecteert <code>Origin</code> header zonder validatie in <code>Access-Control-Allow-Origin</code>. <strong>2) JSONP callbacks</strong> &mdash; legacy API's die data wrappen in een functie-aanroep via <code>&lt;script&gt;</code> tags. <strong>3) postMessage zonder origin validatie</strong> &mdash; ontvangende window checkt niet welk origin het bericht stuurt.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Book 3: Cryptography Engineering -->
+      <div class="book-card-detailed">
+        <div class="book-title-main">Cryptography Engineering</div>
+        <div class="book-author-main">FERGUSON, SCHNEIER &amp; KOHNO</div>
+        <div class="book-why">
+          Praktische cryptografie voor engineers, niet wiskundigen. Dit boek leert je cryptografie toe te passen zonder de fouten die systemen breken. Essentieel complement bij Serious Cryptography.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">CE-01</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">Authenticated encryption implementeren</div>
+            <div class="exercise-desc">
+              Implementeer een simpel authenticated encryption scheme met AES-CTR + HMAC. Leg vervolgens uit waarom AES-GCM de voorkeur heeft in de praktijk. Wat kan er misgaan bij een handmatige combinatie?
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                AES-CTR biedt vertrouwelijkheid (stream cipher mode), HMAC biedt authenticatie. Maar de combinatie vereist zorgvuldig nonce-beheer en de correcte volgorde: <strong>encrypt-then-MAC</strong> (niet MAC-then-encrypt of encrypt-and-MAC). AES-GCM combineert beide operaties in &eacute;&eacute;n primitief, wat implementatiefouten vermindert. Het belangrijkste risico: nonce-hergebruik in CTR mode onthult XOR van plaintexten; in GCM breekt het ook de authenticatie volledig.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Book 4: Serious Cryptography -->
+      <div class="book-card-detailed">
+        <div class="book-title-main">Serious Cryptography</div>
+        <div class="book-author-main">JEAN-PHILIPPE AUMASSON</div>
+        <div class="book-why">
+          Moderner dan Ferguson/Schneier, covers post-quantum. Aumasson schrijft helder over complexe onderwerpen en brengt de crypto-wereld bij tot aan de huidige state-of-the-art.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">SC-01</div>
+              <div class="exercise-difficulty medium">MEDIUM</div>
+            </div>
+            <div class="exercise-title">Waarom ECB mode onveilig is</div>
+            <div class="exercise-desc">
+              Leg uit waarom ECB mode onveilig is met een praktisch voorbeeld. Hoe zou je dit demonstreren aan iemand die geen cryptografie-achtergrond heeft?
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                ECB (Electronic Codebook) versleutelt identieke plaintext-blokken tot identieke ciphertext-blokken, waardoor patronen zichtbaar blijven. De klassieke <strong>"ECB penguin"</strong> demonstreert dit visueel: encrypteer een bitmap-afbeelding met ECB en de contouren van het origineel blijven herkenbaar in de ciphertext. Dit is omdat elke blok onafhankelijk wordt versleuteld zonder context van omliggende blokken. CBC, CTR, of GCM lossen dit op door elk blok afhankelijk te maken van voorgaande blokken of een counter.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         OFFENSIEF
+         ============================================================ -->
+    <section id="offensief" class="phase-2">
+      <div class="section-head">
+        <div class="badge">OFFEN&shy;SIEF</div>
+        <div>
+          <h2>Aanvallen <em>begrijpen</em>.</h2>
+        </div>
+      </div>
+      <p class="section-intro">Web hacking, binary exploitation, red teaming. Deze boeken leren je denken als een aanvaller &mdash; wat essentieel is, of je nu aanvalt of verdedigt.</p>
+
+      <!-- Book 5: WAHH -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-hot);">
+        <div class="book-title-main">The Web Application Hacker's Handbook</div>
+        <div class="book-author-main">STUTTARD &amp; PINTO</div>
+        <div class="book-why">
+          De bijbel van web application security. Verouderd op details (Flash, Java applets), maar de methodologie is tijdloos. Elk hoofdstuk is een masterclass in systematisch denken over aanvalsoppervlakten.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">WAHH-01</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">Complete testing checklist bouwen</div>
+            <div class="exercise-desc">
+              Volg de WAHH-methodologie en bouw een complete testing checklist voor een web applicatie. Categoriseer per aanvalsoppervlak. Gebruik deze checklist vervolgens op een echte applicatie (OWASP Juice Shop).
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                Systematische checklist: <strong>1) Input mapping</strong> &mdash; alle parameters, headers, cookies identificeren. <strong>2) Authentication testing</strong> &mdash; brute force, credential stuffing, password policy. <strong>3) Session management</strong> &mdash; token entropy, fixation, timeout. <strong>4) Access control</strong> &mdash; horizontal/vertical privilege escalation, IDOR. <strong>5) Injection points</strong> &mdash; SQL, XSS, command injection, SSTI. <strong>6) Logic flaws</strong> &mdash; race conditions, business logic bypass. <strong>7) Information disclosure</strong> &mdash; error messages, debug endpoints, source code leaks.
+              </div>
+            </details>
+          </div>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">WAHH-02</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">Application mapping van Juice Shop</div>
+            <div class="exercise-desc">
+              Pas de WAHH "mapping the application" techniek toe op OWASP Juice Shop. Documenteer: alle endpoints, parameters, authentication flows, en error handling. Maak een visuele sitemap.
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                Gebruik Burp Suite of OWASP ZAP als proxy. Crawl de applicatie handmatig en automatisch. Documenteer: <strong>API endpoints</strong> (/rest/*, /api/*), <strong>parameters</strong> (query strings, JSON bodies, cookies), <strong>auth flows</strong> (login, registration, JWT tokens), <strong>error responses</strong> (stack traces, verbose errors). Let specifiek op verborgen endpoints (robots.txt, JavaScript source analysis) en onbeschermde admin-functionaliteit.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Book 6: Hacking AoE -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-hot);">
+        <div class="book-title-main">Hacking: The Art of Exploitation</div>
+        <div class="book-author-main">JON ERICKSON</div>
+        <div class="book-why">
+          Combineert C programmering met exploitation. Dit boek verandert hoe je over software denkt. Na het lezen zie je elke buffer als een potenti&euml;le aanvalsvector en elke pointer als een security-grens.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">HAOE-01</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">Stack buffer overflow exploit schrijven</div>
+            <div class="exercise-desc">
+              Schrijf een simpele stack buffer overflow exploit volgens Erickson's aanpak. Cre&euml;er een kwetsbaar C-programma, vind de buffer offset, en overschrijf het return address. Werk in een ge&iuml;soleerde VM met ASLR en stack canaries uitgeschakeld.
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                <strong>Stap 1:</strong> Cre&euml;er kwetsbaar C-programma met <code>gets()</code> of <code>strcpy()</code> zonder bounds checking. <strong>Stap 2:</strong> Compileer met <code>-fno-stack-protector -z execstack</code> en schakel ASLR uit. <strong>Stap 3:</strong> Vind buffer offset tot return address met pattern generation (bijv. <code>msf-pattern_create</code>). <strong>Stap 4:</strong> Overschrijf return address met adres van shellcode op de stack, of gebruik return-to-libc (<code>system("/bin/sh")</code>).
+              </div>
+            </details>
+          </div>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">HAOE-02</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">Format string attack implementeren</div>
+            <div class="exercise-desc">
+              Implementeer een format string attack die van willekeurige geheugenadressen kan lezen en ernaar kan schrijven. Gebruik <code>%x</code> voor lezen en <code>%n</code> voor schrijven. Documenteer elk stap.
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                Format string kwetsbaarheden ontstaan wanneer user input direct als format string wordt gebruikt: <code>printf(user_input)</code> in plaats van <code>printf("%s", user_input)</code>. <strong>Lezen:</strong> gebruik <code>%x</code> of <code>%p</code> om stack-waarden te lekken. <strong>Schrijven:</strong> gebruik <code>%n</code> dat het aantal tot dusver geschreven bytes naar een adres schrijft. Door padding met <code>%Nx</code> kun je de waarde controleren. Combineer met direct parameter access (<code>%7$n</code>) voor precisie.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Book 7: Hacker Playbook 3 -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-hot);">
+        <div class="book-title-main">The Hacker Playbook 3</div>
+        <div class="book-author-main">PETER KIM</div>
+        <div class="book-why">
+          Praktische red team playbook met moderne technieken. Kim geeft concrete stappen voor elke fase van een aanval &mdash; van initial access tot domain admin. Geen theorie, alleen actie.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">HP3-01</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">Complete attack chain uitvoeren</div>
+            <div class="exercise-desc">
+              Volg Kim's "test lab" setup en doorloop &eacute;&eacute;n complete attack chain van initial access tot domain admin. Documenteer elke stap, elke tool, en elke beslissing. Voer dit uit in je eigen AD lab.
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                Typische chain: <strong>1) Recon</strong> &mdash; nmap, enum4linux, kerbrute. <strong>2) Initial access</strong> &mdash; phishing payload of web exploit. <strong>3) Local enumeration</strong> &mdash; winPEAS, Seatbelt. <strong>4) Privilege escalation</strong> &mdash; service misconfig, unquoted paths, token impersonation. <strong>5) Lateral movement</strong> &mdash; Pass-the-Hash, PSExec, WMI. <strong>6) Domain escalation</strong> &mdash; Kerberoasting, DCSync, Golden Ticket. Documenteer &eacute;lke stap met screenshots en commando's.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Book 8: RTFM -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-hot);">
+        <div class="book-title-main">Red Team Field Manual (RTFM)</div>
+        <div class="book-author-main">BEN CLARK</div>
+        <div class="book-why">
+          Compact referentie. Niet om te leren, maar om snel op te zoeken. Houd dit naast je toetsenbord tijdens labs en CTFs. Elke pagina is een cheat sheet voor een specifiek aanvalsdomein.
+        </div>
+      </div>
+
+      <!-- Book 9: Shellcoder's Handbook -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-hot);">
+        <div class="book-title-main">The Shellcoder's Handbook</div>
+        <div class="book-author-main">ANLEY, HEASMAN, LINDNER &amp; RICHARTE</div>
+        <div class="book-why">
+          Dieper dan Erickson op exploitation. Covers zowel Windows als Linux exploitation in detail. Voor als je serieus wilt begrijpen hoe moderne exploit-mitigaties werken &mdash; en hoe ze omzeild worden.
+        </div>
+      </div>
+
+      <!-- Book 10: Practical Reverse Engineering -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-hot);">
+        <div class="book-title-main">Practical Reverse Engineering</div>
+        <div class="book-author-main">DANG, GAZET &amp; BACHAALANY</div>
+        <div class="book-why">
+          Brugboek tussen beginner en expert reverse engineering. Behandelt x86/x64 assembly, ARM, Windows kernel, en obfuscation. Essentieel als je malware-analyse of exploit-development als specialisatie overweegt.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         DEFENSIEF / DFIR
+         ============================================================ -->
+    <section id="defensief" class="phase-3">
+      <div class="section-head">
+        <div class="badge">DEFEN&shy;SIEF</div>
+        <div>
+          <h2>Verdedigen en <em>onderzoeken</em>.</h2>
+        </div>
+      </div>
+      <p class="section-intro">Incident response, forensics, malware analyse, threat intelligence. De andere kant van de medaille &mdash; minstens zo belangrijk als de aanval.</p>
+
+      <!-- Book 11: IR & CF -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-cyan);">
+        <div class="book-title-main">Incident Response &amp; Computer Forensics</div>
+        <div class="book-author-main">LUTTGENS, PEPE &amp; MANDIA</div>
+        <div class="book-why">
+          Standaardwerk. Systematisch en praktisch. Dit boek geeft je een framework voor elk incident, van de eerste alert tot de final report. De NIST-gebaseerde methodologie is industrie-standaard.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">IR-01</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">IR playbook voor ransomware</div>
+            <div class="exercise-desc">
+              Cre&euml;er een complete IR playbook voor een ransomware-incident volgens het NIST framework. Definieer acties voor elke fase. Wie wordt wanneer ge&iuml;nformeerd? Wat is de beslisboom voor wel/niet betalen?
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                <strong>1) Preparation</strong> &mdash; backups (3-2-1 regel, offline), EDR deployment, playbooks, communicatieplan. <strong>2) Identification</strong> &mdash; alerts, IOCs, ransomware-variant identificeren, scope bepalen. <strong>3) Containment</strong> &mdash; getroffen systemen isoleren, bewijsmateriaal preserveren, C2 blokkeren. <strong>4) Eradication</strong> &mdash; malware verwijderen, entry point patchen, persistence mechanisms opruimen. <strong>5) Recovery</strong> &mdash; herstellen van schone backups, monitoring intensiveren. <strong>6) Lessons Learned</strong> &mdash; volledige tijdlijn documenteren, verdedigingen verbeteren.
+              </div>
+            </details>
+          </div>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">IR-02</div>
+              <div class="exercise-difficulty medium">MEDIUM</div>
+            </div>
+            <div class="exercise-title">Forensische artefacten op volgorde van volatiliteit</div>
+            <div class="exercise-desc">
+              Gegeven een scenario waarin een webserver is gecompromitteerd: maak een lijst van alle forensische artefacten die je zou verzamelen, gerangschikt op volgorde van volatiliteit (meest vluchtig eerst). Leg uit waarom de volgorde ertoe doet.
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                Volgorde van meest naar minst vluchtig: <strong>1) Memory dump</strong> &mdash; gaat verloren bij reboot, bevat decrypted data, keys, malware in geheugen. <strong>2) Network connections</strong> &mdash; actieve sessies en C2 verbindingen. <strong>3) Running processes</strong> &mdash; huidige state van het systeem. <strong>4) Disk image</strong> &mdash; volledige forensische kopie (write-blocked). <strong>5) Log files</strong> &mdash; syslog, webserver logs, auth logs. <strong>6) Configuration files</strong> &mdash; gewijzigde configs, crontabs, startup scripts. De volgorde doet ertoe omdat vluchtige data verloren gaat bij elke actie op het systeem.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Book 12: Practical Malware Analysis -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-cyan);">
+        <div class="book-title-main">Practical Malware Analysis</div>
+        <div class="book-author-main">SIKORSKI &amp; HONIG</div>
+        <div class="book-why">
+          Standaard malware analyse leerboek. Uitstekende lab exercises met echte samples. Bouwt systematisch op van statische analyse naar dynamische analyse naar geavanceerde technieken.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">PMA-01</div>
+              <div class="exercise-difficulty medium">MEDIUM</div>
+            </div>
+            <div class="exercise-title">Lab01-01.dll analyseren</div>
+            <div class="exercise-desc">
+              Analyseer het Lab01-01.dll sample uit het boek: identificeer imports, strings, en waarschijnlijke functionaliteit. Gebruik alleen statische analyse tools (PE viewer, strings, dependency walker). Wat doet deze malware?
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                Key imports zoals <code>CreateService</code> en <code>InternetOpenUrl</code> suggereren een <strong>backdoor met persistence via een Windows service</strong> en <strong>HTTP-based command-and-control (C2)</strong>. Strings analyse onthult mogelijke C2 URLs en service namen. De DLL is bedoeld om als service ge&iuml;nstalleerd te worden en periodiek instructies op te halen via HTTP.
+              </div>
+            </details>
+          </div>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">PMA-02</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">Veilige analyse-omgeving opzetten</div>
+            <div class="exercise-desc">
+              Zet een veilige malware analyse-omgeving op en voer basis statische + dynamische analyse uit op een sample. Gebruik: ge&iuml;soleerde VM, snapshot voor analyse, FakeDNS, INetSim of ApateDNS, Process Monitor, Wireshark. Documenteer je volledige workflow.
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                <strong>Setup:</strong> Windows VM zonder internet (host-only networking), snapshot v&oacute;&oacute;r analyse. <strong>Statisch:</strong> PE headers bekijken (PEview/PE-bear), strings extraheren, imports/exports analyseren, packer detectie (Detect It Easy). <strong>Dynamisch:</strong> INetSim op Linux host voor fake services, Process Monitor voor file/registry activiteit, Wireshark voor netwerk, Regshot voor registry changes, Process Explorer voor runtime gedrag. Altijd snapshot terugzetten na analyse.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Book 13: Art of Memory Forensics -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-cyan);">
+        <div class="book-title-main">The Art of Memory Forensics</div>
+        <div class="book-author-main">LIGH, CASE, LEVY &amp; WALTERS</div>
+        <div class="book-why">
+          Het definitieve boek over memory forensics. Leert je Volatility gebruiken om aanvallen te reconstrueren vanuit geheugen-dumps. Onmisbaar voor DFIR-werk.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">AMF-01</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">Memory dump analyseren met Volatility</div>
+            <div class="exercise-desc">
+              Gebruik Volatility om een memory dump te analyseren en de acties van een aanvaller te reconstrueren. Documenteer je bevindingen per plugin en bouw een tijdlijn van de aanval.
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                Systematische aanpak: <strong>pslist vs psscan</strong> &mdash; vergelijk voor verborgen processen (DKOM). <strong>netscan</strong> &mdash; actieve en recent gesloten verbindingen. <strong>cmdscan/consoles</strong> &mdash; command history van cmd.exe sessies. <strong>malfind</strong> &mdash; ge&iuml;njecteerde code in processen (VAD scanning, RWX permissions). <strong>dlllist</strong> &mdash; geladen DLL's per proces, zoek naar verdachte paden. <strong>filescan + dumpfiles</strong> &mdash; bestanden in geheugen extraheren. <strong>timeliner</strong> &mdash; alles samenvoegen tot een chronologisch overzicht.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Book 14: Practical Packet Analysis -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-cyan);">
+        <div class="book-title-main">Practical Packet Analysis</div>
+        <div class="book-author-main">CHRIS SANDERS</div>
+        <div class="book-why">
+          Wireshark mastery. Sanders leert je niet alleen Wireshark gebruiken, maar ook denken in packets. Essentieel voor network forensics en incident response.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">PPA-01</div>
+              <div class="exercise-difficulty medium">MEDIUM</div>
+            </div>
+            <div class="exercise-title">Aanval herkennen in packet capture</div>
+            <div class="exercise-desc">
+              Capture netwerkverkeer tijdens een gesimuleerde aanval (nmap scan + web exploit op een kwetsbare VM) en identificeer elke fase in Wireshark. Gebruik display filters om ruis te filteren en de aanval te isoleren.
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                <strong>Fase 1 &mdash; Scan:</strong> Filter op SYN packets zonder ACK (<code>tcp.flags.syn==1 && tcp.flags.ack==0</code>) om de port scan te zien. Herken het patroon van sequenti&euml;le of random port probes. <strong>Fase 2 &mdash; Service detection:</strong> Volledige TCP handshakes gevolgd door banner grabs. <strong>Fase 3 &mdash; Exploit:</strong> HTTP requests naar kwetsbare endpoints, payload in POST body, response met reverse shell indicatoren. Gebruik <code>Follow TCP Stream</code> om de volledige exploit te reconstrueren.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Book 15: BTFM -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-cyan);">
+        <div class="book-title-main">Blue Team Field Manual (BTFM)</div>
+        <div class="book-author-main">WHITE &amp; CLARK</div>
+        <div class="book-why">
+          Compact defensief referentie. Het defensieve equivalent van RTFM. Snelle lookups voor log-locaties, detection commands, forensische artefacten, en hardening checklists.
+        </div>
+      </div>
+
+      <!-- Book 16: Practical Threat Intelligence -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-cyan);">
+        <div class="book-title-main">Practical Threat Intelligence and Data-Driven Threat Hunting</div>
+        <div class="book-author-main">VALENTINA COSTA-GAZC&Oacute;N</div>
+        <div class="book-why">
+          Data-driven threat hunting. Leert je hypotheses formuleren, data verzamelen, en aanvallers opsporen in je eigen netwerk. Brug tussen threat intelligence en hands-on hunting.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         WINDOWS DIEPTE
+         ============================================================ -->
+    <section id="windows" class="phase-4">
+      <div class="section-head">
+        <div class="badge">WINDOWS</div>
+        <div>
+          <h2>Windows <em>internals</em>.</h2>
+        </div>
+      </div>
+      <p class="section-intro">Het meest aangevallen besturingssysteem ter wereld begrijpen op kernel-niveau. Onmisbaar voor zowel red team als blue team op enterprise-omgevingen.</p>
+
+      <!-- Book 17: Windows Internals -->
+      <div class="book-card-detailed" style="border-left-color: var(--accent-amber);">
+        <div class="book-title-main">Windows Internals, Volume 1 &amp; 2</div>
+        <div class="book-author-main">RUSSINOVICH, SOLOMON, IONESCU &amp; YOSIFOVICH</div>
+        <div class="book-why">
+          Het referentiewerk. Elk hoofdstuk verandert hoe je Windows begrijpt. Van processen en geheugen tot de security subsystemen &mdash; dit is de bron die alle andere boeken citeren.
+        </div>
+        <div class="book-exercises">
+          <h5>OEFENINGEN UIT DIT BOEK</h5>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">WI-01</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">LSASS process onderzoeken met Process Explorer</div>
+            <div class="exercise-desc">
+              Gebruik Process Explorer om het LSASS (Local Security Authority Subsystem Service) process te onderzoeken: identificeer alle geladen DLL's, open handles, en leg uit wat elk onthult over authenticatie op het systeem. Waarom is LSASS zo'n belangrijk doelwit voor aanvallers?
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                Key DLL's: <code>msv1_0.dll</code> (NTLM authenticatie), <code>kerberos.dll</code> (Kerberos authenticatie), <code>wdigest.dll</code> (plaintext credentials als WDigest auth ingeschakeld is &mdash; standaard uit sinds Windows 8.1+). Open handles naar <strong>SAM</strong> en <strong>SECURITY</strong> registry hives bevatten credential materiaal. LSASS is het primaire doelwit voor credential-dumping tools (Mimikatz) omdat het alle authenticatie-gerelateerde secrets in geheugen bewaart. Microsoft beschermt het nu met <strong>Credential Guard</strong> (virtualization-based security) en <strong>PPL</strong> (Protected Process Light).
+              </div>
+            </details>
+          </div>
+
+          <div class="exercise">
+            <div class="exercise-header">
+              <div class="exercise-num">WI-02</div>
+              <div class="exercise-difficulty hard">HARD</div>
+            </div>
+            <div class="exercise-title">Windows boot process mappen</div>
+            <div class="exercise-desc">
+              Map het volledige Windows boot process van firmware tot desktop. Identificeer security-relevante componenten bij elke stap. Waar kan een aanvaller zich ingraven? Waar kan een defender controleren?
+            </div>
+            <details class="answer-reveal">
+              <summary>TOON ANTWOORD</summary>
+              <div class="answer-content">
+                <strong>Boot chain:</strong> UEFI Secure Boot (verificeert bootloader signature) &rarr; <code>bootmgr</code> (Boot Manager) &rarr; <code>winload.efi</code> (OS loader, verifieert kernel/drivers) &rarr; <code>ntoskrnl.exe</code> (kernel init) &rarr; <code>smss.exe</code> (Session Manager) &rarr; <code>csrss.exe</code> (Client/Server Runtime) &rarr; <code>wininit.exe</code> (Session 0 init) &rarr; <code>services.exe</code> (Service Control Manager) &rarr; <code>lsass.exe</code> (security) &rarr; <code>winlogon.exe</code> (user logon) &rarr; <code>explorer.exe</code> (shell). <strong>Aanvalspunten:</strong> bootkits (pre-OS), rootkits (kernel), service persistence, LSASS attacks. <strong>Verdediging:</strong> Secure Boot, Measured Boot, Early Launch Antimalware (ELAM).
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         MINDSET & GESCHIEDENIS
+         ============================================================ -->
+    <section id="mindset">
+      <div class="section-head">
+        <div class="badge">MINDSET</div>
+        <div>
+          <h2>Verhalen die je <em>denken</em> vormen.</h2>
+        </div>
+      </div>
+      <p class="section-intro">Niet technisch, maar essentieel. Deze boeken geven context, motivatie, en het historische perspectief dat je helpt patronen te herkennen die steeds terugkeren.</p>
+
+      <!-- Book 18: The Cuckoo's Egg -->
+      <div class="book-card-detailed">
+        <div class="book-title-main">The Cuckoo's Egg</div>
+        <div class="book-author-main">CLIFFORD STOLL &middot; KLASSIEKER</div>
+        <div class="book-why">
+          Het originele incident response verhaal. Stoll trackt een hacker door telefoonlijnen en universiteitssystemen. Een astronoom die per ongeluk een van de eerste gedocumenteerde cyberopsies blootlegt.
+        </div>
+
+        <details class="deep-understanding">
+          <summary>Dieper begrip</summary>
+          <div class="deep-content">
+            <p>Dit boek uit 1989 laat zien dat de fundamenten van incident response &mdash; geduld, logging, en het volgen van het bewijs &mdash; niet veranderd zijn in 35+ jaar. Stoll had geen SIEM, geen EDR, geen threat intelligence feeds. Hij had een logboek, een printer die elke login logde, en de discipline om niet te vroeg in te grijpen.</p>
+            <p>De les voor moderne security professionals: tools verbeteren de effici&euml;ntie, maar het zijn de <strong>fundamentele vaardigheden</strong> &mdash; observeren, documenteren, geduldig volgen &mdash; die een onderzoek succesvol maken. Of je nu Wireshark of een printer-terminal gebruikt.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Book 19: Sandworm -->
+      <div class="book-card-detailed">
+        <div class="book-title-main">Sandworm</div>
+        <div class="book-author-main">ANDY GREENBERG</div>
+        <div class="book-why">
+          Russische cyberoorlogvoering. NotPetya, BlackEnergy, en de geopolitiek van cyberaanvallen. Greenberg volgt de meest destructieve cyberaanvallen in de geschiedenis en de groep erachter.
+        </div>
+      </div>
+
+      <!-- Book 20: Countdown to Zero Day -->
+      <div class="book-card-detailed">
+        <div class="book-title-main">Countdown to Zero Day</div>
+        <div class="book-author-main">KIM ZETTER &middot; STUXNET</div>
+        <div class="book-why">
+          Het Stuxnet verhaal. Hoe cyber-fysieke aanvallen werkelijkheid werden. Zetter documenteert de ontdekking en analyse van het meest geavanceerde malware-specimen ooit gevonden &mdash; en de geopolitieke implicaties.
+        </div>
+      </div>
+
+      <!-- Book 21: This Is How They Tell Me -->
+      <div class="book-card-detailed">
+        <div class="book-title-main">This Is How They Tell Me the World Ends</div>
+        <div class="book-author-main">NICOLE PERLROTH</div>
+        <div class="book-why">
+          De zero-day markt en de geopolitiek van exploits. Perlroth onthult de verborgen economie van kwetsbaarheden &mdash; wie ze koopt, wie ze verkoopt, en wat dat betekent voor de veiligheid van iedereen.
+        </div>
+      </div>
+
+      <!-- Book 22: Active Measures -->
+      <div class="book-card-detailed">
+        <div class="book-title-main">Active Measures</div>
+        <div class="book-author-main">THOMAS RID</div>
+        <div class="book-why">
+          Desinformatie en cyber-operaties door de geschiedenis heen. Essentieel voor attributie-skepsis. Rid laat zien dat "information warfare" niet nieuw is &mdash; het is decennia oud, en de patronen herhalen zich.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         LEESPLAN
+         ============================================================ -->
+    <section id="leesplan">
+      <div class="section-head">
+        <div class="badge">LEESPLAN</div>
+        <div>
+          <h2>Wanneer <em>wat</em> lezen.</h2>
+        </div>
+      </div>
+      <p class="section-intro">Je kunt niet alles tegelijk lezen. Dit plan koppelt boeken aan fases. Lees wat relevant is voor waar je nu bent, en kom terug voor de rest.</p>
+
+      <div class="timeline">
+
+        <div class="row">
+          <div class="time">FASE 0-1</div>
+          <div class="state">
+            <strong>Security Engineering</strong> (Hoofdstuk 1-3) &middot; <strong>Serious Cryptography</strong><br>
+            <span style="font-size: 12px; color: var(--ink-dim);">Bouw het fundament. Begrijp access control, protocol design, en crypto basics.</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="time">FASE 2</div>
+          <div class="state">
+            <strong>WAHH</strong> &middot; <strong>Hacking: AoE</strong> &middot; <strong>Hacker Playbook 3</strong><br>
+            <span style="font-size: 12px; color: var(--ink-dim);">Leer aanvallen. Web, binary, red team methodologie. Doe de labs.</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="time">FASE 3</div>
+          <div class="state">
+            <strong>Practical Malware Analysis</strong> &middot; <strong>Art of Memory Forensics</strong> &middot; <strong>IR &amp; Computer Forensics</strong><br>
+            <span style="font-size: 12px; color: var(--ink-dim);">Leer verdedigen. Forensics, malware analyse, incident response.</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="time">FASE 4+</div>
+          <div class="state">
+            <strong>Windows Internals</strong> &middot; specialisatie-boeken per track<br>
+            <span style="font-size: 12px; color: var(--ink-dim);">Ga diep in je gekozen specialisatie. Referentieboeken worden nu dagelijks relevant.</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="time">ALTIJD</div>
+          <div class="state">
+            <strong>The Cuckoo's Egg</strong> &middot; <strong>Sandworm</strong> (mindset &amp; context)<br>
+            <span style="font-size: 12px; color: var(--ink-dim);">Lees deze wanneer je wilt. Ze geven perspectief dat je technische kennis verrijkt.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout" style="margin-top: 28px;">
+        <strong class="label">Leestip</strong>
+        Lees niet passief. Houd een notitieblok naast je. Als een boek een concept beschrijft, probeer het zelf. Als het een tool noemt, open een terminal. De oefeningen hierboven zijn een startpunt &mdash; elk boek heeft er veel meer. <strong>Doe ze.</strong>
+      </div>
+
+    </section>
+
+    <footer>
+      LEARNSEC // BIBLIOTHEEK // DE PERMANENTE BOEKENKAST // TOOLS VERANDEREN &middot; CONCEPTEN NIET &middot; BLIJF LEZEN<span class="cursor"></span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="../js/progress.js"></script>
+</body>
+</html>

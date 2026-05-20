@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="phase-id" content="fase-4">
+<title>Fase 4 // Specialisaties // LearnSec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+details.deep-understanding {
+  background: var(--bg-panel);
+  border: 1px solid var(--accent-amber);
+  border-left: 3px solid var(--accent-amber);
+  margin: 16px 0;
+  max-width: 720px;
+}
+details.deep-understanding summary {
+  padding: 14px 18px;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-amber);
+  text-transform: uppercase;
+  user-select: none;
+}
+details.deep-understanding summary:hover { background: rgba(255,181,71,0.05); }
+details.deep-understanding[open] summary { border-bottom: 1px solid var(--rule-soft); }
+details.deep-understanding .deep-content {
+  padding: 18px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+details.deep-understanding .deep-content p { margin-bottom: 12px; max-width: none; }
+details.deep-understanding .deep-content code {
+  font-family: var(--mono);
+  background: var(--bg-deep);
+  color: var(--accent);
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+details.answer-reveal {
+  background: var(--bg-deep);
+  border: 1px dashed var(--rule);
+  margin: 8px 0;
+  max-width: 720px;
+}
+details.answer-reveal summary {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  user-select: none;
+}
+details.answer-reveal summary:hover { color: var(--accent); }
+details.answer-reveal .answer-content {
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  border-top: 1px dashed var(--rule-soft);
+}
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <aside>
+    <div class="brand">// LEARNSEC</div>
+    <div class="brand-sub">cybersec.leeromgeving</div>
+    <div class="edition">&#9733; FASE 04 &middot; SPECIALISATIES &#9733;</div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">TRACKS</div>
+      <nav>
+        <a href="#track-a" class="active"><span class="num">A</span>Red Team Operator</a>
+        <a href="#track-b"><span class="num">B</span>Malware Analyse &amp; RE</a>
+        <a href="#track-c"><span class="num">C</span>Application Security</a>
+        <a href="#track-d"><span class="num">D</span>Cloud Security</a>
+        <a href="#track-e"><span class="num">E</span>DFIR</a>
+        <a href="#track-f"><span class="num">F</span>Detection Engineering</a>
+      </nav>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">NAVIGATIE</div>
+      <nav>
+        <a href="#ethics"><span class="num">!!</span>Ethiek</a>
+      </nav>
+    </div>
+
+    <div class="back-link">
+      <a href="../index.html">&larr; Terug naar hub</a>
+    </div>
+
+    <div class="meta">
+      <strong>METHODE</strong>
+      Kies &eacute;&eacute;n track. Ga diep.<br>
+      Bouw portfolio. Publiceer werk.<br>
+      Specialisten worden betaald.
+      <strong>DUUR</strong>
+      12+ maanden (per specialisatie)
+    </div>
+  </aside>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="ascii-dec">&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;  &#9617;&#9618;&#9619; FASE  04 &#9619;&#9618;&#9617;  &#9474;
+&#9474;                   &#9474;
+&#9474;  > kies_track      &#9474;
+&#9474;  > ga_diep         &#9474;
+&#9474;  > word_expert     &#9474;
+&#9474;  > word_betaald    &#9474;
+&#9474;                   &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</div>
+
+      <div class="tag">LEEROMGEVING <span class="phase-badge">FASE 04</span><span class="lang">NL</span></div>
+      <h1>Kies een specialiteit.<br>Ga zeer <em>diep</em>.</h1>
+      <p class="lede">Je bent breed competent. Generalisten zijn nuttig &mdash; specialisten worden betaald. Kies &eacute;&eacute;n track, investeer maanden, en word de persoon die gebeld wordt als het echt misgaat.</p>
+
+      <div class="philosophy">
+        <strong>WAAROM DEZE FASE</strong>
+        Na Fase 2 en 3 heb je een breed fundament in zowel offensieve als defensieve security. Nu is het tijd om te kiezen. De markt betaalt voor diepte, niet breedte. Kies de track die je het meest trekt, en ga er volledig in. Je kunt altijd later een tweede specialisatie toevoegen.
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="k">TRACKS</div><div class="v">06</div><div class="u">specialisaties</div></div>
+        <div class="stat"><div class="k">VIDEO'S</div><div class="v">18</div><div class="u">gratis YouTube</div></div>
+        <div class="stat"><div class="k">OEFENINGEN</div><div class="v">12</div><div class="u">hands-on</div></div>
+        <div class="stat"><div class="k">DUUR</div><div class="v">12+</div><div class="u">maanden</div></div>
+      </div>
+    </div>
+
+    <!-- GLOBAL PROGRESS -->
+    <section>
+      <div class="progress-bar-container" data-scope="page">
+        <div class="progress-bar-header">
+          <div class="progress-bar-label">FASE 4 VOORTGANG</div>
+          <div class="progress-bar-pct">0/0 &middot; 0%</div>
+        </div>
+        <div class="progress-bar"><div class="fill"></div></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRACK A — RED TEAM OPERATOR
+         ============================================================ -->
+    <section id="track-a" class="phase-4">
+      <div class="section-head">
+        <div class="badge">TRACK A</div>
+        <div>
+          <h2>Red Team <em>Operator</em>.</h2>
+          <div class="duration">12+ MAANDEN &middot; OFFENSIEVE SPECIALISATIE</div>
+        </div>
+      </div>
+      <p class="section-intro">Simuleer geavanceerde dreigingen tegen organisaties. Niet alleen exploits draaien &mdash; onzichtbaar opereren, detectie ontwijken, en de verdediging testen alsof je een echte APT bent.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">A</div>
+          <div class="body">
+            <h3>Van penetration test naar red team engagement</h3>
+            <p class="desc">Red teaming gaat verder dan vulnerability scanning en exploitation. Het gaat over het simuleren van een volledige threat actor &mdash; van initial access tot data exfiltration &mdash; terwijl je onzichtbaar blijft voor het blue team.</p>
+
+            <h4>Kernconcepten</h4>
+            <ul>
+              <li><strong>Custom C2 Development</strong> &mdash; Bouw je eigen Command &amp; Control framework. Begrijp hoe bestaande C2s (Cobalt Strike, Mythic, Sliver) werken en waarom custom tooling essentieel is voor geavanceerde engagements.</li>
+              <li><strong>EDR Evasion</strong> &mdash; Begrijp hoe EDR-oplossingen werken (userland hooking, kernel callbacks, ETW) en hoe je ze kunt omzeilen zonder gedetecteerd te worden.</li>
+              <li><strong>AMSI/ETW Patching</strong> &mdash; Patch de Antimalware Scan Interface en Event Tracing for Windows om detectie te ontwijken. Begrijp waarom dit werkt en hoe defenders het detecteren.</li>
+              <li><strong>OPSEC (Operational Security)</strong> &mdash; Het verschil tussen detectie in minuten vs maanden. Elke actie die je uitvoert genereert artefacten &mdash; minimaliseer je footprint.</li>
+              <li><strong>Assumed-Breach Scenarios</strong> &mdash; Begin vanuit een ge&euml;stableerd beachhead. Focus op lateral movement, privilege escalation, en data exfiltration.</li>
+              <li><strong>Direct/Indirect Syscalls</strong> &mdash; Omzeil userland hooking door direct system calls te maken. Begrijp de Windows syscall table en hoe dit evolueert per Windows-versie.</li>
+              <li><strong>Hardware Breakpoints</strong> &mdash; Gebruik hardware breakpoints voor unhooking en detectie-evasie. Begrijp debug registers en hoe ze werken op CPU-niveau.</li>
+              <li><strong>Infrastructure Rotation</strong> &mdash; Draai je C2-infrastructuur regelmatig. Gebruik redirectors, domain fronting, en legitimate cloud services om attributie te bemoeilijken.</li>
+              <li><strong>Social Engineering</strong> &mdash; Phishing, vishing, pretexting. De menselijke factor is vaak de gemakkelijkste weg naar binnen.</li>
+            </ul>
+
+            <!-- DEEP UNDERSTANDING -->
+            <details class="deep-understanding">
+              <summary>Diep Begrip &mdash; Red Team vs Penetration Test</summary>
+              <div class="deep-content">
+                <p>Het verschil tussen een penetration test en een red team engagement is fundamenteel en wordt vaak verkeerd begrepen.</p>
+                <p>Een <strong>penetration test</strong> is scope-gebonden: test deze applicatie, dit netwerk, deze API. Het doel is zoveel mogelijk kwetsbaarheden vinden binnen een afgebakend doelwit. Tijd is beperkt (meestal 1-2 weken), en het blue team weet vaak dat er getest wordt.</p>
+                <p>Een <strong>red team engagement</strong> is objective-gebonden: kun je bij de kroonjuwelen komen? Het doel is niet elke kwetsbaarheid vinden, maar &eacute;&eacute;n realistische aanvalsketen uitvoeren. De scope is de hele organisatie. Het blue team weet niet dat je er bent. Rules of engagement bepalen wat wel en niet mag.</p>
+                <p>OPSEC maakt het verschil tussen detectie in <strong>minuten</strong> vs <strong>maanden</strong>. Een penetration tester mag luidruchtig zijn &mdash; een red team operator niet. Elke tool die je draait, elke connectie die je maakt, elke file die je aanraakt genereert artefacten. De kunst is om zo min mogelijk sporen achter te laten terwijl je je objectief bereikt.</p>
+                <p>Dit is waarom custom tooling essentieel is: bekende tools hebben bekende signatures. Als je Cobalt Strike out-of-the-box gebruikt, detecteert elke fatsoenlijke EDR je binnen seconden. Custom C2, custom loaders, custom implants &mdash; dat is wat het verschil maakt.</p>
+              </div>
+            </details>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/QPmgV1SRTJY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Breaking Red &mdash; Understanding Threats through Red Teaming</div>
+                    <div class="video-channel">SANS INSTITUTE</div>
+                    <div class="video-desc">SANS webcast over red team methodologie, dreigingssimulatie, en hoe red teaming organisaties helpt hun verdediging te verbeteren.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/TwLLL8Ain24" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Introducing SEC565: Red Team Operations &amp; Adversary Emulation</div>
+                    <div class="video-channel">SANS OFFENSIVE OPERATIONS</div>
+                    <div class="video-desc">SANS introductie tot SEC565: red team operations, adversary emulation, planning, en tooling.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/dnhTernCw7E" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Fortra's Outflank Security Tooling (OST) Overview</div>
+                    <div class="video-channel">OUTFLANK / FORTRA</div>
+                    <div class="video-desc">Outflank's OST: moderne red team tooling voor EDR evasion, OPSEC-safe operations, en C2 integratie.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING A.1</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Design een covert C2-communicatiekanaal</div>
+                <div class="exercise-desc">
+                  Ontwerp een C2-communicatiekanaal dat legitiem HTTPS-verkeer nabootst. Documenteer je keuzes voor: transport protocol, jitter/sleep patterns, encryption, en hoe je het verkeer laat lijken op normaal browsegedrag. Teken de volledige infrastructuur: implant &rarr; redirector &rarr; teamserver.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    Gebruik <strong>domain fronting</strong> of legitieme cloud services (Azure, AWS CloudFront) als redirectors. Implementeer <strong>jitter en sleep patterns</strong> &mdash; varieer de callback-intervallen (bijv. 60s &plusmn; 30% jitter) zodat het verkeer niet periodiek is. Gebruik <strong>malleable C2 profiles</strong> om HTTP headers, URI paths, en body encoding te configureren zodat het verkeer op normaal webverkeer lijkt. Encrypt de payload met <strong>TLS binnen standaard HTTPS naar een CDN</strong>, zodat zelfs deep packet inspection alleen TLS-verkeer naar een legitieme CDN ziet. Voeg random padding toe aan payloads om vaste pakketgroottes te voorkomen.
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: SpecterOps &middot; C2 Matrix &middot; Cobalt Strike Malleable C2 Profiles</div>
+              </div>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING A.2</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">AMSI bypass in PowerShell (ge&iuml;soleerd lab)</div>
+                <div class="exercise-desc">
+                  Maak een simpele AMSI bypass in PowerShell &mdash; <strong>alleen in je ge&iuml;soleerde lab</strong>. Leg uit hoe de bypass werkt, welke functie gepatched wordt, en waarom dit effectief is. Documenteer ook hoe defenders deze bypass detecteren.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    De klassieke aanpak patched <code>amsi.dll</code>'s <strong>AmsiScanBuffer</strong> functie om altijd <code>AMSI_RESULT_CLEAN</code> te retourneren. Dit werkt omdat AMSI een userland DLL is die door PowerShell geladen wordt &mdash; als je het geheugen van de eigen process kunt aanpassen, kun je de scanfunctie neutraliseren. Defenders detecteren dit via: <strong>ETW events</strong> (AMSI-gerelateerde ETW providers loggen bypass-pogingen), <strong>memory scanning</strong> (EDR kan de integrity van amsi.dll in geheugen verifi&euml;ren), en <strong>script block logging</strong> (de bypass-code zelf wordt soms gelogd voordat AMSI gepatched is). Moderne varianten gebruiken indirect patching of hardware breakpoints om detectie te vermijden.
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: Rasta Mouse &middot; AMSI.fail &middot; MDSec Research</div>
+              </div>
+            </div>
+
+            <!-- CHECKLIST -->
+            <h4>Checklist</h4>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f4-a01"> Ik begrijp het verschil tussen een pentest en een red team engagement (scope, RoE, OPSEC)</li>
+              <li><input type="checkbox" id="f4-a02"> Ik kan een C2-communicatiekanaal ontwerpen dat legitiem verkeer nabootst</li>
+              <li><input type="checkbox" id="f4-a03"> Ik begrijp hoe EDR-oplossingen werken (userland hooking, kernel callbacks, ETW)</li>
+              <li><input type="checkbox" id="f4-a04"> Ik kan uitleggen hoe AMSI en ETW patching werkt en hoe het gedetecteerd wordt</li>
+              <li><input type="checkbox" id="f4-a05"> Ik begrijp direct en indirect syscalls en wanneer ze nodig zijn</li>
+              <li><input type="checkbox" id="f4-a06"> Ik kan een red team infrastructure opzetten met redirectors en rotation</li>
+            </ul>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen</h4>
+            <div class="resource-links">
+              <a href="https://posts.specterops.io/" target="_blank" rel="noopener">SpecterOps Blog</a>
+              <a href="https://outflank.nl/blog/" target="_blank" rel="noopener">Outflank Blog</a>
+              <a href="https://www.mdsec.co.uk/knowledge-centre/" target="_blank" rel="noopener">MDSec Research</a>
+              <a href="https://www.thec2matrix.com/" target="_blank" rel="noopener">The C2 Matrix</a>
+              <a href="https://github.com/RistBS/Awesome-RedTeam-Cheatsheet" target="_blank" rel="noopener">Red Team Cheatsheet</a>
+            </div>
+
+            <div class="callout resources">
+              <strong class="label">Certificeringen</strong>
+              <strong>CRTO</strong> (Certified Red Team Operator) &middot; <strong>OSEP</strong> (OffSec Experienced Pentester) &middot; <strong>OSCE3</strong> (OffSec Certified Expert 3)
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRACK B — MALWARE ANALYSE & RE
+         ============================================================ -->
+    <section id="track-b" class="phase-4">
+      <div class="section-head">
+        <div class="badge">TRACK B</div>
+        <div>
+          <h2>Malware Analyse &amp; <em>Reverse Engineering</em>.</h2>
+          <div class="duration">12+ MAANDEN &middot; ANALYTISCHE SPECIALISATIE</div>
+        </div>
+      </div>
+      <p class="section-intro">Ontleed malware tot op assembly-niveau. Begrijp hoe exploits werken, hoe rootkits zich verbergen, en hoe firmware gecompromitteerd wordt. De meest technische specialisatie &mdash; en de meest tijdloze.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">B</div>
+          <div class="body">
+            <h3>Van binary tot begrip</h3>
+            <p class="desc">Reverse engineering vereist diep begrip van hoe computers echt werken &mdash; op CPU-instructieniveau. Je leert assembly lezen zoals anderen Python lezen, en je begrijpt de internals van besturingssystemen beter dan de meeste developers.</p>
+
+            <h4>Kernconcepten</h4>
+            <ul>
+              <li><strong>x86/x64 + ARM Assembly</strong> &mdash; Lees assembly als een tweede taal. Begrijp calling conventions, stack frames, register gebruik, en control flow op instructieniveau.</li>
+              <li><strong>Windows Internals Deep</strong> &mdash; PE-formaat, DLL loading, TEB/PEB, structured exception handling, memory management. Het fundament voor malware-analyse op Windows.</li>
+              <li><strong>Kernel Internals</strong> &mdash; Kernel-mode vs user-mode, system calls, interrupt handling, driver model. Begrijp hoe het OS werkt onder de motorkap.</li>
+              <li><strong>Rootkits</strong> &mdash; Kernel rootkits, bootkits, hypervisor-level rootkits. Hoe ze zich verbergen en hoe je ze detecteert.</li>
+              <li><strong>Firmware &amp; UEFI</strong> &mdash; UEFI firmware analyse, secure boot bypass, firmware implants. Het laagste niveau van persistentie.</li>
+              <li><strong>Exploit Development</strong> &mdash; Heap shaping, JIT spraying, type confusion, use-after-free. Van vulnerability tot werkende exploit.</li>
+            </ul>
+
+            <!-- DEEP UNDERSTANDING -->
+            <details class="deep-understanding">
+              <summary>Diep Begrip &mdash; Waarom RE de meest tijdloze skill is</summary>
+              <div class="deep-content">
+                <p>Reverse engineering is de meest technische specialisatie in cybersecurity &mdash; en tegelijkertijd de specialisatie die de <strong>stabilste carri&egrave;re</strong> biedt.</p>
+                <p>De reden is simpel: RE gaat over <strong>fundamenten</strong>, niet over tools. Tools veranderen elk jaar &mdash; IDA Pro wordt Ghidra wordt Binary Ninja &mdash; maar de onderliggende concepten zijn al decennia hetzelfde. x86 assembly is in de kern niet veranderd sinds de jaren '80. De Windows PE-structuur is stabiel sinds Windows NT. Zelfs als architecturen evolueren (ARM, RISC-V), zijn de principes identiek.</p>
+                <p>Dit betekent dat elke dag die je investeert in RE <strong>compound returns</strong> oplevert. Je bouwt kennis die niet veroudert. Een exploit developer die heap shaping begrijpt kan dat begrip toepassen op elke heap allocator, in elk OS, voor de rest van hun carri&egrave;re.</p>
+                <p>De keerzijde: de learning curve is steil. Je moet comfortabel zijn met assembly, begrijpen hoe geheugen werkt op byte-niveau, en geduld hebben om uren naar een debugger te staren. Maar als je dit pad kiest en volhoudt, ben je een van de weinige mensen ter wereld die echt begrijpt hoe software werkt.</p>
+              </div>
+            </details>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/byK0tXH5axQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Intro to Software Reverse Engineering (Day 1)</div>
+                    <div class="video-channel">OPENSECURITYTRAINING</div>
+                    <div class="video-desc">Fundamentele reverse engineering concepten: x86 assembly, disassembly, en de basis van binary analyse.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/2kQmx2YYlDw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Advanced Malware Analysis</div>
+                    <div class="video-channel">OALABS</div>
+                    <div class="video-desc">Geavanceerde malware-analyse technieken: unpacking, deobfuscation, en C2-extractie.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/GECZRAXpRFE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Ghidra &mdash; NSA Reverse Engineering</div>
+                    <div class="video-channel">GHIDRA</div>
+                    <div class="video-desc">Introductie tot Ghidra, de gratis reverse engineering tool van de NSA. Setup, navigatie, en analyse.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING B.1</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Reverse engineer een crackme binary met Ghidra</div>
+                <div class="exercise-desc">
+                  Download een simpele crackme binary (bijv. van crackmes.one). Open deze in Ghidra, vind de <code>main()</code> functie, identificeer de password-check logica, en patch de binary zodat elke input geaccepteerd wordt. Documenteer je volledige analyse-proces.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    <strong>Stap 1:</strong> Open de binary in Ghidra en laat de auto-analyse draaien. <strong>Stap 2:</strong> Vind <code>main()</code> via de Symbol Tree of door de entry point te volgen. <strong>Stap 3:</strong> Identificeer de password check logica &mdash; zoek naar string comparisons (<code>strcmp</code>, <code>strncmp</code>) of custom vergelijkingen. <strong>Stap 4:</strong> Vind de conditional jump (bijv. <code>JNZ</code> of <code>JE</code>) die bepaalt of de check slaagt of faalt. <strong>Stap 5:</strong> Patch de jump-instructie &mdash; verander <code>JNZ</code> naar <code>JZ</code> (of <code>NOP</code> de hele check) zodat elke input geaccepteerd wordt. Exporteer de gepatched binary en test.
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: crackmes.one &middot; Ghidra Documentation &middot; Practical Malware Analysis</div>
+              </div>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING B.2</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Analyseer een malware sample uit MalwareBazaar</div>
+                <div class="exercise-desc">
+                  Download een malware sample van MalwareBazaar en analyseer deze <strong>in een ge&iuml;soleerde omgeving</strong> (FlareVM of REMnux). Documenteer: strings analyse, import table, C2-communicatie, en persistence mechanisme. Gebruik zowel statische (Ghidra/IDA) als dynamische (x64dbg/Process Monitor) analyse.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    <strong>Statische analyse:</strong> Begin met <code>strings</code> en <code>FLOSS</code> voor string-extractie (inclusief obfuscated strings). Bekijk de import table &mdash; imports als <code>CreateRemoteThread</code>, <code>VirtualAllocEx</code>, <code>WriteProcessMemory</code> wijzen op process injection. <strong>Dynamische analyse:</strong> Draai in sandbox, monitor met Process Monitor (filesystem/registry changes), Wireshark (netwerk), en API Monitor (API calls). <strong>Documenteer:</strong> Hashes (MD5/SHA256), IOCs (IP-adressen, domeinen, mutexes), gedrag (persistence via registry run keys, scheduled tasks, services), en classificatie (RAT, stealer, loader, etc.).
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: MalwareBazaar &middot; Practical Malware Analysis &middot; OALabs</div>
+              </div>
+            </div>
+
+            <!-- CHECKLIST -->
+            <h4>Checklist</h4>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f4-b01"> Ik kan x86/x64 assembly lezen en begrijpen (calling conventions, stack frames, control flow)</li>
+              <li><input type="checkbox" id="f4-b02"> Ik kan een binary openen in Ghidra en de logica reverse engineeren</li>
+              <li><input type="checkbox" id="f4-b03"> Ik begrijp het Windows PE-formaat, DLL loading, en de TEB/PEB structuren</li>
+              <li><input type="checkbox" id="f4-b04"> Ik kan een malware sample analyseren met statische en dynamische methoden</li>
+              <li><input type="checkbox" id="f4-b05"> Ik begrijp de basis van exploit development (heap, stack, type confusion)</li>
+              <li><input type="checkbox" id="f4-b06"> Ik kan IOCs extraheren uit een malware sample en een rapport schrijven</li>
+            </ul>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen</h4>
+            <div class="resource-links">
+              <a href="https://opensecuritytraining.info/Training.html" target="_blank" rel="noopener">OpenSecurityTraining2</a>
+              <a href="https://www.corelan.be/" target="_blank" rel="noopener">Corelan &mdash; Exploit Writing</a>
+              <a href="https://googleprojectzero.blogspot.com/" target="_blank" rel="noopener">Project Zero Blog</a>
+              <a href="http://www.phrack.org/" target="_blank" rel="noopener">Phrack Magazine</a>
+              <a href="https://bazaar.abuse.ch/" target="_blank" rel="noopener">MalwareBazaar</a>
+              <a href="https://crackmes.one/" target="_blank" rel="noopener">crackmes.one</a>
+            </div>
+
+            <div class="callout resources">
+              <strong class="label">Certificeringen</strong>
+              <strong>GREM</strong> (GIAC Reverse Engineering Malware) &middot; <strong>OSED</strong> (OffSec Exploit Developer)
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRACK C — APPLICATION SECURITY
+         ============================================================ -->
+    <section id="track-c" class="phase-4">
+      <div class="section-head">
+        <div class="badge">TRACK C</div>
+        <div>
+          <h2>Application <em>Security</em>.</h2>
+          <div class="duration">12+ MAANDEN &middot; DEVELOPMENT SPECIALISATIE</div>
+        </div>
+      </div>
+      <p class="section-intro">Beveiliging inbouwen in het development proces. Niet alleen bugs vinden na release &mdash; security integreren in elke fase van de software lifecycle, van design tot deployment.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">C</div>
+          <div class="body">
+            <h3>Security als onderdeel van development</h3>
+            <p class="desc">AppSec is waar security en software engineering samenkomen. Je doet code reviews, bouwt security tooling in CI/CD pipelines, en helpt development teams om veiligere software te schrijven &mdash; zonder hun velocity te vernietigen.</p>
+
+            <h4>Kernconcepten</h4>
+            <ul>
+              <li><strong>Secure Code Review</strong> &mdash; Handmatige code review voor security-kwetsbaarheden. Begrijp source-sink analyse, taint tracking, en common vulnerability patterns per taal.</li>
+              <li><strong>SAST/DAST/IAST/SCA</strong> &mdash; Static Application Security Testing, Dynamic AST, Interactive AST, Software Composition Analysis. Begrijp de sterkte en zwakte van elke aanpak.</li>
+              <li><strong>Secure SDLC</strong> &mdash; Security integreren in de software development lifecycle. Van threat modeling in design tot security testing in CI/CD.</li>
+              <li><strong>Threat Modeling at Scale</strong> &mdash; STRIDE, PASTA, attack trees. Hoe je threat modeling toepast op grote, complexe systemen zonder dat het een bottleneck wordt.</li>
+              <li><strong>Security Champions</strong> &mdash; Een netwerk van security-bewuste developers opbouwen. Schaalbare security door ownership te verspreiden.</li>
+              <li><strong>Supply Chain Security</strong> &mdash; SBOMs (Software Bill of Materials), SLSA framework, dependency scanning. Begrijp de risico's van je supply chain.</li>
+              <li><strong>API Security</strong> &mdash; OAuth/OIDC flows, JWT validatie, rate limiting, input validatie. APIs zijn het nieuwe aanvalsoppervlak.</li>
+            </ul>
+
+            <!-- DEEP UNDERSTANDING -->
+            <details class="deep-understanding">
+              <summary>Diep Begrip &mdash; Waarom de beste AppSec engineers developers zijn</summary>
+              <div class="deep-content">
+                <p>De beste Application Security engineers zijn <strong>voormalige developers</strong>. Dit is geen toeval &mdash; het is een fundamentele eigenschap van het vakgebied.</p>
+                <p>Effectieve security code review vereist dat je de codebase <strong>begrijpt</strong>. Je moet weten hoe het framework werkt, waar de data vandaan komt, hoe het getransformeerd wordt, en waar het naartoe gaat. Je moet designpatterns herkennen, begrijpen waarom de developer een bepaalde keuze maakte, en weten waar die keuze tot problemen leidt.</p>
+                <p>Dit gaat veel verder dan alleen de <strong>OWASP Top 10 checken</strong>. Elke mid-level pentester kan een SQL injection vinden met een scanner. Maar begrijpen waarom de ORM-laag in deze specifieke configuratie kwetsbaar is voor second-order injection &mdash; dat vereist developer-level begrip van de stack.</p>
+                <p>Daarom is het advies: als je AppSec wilt doen, <strong>bouw eerst software</strong>. Werk minimaal een jaar als developer. Begrijp CI/CD, begrijp deployment, begrijp hoe teams werken. Dan kun je security advies geven dat developers ook daadwerkelijk willen opvolgen.</p>
+              </div>
+            </details>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/rAwxFw25x3E" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Secure Code Review</div>
+                    <div class="video-channel">OWASP</div>
+                    <div class="video-desc">OWASP's aanpak voor secure code review: methodologie, tooling, en common patterns.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/fb-t3WWHsMQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Code Review for Security</div>
+                    <div class="video-channel">PENTESTERLAB</div>
+                    <div class="video-desc">Praktische code review technieken vanuit een pentester-perspectief. Source-sink analyse en taint tracking.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/HefCcEtWuuI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Application Security</div>
+                    <div class="video-channel">SANS</div>
+                    <div class="video-desc">SANS overzicht van application security: van threat modeling tot security testing in de pipeline.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING C.1</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Secure code review van DVWA broncode</div>
+                <div class="exercise-desc">
+                  Clone de DVWA (Damn Vulnerable Web Application) broncode en doe een handmatige secure code review. Vind minimaal 5 kwetsbaarheden, documenteer voor elk: de locatie in de code, het type kwetsbaarheid, de impact, en een voorgestelde fix.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    <strong>1. SQL Injection in login:</strong> De login-functie concateneert user input direct in de SQL query zonder parameterized queries. Fix: gebruik prepared statements. <strong>2. XSS in guestbook:</strong> User input wordt onge&euml;scaped in HTML gerenderd. Fix: output encoding met <code>htmlspecialchars()</code>. <strong>3. Command Injection in ping:</strong> User input wordt direct aan een shell command meegegeven via <code>shell_exec()</code>. Fix: input validatie en <code>escapeshellarg()</code>. <strong>4. CSRF in password change:</strong> Geen CSRF-token bij het wachtwoord-wijzigingsformulier. Fix: implementeer anti-CSRF tokens. <strong>5. Insecure File Upload:</strong> Geen validatie van bestandstype of inhoud bij uploads. Fix: whitelist extensies, valideer MIME type, sla bestanden op buiten de webroot.
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: DVWA &middot; OWASP Code Review Guide &middot; OWASP Testing Guide</div>
+              </div>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING C.2</div>
+                  <div class="exercise-difficulty medium">MEDIUM</div>
+                </div>
+                <div class="exercise-title">CI/CD pipeline met SAST en SCA scanning</div>
+                <div class="exercise-desc">
+                  Zet een CI/CD pipeline op (GitHub Actions of GitLab CI) met SAST-scanning via <strong>Semgrep</strong> en SCA-scanning via <strong>Dependabot</strong> (of Snyk). Configureer custom Semgrep rules voor je project. Zorg dat de pipeline faalt bij kritieke findings.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    <strong>Semgrep setup:</strong> Maak een <code>.github/workflows/semgrep.yml</code> met de Semgrep Action. Gebruik de <code>p/security-audit</code> en <code>p/owasp-top-ten</code> rulesets als basis. Voeg custom rules toe in <code>.semgrep/</code> voor project-specifieke patterns (bijv. onveilig gebruik van je ORM). <strong>Dependabot setup:</strong> Maak <code>.github/dependabot.yml</code> met configuratie voor je package ecosystems. Stel security updates in op dagelijkse checks. <strong>Pipeline integratie:</strong> Configureer Semgrep om te falen bij findings met severity &ge; ERROR. Gebruik <code>--error</code> flag. Review findings handmatig en triage false positives met <code>nosemgrep</code> comments waar nodig.
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: Semgrep Documentation &middot; GitHub Dependabot &middot; OWASP DevSecOps</div>
+              </div>
+            </div>
+
+            <!-- CHECKLIST -->
+            <h4>Checklist</h4>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f4-c01"> Ik kan een secure code review uitvoeren en kwetsbaarheden documenteren</li>
+              <li><input type="checkbox" id="f4-c02"> Ik begrijp het verschil tussen SAST, DAST, IAST, en SCA en wanneer elk geschikt is</li>
+              <li><input type="checkbox" id="f4-c03"> Ik kan een CI/CD pipeline opzetten met security scanning (Semgrep, Dependabot)</li>
+              <li><input type="checkbox" id="f4-c04"> Ik kan een threat model maken voor een complexe applicatie (STRIDE/PASTA)</li>
+              <li><input type="checkbox" id="f4-c05"> Ik begrijp supply chain security (SBOMs, SLSA, dependency risks)</li>
+            </ul>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen</h4>
+            <div class="resource-links">
+              <a href="https://owasp.org/www-project-application-security-verification-standard/" target="_blank" rel="noopener">OWASP ASVS</a>
+              <a href="https://owaspsamm.org/" target="_blank" rel="noopener">OWASP SAMM</a>
+              <a href="https://cheatsheetseries.owasp.org/" target="_blank" rel="noopener">OWASP Cheat Sheets</a>
+              <a href="https://blog.trailofbits.com/" target="_blank" rel="noopener">Trail of Bits Blog</a>
+              <a href="https://semgrep.dev/docs/" target="_blank" rel="noopener">Semgrep Documentation</a>
+            </div>
+
+            <div class="callout resources">
+              <strong class="label">Certificeringen</strong>
+              <strong>OSWE</strong> (OffSec Web Expert) &middot; <strong>CSSLP</strong> (Certified Secure Software Lifecycle Professional)
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRACK D — CLOUD SECURITY
+         ============================================================ -->
+    <section id="track-d" class="phase-4">
+      <div class="section-head">
+        <div class="badge">TRACK D</div>
+        <div>
+          <h2>Cloud <em>Security</em>.</h2>
+          <div class="duration">12+ MAANDEN &middot; INFRASTRUCTURE SPECIALISATIE</div>
+        </div>
+      </div>
+      <p class="section-intro">Beveilig cloud-native infrastructuur over AWS, Azure, en GCP. Van IAM-beleid tot Kubernetes hardening &mdash; de cloud is het nieuwe slagveld en misconfiguratie is de nummer &eacute;&eacute;n vijand.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">D</div>
+          <div class="body">
+            <h3>Van on-premise naar cloud-native security</h3>
+            <p class="desc">Cloud security is fundamenteel anders dan traditionele netwerk security. Het aanvalsoppervlak is de configuratie, niet de firewall. Een verkeerd IAM-beleid kan meer schade veroorzaken dan een zero-day exploit.</p>
+
+            <h4>Kernconcepten</h4>
+            <ul>
+              <li><strong>AWS + Azure + GCP Depth</strong> &mdash; Diepe kennis van minimaal &eacute;&eacute;n cloud provider. Begrijp de security-specifieke services, logging, en monitoring mogelijkheden.</li>
+              <li><strong>AWS IAM Deep</strong> &mdash; Policy evaluation logic, permission boundaries, service control policies, cross-account access. IAM is een eigen discipline.</li>
+              <li><strong>Container Security</strong> &mdash; Docker internals (namespaces, cgroups, overlay filesystem), runc vulnerabilities, image scanning, runtime security.</li>
+              <li><strong>Kubernetes Attack &amp; Defense</strong> &mdash; RBAC, network policies, pod security standards, secrets management, admission controllers. Zowel aanvallen als verdedigen.</li>
+              <li><strong>Serverless Security</strong> &mdash; Lambda/Functions attack surface, cold start security, event injection, over-permissioned execution roles.</li>
+              <li><strong>CSPM/CIEM/CWPP</strong> &mdash; Cloud Security Posture Management, Cloud Infrastructure Entitlement Management, Cloud Workload Protection Platforms. De tools van het vak.</li>
+              <li><strong>eBPF (Falco, Tetragon)</strong> &mdash; Kernel-level observability voor runtime security. Detecteer anomaal gedrag op container- en host-niveau.</li>
+              <li><strong>Policy-as-Code</strong> &mdash; OPA (Open Policy Agent), Kyverno, Sentinel. Definieer en enforceer security policies als code.</li>
+            </ul>
+
+            <!-- DEEP UNDERSTANDING -->
+            <details class="deep-understanding">
+              <summary>Diep Begrip &mdash; AWS IAM als eigen discipline</summary>
+              <div class="deep-content">
+                <p>AWS IAM misconfiguratie is de <strong>#1 cloud security issue</strong>. Dit is niet overdreven &mdash; de meeste cloud breaches beginnen met een verkeerd geconfigureerd IAM-beleid.</p>
+                <p>De reden is dat IAM policy evaluation complex is. AWS evalueert policies in een specifieke volgorde:</p>
+                <p><code>Explicit Deny</code> &gt; <code>Explicit Allow</code> &gt; <code>Implicit Deny</code></p>
+                <p>Dit klinkt simpel, maar wordt snel complex wanneer je te maken hebt met: identity-based policies, resource-based policies, permission boundaries, session policies, service control policies (SCPs), en VPC endpoint policies. Al deze policy types worden <strong>gecombineerd</strong> ge&euml;valueerd, en het resultaat is niet altijd intuitief.</p>
+                <p>Een veelvoorkomende fout: een developer geeft een Lambda functie <code>s3:*</code> rechten "omdat het makkelijker is." Die Lambda heeft nu toegang tot <strong>elke S3 bucket</strong> in het account &mdash; inclusief de bucket met klantdata, backups, en audit logs. E&eacute;n SSRF-kwetsbaarheid in die Lambda en je hebt een volledige data breach.</p>
+                <p>Dit is waarom cloud security professionals IAM als een <strong>eigen discipline</strong> behandelen. Je moet de evaluation logic begrijpen, least-privilege policies kunnen schrijven, en tools als IAM Access Analyzer, Prowler, en Cloudsplaining kunnen inzetten om misconfiguraties te vinden.</p>
+              </div>
+            </details>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/604HKH23Z8s" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">AWS Security Deep Dive</div>
+                    <div class="video-channel">FWD:CLOUDSEC</div>
+                    <div class="video-desc">Diepgaande presentatie over AWS security: IAM, logging, detective controls, en incident response in de cloud.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/WPUEuV1ReoQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Cloud Security Architecture</div>
+                    <div class="video-channel">SANS</div>
+                    <div class="video-desc">SANS over cloud security architectuur: shared responsibility model, security controls, en best practices.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/LtCx3zZpOfs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Kubernetes Security</div>
+                    <div class="video-channel">AQUA SECURITY</div>
+                    <div class="video-desc">Kubernetes security van de basis: RBAC, network policies, pod security, en runtime bescherming.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING D.1</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Audit AWS IAM policies met Prowler</div>
+                <div class="exercise-desc">
+                  Gebruik <strong>Prowler</strong> om een AWS account te auditen. Focus op IAM-gerelateerde findings. Documenteer de top 5 bevindingen, leg uit waarom elke finding een risico is, en geef concrete aanbevelingen voor remediatie.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    Veelvoorkomende top findings: <strong>1. Wildcard permissions</strong> &mdash; policies met <code>"Action": "*"</code> of <code>"Resource": "*"</code>. Fix: least-privilege policies schrijven met specifieke acties en resources. <strong>2. Unused credentials</strong> &mdash; access keys die &gt;90 dagen niet gebruikt zijn. Fix: roteer of verwijder ongebruikte keys, gebruik IAM Access Analyzer. <strong>3. MFA niet enforced</strong> &mdash; root account of IAM users zonder MFA. Fix: enforce MFA voor alle human users, gebruik hardware tokens voor root. <strong>4. Public S3 buckets</strong> &mdash; buckets met public access. Fix: enable S3 Block Public Access op account-niveau. <strong>5. Overly permissive security groups</strong> &mdash; security groups met <code>0.0.0.0/0</code> inbound rules. Fix: restrict inbound rules tot noodzakelijke IP-ranges en poorten.
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: Prowler Documentation &middot; AWS Security Best Practices &middot; CIS AWS Benchmark</div>
+              </div>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING D.2</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Deploy en beveilig een Kubernetes cluster</div>
+                <div class="exercise-desc">
+                  Deploy een Kubernetes cluster (minikube of kind) met intentionele misconfiguraties: geen network policies, default service account met cluster-admin, geen pod security standards. Documenteer de risico's en beveilig het cluster stap voor stap.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    <strong>Stap 1:</strong> Deploy het cluster en verifieer de misconfiguraties met <code>kube-bench</code> (CIS Kubernetes Benchmark). <strong>Stap 2:</strong> Implementeer network policies om pod-to-pod communicatie te beperken (default deny, whitelist noodzakelijk verkeer). <strong>Stap 3:</strong> Verwijder cluster-admin van default service accounts, implementeer RBAC met least-privilege. <strong>Stap 4:</strong> Activeer Pod Security Standards (restricted profile). <strong>Stap 5:</strong> Installeer Falco voor runtime detectie. <strong>Stap 6:</strong> Scan images met Trivy. Verifieer met <code>kube-bench</code> dat de CIS score significant verbeterd is.
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: Kubernetes Security Documentation &middot; CIS Kubernetes Benchmark &middot; Aqua Security</div>
+              </div>
+            </div>
+
+            <!-- CHECKLIST -->
+            <h4>Checklist</h4>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f4-d01"> Ik begrijp AWS IAM policy evaluation (explicit deny &gt; explicit allow &gt; implicit deny)</li>
+              <li><input type="checkbox" id="f4-d02"> Ik kan een AWS account auditen met Prowler en findings remedi&euml;ren</li>
+              <li><input type="checkbox" id="f4-d03"> Ik begrijp container security fundamenten (Docker internals, image scanning, runtime)</li>
+              <li><input type="checkbox" id="f4-d04"> Ik kan Kubernetes RBAC, network policies, en pod security standards implementeren</li>
+              <li><input type="checkbox" id="f4-d05"> Ik begrijp policy-as-code (OPA, Kyverno) en kan policies schrijven en deployen</li>
+            </ul>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen</h4>
+            <div class="resource-links">
+              <a href="https://cloud.hacktricks.xyz/" target="_blank" rel="noopener">HackTricks Cloud</a>
+              <a href="https://rhinosecuritylabs.com/blog/" target="_blank" rel="noopener">Rhino Security Labs</a>
+              <a href="https://securitylabs.datadoghq.com/" target="_blank" rel="noopener">Datadog Security Labs</a>
+              <a href="https://prowler.pro/" target="_blank" rel="noopener">Prowler</a>
+              <a href="https://kubernetes.io/docs/concepts/security/" target="_blank" rel="noopener">Kubernetes Security Docs</a>
+            </div>
+
+            <div class="callout resources">
+              <strong class="label">Certificeringen</strong>
+              <strong>AWS Security Specialty</strong> &middot; <strong>AZ-500</strong> (Azure Security Engineer) &middot; <strong>CCSP</strong> (Certified Cloud Security Professional) &middot; <strong>CKS</strong> (Certified Kubernetes Security Specialist)
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRACK E — DFIR
+         ============================================================ -->
+    <section id="track-e" class="phase-4">
+      <div class="section-head">
+        <div class="badge">TRACK E</div>
+        <div>
+          <h2>Digital Forensics &amp; <em>Incident Response</em>.</h2>
+          <div class="duration">12+ MAANDEN &middot; DEFENSIEVE SPECIALISATIE</div>
+        </div>
+      </div>
+      <p class="section-intro">Onderzoek compromised systemen, reconstrueer aanvalsketens, en reageer op incidenten. De waarheid ligt in het geheugen, het filesystem, en de logs &mdash; je moet het alleen weten te vinden.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">E</div>
+          <div class="body">
+            <h3>Van artefact tot tijdlijn</h3>
+            <p class="desc">DFIR combineert forensisch onderzoek met operationele incident response. Je analyseert geheugen, disk images, en logs om te begrijpen wat er is gebeurd, wanneer, en door wie. Elke conclusie moet bewijsbaar zijn.</p>
+
+            <h4>Kernconcepten</h4>
+            <ul>
+              <li><strong>Memory Forensics Deep</strong> &mdash; Custom Volatility plugins schrijven, geheugenstructuren begrijpen, hidden processes en injected code detecteren. Het RAM is de ground truth.</li>
+              <li><strong>Windows Artifact Forensics</strong> &mdash; Registry hives, Event Logs, Prefetch, Amcache, ShimCache, USN Journal, $MFT. Elk artefact vertelt een deel van het verhaal.</li>
+              <li><strong>macOS Forensics</strong> &mdash; Unified logs, FSEvents, Spotlight metadata, Keychain, APFS snapshots. macOS heeft unieke artefacten die anders werken dan Windows.</li>
+              <li><strong>Mobile Forensics</strong> &mdash; iOS en Android acquisition, app data analyse, SQLite databases, location data, communication logs.</li>
+              <li><strong>Cloud Forensics</strong> &mdash; CloudTrail analyse, VPC Flow Logs, container forensics, serverless logs. Forensics in ephemeral environments.</li>
+              <li><strong>Large-Scale Triage</strong> &mdash; Velociraptor en GRR voor enterprise-brede forensische collectie. Honderd endpoints tegelijk onderzoeken.</li>
+              <li><strong>Expert Witness Skills</strong> &mdash; Rapportage die standhoudt in de rechtszaal. Chain of custody, bewijsintegriteit, en heldere communicatie van technische findings.</li>
+            </ul>
+
+            <!-- DEEP UNDERSTANDING -->
+            <details class="deep-understanding">
+              <summary>Diep Begrip &mdash; Waarom geheugenforensics de 'ground truth' is</summary>
+              <div class="deep-content">
+                <p>Het RAM bevat informatie die <strong>nooit naar disk geschreven wordt</strong>. Dit maakt geheugenforensics de meest waardevolle &mdash; en tegelijkertijd de meest vluchtige &mdash; bron van forensisch bewijs.</p>
+                <p>Voorbeelden van wat alleen in het geheugen leeft:</p>
+                <p><strong>Decrypted strings:</strong> Malware die zijn strings encrypt op disk, decrypteert ze in het geheugen tijdens executie. In een memory dump vind je de plaintext C2 domeinen, credentials, en configuratie die op disk versleuteld zijn.</p>
+                <p><strong>Injected code:</strong> Process injection (via <code>CreateRemoteThread</code>, process hollowing, etc.) laat code uitvoeren in een legitiem process. Op disk bestaat deze code niet &mdash; alleen in het geheugen van het doelproces.</p>
+                <p><strong>Network connections van malware die zijn sporen wist:</strong> Zelfs als malware zijn bestanden van disk verwijdert en zijn registry entries opruimt, staan actieve network connections nog in het geheugen. <code>Volatility</code>'s <code>netscan</code> plugin vindt deze verbindingen.</p>
+                <p>Dit is waarom het eerste wat je doet bij een incident <strong>een memory dump maken</strong> is &mdash; voordat je het systeem afsluit, voordat je tools draait, voordat je iets anders doet. Het geheugen is vluchtig: &eacute;&eacute;n reboot en het bewijs is weg.</p>
+              </div>
+            </details>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/1PAGcPJFwbE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Memory Forensics</div>
+                    <div class="video-channel">DFIR SCIENCE</div>
+                    <div class="video-desc">Introductie tot geheugenforensics: acquisitie, analyse met Volatility, en het vinden van hidden processes.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/VYROU-ZwZX8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Windows Forensics</div>
+                    <div class="video-channel">13CUBED</div>
+                    <div class="video-desc">Windows forensics diep: registry, event logs, prefetch, en andere artefacten die het verhaal vertellen.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/C4jNfXZ90fw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Advanced Forensics</div>
+                    <div class="video-channel">SANS DFIR SUMMIT</div>
+                    <div class="video-desc">Geavanceerde forensische technieken van de SANS DFIR Summit. Super timelines, artifact correlatie, en meer.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING E.1</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Analyseer een memory dump met Volatility 3</div>
+                <div class="exercise-desc">
+                  Download een forensische memory dump (bijv. van MemLabs of de Volatility sample repository). Analyseer de dump met Volatility 3: vind hidden processes, injected DLLs, en extraheer network IOCs. Documenteer je volledige analyse.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    <strong>Hidden processes:</strong> Gebruik <code>windows.pslist</code> (toont processen via de EPROCESS linked list) versus <code>windows.psscan</code> (scant het geheugen voor EPROCESS structuren). Processen die in <code>psscan</code> verschijnen maar niet in <code>pslist</code> zijn verborgen via DKOM (Direct Kernel Object Manipulation). <strong>Injected DLLs:</strong> Gebruik <code>windows.malfind</code> om geheugenregio's te vinden met executable permissions die niet gelinkt zijn aan een module &mdash; dit wijst op process injection. <strong>Network IOCs:</strong> Gebruik <code>windows.netscan</code> om actieve en recent gesloten connecties te vinden. Documenteer IP-adressen, poorten, en de processen die de connecties maakten. Cross-reference met threat intelligence.
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: Volatility Foundation &middot; MemLabs &middot; SANS DFIR</div>
+              </div>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING E.2</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Maak een Super Timeline met plaso</div>
+                <div class="exercise-desc">
+                  Gebruik <strong>plaso</strong> (log2timeline) om een Super Timeline te maken van een forensisch image. Importeer de timeline in Timesketch of analyseer met <code>psort</code>. Identificeer de volledige aanvalstijdlijn: initial access, lateral movement, persistence, en data exfiltration.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    <strong>Stap 1:</strong> Gebruik <code>log2timeline.py</code> om alle timestamped artefacten te extraheren uit het forensisch image (filesystem timestamps, registry, event logs, browser history, prefetch, etc.). <strong>Stap 2:</strong> Filter met <code>psort.py</code> op relevante tijdsperiodes en artefacttypes. <strong>Stap 3:</strong> Importeer in Timesketch voor visuele analyse. <strong>Stap 4:</strong> Zoek de aanvalstijdlijn: initieel access (phishing email timestamp, malware eerste executie in Prefetch), lateral movement (RDP/PsExec events, NTLM authentication in Event Logs), persistence (registry run keys, scheduled tasks met creation timestamps), en exfiltration (grote uitgaande connecties, verdachte DNS queries).
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: plaso/log2timeline &middot; Timesketch &middot; SANS DFIR Poster</div>
+              </div>
+            </div>
+
+            <!-- CHECKLIST -->
+            <h4>Checklist</h4>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f4-e01"> Ik kan een memory dump analyseren met Volatility 3 (pslist, psscan, malfind, netscan)</li>
+              <li><input type="checkbox" id="f4-e02"> Ik ken de belangrijkste Windows forensische artefacten (Registry, Event Logs, Prefetch, MFT)</li>
+              <li><input type="checkbox" id="f4-e03"> Ik kan een Super Timeline maken met plaso/log2timeline</li>
+              <li><input type="checkbox" id="f4-e04"> Ik begrijp chain of custody en bewijsintegriteit</li>
+              <li><input type="checkbox" id="f4-e05"> Ik kan een forensisch rapport schrijven dat helder en bewijsbaar is</li>
+            </ul>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen</h4>
+            <div class="resource-links">
+              <a href="https://www.sans.org/dfir-summit/" target="_blank" rel="noopener">SANS DFIR Summit</a>
+              <a href="https://www.youtube.com/@13Cubed" target="_blank" rel="noopener">13Cubed YouTube</a>
+              <a href="https://aboutdfir.com/" target="_blank" rel="noopener">AboutDFIR.com</a>
+              <a href="https://volatilityfoundation.org/" target="_blank" rel="noopener">Volatility Foundation</a>
+              <a href="https://github.com/stuxnet999/MemLabs" target="_blank" rel="noopener">MemLabs</a>
+            </div>
+
+            <div class="callout resources">
+              <strong class="label">Certificeringen</strong>
+              <strong>GCFA</strong> (GIAC Certified Forensic Analyst) &middot; <strong>GCFE</strong> (GIAC Certified Forensic Examiner) &middot; <strong>GNFA</strong> (GIAC Network Forensic Analyst)
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRACK F — DETECTION ENGINEERING
+         ============================================================ -->
+    <section id="track-f" class="phase-4">
+      <div class="section-head">
+        <div class="badge">TRACK F</div>
+        <div>
+          <h2>Detection <em>Engineering</em>.</h2>
+          <div class="duration">12+ MAANDEN &middot; HYBRIDE SPECIALISATIE</div>
+        </div>
+      </div>
+      <p class="section-intro">Schrijf code die aanvallen vangt. Detection engineering is de brug tussen red team en blue team &mdash; je combineert aanvalskennis met software engineering om detecties te bouwen, testen, en deployen.</p>
+
+      <div class="modules">
+        <div class="module">
+          <div class="num">F</div>
+          <div class="body">
+            <h3>Software engineering voor security</h3>
+            <p class="desc">Detection engineering behandelt detectieregels als code: geschreven in een IDE, getest met attack emulation, gereviewed in pull requests, en gedeployed via CI/CD. Het is software engineering, maar je product is de detectie van kwaadaardig gedrag.</p>
+
+            <h4>Kernconcepten</h4>
+            <ul>
+              <li><strong>Detection-as-Code Workflows</strong> &mdash; Detectieregels als code behandelen: version control, testing, review, deployment. Reproduceerbaar en schaalbaar.</li>
+              <li><strong>Sigma + Splunk + Elastic + Sentinel</strong> &mdash; Sigma als universeel formaat, geconverteerd naar platform-specifieke query's. Begrijp de sterkte en beperkingen van elk platform.</li>
+              <li><strong>Purple Teaming</strong> &mdash; Red en blue samenvoegen: voer aanvallen uit en verifieer detectie tegelijkertijd. Itereer tot de detectie betrouwbaar is.</li>
+              <li><strong>Attack Emulation</strong> &mdash; Atomic Red Team, Caldera, MITRE ATT&amp;CK evaluations. Gestructureerd aanvallen emuleren om detecties te valideren.</li>
+              <li><strong>Careful ML</strong> &mdash; Machine learning voor anomaly detection, maar met gezond verstand. Begrijp false positive rates, base rate fallacy, en wanneer ML wel en niet zinvol is.</li>
+              <li><strong>Data Engineering</strong> &mdash; Log parsing, normalisatie, enrichment. De kwaliteit van je detecties is direct afhankelijk van de kwaliteit van je data.</li>
+              <li><strong>Security Data Lakes</strong> &mdash; Langetermijn opslag van security telemetrie. Snowflake, Databricks, of cloud-native oplossingen voor historische analyse en threat hunting.</li>
+            </ul>
+
+            <!-- DEEP UNDERSTANDING -->
+            <details class="deep-understanding">
+              <summary>Diep Begrip &mdash; Detection Engineering als brug tussen Red en Blue</summary>
+              <div class="deep-content">
+                <p>Detection Engineering is het vakgebied dat <strong>red team kennis</strong> vertaalt naar <strong>werkende detecties</strong>. Het is de brug tussen offensieve en defensieve security.</p>
+                <p>Als detection engineer <strong>schrijf je code die aanvallen vangt</strong>. Maar in tegenstelling tot traditionele SOC-analisten die alerts triagen, bouw je het systeem dat die alerts genereert. Je werkwijze lijkt meer op die van een software engineer:</p>
+                <p>Je schrijft detectieregels in <strong>Sigma</strong> (een universeel formaat), test ze met <strong>attack emulation</strong> (Atomic Red Team, Caldera), reviewt ze in <strong>pull requests</strong>, en deployt ze via <strong>CI/CD pipelines</strong>. Elke detectie heeft unit tests: "als ik deze specifieke ATT&amp;CK techniek uitvoer, moet deze detectie afgaan."</p>
+                <p>Dit is waarom detection engineering de snelst groeiende specialisatie in security is. Organisaties realiseren zich dat handmatige threat hunting niet schaalt. Ze hebben engineers nodig die detecties bouwen als software &mdash; onderhoudbaar, testbaar, en continu verbeterend.</p>
+                <p>De ideale detection engineer heeft <strong>drie skills</strong>: aanvalskennis (weten wat je moet detecteren), data engineering (de data in de juiste staat krijgen), en software engineering (de detectie betrouwbaar bouwen en deployen).</p>
+              </div>
+            </details>
+
+            <!-- VIDEOS -->
+            <div class="video-section">
+              <h4>Video's</h4>
+              <div class="video-grid">
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/vnlF4nZ2AL4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Detection Engineering</div>
+                    <div class="video-channel">SPLUNK</div>
+                    <div class="video-desc">Splunk's visie op detection engineering: van use case development tot deployment en tuning.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/PzQjTruQEwI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Detection Engineering Workshop</div>
+                    <div class="video-channel">SANS</div>
+                    <div class="video-desc">Hands-on workshop over detection engineering: Sigma rules schrijven, testen, en deployen in een SIEM.</div>
+                  </div>
+                </div>
+
+                <div class="video-card">
+                  <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/KbtVCukpdw8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-info">
+                    <div class="video-title">Building Detections</div>
+                    <div class="video-channel">ELASTIC</div>
+                    <div class="video-desc">Elastic's aanpak voor het bouwen van detecties: rule development, testing, en de Elastic detection engine.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- EXERCISES -->
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING F.1</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Schrijf 5 Sigma rules voor verschillende ATT&amp;CK tactics</div>
+                <div class="exercise-desc">
+                  Schrijf 5 Sigma rules die elk een andere ATT&amp;CK tactic dekken. Converteer elke regel naar zowel Splunk SPL als Elastic KQL met <code>sigma-cli</code>. Test elke detectie met de bijbehorende Atomic Red Team test.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    Schrijf Sigma YAML voor deze 5 scenarios: <strong>1. Credential Dumping (TA0006):</strong> Detecteer <code>lsass.exe</code> access door niet-standaard processen via Sysmon Event ID 10 (ProcessAccess) met GrantedAccess flags die geheugenlezing toestaan. <strong>2. Lateral Movement (TA0008):</strong> Detecteer PsExec-achtig gedrag via service creation (Event ID 7045) met verdachte service namen en executable paden. <strong>3. Persistence via Scheduled Task (TA0003):</strong> Detecteer <code>schtasks.exe</code> met <code>/create</code> parameter, focus op taken die executables uitvoeren vanuit verdachte locaties (Temp, AppData). <strong>4. Defense Evasion via Process Injection (TA0005):</strong> Detecteer <code>CreateRemoteThread</code> calls (Sysmon Event ID 8) vanuit onverwachte source processen naar high-value targets. <strong>5. Exfiltration via DNS (TA0010):</strong> Detecteer ongewoon lange DNS queries (subdomain length &gt; 50 chars) of hoog volume DNS queries naar een enkel domein.
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: SigmaHQ &middot; Atomic Red Team &middot; MITRE ATT&amp;CK</div>
+              </div>
+
+              <div class="exercise">
+                <div class="exercise-header">
+                  <div class="exercise-num">OEFENING F.2</div>
+                  <div class="exercise-difficulty hard">HARD</div>
+                </div>
+                <div class="exercise-title">Detection-as-code pipeline opzetten</div>
+                <div class="exercise-desc">
+                  Bouw een volledige detection-as-code pipeline: Sigma rules in een Git repository, automatisch gevalideerd (syntax check, metadata check), getest met Atomic Red Team in een lab, en gedeployed naar je SIEM via CI/CD. Documenteer de architectuur.
+                </div>
+                <details class="answer-reveal">
+                  <summary>TOON ANTWOORD</summary>
+                  <div class="answer-content">
+                    <strong>Repository structuur:</strong> <code>/rules/</code> (Sigma YAML files), <code>/tests/</code> (test configuraties die linken naar Atomic Red Team test IDs), <code>/.github/workflows/</code> (CI/CD pipelines). <strong>CI pipeline:</strong> 1) Lint Sigma rules met <code>sigma check</code>, 2) Valideer metadata (ATT&amp;CK tags, severity, author), 3) Converteer naar target platform (SPL/KQL) om compile-errors te detecteren, 4) Deploy naar test-SIEM. <strong>CD pipeline:</strong> Na merge naar main, automatisch deployen naar productie-SIEM via API. <strong>Testing:</strong> In een apart lab-environment, voer de gelinkte Atomic Red Team tests uit en verifieer dat de detectie triggert. Rapporteer coverage: welk percentage van je ATT&amp;CK matrix is afgedekt met geteste detecties?
+                  </div>
+                </details>
+                <div class="exercise-source">Bron: Palantir Detection Framework &middot; SigmaHQ &middot; Atomic Red Team</div>
+              </div>
+            </div>
+
+            <!-- CHECKLIST -->
+            <h4>Checklist</h4>
+            <ul class="checklist">
+              <li><input type="checkbox" id="f4-f01"> Ik kan Sigma rules schrijven en converteren naar Splunk SPL en Elastic KQL</li>
+              <li><input type="checkbox" id="f4-f02"> Ik kan detecties valideren met Atomic Red Team attack emulation</li>
+              <li><input type="checkbox" id="f4-f03"> Ik begrijp detection-as-code workflows (version control, testing, CI/CD deployment)</li>
+              <li><input type="checkbox" id="f4-f04"> Ik kan data engineering taken uitvoeren (log parsing, normalisatie, enrichment)</li>
+              <li><input type="checkbox" id="f4-f05"> Ik begrijp de beperkingen van ML voor anomaly detection (false positives, base rate fallacy)</li>
+            </ul>
+
+            <!-- RESOURCES -->
+            <h4>Bronnen</h4>
+            <div class="resource-links">
+              <a href="https://github.com/SigmaHQ/sigma" target="_blank" rel="noopener">SigmaHQ &mdash; Florian Roth</a>
+              <a href="https://medium.com/anton-on-security" target="_blank" rel="noopener">Anton Chuvakin Blog</a>
+              <a href="https://blog.palantir.com/alerting-and-detection-strategy-framework-52dc33722df2" target="_blank" rel="noopener">Palantir Detection Framework</a>
+              <a href="https://www.elastic.co/security-labs" target="_blank" rel="noopener">Elastic Security Labs</a>
+              <a href="https://redcanary.com/threat-detection-report/" target="_blank" rel="noopener">Red Canary Threat Detection Report</a>
+              <a href="https://github.com/redcanaryco/atomic-red-team" target="_blank" rel="noopener">Atomic Red Team</a>
+            </div>
+
+            <div class="callout resources">
+              <strong class="label">Certificeringen</strong>
+              <strong>GCDA</strong> (GIAC Certified Detection Analyst) &middot; In detection engineering geldt: <strong>portfolio &gt; certificeringen</strong>. Publiceer je detecties, deel je Sigma rules, schrijf over je methodologie.
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ETHICS REMINDER
+         ============================================================ -->
+    <section id="ethics">
+      <div class="ethics">
+        <p><strong>Ethische richtlijn voor Fase 4</strong></p>
+        <p>In deze fase werk je met geavanceerde technieken &mdash; C2 frameworks, malware analyse, exploit development, cloud penetration testing. De grens tussen research en criminaliteit is een dunne lijn, en die lijn heet <strong>autorisatie</strong>.</p>
+        <p>Specialisatie brengt verantwoordelijkheid. Hoe dieper je kennis, hoe groter de potenti&euml;le schade als je die kennis misbruikt. Maar ook: hoe groter je vermogen om organisaties en mensen te beschermen.</p>
+        <ul>
+          <li>Red team technieken alleen uitvoeren met een getekende Rules of Engagement en expliciete autorisatie van de opdrachtgever</li>
+          <li>Malware analyseren in ge&iuml;soleerde lab-omgevingen &mdash; nooit op productiesystemen of gedeelde netwerken</li>
+          <li>Exploits ontwikkelen voor research en defensieve doeleinden &mdash; responsible disclosure als je kwetsbaarheden vindt</li>
+          <li>Cloud security testing alleen op accounts die je bezit of waarvoor je expliciete toestemming hebt</li>
+          <li>Forensisch bewijs behandelen met integriteit &mdash; chain of custody respecteren, conclusies baseren op bewijs</li>
+          <li>Detectieregels delen met de community &mdash; security is een collectieve inspanning</li>
+          <li>In Nederland: <strong>Art. 138ab Sr</strong> (computervredebreuk), <strong>Art. 350a Sr</strong> (beschadiging computergegevens), <strong>Art. 139c Sr</strong> (aftappen communicatie)</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      LEARNSEC // FASE 04 // SPECIALISATIES // KIES DIEPTE BOVEN BREEDTE &middot; BOUW PORTFOLIO &middot; WORD EXPERT<span class="cursor"></span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="../js/progress.js"></script>
+</body>
+</html>

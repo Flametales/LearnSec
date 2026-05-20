@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="phase-id" content="fase-3">
+<title>Fase 03 // Defensief Diep — LearnSec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="frame">
+
+  <aside>
+    <div class="brand">// FASE 03</div>
+    <div class="brand-sub">defensief.diep</div>
+    <div class="edition">&#9733; LEEROMGEVING &#9733;</div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">MODULES</div>
+      <nav>
+        <a href="#mod-3-1" class="phase-3"><span class="num">3.1</span>Security Architectuur</a>
+        <a href="#mod-3-2" class="phase-3"><span class="num">3.2</span>Detection Engineering</a>
+        <a href="#mod-3-3" class="phase-3"><span class="num">3.3</span>EDR / XDR</a>
+        <a href="#mod-3-4" class="phase-3"><span class="num">3.4</span>Threat Intelligence</a>
+        <a href="#mod-3-5" class="phase-3"><span class="num">3.5</span>Incident Response</a>
+        <a href="#mod-3-6" class="phase-3"><span class="num">3.6</span>Malware Analyse</a>
+        <a href="#mod-3-7" class="phase-3"><span class="num">3.7</span>Threat Hunting</a>
+        <a href="#mod-3-8" class="phase-3"><span class="num">3.8</span>Capstone</a>
+      </nav>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">NAVIGATIE</div>
+      <nav>
+        <a href="#ethics"><span class="num">!!</span>Ethiek</a>
+      </nav>
+    </div>
+
+    <div class="back-link">
+      <a href="../index.html">&larr; Terug naar Hub</a>
+    </div>
+
+    <div class="meta">
+      <strong>DUUR</strong>
+      4-6 maanden
+      <strong>MODULES</strong>
+      8 modules &middot; 24+ video's
+      <strong>METHODE</strong>
+      Aanval + verdediging samen
+    </div>
+  </aside>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="tag">LEEROMGEVING <span class="phase-badge" style="background:var(--accent-cyan)">FASE 03</span></div>
+      <h1>Defensief, <em style="color:var(--accent-cyan)">diep</em>.<br>Je hebt aangevallen. Verdedig nu.</h1>
+      <p class="lede">De asymmetrie die jou waardevol maakt: de meeste defenders hebben nooit echt aangevallen. Jij wel. Gebruik dat.</p>
+
+      <div class="philosophy">
+        <strong>KERNPRINCIPE</strong>
+        Elke aanval die je in Fase 2 uitvoerde, nu bekijken vanuit de verdediger. Wat zou je loggen? Wat zou je detecteren? Hoe zou je reageren?
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="k">MODULES</div><div class="v">08</div><div class="u">defensief</div></div>
+        <div class="stat"><div class="k">VIDEO'S</div><div class="v">24+</div><div class="u">gratis</div></div>
+        <div class="stat"><div class="k">OEFENINGEN</div><div class="v">30+</div><div class="u">hands-on</div></div>
+        <div class="stat"><div class="k">DUUR</div><div class="v">4-6</div><div class="u">maanden</div></div>
+      </div>
+    </div>
+
+    <!-- PROGRESS -->
+    <section class="phase-3">
+      <div class="progress-bar-container" data-scope="page">
+        <div class="progress-bar-header">
+          <span class="progress-bar-label">FASE 3 VOORTGANG</span>
+          <span class="progress-bar-pct">0/0 &middot; 0%</span>
+        </div>
+        <div class="progress-bar"><div class="fill"></div></div>
+      </div>
+
+      <!-- ============================================================
+           MODULE 3.1 — Security Architectuur
+           ============================================================ -->
+      <div class="modules" id="mod-3-1">
+        <div class="module">
+          <div class="num">3.1</div>
+          <div class="body">
+            <h3>Security Architectuur &amp; Moderne Defensie</h3>
+            <p class="desc">Van perimeter-denken naar assume-breach. Hoe moderne verdediging echt werkt.</p>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: Waarom Zero Trust niet gewoon &lsquo;meer verificatie&rsquo; is</summary>
+              <div class="deep-content">
+                <p>Zero Trust is een architecturale verschuiving, geen product dat je koopt. Het traditionele model vertrouwt alles binnen het netwerk &mdash; &ldquo;castle and moat&rdquo;. Zero Trust vertrouwt niets impliciet: elke request wordt geverifieerd op basis van identity, device health, context, en least privilege. Google&rsquo;s BeyondCorp paper (2014) is het origineel: medewerkers werken alsof ze op een onvertrouwd netwerk zitten, want dat IS zo.</p>
+                <p>Het cruciale inzicht: Zero Trust gaat niet over &ldquo;meer MFA toevoegen&rdquo;. Het gaat over het elimineren van implicit trust zones. Een VPN is niet Zero Trust &mdash; het creëert juist een nieuwe trust zone. Echte Zero Trust betekent: identity-based access, continuous verification, micro-segmentation, en assume breach op elke laag.</p>
+              </div>
+            </details>
+
+            <ul>
+              <li><strong>Zero Trust</strong> &mdash; Google&rsquo;s <a href="https://research.google/pubs/beyondcorp-a-new-approach-to-enterprise-security/" target="_blank" rel="noopener">BeyondCorp paper (2014)</a> + <a href="https://csrc.nist.gov/publications/detail/sp/800-207/final" target="_blank" rel="noopener">NIST SP 800-207</a></li>
+              <li><strong>Netwerk segmentatie</strong>: macro, micro, identity-based</li>
+              <li><strong>Defense in depth</strong> &mdash; niet &ldquo;meer controls&rdquo; maar layered, elk uitgaande van dat anderen falen</li>
+              <li><a href="https://d3fend.mitre.org/" target="_blank" rel="noopener"><strong>MITRE D3FEND</strong></a> &mdash; defensieve tegenhanger van ATT&amp;CK</li>
+              <li><a href="https://csrc.nist.gov/publications/detail/sp/800-160/vol-2-rev-1/final" target="_blank" rel="noopener">NIST SP 800-160 Vol 2</a> &mdash; Cyber Resilience</li>
+              <li>WAF, RASP, NGFW, SASE &mdash; wat elk echt doet en waar elk faalt</li>
+            </ul>
+
+            <div class="video-section">
+              <h4>Video&rsquo;s</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/yn6CPQ9RioA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Zero Trust Security Explained</div><div class="video-channel">IBM TECHNOLOGY</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/tDRdO4ppB0g" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Defense in Depth Strategy</div><div class="video-channel">SANS INSTITUTE</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/tRhRnLWSn8U" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Firewalls Explained</div><div class="video-channel">NETWORKCHUCK</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.1.1</span><span class="exercise-difficulty medium">MEDIUM</span></div>
+                <div class="exercise-title">Zero Trust Architectuur Ontwerp</div>
+                <div class="exercise-desc">Ontwerp een Zero Trust architectuur voor een klein bedrijf (50 medewerkers, hybrid cloud). Documenteer identity provider, device trust, segmentatie, en access policies.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Kerncomponenten: 1) Identity Provider (Azure AD/Okta) met MFA voor iedereen, 2) Device trust via MDM &mdash; alleen managed devices krijgen toegang, 3) Micro-segmentatie &mdash; elk applicatie-segment heeft eigen access policies, 4) Continuous verification &mdash; session risk scoring op basis van locatie, device health, gedrag, 5) Least privilege &mdash; JIT (Just-In-Time) access voor admin taken, 6) Encrypted everywhere &mdash; mTLS tussen services, geen plain HTTP intern.</p>
+                    <p>Cruciaal: geen VPN als &ldquo;trust boundary&rdquo;. Gebruik een ZTNA-proxy (Cloudflare Access, Zscaler) die elke request evalueert.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.1.2</span><span class="exercise-difficulty medium">MEDIUM</span></div>
+                <div class="exercise-title">D3FEND Mapping</div>
+                <div class="exercise-desc">Map 5 ATT&amp;CK technieken naar hun MITRE D3FEND countermeasures. Gebruik de D3FEND matrix.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Voorbeeld: T1055 (Process Injection) &rarr; D3-PSA (Process Spawn Analysis), D3-MAC (Mandatory Access Control). T1059 (Command and Scripting Interpreter) &rarr; D3-SEA (Script Execution Analysis), D3-AL (Application Allowlisting). T1003 (OS Credential Dumping) &rarr; D3-CG (Credential Guard), D3-PA (Process Analysis). T1071 (Application Layer Protocol) &rarr; D3-NTA (Network Traffic Analysis), D3-DNSAL (DNS Allowlisting). T1053 (Scheduled Task/Job) &rarr; D3-JAN (Job Analysis), D3-SFA (Scheduled Job Analysis).</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <ul class="checklist">
+              <li><input type="checkbox" id="f3-0101"> BeyondCorp paper gelezen</li>
+              <li><input type="checkbox" id="f3-0102"> NIST SP 800-207 begrepen</li>
+              <li><input type="checkbox" id="f3-0103"> Zero Trust architectuur ontworpen</li>
+              <li><input type="checkbox" id="f3-0104"> MITRE D3FEND verkend</li>
+              <li><input type="checkbox" id="f3-0105"> WAF/RASP/NGFW verschil begrepen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           MODULE 3.2 — Logging & Detection Engineering
+           ============================================================ -->
+      <div class="modules" id="mod-3-2">
+        <div class="module">
+          <div class="num">3.2</div>
+          <div class="body">
+            <h3>Logging &amp; Detection Engineering</h3>
+            <p class="desc">Het diepe deel van defense. 8-10 weken.</p>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: De Pyramid of Pain</summary>
+              <div class="deep-content">
+                <p>David Bianco&rsquo;s Pyramid of Pain rangschikt indicatoren van makkelijk (voor aanvallers om te veranderen) naar moeilijk. Van onder naar boven: Hash Values &rarr; IP Addresses &rarr; Domain Names &rarr; Network/Host Artifacts &rarr; Tools &rarr; TTPs.</p>
+                <p>Hash-based detectie is de zwakste tier: &eacute;&eacute;n byte veranderen in malware = nieuwe hash. IP-detectie is iets beter maar trivially bypassed met nieuwe infra. TTP-detectie (Tactics, Techniques, Procedures) is het moeilijkst maar meest waardevol: het dwingt aanvallers om hun hele methodologie te veranderen, niet alleen hun tooling.</p>
+                <p>Praktisch: als je SIEM alleen draait op IOC feeds (hashes, IPs, domains), detecteer je alleen bekende dreigingen. Als je detecteert op gedrag (&ldquo;een proces dat LSASS opent met PROCESS_VM_READ&rdquo;), vang je elke credential dumper &mdash; Mimikatz, ProcDump, custom tools, alles.</p>
+              </div>
+            </details>
+
+            <h4>Telemetrie bronnen</h4>
+            <ul>
+              <li><strong>Windows:</strong> Event Logs, <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon" target="_blank" rel="noopener">Sysmon</a>, ETW</li>
+              <li><strong>Linux:</strong> auditd, sysmon-for-linux, eBPF (<a href="https://falco.org/" target="_blank" rel="noopener">Falco</a>, <a href="https://github.com/aquasecurity/tracee" target="_blank" rel="noopener">Tracee</a>)</li>
+              <li><strong>Netwerk:</strong> <a href="https://zeek.org/" target="_blank" rel="noopener">Zeek</a>, <a href="https://suricata.io/" target="_blank" rel="noopener">Suricata</a>, NetFlow/IPFIX</li>
+              <li><strong>Cloud:</strong> CloudTrail, Azure Activity Log, GCP Audit Logs</li>
+            </ul>
+
+            <h4>SIEM &mdash; ken er &eacute;&eacute;n diep</h4>
+            <ul>
+              <li><a href="https://www.splunk.com/" target="_blank" rel="noopener">Splunk</a> &mdash; SPL is een eigen taal</li>
+              <li><a href="https://www.elastic.co/security" target="_blank" rel="noopener">Elastic Security</a></li>
+              <li><a href="https://learn.microsoft.com/en-us/azure/sentinel/" target="_blank" rel="noopener">Microsoft Sentinel</a> &mdash; KQL wordt must-know</li>
+              <li>Open source: <a href="https://wazuh.com/" target="_blank" rel="noopener">Wazuh</a>, <a href="https://securityonionsolutions.com/" target="_blank" rel="noopener">Security Onion</a></li>
+            </ul>
+
+            <h4>Detection engineering &mdash; het ambacht</h4>
+            <ul>
+              <li><a href="https://github.com/SigmaHQ/sigma" target="_blank" rel="noopener"><strong>Sigma rules</strong></a> &mdash; vendor-agnostische detection taal</li>
+              <li>Detection-as-code: rules in git, getest, peer-reviewed, deployed via CI/CD</li>
+              <li><a href="https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html" target="_blank" rel="noopener"><strong>Pyramid of Pain</strong></a> (David Bianco)</li>
+              <li>ATT&amp;CK-driven detection &mdash; map elke detection naar een techniek</li>
+              <li>Detection testing: <a href="https://github.com/redcanaryco/atomic-red-team" target="_blank" rel="noopener">Atomic Red Team</a>, <a href="https://caldera.mitre.org/" target="_blank" rel="noopener">Caldera</a></li>
+            </ul>
+
+            <div class="video-section">
+              <h4>Video&rsquo;s</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/9RfsRn7m7OE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Introduction to SIEM</div><div class="video-channel">13CUBED</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/W3ExS2m6B24" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Building a SOC Lab</div><div class="video-channel">MYDFIR</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/2czm8dhziX8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Detection Engineering</div><div class="video-channel">SANS INSTITUTE</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.2.1</span><span class="exercise-difficulty hard">HARD</span></div>
+                <div class="exercise-title">Schrijf een Sigma rule voor Mimikatz detectie</div>
+                <div class="exercise-desc">Schrijf een Sigma rule die Mimikatz uitvoering detecteert. Overweeg meerdere detectiemethoden.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <pre>title: Mimikatz Execution Detection
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_name:
+        Image|endswith: '\mimikatz.exe'
+    selection_cmdline:
+        CommandLine|contains:
+            - 'sekurlsa::logonpasswords'
+            - 'lsadump::dcsync'
+            - 'kerberos::golden'
+    condition: selection_name or selection_cmdline</pre>
+                    <p>Maar dit detecteert alleen de tool bij naam. Een betere detectie is gedragsmatig: Sysmon Event ID 10 (ProcessAccess) waar het target LSASS is met GrantedAccess 0x1010 of 0x1FFFFF. Dit vangt ELKE credential dumper, niet alleen Mimikatz.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.2.2</span><span class="exercise-difficulty medium">MEDIUM</span></div>
+                <div class="exercise-title">Sysmon Configuratie</div>
+                <div class="exercise-desc">Configureer Sysmon met <a href="https://github.com/SwiftOnSecurity/sysmon-config" target="_blank" rel="noopener">SwiftOnSecurity&rsquo;s template</a> en verifieer dat Event IDs 1, 3, 7, 10, 11 worden gelogd.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><code>sysmon64.exe -accepteula -i sysmonconfig-export.xml</code>. Verifieer: <code>Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 10</code>. Event 1 = Process Create, 3 = Network Connection, 7 = Image Loaded, 10 = Process Access (cruciaal voor credential dumping detectie), 11 = File Create. Tip: <a href="https://github.com/olafhartong/sysmon-modular" target="_blank" rel="noopener">Olaf Hartong&rsquo;s modular config</a> is flexibeler voor customization.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.2.3</span><span class="exercise-difficulty hard">HARD</span></div>
+                <div class="exercise-title">Lateral Movement Detectie</div>
+                <div class="exercise-desc">Bouw een detection rule voor lateral movement via PsExec in Windows Event Logs.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>PsExec indicators: Event ID 7045 (nieuwe service &ldquo;PSEXESVC&rdquo; ge&iuml;nstalleerd), Event ID 4624 Type 3 (network logon) gevolgd door 4672 (special privileges), Event ID 5145 (share access op ADMIN$ of IPC$). Sysmon: Event 1 met ParentImage van services.exe en Image van PSEXESVC.exe. Combineer deze in een correlatie-rule voor hoge confidence.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <div class="callout read">
+              <strong class="label">Lezen</strong>
+              <a href="https://thedfirreport.com/" target="_blank" rel="noopener"><strong>The DFIR Report</strong></a> &mdash; gratis, wereldklasse &middot; <a href="https://cyb3rops.medium.com/" target="_blank" rel="noopener">Florian Roth&rsquo;s blog</a>
+            </div>
+
+            <ul class="checklist">
+              <li><input type="checkbox" id="f3-0201"> Sysmon geconfigureerd en werkend</li>
+              <li><input type="checkbox" id="f3-0202"> Eerste Sigma rule geschreven</li>
+              <li><input type="checkbox" id="f3-0203"> SIEM opgezet (Wazuh/Elastic/Splunk)</li>
+              <li><input type="checkbox" id="f3-0204"> Pyramid of Pain begrepen</li>
+              <li><input type="checkbox" id="f3-0205"> Lateral movement detectie gebouwd</li>
+              <li><input type="checkbox" id="f3-0206"> Atomic Red Team tests uitgevoerd</li>
+              <li><input type="checkbox" id="f3-0207"> Zeek basics begrepen</li>
+              <li><input type="checkbox" id="f3-0208"> Detection-as-code workflow opgezet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           MODULE 3.3 — EDR / XDR
+           ============================================================ -->
+      <div class="modules" id="mod-3-3">
+        <div class="module">
+          <div class="num">3.3</div>
+          <div class="body">
+            <h3>EDR / XDR &mdash; Diep</h3>
+            <p class="desc">Begrijp hoe endpoint detection echt werkt &mdash; en waarom aanvallers het omzeilen.</p>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: Hoe EDR werkt onder de motorkap</summary>
+              <div class="deep-content">
+                <p>EDR hookt op meerdere niveaus: 1) <strong>Usermode hooking</strong> &mdash; ntdll.dll functies worden gepatcht om via de EDR te lopen. Verouderd maar nog gebruikt. 2) <strong>Kernel callbacks</strong> &mdash; PsSetCreateProcessNotifyRoutine, ObRegisterCallbacks voor process/thread/handle events. 3) <strong>ETW Threat Intelligence</strong> &mdash; een speciale ETW provider die alleen door PPL (Protected Process Light) processen gelezen kan worden. Registreert syscall-niveau events. 4) <strong>AMSI</strong> &mdash; Anti-Malware Scan Interface scant scripts (PowerShell, VBScript, JScript) v&oacute;&oacute;r uitvoering.</p>
+                <p>Aanvallers omzeilen dit via: direct syscalls (overslaan van ntdll hooks), ETW patching (NtTraceEvent nullen), AMSI patching (AmsiScanBuffer returnt altijd &ldquo;clean&rdquo;). De arms race is continu &mdash; elke bypass wordt uiteindelijk gedetecteerd, wat nieuwe bypasses drijft.</p>
+              </div>
+            </details>
+
+            <ul>
+              <li>Usermode hooking, kernel callbacks, ETW Threat Intelligence, AMSI</li>
+              <li>Bypass technieken: direct/indirect syscalls, unhooking, ETW patching</li>
+              <li>Sysmon configuratie: <a href="https://github.com/SwiftOnSecurity/sysmon-config" target="_blank" rel="noopener">SwiftOnSecurity</a>, <a href="https://github.com/olafhartong/sysmon-modular" target="_blank" rel="noopener">Olaf Hartong modular</a></li>
+              <li><a href="https://osquery.io/" target="_blank" rel="noopener">osquery</a> / <a href="https://docs.velociraptor.app/" target="_blank" rel="noopener">Velociraptor</a> voor fleet visibility</li>
+            </ul>
+
+            <div class="video-section">
+              <h4>Video&rsquo;s</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/O20WhmCspqo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">EDR Evasion Techniques</div><div class="video-channel">JOHN HAMMOND</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/p9pQ2g-18o4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Velociraptor for DFIR</div><div class="video-channel">13CUBED</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.3.1</span><span class="exercise-difficulty medium">MEDIUM</span></div>
+                <div class="exercise-title">osquery Detection Queries</div>
+                <div class="exercise-desc">Installeer osquery en schrijf 3 queries die verdachte activiteit detecteren.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>1) Unsigned processes: <code>SELECT name, path, pid FROM processes WHERE path NOT IN (SELECT path FROM signature WHERE result='valid');</code></p>
+                    <p>2) Unusual network connections: <code>SELECT p.name, p.path, l.remote_address, l.remote_port FROM process_open_sockets l JOIN processes p ON l.pid=p.pid WHERE l.remote_port NOT IN (80,443,53);</code></p>
+                    <p>3) Recent startup items: <code>SELECT name, path, source FROM startup_items WHERE path NOT LIKE '%Microsoft%';</code></p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.3.2</span><span class="exercise-difficulty medium">MEDIUM</span></div>
+                <div class="exercise-title">Velociraptor Deployment</div>
+                <div class="exercise-desc">Deploy Velociraptor in je lab en collect forensische artefacten van een Windows machine.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Server setup: <code>velociraptor config generate -i</code>. Client deployment via MSI of executable. Handige artifacts: Windows.System.Pslist (processen), Windows.Detection.Yara.NTFS (YARA scanning), Windows.Forensics.Prefetch (programma executie), Windows.EventLogs.Evtx (event logs). Gebruik VQL (Velociraptor Query Language) voor custom queries.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <ul class="checklist">
+              <li><input type="checkbox" id="f3-0301"> EDR hooking mechanismen begrepen</li>
+              <li><input type="checkbox" id="f3-0302"> AMSI internals bestudeerd</li>
+              <li><input type="checkbox" id="f3-0303"> osquery ge&iuml;nstalleerd en queries geschreven</li>
+              <li><input type="checkbox" id="f3-0304"> Velociraptor gedeployed in lab</li>
+              <li><input type="checkbox" id="f3-0305"> ETW providers begrepen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           MODULE 3.4 — Threat Intelligence
+           ============================================================ -->
+      <div class="modules" id="mod-3-4">
+        <div class="module">
+          <div class="num">3.4</div>
+          <div class="body">
+            <h3>Threat Intelligence &mdash; Echt, Niet Buzzword</h3>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: IOCs vs IOAs vs TTPs</summary>
+              <div class="deep-content">
+                <p><strong>IOCs</strong> (Indicators of Compromise): concrete observables &mdash; hashes, IPs, domains. Makkelijk te delen, maar triviaal voor aanvallers om te veranderen. Een hash-based IOC is waardeloos zodra de aanvaller &eacute;&eacute;n byte wijzigt.</p>
+                <p><strong>IOAs</strong> (Indicators of Attack): gedragspatronen die wijzen op een lopende aanval &mdash; &ldquo;een proces dat PowerShell spawnt en base64-encoded commands uitvoert&rdquo;. Moeilijker te omzeilen omdat het gedrag beschrijft, niet artefacten.</p>
+                <p><strong>TTPs</strong> (Tactics, Techniques, Procedures): de methodologie van een threat actor. &ldquo;Gebruikt spearphishing met macro-enabled documents voor initial access, gevolgd door Cobalt Strike voor C2&rdquo;. Het moeilijkst te veranderen &mdash; het vereist dat de aanvaller zijn hele operatie herschrijft.</p>
+                <p>Je detectiestrategie zou moeten focussen op de top van de Pyramid of Pain: TTPs en Tools. IOC feeds zijn nuttig voor quick wins, maar het is geen strategie.</p>
+              </div>
+            </details>
+
+            <ul>
+              <li><a href="https://attack.mitre.org/" target="_blank" rel="noopener"><strong>MITRE ATT&amp;CK</strong></a> &mdash; internaliseren, niet alleen kennen</li>
+              <li><a href="https://www.activeresponse.org/wp-content/uploads/2013/07/diamond.pdf" target="_blank" rel="noopener"><strong>Diamond Model</strong></a> (adversary, capability, infrastructure, victim)</li>
+              <li><strong>Cyber Kill Chain</strong> (Lockheed Martin)</li>
+              <li>TI lifecycle: direction &rarr; collection &rarr; processing &rarr; analysis &rarr; dissemination</li>
+              <li><a href="https://www.misp-project.org/" target="_blank" rel="noopener"><strong>MISP</strong></a> voor sharing, <a href="https://oasis-open.github.io/cti-documentation/" target="_blank" rel="noopener"><strong>STIX/TAXII</strong></a> als standaard</li>
+            </ul>
+
+            <div class="video-section">
+              <h4>Video&rsquo;s</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/De6oq6KVaTc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Cyber Threat Intelligence</div><div class="video-channel">SANS INSTITUTE</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/R4mBWpQL3to" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">MITRE ATT&amp;CK Framework</div><div class="video-channel">ATTACKIQ</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/oCUrkc_0tmw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Cyber Kill Chain Explained</div><div class="video-channel">IBM SECURITY</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.4.1</span><span class="exercise-difficulty hard">HARD</span></div>
+                <div class="exercise-title">APT Group ATT&amp;CK Mapping</div>
+                <div class="exercise-desc">Kies APT29 (Cozy Bear) of Lazarus Group. Map hun bekende technieken naar de ATT&amp;CK matrix.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>APT29 voorbeeld: Initial Access: T1566.001 (Spearphishing Attachment). Execution: T1059.001 (PowerShell). Persistence: T1053.005 (Scheduled Task). Defense Evasion: T1027 (Obfuscated Files), T1218.011 (Rundll32). Credential Access: T1003.001 (LSASS Memory). Lateral Movement: T1021.002 (SMB/Windows Admin Shares). C2: T1071.001 (Web Protocols), T1573 (Encrypted Channel). Gebruik <a href="https://attack.mitre.org/groups/G0016/" target="_blank" rel="noopener">ATT&amp;CK Group pages</a> als referentie.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.4.2</span><span class="exercise-difficulty medium">MEDIUM</span></div>
+                <div class="exercise-title">DFIR Report Analyse</div>
+                <div class="exercise-desc">Lees &eacute;&eacute;n <a href="https://thedfirreport.com/" target="_blank" rel="noopener">DFIR Report</a> artikel. Extract alle IOCs, IOAs, en TTPs. Classificeer elk.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Maak een tabel met kolommen: Indicator, Type (IOC/IOA/TTP), ATT&amp;CK ID, Beschrijving. IOCs: C2 IP-adressen, file hashes, domain names. IOAs: &ldquo;PowerShell met encoded command die naar extern IP connect&rdquo;, &ldquo;Service installatie via sc.exe&rdquo;. TTPs: &ldquo;Initial access via phishing met ISO attachment&rdquo;, &ldquo;Lateral movement via RDP met gestolen credentials&rdquo;.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <ul class="checklist">
+              <li><input type="checkbox" id="f3-0401"> ATT&amp;CK tactics ge&iuml;nternaliseerd</li>
+              <li><input type="checkbox" id="f3-0402"> Diamond Model begrepen</li>
+              <li><input type="checkbox" id="f3-0403"> APT group mapping voltooid</li>
+              <li><input type="checkbox" id="f3-0404"> DFIR Report regelmatig gelezen</li>
+              <li><input type="checkbox" id="f3-0405"> STIX/TAXII formaat begrepen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           MODULE 3.5 — Incident Response
+           ============================================================ -->
+      <div class="modules" id="mod-3-5">
+        <div class="module">
+          <div class="num">3.5</div>
+          <div class="body">
+            <h3>Incident Response &mdash; Praktijk-Niveau</h3>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: Windows forensische artefacten</summary>
+              <div class="deep-content">
+                <p><strong>Prefetch</strong> (C:\Windows\Prefetch): bewijst dat een programma is uitgevoerd, inclusief timestamps en geladen DLLs. Aanvallers wissen het soms &mdash; de afwezigheid ervan is ook een indicator.</p>
+                <p><strong>ShimCache</strong> (AppCompatCache in registry): logt elke executable die Windows overweegt uit te voeren, zelfs als het niet daadwerkelijk runt. Overleeft reboots.</p>
+                <p><strong>AmCache</strong> (C:\Windows\AppCompat\Programs\Amcache.hve): SHA1 hash van uitgevoerde programma&rsquo;s, pad, eerste executie timestamp. Goudmijn voor incident response.</p>
+                <p><strong>$MFT</strong> (Master File Table): metadata van elk bestand op NTFS &mdash; creatiedatum, modificatiedatum, bestandsnaam. Timestomping detectie: vergelijk $STANDARD_INFORMATION timestamps met $FILE_NAME timestamps.</p>
+                <p>Combineer deze artefacten voor een compleet beeld van programma-executie. Geen enkel artefact is volledig &mdash; de kracht zit in correlatie.</p>
+              </div>
+            </details>
+
+            <h4>Frameworks</h4>
+            <ul>
+              <li><a href="https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final" target="_blank" rel="noopener">NIST SP 800-61r2</a></li>
+              <li>SANS PICERL: Prepare, Identify, Contain, Eradicate, Recover, Lessons</li>
+            </ul>
+
+            <h4>Disciplines</h4>
+            <ul>
+              <li><strong>Memory forensics</strong> &mdash; <a href="https://github.com/volatilityfoundation/volatility3" target="_blank" rel="noopener">Volatility 3</a>, <a href="https://github.com/ufrisk/MemProcFS" target="_blank" rel="noopener">MemProcFS</a></li>
+              <li><strong>Disk forensics</strong> &mdash; <a href="https://www.autopsy.com/" target="_blank" rel="noopener">Autopsy</a>, <a href="https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape" target="_blank" rel="noopener">KAPE</a></li>
+              <li><strong>Timeline analysis</strong> &mdash; <a href="https://plaso.readthedocs.io/" target="_blank" rel="noopener">plaso/log2timeline</a></li>
+              <li><strong>Live response</strong> &mdash; <a href="https://docs.velociraptor.app/" target="_blank" rel="noopener">Velociraptor</a></li>
+              <li><strong>Network forensics</strong> &mdash; Wireshark + Zeek + <a href="https://arkime.com/" target="_blank" rel="noopener">Arkime</a></li>
+            </ul>
+
+            <div class="video-section">
+              <h4>Video&rsquo;s</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/VYROU-ZwZX8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Windows Forensics</div><div class="video-channel">13CUBED</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/Cs0Gc3GtfZY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Memory Forensics with Volatility</div><div class="video-channel">DFIR SCIENCE</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/YRVHk8ehgaw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">IR Process</div><div class="video-channel">SANS DFIR</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.5.1</span><span class="exercise-difficulty hard">HARD</span></div>
+                <div class="exercise-title">Memory Dump Analyse</div>
+                <div class="exercise-desc">Analyseer een memory dump met Volatility 3: vind processen, netwerkverbindingen, en ge&iuml;njecteerde code.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><code>vol -f dump.raw windows.pslist</code> &mdash; alle processen. <code>windows.psscan</code> &mdash; ook verborgen processen (vergelijk met pslist voor discrepanties). <code>windows.netscan</code> &mdash; actieve en gesloten connecties. <code>windows.malfind</code> &mdash; memory regions met executable code die niet door een file backed zijn (indicator van code injection). <code>windows.cmdline</code> &mdash; command line arguments van elk proces.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.5.2</span><span class="exercise-difficulty hard">HARD</span></div>
+                <div class="exercise-title">PsExec Lateral Movement Artefacten</div>
+                <div class="exercise-desc">Voer PsExec uit in je lab. Documenteer ALLE forensische artefacten op zowel bron- als doelmachine.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><strong>Bronmachine:</strong> Prefetch voor PsExec64.exe, Sysmon Event 1 (process create), Event 3 (network connection naar doel:445).</p>
+                    <p><strong>Doelmachine:</strong> Event ID 7045 (service &ldquo;PSEXESVC&rdquo; ge&iuml;nstalleerd), 4624 Type 3 (network logon), 4672 (special privileges), 5145 (ADMIN$ share access), Prefetch voor PSEXESVC.exe, Sysmon Event 1 (services.exe spawnt PSEXESVC.exe spawnt cmd.exe).</p>
+                    <p>De combinatie van deze artefacten geeft high-confidence detectie.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.5.3</span><span class="exercise-difficulty medium">MEDIUM</span></div>
+                <div class="exercise-title">Forensische Timeline</div>
+                <div class="exercise-desc">Maak een Super Timeline van een Windows image met plaso/log2timeline.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><code>log2timeline.py timeline.plaso image.E01</code> (extractie). <code>psort.py -o l2tcsv timeline.plaso &gt; timeline.csv</code> (output). Open in Timeline Explorer (Eric Zimmerman) of grep voor specifieke tijdsperiodes. Focus op: file creation/modification rond het incident, event log entries, prefetch timestamps, registry modifications.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <div class="callout read">
+              <strong class="label">Lezen</strong>
+              <a href="https://www.mhprofessional.com/9780071798686-usa-incident-response-computer-forensics-third-edition-group" target="_blank" rel="noopener"><em>Incident Response &amp; Computer Forensics</em></a> &middot; <a href="https://www.wiley.com/en-us/The+Art+of+Memory+Forensics" target="_blank" rel="noopener"><em>The Art of Memory Forensics</em></a>
+            </div>
+
+            <ul class="checklist">
+              <li><input type="checkbox" id="f3-0501"> NIST SP 800-61r2 gelezen</li>
+              <li><input type="checkbox" id="f3-0502"> Volatility 3 memory analyse voltooid</li>
+              <li><input type="checkbox" id="f3-0503"> Disk forensics met Autopsy/KAPE uitgevoerd</li>
+              <li><input type="checkbox" id="f3-0504"> Super Timeline gemaakt met plaso</li>
+              <li><input type="checkbox" id="f3-0505"> Windows artefacten cold kennen</li>
+              <li><input type="checkbox" id="f3-0506"> PsExec artefacten gedocumenteerd</li>
+              <li><input type="checkbox" id="f3-0507"> Velociraptor live response uitgevoerd</li>
+              <li><input type="checkbox" id="f3-0508"> Linux forensische artefacten begrepen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           MODULE 3.6 — Malware Analyse
+           ============================================================ -->
+      <div class="modules" id="mod-3-6">
+        <div class="module">
+          <div class="num">3.6</div>
+          <div class="body">
+            <h3>Malware Analyse &mdash; Voorbij Intro</h3>
+            <p class="desc">8-10 weken. Van statische analyse tot YARA rules.</p>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: PE format internals</summary>
+              <div class="deep-content">
+                <p>Een PE (Portable Executable) bestand is gestructureerd als: DOS Header &rarr; PE Signature &rarr; COFF Header &rarr; Optional Header &rarr; Section Table &rarr; Sections. Elke sectie vertelt een verhaal:</p>
+                <ul>
+                  <li><strong>.text</strong> &mdash; executable code. Hoge entropy = mogelijk geobfusceerd of gepackt.</li>
+                  <li><strong>.data</strong> &mdash; ge&iuml;nitialiseerde data (strings, globals).</li>
+                  <li><strong>.rsrc</strong> &mdash; resources (iconen, maar ook embedded executables, configs).</li>
+                  <li><strong>.rdata</strong> &mdash; read-only data, inclusief import/export tables.</li>
+                </ul>
+                <p>De Import Address Table (IAT) is cruciaal: <code>VirtualAllocEx</code> + <code>WriteProcessMemory</code> + <code>CreateRemoteThread</code> = klassieke process injection. <code>InternetOpenUrl</code> + <code>CreateService</code> = backdoor met HTTP C2 en persistence. Leer imports lezen als een verhaal over wat de malware doet.</p>
+              </div>
+            </details>
+
+            <h4>Statische analyse</h4>
+            <ul>
+              <li>PE/ELF format internals, strings, imports analysis</li>
+              <li><a href="https://ghidra-sre.org/" target="_blank" rel="noopener"><strong>Ghidra</strong></a> mastery (gratis, NSA)</li>
+              <li><a href="https://hex-rays.com/ida-free/" target="_blank" rel="noopener">IDA Free</a> &middot; <a href="https://binary.ninja/" target="_blank" rel="noopener">Binary Ninja</a></li>
+            </ul>
+
+            <h4>Dynamische analyse</h4>
+            <ul>
+              <li>Sandboxes: <a href="https://any.run/" target="_blank" rel="noopener">Any.Run</a>, <a href="https://www.hybrid-analysis.com/" target="_blank" rel="noopener">Hybrid Analysis</a></li>
+              <li>Lab: <a href="https://github.com/mandiant/flare-vm" target="_blank" rel="noopener">FLARE-VM</a> (Windows), <a href="https://remnux.org/" target="_blank" rel="noopener">REMnux</a> (Linux)</li>
+              <li>Debuggers: <a href="https://x64dbg.com/" target="_blank" rel="noopener">x64dbg</a>, WinDbg</li>
+              <li><a href="https://virustotal.github.io/yara/" target="_blank" rel="noopener">YARA</a> &mdash; schrijf rules die families vangen</li>
+            </ul>
+
+            <div class="video-section">
+              <h4>Video&rsquo;s</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/9frwhz2bQxw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Malware Analysis Fundamentals</div><div class="video-channel">OALABS</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/PJ21z97GaBY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Malware Analysis for Beginners</div><div class="video-channel">JOHN HAMMOND</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/Os2Aj2wuats" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Malware Analysis Lab Setup</div><div class="video-channel">HACKERSPLOIT</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.6.1</span><span class="exercise-difficulty hard">HARD</span></div>
+                <div class="exercise-title">FLARE-VM Analyse Lab</div>
+                <div class="exercise-desc">Zet FLARE-VM en REMnux op. Analyseer een benign PE file met pestudio en Ghidra.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>FLARE-VM: installeer op een schone Windows 10 VM via <code>choco install flarevm</code>. REMnux: download OVA. Beide in ge&iuml;soleerd netwerk met FakeNet-NG. Analyse workflow: 1) pestudio &mdash; check imports, strings, entropy per sectie, VirusTotal lookup. 2) Ghidra &mdash; vind main(), volg de execution flow, identificeer string decryptie routines, C2 communicatie functies.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.6.2</span><span class="exercise-difficulty hard">HARD</span></div>
+                <div class="exercise-title">YARA Rules Schrijven</div>
+                <div class="exercise-desc">Schrijf 3 YARA rules: hash-based, string-based, en behavioral.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <pre>rule hash_based {
+  condition:
+    hash.sha256(0, filesize) == "abc123..."
+}
+
+rule string_based {
+  strings:
+    $s1 = "CreateRemoteThread"
+    $s2 = "VirtualAllocEx"
+    $url = /https?:\/\/[a-z0-9\-\.]+\.xyz\//
+  condition:
+    uint16(0) == 0x5A4D and all of ($s*) and $url
+}
+
+rule behavioral_injection {
+  strings:
+    $api1 = "OpenProcess"
+    $api2 = "VirtualAllocEx"
+    $api3 = "WriteProcessMemory"
+    $api4 = "CreateRemoteThread"
+  condition:
+    uint16(0) == 0x5A4D and all of them
+}</pre>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <div class="callout read">
+              <strong class="label">Lezen</strong>
+              <a href="https://nostarch.com/malware" target="_blank" rel="noopener"><em>Practical Malware Analysis</em></a> &middot; <a href="https://nostarch.com/binaryanalysis" target="_blank" rel="noopener"><em>Practical Binary Analysis</em></a>
+            </div>
+
+            <ul class="checklist">
+              <li><input type="checkbox" id="f3-0601"> FLARE-VM + REMnux lab opgezet</li>
+              <li><input type="checkbox" id="f3-0602"> PE format internals begrepen</li>
+              <li><input type="checkbox" id="f3-0603"> Ghidra basis vloeiend</li>
+              <li><input type="checkbox" id="f3-0604"> Dynamische analyse in sandbox uitgevoerd</li>
+              <li><input type="checkbox" id="f3-0605"> x64dbg debugging basics</li>
+              <li><input type="checkbox" id="f3-0606"> 3 YARA rules geschreven</li>
+              <li><input type="checkbox" id="f3-0607"> Unpacking basics begrepen</li>
+              <li><input type="checkbox" id="f3-0608"> Cobalt Strike artefacten bestudeerd</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           MODULE 3.7 — Threat Hunting
+           ============================================================ -->
+      <div class="modules" id="mod-3-7">
+        <div class="module">
+          <div class="num">3.7</div>
+          <div class="body">
+            <h3>Threat Hunting</h3>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: Hypothesis-driven hunting</summary>
+              <div class="deep-content">
+                <p>Threat hunting is NIET alert triage. Het is proactief zoeken naar dreigingen die je detecties gemist hebben. Het verschil: alert-driven = reactief (&ldquo;SIEM zegt X&rdquo;), hypothesis-driven = proactief (&ldquo;als een aanvaller Kerberoasting deed, zou ik Y zien in Z databron&rdquo;).</p>
+                <p>Een goede hunting hypothesis volgt dit patroon: &ldquo;Gegeven [threat intelligence/kennis], als een aanvaller [techniek] gebruikt, zou ik [observeerbaar artefact] zien in [databron], en ik kan dit vinden door [query/methode].&rdquo;</p>
+                <p><a href="https://www.betaalvereniging.nl/en/safety/tahiti/" target="_blank" rel="noopener">TaHiTI</a> (Targeted Hunting integrating Threat Intelligence) is een Nederlandse methodologie, ontwikkeld door de bankensector. Het formaliseert dit proces.</p>
+              </div>
+            </details>
+
+            <ul>
+              <li>Hypothesis-driven (niet alert-driven) hunting</li>
+              <li>ATT&amp;CK-driven hunts</li>
+              <li><a href="https://www.betaalvereniging.nl/en/safety/tahiti/" target="_blank" rel="noopener">TaHiTI methodologie</a> &mdash; <em>Nederlandse oorsprong</em></li>
+              <li><a href="https://learn.microsoft.com/en-us/kusto/query/" target="_blank" rel="noopener">KQL</a> en <a href="https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/WhatsInThisManual" target="_blank" rel="noopener">SPL</a> vloeiend</li>
+              <li>Hunting in network data met Zeek</li>
+            </ul>
+
+            <div class="video-section">
+              <h4>Video&rsquo;s</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/HKyzNaQ3jPE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Threat Hunting Workshop</div><div class="video-channel">SANS INSTITUTE</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/TiH_mVe9tIo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">Threat Hunting Basics</div><div class="video-channel">BLACK HILLS INFOSEC</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/1mfpPDG_iL0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">KQL Tutorial</div><div class="video-channel">MICROSOFT SECURITY</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.7.1</span><span class="exercise-difficulty hard">HARD</span></div>
+                <div class="exercise-title">Hunting Hypotheses</div>
+                <div class="exercise-desc">Maak 3 hunting hypotheses voor je AD lab. Schrijf de bijbehorende KQL of SPL queries.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p><strong>Hypothesis 1:</strong> &ldquo;Als een aanvaller Kerberoasting uitvoert, zie ik Event ID 4769 met encryption type 0x17 (RC4) voor service accounts.&rdquo; KQL: <code>SecurityEvent | where EventID == 4769 | where TicketEncryptionType == "0x17" | where ServiceName !endswith "$"</code></p>
+                    <p><strong>Hypothesis 2:</strong> &ldquo;Als een aanvaller DCSync uitvoert, zie ik Event ID 4662 met replication GUIDs.&rdquo; KQL: <code>SecurityEvent | where EventID == 4662 | where Properties contains "1131f6aa-9c07-11d1-f79f-00c04fc2dcd2"</code></p>
+                    <p><strong>Hypothesis 3:</strong> &ldquo;Als een aanvaller lateral movement via WMI doet, zie ik wmiprvse.exe dat processen spawnt.&rdquo; Sysmon: Event 1 waar ParentImage eindigt op wmiprvse.exe en Image niet in een whitelist staat.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <ul class="checklist">
+              <li><input type="checkbox" id="f3-0701"> Hypothesis-driven hunting begrepen</li>
+              <li><input type="checkbox" id="f3-0702"> 3 hunting hypotheses geschreven en getest</li>
+              <li><input type="checkbox" id="f3-0703"> KQL basis vloeiend</li>
+              <li><input type="checkbox" id="f3-0704"> TaHiTI methodologie bestudeerd</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           MODULE 3.8 — Capstone
+           ============================================================ -->
+      <div class="modules" id="mod-3-8">
+        <div class="module">
+          <div class="num">3.8</div>
+          <div class="body">
+            <h3>Capstone &mdash; Bouw Je Eigen SOC</h3>
+
+            <details class="deep-understanding">
+              <summary>Diep Begrip: Waarom een home SOC je onderscheidt</summary>
+              <div class="deep-content">
+                <p>Een home SOC bouwen dwingt je om elk stuk van de defensieve pipeline te begrijpen: log collection, normalization, detection, alerting, en response. De meeste SOC-analisten gebruiken tools zonder te begrijpen wat eronder zit. Door het zelf te bouwen &mdash; Wazuh als SIEM, Sysmon als telemetrie, Sigma rules als detecties, Atomic Red Team als test framework &mdash; begrijp je elke laag.</p>
+                <p>Het doel: voer 20+ ATT&amp;CK technieken uit tegen je AD lab, en detecteer ELKE. Documenteer wat je detecteerde, wat je miste, en waarom. Dit is het meest waardevolle portfolio-stuk dat je kunt bouwen.</p>
+              </div>
+            </details>
+
+            <ul>
+              <li>Bouw een home SOC: <a href="https://wazuh.com/" target="_blank" rel="noopener">Wazuh</a> + Sysmon + Sigma rules + <a href="https://github.com/redcanaryco/atomic-red-team" target="_blank" rel="noopener">Atomic Red Team</a></li>
+              <li>Voer 20+ ATT&amp;CK technieken uit, detect elke, schrijf op</li>
+              <li>Draag een detection rule bij aan een publieke repo</li>
+              <li>Certificeringen: <strong style="color:var(--accent-cyan)">BTL1</strong> &middot; <strong style="color:var(--accent-cyan)">GCIH / GCFA</strong> &middot; <a href="https://www.comptia.org/certifications/cybersecurity-analyst" target="_blank" rel="noopener"><strong style="color:var(--accent-cyan)">CySA+</strong></a></li>
+            </ul>
+
+            <div class="video-section">
+              <h4>Video&rsquo;s</h4>
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/XR3eamn8ydQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">SOC Automation Lab</div><div class="video-channel">MYDFIR</div></div>
+                </div>
+                <div class="video-card">
+                  <div class="video-embed"><iframe src="https://www.youtube.com/embed/rAkvDAIQo2Y" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                  <div class="video-info"><div class="video-title">SOC Analyst Guide</div><div class="video-channel">GERALD AUGER</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-section">
+              <h4>Oefeningen</h4>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.8.1</span><span class="exercise-difficulty hard">HARD</span></div>
+                <div class="exercise-title">Complete SOC Build</div>
+                <div class="exercise-desc">Bouw een volledige SOC stack: Wazuh + Sysmon + Sigma + Atomic Red Team. Documenteer de architectuur.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Architectuur: Wazuh Manager op Linux VM. Wazuh agents op alle Windows/Linux machines. Sysmon op alle Windows met SwiftOnSecurity config. Sigma rules geconverteerd naar Wazuh format met sigma-cli. Atomic Red Team op een test-Windows machine. Pipeline: Atomic Red Team voert techniek uit &rarr; Sysmon logt het &rarr; Wazuh agent stuurt log &rarr; Wazuh manager triggert Sigma-based alert.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="exercise">
+                <div class="exercise-header"><span class="exercise-num">3.8.2</span><span class="exercise-difficulty hard">HARD</span></div>
+                <div class="exercise-title">20 ATT&amp;CK Technieken</div>
+                <div class="exercise-desc">Voer 20 ATT&amp;CK technieken uit tegen je AD lab. Detecteer elke. Documenteer wat je wel en niet detecteerde.</div>
+                <details class="answer-reveal">
+                  <summary>Toon antwoord</summary>
+                  <div class="answer-content">
+                    <p>Suggesties: T1059.001 (PowerShell), T1003.001 (LSASS dump), T1053.005 (Scheduled Task), T1021.002 (SMB), T1055 (Process Injection), T1110 (Brute Force), T1071.001 (HTTP C2), T1082 (System Info Discovery), T1018 (Remote System Discovery), T1069 (Permission Groups Discovery), T1098 (Account Manipulation), T1136 (Create Account), T1543.003 (Windows Service), T1547.001 (Registry Run Keys), T1558.003 (Kerberoasting), T1558.004 (AS-REP Roasting), T1570 (Lateral Tool Transfer), T1210 (Exploitation of Remote Services), T1048 (Exfiltration Over Alternative Protocol), T1486 (Data Encrypted for Impact).</p>
+                    <p>Per techniek documenteer: Atomic Red Team test ID, verwachte log output, daadwerkelijke detectie (ja/nee), Sigma rule die triggered, false positive rate.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <ul class="checklist">
+              <li><input type="checkbox" id="f3-0801"> Wazuh + Sysmon SOC gebouwd</li>
+              <li><input type="checkbox" id="f3-0802"> Sigma rules ge&iuml;mplementeerd</li>
+              <li><input type="checkbox" id="f3-0803"> 20+ ATT&amp;CK technieken uitgevoerd en gedetecteerd</li>
+              <li><input type="checkbox" id="f3-0804"> Detection rule bijgedragen aan publieke repo</li>
+              <li><input type="checkbox" id="f3-0805"> Capstone documentatie voltooid</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ETHICS -->
+    <section id="ethics" class="phase-3">
+      <div class="section-head">
+        <div class="badge" style="border-color:var(--accent-hot);color:var(--accent-hot);background:rgba(255,82,82,0.05);">KRITIEK</div>
+        <div>
+          <h2>Lees dit <em style="color:var(--accent-hot);">elke fase</em>.</h2>
+        </div>
+      </div>
+
+      <div class="ethics">
+        <p>Elke skill in dit curriculum is dual-use. Dezelfde detection rule die aanvallers vindt, kan ook misbruikt worden om detectie te ontwijken. De lijn is <strong style="color:var(--accent-hot)">autorisatie</strong> en <strong style="color:var(--accent-hot)">intentie</strong>.</p>
+        <ul>
+          <li>Oefen alleen in je eigen lab of op platforms met expliciete toestemming</li>
+          <li>Deel geen exploits of malware samples buiten vertrouwde, ge&iuml;soleerde omgevingen</li>
+          <li>In Nederland: <strong>Artikel 138ab Wetboek van Strafrecht</strong> (computervredebreuk)</li>
+          <li>Responsible disclosure via de <a href="https://www.ncsc.nl/onderwerpen/coordinated-vulnerability-disclosure" target="_blank" rel="noopener">NCSC Leidraad CVD</a></li>
+          <li>Bij twijfel &mdash; doe het niet, en documenteer waarom</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      LEARNSEC // FASE 03 DEFENSIEF // BLIJF NIEUWSGIERIG &middot; BLIJF LEGAAL &middot; BOUW DINGEN<span class="cursor"></span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="../js/progress.js"></script>
+</body>
+</html>
