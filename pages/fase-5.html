@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
+<script>try{if(localStorage.getItem('learnsec_study_mode')==='on')document.documentElement.setAttribute('data-study','on')}catch(e){}</script>
 
 <style>
 details.deep-understanding {
@@ -66,6 +67,9 @@ details.answer-reveal .answer-content {
 </head>
 <body>
 
+<button class="hamburger-btn" aria-label="Menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+<div class="sidebar-backdrop"></div>
+
 <div class="frame">
 
   <aside>
@@ -103,6 +107,7 @@ details.answer-reveal .answer-content {
       <strong>DUUR</strong>
       Voor altijd
     </div>
+    <button class="study-toggle-btn" aria-pressed="false">&#128214; Study Mode Aan</button>
   </aside>
 
   <main id="top">
@@ -562,5 +567,6 @@ details.answer-reveal .answer-content {
 </div>
 
 <script src="../js/progress.js"></script>
+<script src="../js/study-mode.js"></script>
 </body>
 </html>

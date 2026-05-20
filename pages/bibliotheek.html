@@ -9,62 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
+<script>try{if(localStorage.getItem('learnsec_study_mode')==='on')document.documentElement.setAttribute('data-study','on')}catch(e){}</script>
 <style>
 /* ============================================================
    BIBLIOTHEEK — Supplementary Styles
    ============================================================ */
-
-details.deep-understanding {
-  background: var(--bg-panel);
-  border: 1px solid var(--accent);
-  border-left: 3px solid var(--accent);
-  margin: 16px 0;
-  max-width: 720px;
-}
-details.deep-understanding summary {
-  padding: 14px 18px;
-  cursor: pointer;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  text-transform: uppercase;
-  user-select: none;
-}
-details.deep-understanding summary:hover { background: rgba(124,240,124,0.05); }
-details.deep-understanding[open] summary { border-bottom: 1px solid var(--rule-soft); }
-details.deep-understanding .deep-content {
-  padding: 18px;
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--ink);
-}
-details.deep-understanding .deep-content p { margin-bottom: 12px; max-width: none; }
-
-details.answer-reveal {
-  background: var(--bg-deep);
-  border: 1px dashed var(--rule);
-  margin: 8px 0;
-  max-width: 720px;
-}
-details.answer-reveal summary {
-  padding: 10px 14px;
-  cursor: pointer;
-  font-size: 11px;
-  color: var(--ink-faint);
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  user-select: none;
-}
-details.answer-reveal summary:hover { color: var(--accent); }
-details.answer-reveal .answer-content {
-  padding: 14px;
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--ink-dim);
-  border-top: 1px dashed var(--rule-soft);
-}
 
 .book-card-detailed {
   background: var(--bg-panel);
@@ -111,6 +60,9 @@ details.answer-reveal .answer-content {
 </head>
 <body>
 
+<button class="hamburger-btn" aria-label="Menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+<div class="sidebar-backdrop"></div>
+
 <div class="frame">
 
   <aside>
@@ -142,6 +94,7 @@ details.answer-reveal .answer-content {
       <strong>BOEKEN</strong>
       22 titels &middot; 5 categorie&euml;n
     </div>
+    <button class="study-toggle-btn" aria-pressed="false">&#128214; Study Mode Aan</button>
   </aside>
 
   <main id="top">
@@ -876,5 +829,6 @@ details.answer-reveal .answer-content {
 </div>
 
 <script src="../js/progress.js"></script>
+<script src="../js/study-mode.js"></script>
 </body>
 </html>
