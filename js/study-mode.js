@@ -89,10 +89,19 @@
     applyStudyMode(on);
     updateToggleButton(on);
 
-    // Study toggle button
+    // Study toggle button — use both click and touchend for mobile reliability
     var toggleBtn = document.querySelector('.study-toggle-btn');
     if (toggleBtn) {
-      toggleBtn.addEventListener('click', toggleStudyMode);
+      var handled = false;
+      toggleBtn.addEventListener('touchend', function (e) {
+        e.preventDefault();
+        handled = true;
+        toggleStudyMode();
+      });
+      toggleBtn.addEventListener('click', function () {
+        if (!handled) toggleStudyMode();
+        handled = false;
+      });
     }
 
     // Hamburger menu
