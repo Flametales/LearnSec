@@ -1450,6 +1450,7 @@ html[data-study="on"] ::selection {
 
 .hamburger-btn {
   display: none;
+  flex-direction: column;
   position: fixed;
   top: 12px;
   left: 12px;
